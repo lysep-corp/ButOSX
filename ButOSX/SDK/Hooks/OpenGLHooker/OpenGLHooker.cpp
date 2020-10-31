@@ -201,7 +201,7 @@ SDL_Cursor* SDLCALL SDL_CreateSystemCursor(SDL_SystemCursor id) {
 uintptr_t* pollevent_ptr = nullptr;
 uintptr_t pollevent_original = NULL;
 
-int PollEventHK(SDL_Event* event) {
+int PollEventHK(SDL_Event* event) { // Needed for getting inputs mostly show / hide menu and anything else is needed like inputs etc.
     static int (*oSDL_PollEvent) (SDL_Event*) = reinterpret_cast<int(*)(SDL_Event*)>(pollevent_original);
     
     ImGui_ImplSDL2_ProcessEvent(event);
@@ -249,8 +249,7 @@ uintptr_t swapwindow_original = NULL;
 static SDL_GLContext context = NULL;
 ImGuiContext* ctx = ImGui::CreateContext();
 ImGuiIO& io = ImGui::GetIO();
-bool IsMenuVisible = false;
-//bool CheatSettings::Visuals::EnableESP;
+bool SDLHook::_visible = false;
 void SDLHook::SwapWindow(SDL_Window* window) {
     static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_Window*)>(swapwindow_original);
     static SDL_GLContext original_context = SDL_GL_GetCurrentContext();
@@ -267,9 +266,9 @@ void SDLHook::SwapWindow(SDL_Window* window) {
     ImGui_ImplSDL2_NewFrame(window);
     ImGui::NewFrame();
     if ( io.KeysDownDuration[73] == 0.0f ) {
-        IsMenuVisible = !IsMenuVisible;
+        _visible = !_visible;
     }
-    MenuRenderer::RenderMenu(IsMenuVisible);
+    MenuRenderer::RenderMenu(_visible);
     oSDL_GL_SwapWindow(window);
     SDL_GL_MakeCurrent(window, original_context);
     glFlush();
@@ -280,11 +279,19 @@ void SDLHook::Init() {
     uintptr_t sdllib = reinterpret_cast<uintptr_t>(embryo::module(xorstr("libSDL2-2.0.0.dylib")).start());
     swapwindow_ptr = reinterpret_cast<uintptr_t*>(helpers::GetAbsoluteAddress(sdllib, swapwindowFn, 0xF, 0x4));
     swapwindow_original = *swapwindow_ptr;
-    *swapwindow_ptr = reinterpret_cast<uintptr_t>(&SDLHook::SwapWindow);
+    *swapwindow_ptr = reinterpret_cast<uintptr_t>(&SDLHook::SwapWindow); //Calls our Swap Window instead of the game's orginial.
     
     uintptr_t polleventFn = reinterpret_cast<uintptr_t>(dlsym(RTLD_DEFAULT, xorstr("SDL_PollEvent")));
     pollevent_ptr = reinterpret_cast<uintptr_t*>(helpers::GetAbsoluteAddress(sdllib, polleventFn, 0xF, 0x4));
     pollevent_original = *pollevent_ptr;
-    *pollevent_ptr = reinterpret_cast<uintptr_t>(&PollEventHK);
+    *pollevent_ptr = reinterpret_cast<uintptr_t>(&PollEventHK); //Calls our Poll Event instead of the game's orginial.
     
+}
+
+void SDLHook::Unhook() {
+    *swapwindow_ptr = swapwindow_original; //Reverts back to game's original Swap Window.
+    *pollevent_ptr = pollevent_original; //Reverts back to game's original Poll Event.
+    ImGui_ImplOpenGL2_Shutdown(); //Shutdowns ImGui
+    ImGui_ImplSDL2_Shutdown(); //Shutdowns ImGui
+    ImGui::DestroyContext(); //Shutdowns ImGui
 }

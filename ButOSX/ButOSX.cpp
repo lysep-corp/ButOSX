@@ -10,14 +10,15 @@
 #include "ButOSX.hpp"
 
 int __attribute__((constructor))
-attach()
+attach() //Main attach function which executes when library loads.
 {
     Hooker::Init();
     return 0;
 }
 
 void __attribute__((constructor))
-detach()
+detach() //De-attach function which executes when library unloads.
 {
-    
+    Hooker::Destroy();
+    return 0;
 }

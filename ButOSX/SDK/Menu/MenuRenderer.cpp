@@ -9,17 +9,18 @@
 #include "MenuRenderer.hpp"
 #include "xorstr.hpp"
 #include "CheatSettings.h"
+
 bool CheatSettings::Visuals::blESP = false;
 int pageID = 0;
 bool ThemeLoaded = false;
-void MenuRenderer::RenderMenu(bool _visible){
+void MenuRenderer::RenderMenu(bool _visible){ //It's where the menu begins.
     if(!ThemeLoaded)
         InitTheme();
     if(_visible){
 //        SDL_Event event;
 //        while (PollEventHK(&event)){
 //            ImGui_ImplSDL2_ProcessEvent(&event);
-//        }
+//        } //Don't wanna mess with that up just open / close the menu is enough. If someone is OK to add it, waiting for pull request ;)
         ImGui::Begin(xorstr("ButOSX - Godly Cheat of MACOSX"), NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse);
         ImGui::SetWindowSize(ImVec2(500, 300));
         ImGui::SameLine();
@@ -50,7 +51,7 @@ void MenuRenderer::RenderMenu(bool _visible){
     ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
 }
 
-void MenuRenderer::InitTheme(){
+void MenuRenderer::InitTheme(){ //Loads theme, theme is the vgui's theme. Which stolen from: https://github.com/ocornut/imgui/issues/707#issuecomment-576867100
     ImVec4* colors = ImGui::GetStyle().Colors;
     colors[ImGuiCol_Text]                              = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
     colors[ImGuiCol_TextDisabled]              = ImVec4(0.50f, 0.50f, 0.50f, 1.00f);
@@ -115,10 +116,10 @@ void MenuRenderer::InitTheme(){
     style.WindowMinSize = ImVec2(500, 300);
 }
 
-void Pages::WelcomePage(){
+void Pages::WelcomePage(){ //Welcome page for one time show.
     ImGui::TextColored(ImVec4(1.f, 0, 0, 1.f),xorstr("Welcome Versteckte Krone!"));
 }
 
-void Pages::VisualsPage(){
+void Pages::VisualsPage(){ //Page for visuals.
     ImGui::Checkbox(xorstr("ESP"), &CheatSettings::Visuals::blESP);
 }

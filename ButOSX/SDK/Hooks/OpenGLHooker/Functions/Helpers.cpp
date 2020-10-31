@@ -7,7 +7,7 @@
 //
 
 #include "Helpers.hpp"
-namespace helpers {
+namespace helpers { //PASTED
 
     uintptr_t GetAbsoluteAddress(uintptr_t dwAddress, uintptr_t memoryPtr, uintptr_t startOffset, uintptr_t size) {
         uintptr_t signatureAddress = memoryPtr + startOffset;

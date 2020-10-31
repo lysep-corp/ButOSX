@@ -23,9 +23,9 @@
 #include <dlfcn.h>
 
 namespace SDLHook {
-void Init();
-void SwapWindow(SDL_Window* window);
-//bool _visible;
-//void UnHook();
+    void Init();
+    void SwapWindow(SDL_Window* window);
+    extern bool _visible;
+    void Unhook();
 }
 #endif /* OpenGLHooker_hpp */

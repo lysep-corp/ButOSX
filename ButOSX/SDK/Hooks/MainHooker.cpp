@@ -8,12 +8,13 @@
 
 #include "MainHooker.hpp"
 
-void Hooker::Init() {
+void Hooker::Init() { //Load hooks.
     //Inserting GUI
     SDLHook::Init();
     
 }
 
-void Hooker::Destroy(){
-    //SDLHook::UnHook();
+void Hooker::Destroy(){ //Destroy hooks.
+    //Destroying GUI
+    SDLHook::Unhook();
 }

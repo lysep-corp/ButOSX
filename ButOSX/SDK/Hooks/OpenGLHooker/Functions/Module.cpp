@@ -8,14 +8,14 @@
 
 #include "Module.hpp"
 
-std::string getFileNameFromPath(const std::string& path)
+std::string getFileNameFromPath(const std::string& path) //PASTED
 {
     int pos = (int)path.length();
     while (pos && path[pos] != '/') --pos;
     return path.substr(pos + 1);
 }
-namespace embryo {
-    module::module(const std::string& name) : m_start(0), m_size(0)
+namespace embryo { //PASTED
+    module::module(const std::string& name) : m_start(0), m_size(0) //PASTED
     {
         bool found = false;
         unsigned int imageCount = _dyld_image_count();

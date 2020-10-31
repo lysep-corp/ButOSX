@@ -51,7 +51,7 @@
 #include "SDL.h"
 #include "SDL_syswm.h"
 #include "SDL_opengl.h"
-#include "OpenGLHooker.hpp"
+#include "OpenGLHooker.hpp" //LOADS OUR SDL FUNCTIONS MOST IMPORTANT THING!!!!
 #if defined(__APPLE__)
 #include "TargetConditionals.h"
 #endif
