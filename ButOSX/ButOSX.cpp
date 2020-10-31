@@ -8,17 +8,16 @@
 
 #include <iostream>
 #include "ButOSX.hpp"
-#include "ButOSXPriv.hpp"
 
-void ButOSX::HelloWorld(const char * s)
+int __attribute__((constructor))
+attach()
 {
-    ButOSXPriv *theObj = new ButOSXPriv;
-    theObj->HelloWorldPriv(s);
-    delete theObj;
-};
+    Hooker::Init();
+    return 0;
+}
 
-void ButOSXPriv::HelloWorldPriv(const char * s) 
+void __attribute__((constructor))
+detach()
 {
-    std::cout << s << std::endl;
-};
-
+    
+}

@@ -11,11 +11,13 @@
 
 /* The classes below are exported */
 #pragma GCC visibility push(default)
+#include "SDK/Hooks/MainHooker.hpp"
 
-class ButOSX
+class PosiOSX
 {
     public:
-    void HelloWorld(const char *);
+    void attach();
+    void detach();
 };
 
 #pragma GCC visibility pop
