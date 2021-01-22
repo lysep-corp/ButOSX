@@ -2,7 +2,7 @@
 //  MenuRenderer.cpp
 //  ButOSX
 //
-//  Created by Can Destan on 29.10.2020.
+//  Created by Can on 29.10.2020.
 //  Copyright © 2020 VersteckteKrone. All rights reserved.
 //
 
@@ -14,13 +14,15 @@ bool CheatSettings::Visuals::blESP = false;
 int pageID = 0;
 bool ThemeLoaded = false;
 void MenuRenderer::RenderMenu(bool _visible){ //It's where the menu begins.
-    if(!ThemeLoaded)
-        InitTheme();
+    ImDrawList* _Back = ImGui::GetBackgroundDrawList();
+    DrawWatermark(_Back);
+    
     if(_visible){
 //        SDL_Event event;
 //        while (PollEventHK(&event)){
 //            ImGui_ImplSDL2_ProcessEvent(&event);
 //        } //Don't wanna mess with that up just open / close the menu is enough. If someone is OK to add it, waiting for pull request ;)
+        
         ImGui::Begin(xorstr("ButOSX - Godly Cheat of MACOSX"), NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse);
         ImGui::SetWindowSize(ImVec2(500, 300));
         ImGui::SameLine();
@@ -49,6 +51,81 @@ void MenuRenderer::RenderMenu(bool _visible){ //It's where the menu begins.
     }
     ImGui::Render();
     ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
+}
+
+ImVec2 textsize;
+
+ImColor rainbow(float speed) {
+ 
+    static float x = 0, y = 0;
+    static float r = 0, g = 0, b = 0;
+ 
+    if( y >= 0.0f && y < 255.0f ) {
+        r = 255.0f;
+        g = 0.0f;
+        b = x;
+    }
+    else if( y >= 255.0f && y < 510.0f ) {
+        r = 255.0f - x;
+        g = 0.0f;
+        b = 255.0f;
+    }
+    else if( y >= 510.0f && y < 765.0f ) {
+        r = 0.0f;
+        g = x;
+        b = 255.0f;
+    }
+    else if( y >= 765.0f && y < 1020.0f ) {
+        r = 0.0f;
+        g = 255.0f;
+        b = 255.0f - x;
+    }
+    else if( y >= 1020.0f && y < 1275.0f ) {
+        r = x;
+        g = 255.0f;
+        b = 0.0f;
+    }
+    else if( y >= 1275.0f && y < 1530.0f ) {
+        r = 255.0f;
+        g = 255.0f - x;
+        b = 0.0f;
+    }
+            
+    x+=0.25f * speed;
+    if( x >= 255.0f )
+        x = 0.0f;
+ 
+    y+=0.25f * speed;
+    if( y > 1530.0f )
+        y = 0.0f;
+ 
+ 
+    return ImColor((int)r, (int)g, (int)b, 255);
+}
+
+
+void MenuRenderer::DrawWatermark(ImDrawList* bruh){
+    const auto [w, h] = ImGui::GetIO().DisplaySize;
+    time_t rawtime;
+    struct tm * timeinfo;
+    char buffer[80];
+    time (&rawtime);
+    timeinfo = localtime(&rawtime);
+    strftime(buffer,sizeof(buffer),"%d-%m-%Y %H:%M:%S",timeinfo);
+    std::string str(buffer);
+    //str is CURRENT TIME!
+    bruh->AddRectFilled( /* start */ ImVec2(w - (textsize.x + 91), 19), /* finish */ ImVec2(w - 29, 51), IM_COL32(45, 45, 45, 255), (30 / 4));
+    bruh->AddRectFilled( /* start */ ImVec2(w - (textsize.x + 90), 20), /* finish */ ImVec2(w - 30, 50), IM_COL32(33, 33, 33, 255), (30 / 4));
+    const int vert_start_idx = bruh->VtxBuffer.Size;
+    bruh->PathRect(ImVec2(w - (textsize.x + 91), 45), ImVec2(w - 29, 51), 6, 12);
+    bruh->PathFillConvex(IM_COL32_WHITE);
+    const int vert_end_idx = bruh->VtxBuffer.Size;
+    ImVec2 gradient_p0(w - (textsize.x + 91), 45);
+    ImVec2 gradient_p1(ImVec2(w - 29, 51));
+    ImGui::ShadeVertsLinearColorGradientKeepAlpha(bruh, vert_start_idx, vert_end_idx, gradient_p0, gradient_p1, rainbow(1), rainbow(3));
+    const char* watermark_text = (xorstr("ButOSX | hello Lyceion & xMuraty | ") + str).c_str();
+    textsize = ImGui::CalcTextSize(watermark_text);
+    bruh->AddText(ImVec2(w - (textsize.x + 60), 20 + (30 - textsize.y) / 2), ImColor(255, 255, 255, 255), watermark_text);
 }
 
 void MenuRenderer::InitTheme(){ //Loads theme, theme is the vgui's theme. Which stolen from: https://github.com/ocornut/imgui/issues/707#issuecomment-576867100

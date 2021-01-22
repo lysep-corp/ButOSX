@@ -2,7 +2,7 @@
 //  MenuRenderer.hpp
 //  ButOSX
 //
-//  Created by Can Destan on 29.10.2020.
+//  Created by Can on 29.10.2020.
 //  Copyright © 2020 VersteckteKrone. All rights reserved.
 //
 
@@ -14,13 +14,16 @@
 #include "../../Thirdparty/imgui/imgui.h"
 #include "../../Thirdparty/imgui/backends/imgui_impl_sdl.h"
 #include "../../Thirdparty/imgui/backends/imgui_impl_opengl2.h"
+#include "../../Thirdparty/imgui/imgui_internal.h"
 
 #include "Design/CustomWidgets.hpp"
 
 #include "SDL.h"
+struct ImDrawList;
 
 namespace MenuRenderer {
 void RenderMenu(bool _visible);
+void DrawWatermark(ImDrawList* bruh);
 void InitTheme();
 }
 

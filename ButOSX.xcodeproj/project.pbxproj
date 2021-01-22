@@ -109,6 +109,12 @@
 		1A471F07254B358C00FFF49B /* xorstr.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A471F06254B358C00FFF49B /* xorstr.hpp */; };
 		1A471F0B254B35E900FFF49B /* MenuRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471F09254B35E900FFF49B /* MenuRenderer.cpp */; };
 		1A471F0C254B35E900FFF49B /* MenuRenderer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A471F0A254B35E900FFF49B /* MenuRenderer.hpp */; };
+		1A7C475A254EE8D700A58870 /* GameHooker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C4758254EE8D700A58870 /* GameHooker.cpp */; };
+		1A7C475B254EE8D700A58870 /* GameHooker.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A7C4759254EE8D700A58870 /* GameHooker.hpp */; };
+		1A7C4769254EEA4000A58870 /* Global.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C4767254EEA4000A58870 /* Global.cpp */; };
+		1A7C476A254EEA4000A58870 /* Global.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A7C4768254EEA4000A58870 /* Global.hpp */; };
+		1A7C47A2254EF0D100A58870 /* PatternScanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C47A0254EF0D100A58870 /* PatternScanner.cpp */; };
+		1A7C47A3254EF0D100A58870 /* PatternScanner.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A7C47A1254EF0D100A58870 /* PatternScanner.hpp */; };
 		1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AF384DC254CBE2400336590 /* CustomWidgets.cpp */; };
 		1AF384DF254CBE2400336590 /* CustomWidgets.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1AF384DD254CBE2400336590 /* CustomWidgets.hpp */; };
 /* End PBXBuildFile section */
@@ -217,6 +223,20 @@
 		1A471F06254B358C00FFF49B /* xorstr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = xorstr.hpp; sourceTree = "<group>"; };
 		1A471F09254B35E900FFF49B /* MenuRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuRenderer.cpp; sourceTree = "<group>"; };
 		1A471F0A254B35E900FFF49B /* MenuRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuRenderer.hpp; sourceTree = "<group>"; };
+		1A7C4758254EE8D700A58870 /* GameHooker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameHooker.cpp; sourceTree = "<group>"; };
+		1A7C4759254EE8D700A58870 /* GameHooker.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameHooker.hpp; sourceTree = "<group>"; };
+		1A7C4767254EEA4000A58870 /* Global.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Global.cpp; sourceTree = "<group>"; };
+		1A7C4768254EEA4000A58870 /* Global.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Global.hpp; sourceTree = "<group>"; };
+		1A7C476C254EEB0100A58870 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
+		1A7C4791254EEDC400A58870 /* Vector3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
+		1A7C4792254EEDDE00A58870 /* Vector2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
+		1A7C4794254EEDF500A58870 /* QAngle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAngle.h; sourceTree = "<group>"; };
+		1A7C4796254EEE8B00A58870 /* Others.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Others.h; sourceTree = "<group>"; };
+		1A7C4797254EEE9C00A58870 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		1A7C4798254EEEB100A58870 /* Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		1A7C4799254EEF7D00A58870 /* VMT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VMT.h; sourceTree = "<group>"; };
+		1A7C47A0254EF0D100A58870 /* PatternScanner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PatternScanner.cpp; sourceTree = "<group>"; };
+		1A7C47A1254EF0D100A58870 /* PatternScanner.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PatternScanner.hpp; sourceTree = "<group>"; };
 		1AC4B8FB254C90740035B067 /* CheatSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheatSettings.h; sourceTree = "<group>"; };
 		1AF384DC254CBE2400336590 /* CustomWidgets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CustomWidgets.cpp; sourceTree = "<group>"; };
 		1AF384DD254CBE2400336590 /* CustomWidgets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomWidgets.hpp; sourceTree = "<group>"; };
@@ -313,6 +333,8 @@
 		1A471E50254A1F1100FFF49B /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				1A7C4766254EE9ED00A58870 /* Classes */,
+				1A7C4753254EE81900A58870 /* ValveSDK */,
 				1A471F08254B35C900FFF49B /* Menu */,
 				1A471E51254A1F1E00FFF49B /* Hooks */,
 			);
@@ -322,6 +344,7 @@
 		1A471E51254A1F1E00FFF49B /* Hooks */ = {
 			isa = PBXGroup;
 			children = (
+				1A7C4757254EE8C200A58870 /* GameHooker */,
 				1A471E52254A1F2600FFF49B /* OpenGLHooker */,
 				1A471E57254A201100FFF49B /* MainHooker.cpp */,
 				1A471E58254A201100FFF49B /* MainHooker.hpp */,
@@ -481,10 +504,69 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		1A7C4753254EE81900A58870 /* ValveSDK */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ValveSDK;
+			sourceTree = "<group>";
+		};
+		1A7C4757254EE8C200A58870 /* GameHooker */ = {
+			isa = PBXGroup;
+			children = (
+				1A7C4758254EE8D700A58870 /* GameHooker.cpp */,
+				1A7C4759254EE8D700A58870 /* GameHooker.hpp */,
+				1A7C4767254EEA4000A58870 /* Global.cpp */,
+				1A7C4768254EEA4000A58870 /* Global.hpp */,
+			);
+			path = GameHooker;
+			sourceTree = "<group>";
+		};
+		1A7C4766254EE9ED00A58870 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1A7C479A254EF07700A58870 /* Utilities */,
+				1A7C4795254EEE7F00A58870 /* Miscs */,
+				1A7C4790254EEDB600A58870 /* Vector */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		1A7C4790254EEDB600A58870 /* Vector */ = {
+			isa = PBXGroup;
+			children = (
+				1A7C4791254EEDC400A58870 /* Vector3D.h */,
+				1A7C4792254EEDDE00A58870 /* Vector2D.h */,
+				1A7C4794254EEDF500A58870 /* QAngle.h */,
+			);
+			path = Vector;
+			sourceTree = "<group>";
+		};
+		1A7C4795254EEE7F00A58870 /* Miscs */ = {
+			isa = PBXGroup;
+			children = (
+				1A7C4796254EEE8B00A58870 /* Others.h */,
+				1A7C4797254EEE9C00A58870 /* Common.h */,
+				1A7C4798254EEEB100A58870 /* Color.h */,
+				1A7C4799254EEF7D00A58870 /* VMT.h */,
+			);
+			path = Miscs;
+			sourceTree = "<group>";
+		};
+		1A7C479A254EF07700A58870 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1A7C47A0254EF0D100A58870 /* PatternScanner.cpp */,
+				1A7C47A1254EF0D100A58870 /* PatternScanner.hpp */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		1AC4B8FA254C905A0035B067 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				1AC4B8FB254C90740035B067 /* CheatSettings.h */,
+				1A7C476C254EEB0100A58870 /* Headers.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -545,6 +627,7 @@
 				1A471F07254B358C00FFF49B /* xorstr.hpp in Headers */,
 				1A471EC3254A256300FFF49B /* SDL_filesystem.h in Headers */,
 				1A471ECD254A256300FFF49B /* SDL_system.h in Headers */,
+				1A7C476A254EEA4000A58870 /* Global.hpp in Headers */,
 				1A471EE7254A256300FFF49B /* SDL_atomic.h in Headers */,
 				1A471ED0254A256300FFF49B /* SDL.h in Headers */,
 				1A471EB3254A256300FFF49B /* SDL_clipboard.h in Headers */,
@@ -558,6 +641,7 @@
 				1A471ED7254A256300FFF49B /* SDL_opengles2.h in Headers */,
 				1A471EEA254A256300FFF49B /* SDL_loadso.h in Headers */,
 				1A471EBD254A256300FFF49B /* SDL_vulkan.h in Headers */,
+				1A7C47A3254EF0D100A58870 /* PatternScanner.hpp in Headers */,
 				1A471EC0254A256300FFF49B /* SDL_endian.h in Headers */,
 				1A471E48254A1EBD00FFF49B /* imgui_impl_opengl2.h in Headers */,
 				1A471EB5254A256300FFF49B /* SDL_video.h in Headers */,
@@ -595,6 +679,7 @@
 				1A471EC7254A256300FFF49B /* SDL_cpuinfo.h in Headers */,
 				1A471EC1254A256300FFF49B /* SDL_gesture.h in Headers */,
 				1A471EC9254A256300FFF49B /* SDL_test_images.h in Headers */,
+				1A7C475B254EE8D700A58870 /* GameHooker.hpp in Headers */,
 				1A471EB8254A256300FFF49B /* SDL_test_log.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,12 +744,15 @@
 				1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */,
 				1A471E27254A1CA400FFF49B /* ButOSX.cpp in Sources */,
 				1A471E49254A1EBD00FFF49B /* imgui_impl_sdl.cpp in Sources */,
+				1A7C475A254EE8D700A58870 /* GameHooker.cpp in Sources */,
 				1A471E3F254A1D6000FFF49B /* imgui.cpp in Sources */,
 				1A471F01254A266D00FFF49B /* Helpers.cpp in Sources */,
 				1A471E3B254A1D6000FFF49B /* imgui_widgets.cpp in Sources */,
 				1A471E59254A201100FFF49B /* MainHooker.cpp in Sources */,
 				1A471F0B254B35E900FFF49B /* MenuRenderer.cpp in Sources */,
+				1A7C4769254EEA4000A58870 /* Global.cpp in Sources */,
 				1A471E38254A1D6000FFF49B /* imgui_draw.cpp in Sources */,
+				1A7C47A2254EF0D100A58870 /* PatternScanner.cpp in Sources */,
 				1A471E55254A1F3E00FFF49B /* OpenGLHooker.cpp in Sources */,
 				1A471EFD254A265E00FFF49B /* Module.cpp in Sources */,
 				1A471E4C254A1EBD00FFF49B /* imgui_impl_opengl2.cpp in Sources */,

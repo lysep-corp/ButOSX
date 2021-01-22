@@ -2,7 +2,7 @@
 //  OpenGLHooker.cpp
 //  ButOSX
 //
-//  Created by Can Destan on 29.10.2020.
+//  Created by Can on 29.10.2020.
 //  Copyright © 2020 VersteckteKrone. All rights reserved.
 //
 
@@ -204,7 +204,13 @@ uintptr_t pollevent_original = NULL;
 int PollEventHK(SDL_Event* event) { // Needed for getting inputs mostly show / hide menu and anything else is needed like inputs etc.
     static int (*oSDL_PollEvent) (SDL_Event*) = reinterpret_cast<int(*)(SDL_Event*)>(pollevent_original);
     
-    ImGui_ImplSDL2_ProcessEvent(event);
+    SDL_Event _event;
+    if(oSDL_PollEvent && ImGui_ImplSDL2_ProcessEvent(event) && SDLHook::_visible){
+        ImGui_ImplSDL2_ProcessEvent(&_event);
+    }
+    else{
+        ImGui_ImplSDL2_ProcessEvent(event);
+    }
     
     return oSDL_PollEvent(event);
 }
@@ -293,5 +299,5 @@ void SDLHook::Unhook() {
     *pollevent_ptr = pollevent_original; //Reverts back to game's original Poll Event.
     ImGui_ImplOpenGL2_Shutdown(); //Shutdowns ImGui
     ImGui_ImplSDL2_Shutdown(); //Shutdowns ImGui
-    ImGui::DestroyContext(); //Shutdowns ImGui
+    // ImGui::DestroyContext(ctx); //Shutdowns ImGui
 }
