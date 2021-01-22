@@ -9,6 +9,7 @@
 #include "MenuRenderer.hpp"
 #include "xorstr.h"
 #include "CheatSettings.h"
+#include "MainHooker.hpp"
 
 float clip(float n, float lower, float upper)
 {
@@ -203,6 +204,8 @@ void MenuRenderer::InitTheme(){ //Loads theme, theme is the vgui's theme. Which 
 
 void Pages::WelcomePage(){ //Welcome page for one time show.
     ImGui::TextColored(ImVec4(1.f, 0, 0, 1.f), xorstr("Welcome VersteckteKrone!"));
+    if(ImGui::Button(xorstr("UNHOOK!")))
+        Hooker::Destroy();
 }
 
 void Pages::VisualsPage(){ //Page for visuals.

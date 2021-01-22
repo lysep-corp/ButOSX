@@ -264,6 +264,7 @@ void SDLHook::SwapWindow(SDL_Window* window) {
         ImGui_ImplSDL2_InitForOpenGL(window, context);
         ImGui_ImplOpenGL2_Init();
     }
+    ctx = ImGui::GetCurrentContext();
     SDL_GL_MakeCurrent(window, context);
     IMGUI_CHECKVERSION();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
@@ -295,9 +296,9 @@ void SDLHook::Init() {
 }
 
 void SDLHook::Unhook() {
-    *swapwindow_ptr = swapwindow_original; //Reverts back to game's original Swap Window.
-    *pollevent_ptr = pollevent_original; //Reverts back to game's original Poll Event.
+    //Unhook doesn't work (?)
     ImGui_ImplOpenGL2_Shutdown(); //Shutdowns ImGui
     ImGui_ImplSDL2_Shutdown(); //Shutdowns ImGui
-    // ImGui::DestroyContext(ctx); //Shutdowns ImGui
+    *swapwindow_ptr = swapwindow_original; //Reverts back to game's original Swap Window.
+    *pollevent_ptr = pollevent_original; //Reverts back to game's original Poll Event.
 }

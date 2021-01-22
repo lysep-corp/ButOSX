@@ -13,7 +13,7 @@
 #pragma GCC visibility push(default)
 #include "SDK/Hooks/MainHooker.hpp"
 
-class PosiOSX
+class ButOSX
 {
     public:
     void attach();
