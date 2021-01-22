@@ -10,6 +10,15 @@
 #include "xorstr.h"
 #include "CheatSettings.h"
 
+float clip(float n, float lower, float upper)
+{
+    n = (n > lower) * n + !(n > lower) * lower;
+    return (n < upper) * n + !(n < upper) * upper;
+}
+
+float flAlpha;
+static constexpr auto frequency = 1 / 0.55f;
+
 bool CheatSettings::Visuals::blESP = false;
 int pageID = 0;
 bool ThemeLoaded = false;
@@ -18,6 +27,8 @@ void MenuRenderer::RenderMenu(bool _visible){ //It's where the menu begins.
     DrawWatermark(_Back);
     
     if(_visible){
+        flAlpha = clip(flAlpha + frequency * ImGui::GetIO().DeltaTime, 0.f, 1.f);
+        ImGui::GetStyle().Alpha = flAlpha;
         ImGui::Begin(xorstr("ButOSX - Godly Cheat of MACOSX"), NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse);
         ImGui::SetWindowSize(ImVec2(500, 300));
         ImGui::SameLine();
@@ -43,6 +54,9 @@ void MenuRenderer::RenderMenu(bool _visible){ //It's where the menu begins.
                 break;
         }
         ImGui::End();
+    }
+    else {
+        flAlpha = 0.f;
     }
     ImGui::Render();
     ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
@@ -100,7 +114,7 @@ ImColor rainbow(float speed) {
 
 
 void MenuRenderer::DrawWatermark(ImDrawList* bruh){
-    const auto [w, h] = ImGui::GetIO().DisplaySize;
+    ImVec2 WindowSize = ImGui::GetIO().DisplaySize;
     time_t rawtime;
     struct tm * timeinfo;
     char buffer[80];
@@ -108,19 +122,18 @@ void MenuRenderer::DrawWatermark(ImDrawList* bruh){
     timeinfo = localtime(&rawtime);
     strftime(buffer,sizeof(buffer),"%d-%m-%Y %H:%M:%S",timeinfo);
     std::string str(buffer);
-    //str is CURRENT TIME!
-    bruh->AddRectFilled( /* start */ ImVec2(w - (textsize.x + 91), 19), /* finish */ ImVec2(w - 29, 51), IM_COL32(45, 45, 45, 255), (30 / 4));
-    bruh->AddRectFilled( /* start */ ImVec2(w - (textsize.x + 90), 20), /* finish */ ImVec2(w - 30, 50), IM_COL32(33, 33, 33, 255), (30 / 4));
+    bruh->AddRectFilled( /* start */ ImVec2(WindowSize.x - (textsize.x + 91), 19), /* finish */ ImVec2(WindowSize.x - 29, 51), IM_COL32(45, 45, 45, 255), (30 / 4));
+    bruh->AddRectFilled( /* start */ ImVec2(WindowSize.x - (textsize.x + 90), 20), /* finish */ ImVec2(WindowSize.x - 30, 50), IM_COL32(33, 33, 33, 255), (30 / 4));
     const int vert_start_idx = bruh->VtxBuffer.Size;
-    bruh->PathRect(ImVec2(w - (textsize.x + 91), 45), ImVec2(w - 29, 51), 6, 12);
+    bruh->PathRect(ImVec2(WindowSize.x - (textsize.x + 91), 45), ImVec2(WindowSize.x - 29, 51), 6, 12);
     bruh->PathFillConvex(IM_COL32_WHITE);
     const int vert_end_idx = bruh->VtxBuffer.Size;
-    ImVec2 gradient_p0(w - (textsize.x + 91), 45);
-    ImVec2 gradient_p1(ImVec2(w - 29, 51));
+    ImVec2 gradient_p0(WindowSize.x - (textsize.x + 91), 45);
+    ImVec2 gradient_p1(ImVec2(WindowSize.x - 29, 51));
     ImGui::ShadeVertsLinearColorGradientKeepAlpha(bruh, vert_start_idx, vert_end_idx, gradient_p0, gradient_p1, rainbow(1), rainbow(3));
-    const char* watermark_text = (xorstr("ButOSX | hello Lyceion & xMuraty | ") + str).c_str();
+    const char* watermark_text = (xorstr("ButOSX | hello Lyceion | ") + str).c_str();
     textsize = ImGui::CalcTextSize(watermark_text);
-    bruh->AddText(ImVec2(w - (textsize.x + 60), 20 + (30 - textsize.y) / 2), ImColor(255, 255, 255, 255), watermark_text);
+    bruh->AddText(ImVec2(WindowSize.x - (textsize.x + 60), 20 + (30 - textsize.y) / 2), ImColor(255, 255, 255, 255), watermark_text);
 }
 
 void MenuRenderer::InitTheme(){ //Loads theme, theme is the vgui's theme. Which stolen from: https://github.com/ocornut/imgui/issues/707#issuecomment-576867100
@@ -189,7 +202,7 @@ void MenuRenderer::InitTheme(){ //Loads theme, theme is the vgui's theme. Which 
 }
 
 void Pages::WelcomePage(){ //Welcome page for one time show.
-    ImGui::TextColored(ImVec4(1.f, 0, 0, 1.f),xorstr("Welcome Versteckte Krone!"));
+    ImGui::TextColored(ImVec4(1.f, 0, 0, 1.f), xorstr("Welcome VersteckteKrone!"));
 }
 
 void Pages::VisualsPage(){ //Page for visuals.
