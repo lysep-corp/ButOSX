@@ -7,7 +7,7 @@
 //
 
 #include "OpenGLHooker.hpp"
-#include "xorstr.hpp"
+#include "xorstr.h"
 
 Uint8 SDLCALL SDL_GameControllerGetButton(SDL_GameController *gamecontroller, SDL_GameControllerButton button){
     typedef Uint8(*currFn) (SDL_GameController*, SDL_GameControllerButton);
@@ -200,19 +200,19 @@ SDL_Cursor* SDLCALL SDL_CreateSystemCursor(SDL_SystemCursor id) {
 
 uintptr_t* pollevent_ptr = nullptr;
 uintptr_t pollevent_original = NULL;
-
 int PollEventHK(SDL_Event* event) { // Needed for getting inputs mostly show / hide menu and anything else is needed like inputs etc.
     static int (*oSDL_PollEvent) (SDL_Event*) = reinterpret_cast<int(*)(SDL_Event*)>(pollevent_original);
-    
-    SDL_Event _event;
-    if(oSDL_PollEvent && ImGui_ImplSDL2_ProcessEvent(event) && SDLHook::_visible){
+    int returnAddr =  0;
+    static SDL_Event _event;
+    if(SDLHook::_visible){
         ImGui_ImplSDL2_ProcessEvent(&_event);
+        returnAddr = oSDL_PollEvent(&_event);
     }
     else{
         ImGui_ImplSDL2_ProcessEvent(event);
+        returnAddr = oSDL_PollEvent(event);
     }
-    
-    return oSDL_PollEvent(event);
+    return returnAddr;
 }
 
 int SDLCALL SDL_GL_SetAttribute(SDL_GLattr attr, int value) {

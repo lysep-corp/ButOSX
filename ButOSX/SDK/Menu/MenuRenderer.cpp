@@ -7,7 +7,7 @@
 //
 
 #include "MenuRenderer.hpp"
-#include "xorstr.hpp"
+#include "xorstr.h"
 #include "CheatSettings.h"
 
 bool CheatSettings::Visuals::blESP = false;
@@ -18,11 +18,6 @@ void MenuRenderer::RenderMenu(bool _visible){ //It's where the menu begins.
     DrawWatermark(_Back);
     
     if(_visible){
-//        SDL_Event event;
-//        while (PollEventHK(&event)){
-//            ImGui_ImplSDL2_ProcessEvent(&event);
-//        } //Don't wanna mess with that up just open / close the menu is enough. If someone is OK to add it, waiting for pull request ;)
-        
         ImGui::Begin(xorstr("ButOSX - Godly Cheat of MACOSX"), NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse);
         ImGui::SetWindowSize(ImVec2(500, 300));
         ImGui::SameLine();
