@@ -17,18 +17,14 @@ float clip(float n, float lower, float upper)
     return (n < upper) * n + !(n < upper) * upper;
 }
 
-float flAlpha;
-static constexpr auto frequency = 1 / 0.55f;
-
-bool CheatSettings::Visuals::blESP = false;
 int pageID = 0;
 bool ThemeLoaded = false;
 void MenuRenderer::RenderMenu(bool _visible){ //It's where the menu begins.
     ImDrawList* _Back = ImGui::GetBackgroundDrawList();
     DrawWatermark(_Back);
-    
+    static float flAlpha = 0;
     if(_visible){
-        flAlpha = clip(flAlpha + frequency * ImGui::GetIO().DeltaTime, 0.f, 1.f);
+        flAlpha = clip(flAlpha + (1 / 0.55f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
         ImGui::GetStyle().Alpha = flAlpha;
         ImGui::Begin(xorstr("ButOSX - Godly Cheat of MACOSX"), NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse);
         ImGui::SetWindowSize(ImVec2(500, 300));
@@ -114,7 +110,7 @@ ImColor rainbow(float speed) {
 }
 
 
-void MenuRenderer::DrawWatermark(ImDrawList* bruh){
+void MenuRenderer::DrawWatermark(ImDrawList* bruh){ //Draws watermark which proudly written by me while i'm learning imgui in 2~3 hrs. LMAO
     ImVec2 WindowSize = ImGui::GetIO().DisplaySize;
     time_t rawtime;
     struct tm * timeinfo;
@@ -209,5 +205,5 @@ void Pages::WelcomePage(){ //Welcome page for one time show.
 }
 
 void Pages::VisualsPage(){ //Page for visuals.
-    ImGui::Checkbox(xorstr("ESP"), &CheatSettings::Visuals::blESP);
+    ImGui::Checkbox(xorstr("ESP"), &CheatSettings->Visuals.ESP.enabled);
 }

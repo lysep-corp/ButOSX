@@ -2,7 +2,6 @@
 MacOSX CSGO Cheat Base Written in C++ - Work In Progress Including TouchBar API & Dear ImGui <br>
 Features:<br>
 >Still WIP but it has imgui for now. Cleaning code but i already made ESP for it.
-
 <br>
 
 ## Screenshots
@@ -12,11 +11,8 @@ Menu:<br>
 Alse includes TouchBarAPI (Thx to xMuraty):<br>
 <img src="https://i.imgur.com/AmmUbSI.png" width="500">
 <img src="https://i.imgur.com/pLL7U7y.png" width="500">
-
 <br>
 <br>
-<br>
-
 
 ## Credits
 [ocornut/imgui](https://github.com/ocornut/imgui) for incredible menu framework.<br>

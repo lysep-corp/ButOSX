@@ -8,10 +8,13 @@
 
 #ifndef CheatSettings_h
 #define CheatSettings_h
-namespace CheatSettings{
-    namespace Visuals{
-        extern bool blESP;
-    }
-}
-
+class CheatSettings {
+public:
+    struct Visuals {
+        struct EaslySpotPlayer {
+            bool enabled = false;
+        } ESP;
+    } Visuals;
+};
+inline std::unique_ptr<CheatSettings> CheatSettings;
 #endif /* CheatSettings_h */
