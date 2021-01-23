@@ -11,7 +11,7 @@
 void Hooker::Init() { //Load hooks.
     //Inserting GUI
     SDLHook::Init();
-    
+    GameHooker::Init();
 }
 
 void Hooker::Destroy(){ //Destroy hooks.

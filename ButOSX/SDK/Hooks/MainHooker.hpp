@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include "OpenGLHooker/OpenGLHooker.hpp"
+#include "GameHooker/GameHooker.hpp"
+
 namespace Hooker {
     void Init();
     void Destroy();
