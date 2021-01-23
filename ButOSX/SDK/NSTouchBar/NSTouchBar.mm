@@ -63,6 +63,7 @@ static NSButton *_button;
         else
             _button.bezelColor = NSColor.systemRedColor;
         bpressed=!bpressed;
+        SDLHook::_visible = bpressed;
     }
 @end
 

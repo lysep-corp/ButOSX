@@ -120,7 +120,6 @@
 		1AF384DF254CBE2400336590 /* CustomWidgets.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1AF384DD254CBE2400336590 /* CustomWidgets.hpp */; };
 		6A22195225BC491300F879B2 /* NSTouchBar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A22195125BC491300F879B2 /* NSTouchBar.mm */; };
 		6A22195725BC492D00F879B2 /* NSTouchBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A22195625BC492D00F879B2 /* NSTouchBar.h */; };
-		6A22195A25BC4AD800F879B2 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22195925BC4AD800F879B2 /* DFRFoundation.framework */; };
 		6A22195F25BC4B2800F879B2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */; };
 		6A22196125BC4B3100F879B2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22196025BC4B3100F879B2 /* AppKit.framework */; };
 /* End PBXBuildFile section */
@@ -249,7 +248,6 @@
 		1AF384DD254CBE2400336590 /* CustomWidgets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomWidgets.hpp; sourceTree = "<group>"; };
 		6A22195125BC491300F879B2 /* NSTouchBar.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NSTouchBar.mm; sourceTree = "<group>"; };
 		6A22195625BC492D00F879B2 /* NSTouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTouchBar.h; sourceTree = "<group>"; };
-		6A22195925BC4AD800F879B2 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
 		6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		6A22196025BC4B3100F879B2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -259,7 +257,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A22195A25BC4AD800F879B2 /* DFRFoundation.framework in Frameworks */,
 				6A22196125BC4B3100F879B2 /* AppKit.framework in Frameworks */,
 				1A471E4F254A1EF000FFF49B /* OpenGL.framework in Frameworks */,
 				6A22195F25BC4B2800F879B2 /* CoreFoundation.framework in Frameworks */,
@@ -343,7 +340,6 @@
 			children = (
 				6A22196025BC4B3100F879B2 /* AppKit.framework */,
 				6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */,
-				6A22195925BC4AD800F879B2 /* DFRFoundation.framework */,
 				1A471E4E254A1EF000FFF49B /* OpenGL.framework */,
 			);
 			name = Frameworks;

@@ -8,6 +8,7 @@
 
 #ifndef NSTouchBar_h
 #define NSTouchBar_h
+#include "OpenGLHooker.hpp"
 
 void ShowTouchBar(void);
 

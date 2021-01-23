@@ -14,7 +14,7 @@ int __attribute__((constructor))
 attach() //Main attach function which executes when library loads.
 {
     //test impl
-    ShowTouchBar();
+    ShowTouchBar(); //Start's Touchbar API
     Hooker::Init();
     return 0;
 }
