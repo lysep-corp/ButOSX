@@ -6,10 +6,10 @@ Features:<br>
 <br>
 
 ## Screenshots
-Menu:
+Menu:<br>
 <img src="https://i.imgur.com/SZ92xIn.png" width="500">
 
-Alse includes TouchBarAPI (Thx to xMuraty):
+Alse includes TouchBarAPI (Thx to xMuraty):<br>
 <img src="https://i.imgur.com/AmmUbSI.png" width="500">
 <img src="https://i.imgur.com/pLL7U7y.png" width="500">
 
