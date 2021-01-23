@@ -118,6 +118,11 @@
 		1AC8B1D025BAF90F00F754B1 /* imgui_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */; };
 		1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AF384DC254CBE2400336590 /* CustomWidgets.cpp */; };
 		1AF384DF254CBE2400336590 /* CustomWidgets.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1AF384DD254CBE2400336590 /* CustomWidgets.hpp */; };
+		6A22195225BC491300F879B2 /* NSTouchBar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A22195125BC491300F879B2 /* NSTouchBar.mm */; };
+		6A22195725BC492D00F879B2 /* NSTouchBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A22195625BC492D00F879B2 /* NSTouchBar.h */; };
+		6A22195A25BC4AD800F879B2 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22195925BC4AD800F879B2 /* DFRFoundation.framework */; };
+		6A22195F25BC4B2800F879B2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */; };
+		6A22196125BC4B3100F879B2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22196025BC4B3100F879B2 /* AppKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -242,6 +247,11 @@
 		1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tables.cpp; sourceTree = "<group>"; };
 		1AF384DC254CBE2400336590 /* CustomWidgets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CustomWidgets.cpp; sourceTree = "<group>"; };
 		1AF384DD254CBE2400336590 /* CustomWidgets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomWidgets.hpp; sourceTree = "<group>"; };
+		6A22195125BC491300F879B2 /* NSTouchBar.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NSTouchBar.mm; sourceTree = "<group>"; };
+		6A22195625BC492D00F879B2 /* NSTouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTouchBar.h; sourceTree = "<group>"; };
+		6A22195925BC4AD800F879B2 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
+		6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		6A22196025BC4B3100F879B2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,7 +259,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A22195A25BC4AD800F879B2 /* DFRFoundation.framework in Frameworks */,
+				6A22196125BC4B3100F879B2 /* AppKit.framework in Frameworks */,
 				1A471E4F254A1EF000FFF49B /* OpenGL.framework in Frameworks */,
+				6A22195F25BC4B2800F879B2 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +341,9 @@
 		1A471E4D254A1EF000FFF49B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A22196025BC4B3100F879B2 /* AppKit.framework */,
+				6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */,
+				6A22195925BC4AD800F879B2 /* DFRFoundation.framework */,
 				1A471E4E254A1EF000FFF49B /* OpenGL.framework */,
 			);
 			name = Frameworks;
@@ -336,6 +352,7 @@
 		1A471E50254A1F1100FFF49B /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				6A22195025BC48FE00F879B2 /* NSTouchBar */,
 				1A7C4766254EE9ED00A58870 /* Classes */,
 				1A7C4753254EE81900A58870 /* ValveSDK */,
 				1A471F08254B35C900FFF49B /* Menu */,
@@ -583,6 +600,15 @@
 			path = Design;
 			sourceTree = "<group>";
 		};
+		6A22195025BC48FE00F879B2 /* NSTouchBar */ = {
+			isa = PBXGroup;
+			children = (
+				6A22195125BC491300F879B2 /* NSTouchBar.mm */,
+				6A22195625BC492D00F879B2 /* NSTouchBar.h */,
+			);
+			path = NSTouchBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -640,6 +666,7 @@
 				1A471EF3254A256300FFF49B /* SDL_platform.h in Headers */,
 				1A471EDA254A256300FFF49B /* SDL_keycode.h in Headers */,
 				1A471EB2254A256300FFF49B /* SDL_stdinc.h in Headers */,
+				6A22195725BC492D00F879B2 /* NSTouchBar.h in Headers */,
 				1A471EF4254A256300FFF49B /* SDL_hints.h in Headers */,
 				1A471ED7254A256300FFF49B /* SDL_opengles2.h in Headers */,
 				1A471EEA254A256300FFF49B /* SDL_loadso.h in Headers */,
@@ -747,6 +774,7 @@
 				1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */,
 				1A471E27254A1CA400FFF49B /* ButOSX.cpp in Sources */,
 				1A471E49254A1EBD00FFF49B /* imgui_impl_sdl.cpp in Sources */,
+				6A22195225BC491300F879B2 /* NSTouchBar.mm in Sources */,
 				1A7C475A254EE8D700A58870 /* GameHooker.cpp in Sources */,
 				1A471E3F254A1D6000FFF49B /* imgui.cpp in Sources */,
 				1A471F01254A266D00FFF49B /* Helpers.cpp in Sources */,
@@ -887,6 +915,10 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 			};
 			name = Debug;
 		};
@@ -902,6 +934,10 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 			};
 			name = Release;
 		};

@@ -8,10 +8,13 @@
 
 #include <iostream>
 #include "ButOSX.hpp"
+#include "SDK/NSTouchBar/NSTouchBar.h"
 
 int __attribute__((constructor))
 attach() //Main attach function which executes when library loads.
 {
+    //test impl
+    ShowTouchBar();
     Hooker::Init();
     return 0;
 }
