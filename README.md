@@ -6,7 +6,8 @@ Features:<br>
 
 ## Screenshots
 Menu:<br>
-<img src="https://i.imgur.com/SZ92xIn.png" width="500">
+<img src="https://i.imgur.com/yLm53Q4.png" width="500"> <br>
+<img src="https://i.imgur.com/esBLQFI.png" width="500"> <br>
 
 Alse includes TouchBarAPI (Thx to xMuraty):<br>
 <img src="https://i.imgur.com/AmmUbSI.png" width="500">

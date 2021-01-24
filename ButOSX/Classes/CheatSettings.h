@@ -8,13 +8,8 @@
 
 #ifndef CheatSettings_h
 #define CheatSettings_h
-class CheatSettings {
-public:
-    struct Visuals {
-        struct EaslySpotPlayer {
-            bool enabled = false;
-        } ESP;
-    } Visuals;
+namespace CheatSettings {
+    extern bool WaterMark;
+    extern bool ESP;
 };
-inline std::unique_ptr<CheatSettings> CheatSettings;
 #endif /* CheatSettings_h */

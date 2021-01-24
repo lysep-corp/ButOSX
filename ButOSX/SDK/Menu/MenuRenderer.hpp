@@ -18,6 +18,9 @@
 
 #include "Design/CustomWidgets.hpp"
 
+#define WINDOW_WIDTH  800
+#define WINDOW_HEIGHT 400
+
 #include "SDL.h"
 struct ImDrawList;
 
@@ -28,7 +31,6 @@ void InitTheme();
 }
 
 namespace Pages {
-void WelcomePage();
 void VisualsPage();
 }
 

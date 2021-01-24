@@ -8,6 +8,8 @@
 
 #include "OpenGLHooker.hpp"
 #include "xorstr.h"
+#include "../../Menu/Datas.h"
+#include "../../Menu/MenuRenderer.hpp"
 
 Uint8 SDLCALL SDL_GameControllerGetButton(SDL_GameController *gamecontroller, SDL_GameControllerButton button){
     typedef Uint8(*currFn) (SDL_GameController*, SDL_GameControllerButton);
@@ -258,6 +260,7 @@ ImGuiIO& io = ImGui::GetIO();
 bool SDLHook::_visible = false;
 void SDLHook::SwapWindow(SDL_Window* window) {
     static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_Window*)>(swapwindow_original);
+    ImGui::CreateContext(); // Ghetto MacOs Context Crash Fix Like a Boss
     static SDL_GLContext original_context = SDL_GL_GetCurrentContext();
     if(!context){
         context = SDL_GL_CreateContext(window);
@@ -268,6 +271,13 @@ void SDLHook::SwapWindow(SDL_Window* window) {
     SDL_GL_MakeCurrent(window, context);
     IMGUI_CHECKVERSION();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
+    static bool LoadBytes = false;
+    if(!LoadBytes){
+        g_GirisFontBüyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 22.f, nullptr, ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
+        g_Font = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 18.f, nullptr, ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
+        g_Büyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 42.f, nullptr, ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
+        LoadBytes = true;
+    }
     ImGui::StyleColorsDark();
     ImGui_ImplOpenGL2_NewFrame();
     ImGui_ImplSDL2_NewFrame(window);
@@ -275,7 +285,10 @@ void SDLHook::SwapWindow(SDL_Window* window) {
     if ( io.KeysDownDuration[73] == 0.0f ) {
         _visible = !_visible;
     }
+    
     MenuRenderer::RenderMenu(_visible);
+    
+    
     oSDL_GL_SwapWindow(window);
     SDL_GL_MakeCurrent(window, original_context);
     glFlush();

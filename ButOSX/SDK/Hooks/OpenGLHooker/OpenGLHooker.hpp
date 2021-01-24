@@ -18,7 +18,13 @@
 #include "Functions/Helpers.hpp"
 #include "Functions/Module.hpp"
 
-#include "../../Menu/MenuRenderer.hpp"
+struct ImFont;
+extern ImFont* g_GirisFontBüyük;
+extern ImFont* g_Font;
+extern ImFont* g_Büyük;
+
+//extern SDL_Texture* images;
+
 
 #include <dlfcn.h>
 

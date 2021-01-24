@@ -2,7 +2,7 @@
 //  ESP.hpp
 //  ButOSX
 //
-//  Created by Can Destan on 23.01.2021.
+//  Created by Can on 23.01.2021.
 //  Copyright © 2021 VersteckteKrone. All rights reserved.
 //
 
@@ -10,6 +10,11 @@
 #define ESP_hpp
 
 #include <stdio.h>
+
+#include "ValveSDK.h"
+
 struct ImDrawList;
+extern HFONT eFont;
+void ESP();
 
 #endif /* ESP_hpp */

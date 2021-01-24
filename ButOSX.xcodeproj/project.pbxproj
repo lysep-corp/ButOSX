@@ -261,6 +261,7 @@
 		1A471F00254A266D00FFF49B /* Helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Helpers.hpp; sourceTree = "<group>"; };
 		1A471F09254B35E900FFF49B /* MenuRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuRenderer.cpp; sourceTree = "<group>"; };
 		1A471F0A254B35E900FFF49B /* MenuRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuRenderer.hpp; sourceTree = "<group>"; };
+		1A77C52C25BDC50100BF3B0E /* Datas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Datas.h; sourceTree = "<group>"; };
 		1A7C4758254EE8D700A58870 /* GameHooker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameHooker.cpp; sourceTree = "<group>"; };
 		1A7C4759254EE8D700A58870 /* GameHooker.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameHooker.hpp; sourceTree = "<group>"; };
 		1A7C4767254EEA4000A58870 /* Global.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Global.cpp; sourceTree = "<group>"; };
@@ -597,6 +598,7 @@
 				1AF384DB254CBE0D00336590 /* Design */,
 				1A471F09254B35E900FFF49B /* MenuRenderer.cpp */,
 				1A471F0A254B35E900FFF49B /* MenuRenderer.hpp */,
+				1A77C52C25BDC50100BF3B0E /* Datas.h */,
 			);
 			path = Menu;
 			sourceTree = "<group>";

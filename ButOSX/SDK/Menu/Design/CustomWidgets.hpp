@@ -9,5 +9,12 @@
 #ifndef CustomWidgets_hpp
 #define CustomWidgets_hpp
 #include <stdio.h>
-//TODO
+
+struct ImVec2;
+
+namespace CustomWidgets {
+    bool SubTab(const char* label, const ImVec2& size_arg, const bool selected);
+    bool Switch(const char* label, bool* v); 
+}
+
 #endif /* CustomWidgets_hpp */

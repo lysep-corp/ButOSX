@@ -2,7 +2,7 @@
 //  Interfaces.cpp
 //  ButOSX
 //
-//  Created by Can Destan on 23.01.2021.
+//  Created by Can on 23.01.2021.
 //  Copyright © 2021 VersteckteKrone. All rights reserved.
 //
 

@@ -10,6 +10,7 @@
 #define GameHooker_hpp
 
 #include <stdio.h>
+
 namespace GameHooker{
 void Init();
 void Destroy();

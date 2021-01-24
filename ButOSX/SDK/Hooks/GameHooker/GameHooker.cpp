@@ -8,7 +8,26 @@
 
 #include "GameHooker.hpp"
 #include "ValveSDK.h"
+#include "ESP.hpp"
 
+HFONT eFont;
+typedef void(*tPaintTraverse)(void*, VPANEL, bool, bool);
+extern void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool allowForce);
+void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool allowForce) {
+    paintVMT->GetOriginalMethod<tPaintTraverse>(42)(thisptr, vguiPanel, forceRepaint, allowForce);
+    static VPANEL currentPanel = 0;
+    if(!currentPanel) {
+        if(strstr(pPanel->GetName(vguiPanel), "FocusOverlayPanel")) {
+            eFont = pSurface->CreateFont(); // ESP Font
+            pSurface->SetFontGlyphSet(eFont, "Segoe Ui", 12, 250, 0, 0, FONTFLAG_ANTIALIAS | FONTFLAG_DROPSHADOW);
+            currentPanel = vguiPanel;
+        }
+    }
+    
+    if(vguiPanel == currentPanel) {
+        ESP(); 
+    }
+}
 
 void GameHooker::Init(){
     LoadInterfaces();
@@ -21,7 +40,9 @@ void GameHooker::Destroy(){
 }
 
 void GameHooker::HookVMTs(){
-    
+    paintVMT = new VMT(pPanel);
+    paintVMT->HookVM((void*)hkPaintTraverse, 42);
+    paintVMT->ApplyVMT();
 }
 
 void GameHooker::LoadInterfaces(){
