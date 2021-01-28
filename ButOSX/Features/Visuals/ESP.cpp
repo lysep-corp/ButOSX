@@ -10,6 +10,7 @@
 
 #include "Visuals.hpp"
 #include "CheatSettings.h"
+#include "imgui.h"
 
 bool CheatSettings::ESP;
 
@@ -158,47 +159,25 @@ auto TestTrace(C_BaseEntity* pEntity, C_BaseEntity* pLocal) -> bool {
 }
 
 void DrawSkeleton(C_BaseEntity* pEntity, Color color) {
-    studiohdr_t* pStudioModel = pModelInfo->GetStudioModel( pEntity->GetModel() );
-    if ( pStudioModel ) {
-        static matrix3x4_t pBoneToWorldOut[128];
-        if ( pEntity->SetupBones( pBoneToWorldOut, 128, 256, 0) )
-        {
-            for ( int i = 0; i < pStudioModel->numbones; i++ )
-            {
-                mstudiobone_t* pBone = pStudioModel->pBone( i );
-                if ( !pBone || !( pBone->flags & 256 ) || pBone->parent == -1 )
-                    continue;
-                
-                
-                Vector vBone1 = pEntity->GetBonePosition(i);
-                Vector vBoneOut1;
-                
-                Vector vBone2 = pEntity->GetBonePosition(pBone->parent);
-                Vector vBoneOut2;
-                
-                if(WorldToScreen(vBone1, vBoneOut1) && WorldToScreen(vBone2, vBoneOut2)) {
-                    DrawLine(vBoneOut1.x, vBoneOut1.y, vBoneOut2.x, vBoneOut2.y, color);
-                }
-            }
-        }
-    }
+    //TODO
+}
+
+void DrawSkeletonImGui(ImDrawList* drawArea, C_BaseEntity* pEntity, Color color){
+    
 }
 
 
-extern void Visuals::ESP::ESP() {
+extern void Visuals::ESP::ESPSurface() {
     C_BaseEntity* pLocal = (C_BaseEntity*)pEntList->GetClientEntity(pEngine->GetLocalPlayer());
     for(int i = 0; i < pEntList->GetHighestEntityIndex(); i++) {
         C_BaseEntity* pEntity = (C_BaseEntity*)pEntList->GetClientEntity(i);
-        
         if(!pEntity || !pLocal || pEntity->GetHealth() < 1 || pEntity->GetTeam() == pLocal->GetTeam() || pEntity->IsDormant() || pEntity->IsGhost() || pEntity == pLocal)
             continue;
-        
         bBoxStyle players;
         auto isVisible = TestTrace(pEntity, pLocal);
-        
         IEngineClient::player_info_t pInfo;
         pEngine->GetPlayerInfo(i, &pInfo);
-        if(CheatSettings::ESP)
+        if(CheatSettings::ESP){
             if(DrawPlayerBox(pEntity, players)) {
                 if(pEntity->GetTeam() == Terrorist) { // Draw box ESP on T
                     DrawBoxOutline(players.x, players.y, players.w, players.h, isVisible ? Color::Red() : Color::Yellow());
@@ -213,5 +192,33 @@ extern void Visuals::ESP::ESP() {
                 /* Draws player name */
                 DrawString(players.x + players.w / 2, players.y - 12, Color::White(), eFont, true, pInfo.name);
             }
+        }
+    }
+}
+
+extern void Visuals::ESP::EspImGui(ImDrawList* drawArea){
+    C_BaseEntity* pLocal = (C_BaseEntity*)pEntList->GetClientEntity(pEngine->GetLocalPlayer());
+    for(int i = 0; i < pEntList->GetHighestEntityIndex(); i++) {
+        C_BaseEntity* pEntity = (C_BaseEntity*)pEntList->GetClientEntity(i);
+        if(!CheatSettings::ESP || !pEntity || !pLocal || pEntity->GetHealth() < 1 || pEntity->GetTeam() == pLocal->GetTeam() || pEntity->IsDormant() || pEntity->IsGhost() || pEntity == pLocal)
+            continue;
+
+        bBoxStyle players;
+        auto isVisible = TestTrace(pEntity, pLocal);
+
+        IEngineClient::player_info_t pInfo;
+        pEngine->GetPlayerInfo(i, &pInfo);
+        if(DrawPlayerBox(pEntity, players)) {
+            if(pEntity->GetTeam() == Terrorist) { // Draw box ESP on T
+                drawArea->AddRect(ImVec2(players.x, players.y), ImVec2(players.x + players.w, players.y + players.h), isVisible ? ImColor(255, 0, 0) : ImColor(0, 255, 0));
+            }
+            if(pEntity->GetTeam() == CounterTerrorist) { // Draw box ESP on CT
+                drawArea->AddRect(ImVec2(players.x, players.y), ImVec2(players.x + players.w, players.y + players.h), isVisible ? ImColor(0, 255, 0) : ImColor(0, 0, 255));
+            }
+            /* Draws health bar */
+            // DrawHealthbar(players.x - 5, players.y, 3, players.h, pEntity->GetHealth(), Color::Green());
+            /* Draws player name */
+            drawArea->AddText(ImVec2(((players.x + players.w) - ImGui::CalcTextSize(pInfo.name).x) / 2, players.y - 12), ImColor(255, 255, 255), pInfo.name);
+        }
     }
 }

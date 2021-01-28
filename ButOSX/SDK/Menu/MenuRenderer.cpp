@@ -129,7 +129,7 @@ void MenuRenderer::RenderMenu(bool _visible){
                 case 4:
                     break;
             }
-            UI->AddRectFilled(ImVec2(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y + WindowSize.y - 4), ImVec2(ImGui::GetWindowPos().x + WindowSize.x, ImGui::GetWindowPos().y + WindowSize.y + 2), ImColor(0.99f, 0.43f, 0.f, style.Alpha), 6, ImDrawCornerFlags_Bot);
+            UI->AddRectFilled(ImVec2(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y + WindowSize.y - 4), ImVec2(ImGui::GetWindowPos().x + WindowSize.x, ImGui::GetWindowPos().y + WindowSize.y + 2), ImColor(0.99f, 0.43f, 0.f, style.Alpha), 3, ImDrawCornerFlags_Bot);
         }
         ImGui::PopFont();
         ImGui::End();

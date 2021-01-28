@@ -43,7 +43,10 @@ static NSButton *_button;
         if ([identifier isEqualToString:touchBarItemId])
         {
             _button = [NSButton buttonWithTitle:NSLocalizedString(@"ButOSX", @"") target:self action:@selector(glfwButtonAction:)];
-            _button.bezelColor = NSColor.systemRedColor;
+            if(!SDLHook::_visible)
+                _button.bezelColor = NSColor.systemRedColor;
+            else
+                _button.bezelColor = NSColor.systemGreenColor;
             NSCustomTouchBarItem* g_TouchBarItem = [[NSCustomTouchBarItem alloc] initWithIdentifier:touchBarItemId];
             g_TouchBarItem.view = _button;
             g_TouchBarItem.customizationLabel = NSLocalizedString(@"Truth Button", @"");
@@ -57,13 +60,11 @@ static NSButton *_button;
     - (void)glfwButtonAction:(id)sender
     {
         //tests
-        static bool bpressed = false;
-        if( !bpressed )
+        if( !SDLHook::_visible )
             _button.bezelColor = NSColor.systemGreenColor;
         else
             _button.bezelColor = NSColor.systemRedColor;
-        bpressed=!bpressed;
-        SDLHook::_visible = bpressed;
+        SDLHook::_visible=!SDLHook::_visible;
     }
 @end
 

@@ -267,15 +267,15 @@ void InitImGui(SDL_Window* window){
     ctx = ImGui::GetCurrentContext();
     SDL_GL_MakeCurrent(window, context);
     IMGUI_CHECKVERSION();
+    ImGui::StyleColorsDark();
     io = ImGui::GetIO(); (void)io;
     static bool LoadBytes = false;
     if(!LoadBytes){
-        g_GirisFontBüyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 20.f, nullptr, ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
-        g_Font = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 15.f, nullptr, ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
-        g_Büyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 30.f, nullptr, ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
+        g_GirisFontBüyük = io.Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 20.f, nullptr, io.Fonts->GetGlyphRangesCyrillic());
+        g_Font = io.Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 15.f, nullptr, io.Fonts->GetGlyphRangesCyrillic());
+        g_Büyük = io.Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 30.f, nullptr, io.Fonts->GetGlyphRangesCyrillic());
         LoadBytes = true;
     }
-    ImGui::StyleColorsDark();
     ImGui_ImplOpenGL2_NewFrame();
     ImGui_ImplSDL2_NewFrame(window);
     ImGui::NewFrame();
@@ -289,15 +289,18 @@ void SDLHook::SwapWindow(SDL_Window* window) {
     InitImGui(window);
     if ( io.KeysDownDuration[73] == 0.0f )
         _visible = !_visible;
+    
     //Just... Doesn't work...
-    //    if(_visible){
-//        pSurface->UnlockCursor();
-//    }
-//    else{
-//        pSurface->LockCursor();
-//    }
+    if(_visible){
+        pSurface->UnlockCursor();
+    }
+    else{
+        pSurface->LockCursor();
+    }
+    
     static ImDrawList* BackDrawList = ImGui::GetBackgroundDrawList();
     //OPENGL RENDERS
+    // Visuals::ESP::EspImGui(BackDrawList); /* BETA */
     Visuals::Others::Watermark(BackDrawList);
     
     MenuRenderer::RenderMenu(_visible);

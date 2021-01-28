@@ -17,7 +17,8 @@ extern HFONT eFont;
 
 namespace Visuals{
     namespace ESP{
-        void ESP();
+        void ESPSurface();
+        void EspImGui(ImDrawList* drawArea);
     }
     namespace Others{
         void Watermark(ImDrawList* bruh);

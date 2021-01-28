@@ -29,8 +29,9 @@ class IVModelRender
 {
 public:
     
-    virtual void ForcedMaterialOverride(IMaterial* mat);
-    
-    virtual void DrawModelExecute(void* ctx, void *state, const ModelRenderInfo_t &pInfo, matrix3x4_t* pCustomBoneToWorld = NULL);
+    virtual void ForcedMaterialOverride(IMaterial* material){
+        typedef void (* oForcedMaterialOverride)(void*, IMaterial*, int, int);
+        return getvfunc<oForcedMaterialOverride>(this, 33)(this, material, 0, 0);
+    }
     
 };
