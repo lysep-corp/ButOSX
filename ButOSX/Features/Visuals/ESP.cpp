@@ -6,7 +6,9 @@
 //  Copyright © 2021 VersteckteKrone. All rights reserved.
 //
 
-#include "ESP.hpp"
+//FULLY STOLEN RN I'M GONNE SWITCH TO THE IMGUI RENDER AND WRITE FROM SCRATH. THAT WAS FOR SHOWDOWN! 28.01.2021
+
+#include "Visuals.hpp"
 #include "CheatSettings.h"
 
 bool CheatSettings::ESP;
@@ -64,7 +66,7 @@ void DrawString(int x, int y, Color color, HFONT font, bool bCenter, const char*
 void DrawHealthbar(int x, int y, int w, int h, int health, Color color) {
     
     if(health > 100)
-        health = 100; // Just a fix, tried without this on Zombie servers.. you don't wanna know what happend.
+        health = 100;
     
     int hw = h - ((h) * health) / 100;
     FillRGBA(x, y - 1, w, h + 2, Color(0, 0, 0, 120));
@@ -143,7 +145,7 @@ bool DrawPlayerBox(C_BaseEntity* pEntity, bBoxStyle& boxes) {
     return true;
 }
 
-auto TestTrace(C_BaseEntity* pEntity, C_BaseEntity* pLocal) -> bool { /* Just a simple visible check :^) */
+auto TestTrace(C_BaseEntity* pEntity, C_BaseEntity* pLocal) -> bool {
     Ray_t ray;
     trace_t trace;
     CTraceFilter filter;
@@ -181,24 +183,14 @@ void DrawSkeleton(C_BaseEntity* pEntity, Color color) {
         }
     }
 }
-/*
-*/
-extern void ESP() {
+
+
+extern void Visuals::ESP::ESP() {
     C_BaseEntity* pLocal = (C_BaseEntity*)pEntList->GetClientEntity(pEngine->GetLocalPlayer());
     for(int i = 0; i < pEntList->GetHighestEntityIndex(); i++) {
         C_BaseEntity* pEntity = (C_BaseEntity*)pEntList->GetClientEntity(i);
         
-        if(!pEntity)
-            continue;
-        if(pEntity->GetHealth() < 1)
-            continue;
-        if(pEntity->GetTeam() == pLocal->GetTeam())
-            continue;
-        if(pEntity->IsDormant())
-            continue;
-        if(pEntity->IsGhost())
-            continue;
-        if(pEntity == pLocal)
+        if(!pEntity || !pLocal || pEntity->GetHealth() < 1 || pEntity->GetTeam() == pLocal->GetTeam() || pEntity->IsDormant() || pEntity->IsGhost() || pEntity == pLocal)
             continue;
         
         bBoxStyle players;

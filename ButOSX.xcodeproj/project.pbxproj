@@ -14,7 +14,6 @@
 		1A42E94225BC9D07006BB177 /* NetVarManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A42E94025BC9D07006BB177 /* NetVarManager.cpp */; };
 		1A42E94325BC9D07006BB177 /* NetVarManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A42E94125BC9D07006BB177 /* NetVarManager.hpp */; };
 		1A42E94B25BCA3D6006BB177 /* ESP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A42E94925BCA3D6006BB177 /* ESP.cpp */; };
-		1A42E94C25BCA3D6006BB177 /* ESP.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A42E94A25BCA3D6006BB177 /* ESP.hpp */; };
 		1A471E23254A1CA400FFF49B /* ButOSX.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A471E22254A1CA400FFF49B /* ButOSX.hpp */; };
 		1A471E27254A1CA400FFF49B /* ButOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471E26254A1CA400FFF49B /* ButOSX.cpp */; };
 		1A471E38254A1D6000FFF49B /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471E2F254A1D6000FFF49B /* imgui_draw.cpp */; };
@@ -116,6 +115,9 @@
 		1A471F02254A266D00FFF49B /* Helpers.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A471F00254A266D00FFF49B /* Helpers.hpp */; };
 		1A471F0B254B35E900FFF49B /* MenuRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471F09254B35E900FFF49B /* MenuRenderer.cpp */; };
 		1A471F0C254B35E900FFF49B /* MenuRenderer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A471F0A254B35E900FFF49B /* MenuRenderer.hpp */; };
+		1A518E5125C206980080F876 /* Others.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A518E4F25C206980080F876 /* Others.cpp */; };
+		1A518E5625C207150080F876 /* Visuals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A518E5425C207150080F876 /* Visuals.cpp */; };
+		1A518E5725C207150080F876 /* Visuals.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A518E5525C207150080F876 /* Visuals.hpp */; };
 		1A7C475A254EE8D700A58870 /* GameHooker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C4758254EE8D700A58870 /* GameHooker.cpp */; };
 		1A7C475B254EE8D700A58870 /* GameHooker.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A7C4759254EE8D700A58870 /* GameHooker.hpp */; };
 		1A7C4769254EEA4000A58870 /* Global.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C4767254EEA4000A58870 /* Global.cpp */; };
@@ -158,7 +160,6 @@
 		1A42E94125BC9D07006BB177 /* NetVarManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NetVarManager.hpp; sourceTree = "<group>"; };
 		1A42E94525BC9EE3006BB177 /* IMaterial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMaterial.h; sourceTree = "<group>"; };
 		1A42E94925BCA3D6006BB177 /* ESP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ESP.cpp; sourceTree = "<group>"; };
-		1A42E94A25BCA3D6006BB177 /* ESP.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ESP.hpp; sourceTree = "<group>"; };
 		1A471E1F254A1CA400FFF49B /* libButOSX.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libButOSX.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A471E22254A1CA400FFF49B /* ButOSX.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ButOSX.hpp; sourceTree = "<group>"; };
 		1A471E26254A1CA400FFF49B /* ButOSX.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ButOSX.cpp; sourceTree = "<group>"; };
@@ -261,6 +262,10 @@
 		1A471F00254A266D00FFF49B /* Helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Helpers.hpp; sourceTree = "<group>"; };
 		1A471F09254B35E900FFF49B /* MenuRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuRenderer.cpp; sourceTree = "<group>"; };
 		1A471F0A254B35E900FFF49B /* MenuRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuRenderer.hpp; sourceTree = "<group>"; };
+		1A518E4F25C206980080F876 /* Others.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Others.cpp; sourceTree = "<group>"; };
+		1A518E5425C207150080F876 /* Visuals.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Visuals.cpp; sourceTree = "<group>"; };
+		1A518E5525C207150080F876 /* Visuals.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Visuals.hpp; sourceTree = "<group>"; };
+		1A518E5B25C238380080F876 /* IVModelRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVModelRender.h; sourceTree = "<group>"; };
 		1A77C52C25BDC50100BF3B0E /* Datas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Datas.h; sourceTree = "<group>"; };
 		1A7C4758254EE8D700A58870 /* GameHooker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameHooker.cpp; sourceTree = "<group>"; };
 		1A7C4759254EE8D700A58870 /* GameHooker.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameHooker.hpp; sourceTree = "<group>"; };
@@ -315,6 +320,7 @@
 				1A42E92525BC9297006BB177 /* IEngineClient.h */,
 				1A42E92625BC92D8006BB177 /* IVModuleInfo.h */,
 				1A42E92725BC92F9006BB177 /* IEngineTrace.h */,
+				1A518E5B25C238380080F876 /* IVModelRender.h */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -342,7 +348,9 @@
 			isa = PBXGroup;
 			children = (
 				1A42E94925BCA3D6006BB177 /* ESP.cpp */,
-				1A42E94A25BCA3D6006BB177 /* ESP.hpp */,
+				1A518E4F25C206980080F876 /* Others.cpp */,
+				1A518E5425C207150080F876 /* Visuals.cpp */,
+				1A518E5525C207150080F876 /* Visuals.hpp */,
 			);
 			path = Visuals;
 			sourceTree = "<group>";
@@ -710,6 +718,7 @@
 				1A471ED6254A256300FFF49B /* close_code.h in Headers */,
 				1A471ED9254A256300FFF49B /* begin_code.h in Headers */,
 				1A471EC2254A256300FFF49B /* SDL_audio.h in Headers */,
+				1A518E5725C207150080F876 /* Visuals.hpp in Headers */,
 				1A471EED254A256300FFF49B /* SDL_types.h in Headers */,
 				1A471EF0254A256300FFF49B /* SDL_error.h in Headers */,
 				1A471E4B254A1EBD00FFF49B /* imgui_impl_sdl.h in Headers */,
@@ -754,7 +763,6 @@
 				1A471EC5254A256300FFF49B /* SDL_opengles2_gl2ext.h in Headers */,
 				1A471EB0254A256300FFF49B /* SDL_test_compare.h in Headers */,
 				1A471EB4254A256300FFF49B /* SDL_opengles2_khrplatform.h in Headers */,
-				1A42E94C25BCA3D6006BB177 /* ESP.hpp in Headers */,
 				1A471EF3254A256300FFF49B /* SDL_platform.h in Headers */,
 				1A471EDA254A256300FFF49B /* SDL_keycode.h in Headers */,
 				1A471EB2254A256300FFF49B /* SDL_stdinc.h in Headers */,
@@ -873,6 +881,8 @@
 				1A471E3F254A1D6000FFF49B /* imgui.cpp in Sources */,
 				1A42E94B25BCA3D6006BB177 /* ESP.cpp in Sources */,
 				1A471F01254A266D00FFF49B /* Helpers.cpp in Sources */,
+				1A518E5625C207150080F876 /* Visuals.cpp in Sources */,
+				1A518E5125C206980080F876 /* Others.cpp in Sources */,
 				1AC8B1D025BAF90F00F754B1 /* imgui_tables.cpp in Sources */,
 				1A471E3B254A1D6000FFF49B /* imgui_widgets.cpp in Sources */,
 				1A471E59254A201100FFF49B /* MainHooker.cpp in Sources */,

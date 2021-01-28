@@ -61,6 +61,11 @@ public:
         return getvfunc<oUnlockCursor>(this, 66)(this);
     }
     
+    //KEEP TRYING...
+//    void LockCursor(ISurface* thisptr, void* edx) {
+//        typedef void(* oLockCursor)(void*, ISurface*, void*);
+//        return getvfunc<oLockCursor>(this, 67)(this, thisptr, edx);
+//    }
     void LockCursor() {
         typedef void(* oLockCursor)(void*);
         return getvfunc<oLockCursor>(this, 67)(this);

@@ -20,7 +20,8 @@ bool CustomWidgets::SubTab(const char* label, const ImVec2& size_arg, const bool
     const ImGuiStyle& style = g.Style;
     const ImGuiID id = window->GetID(label);
     const ImVec2 label_size = ImGui::CalcTextSize(label, NULL, true);
-
+    
+    
     ImVec2 pos = window->DC.CursorPos;
 
     ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
@@ -32,14 +33,14 @@ bool CustomWidgets::SubTab(const char* label, const ImVec2& size_arg, const bool
     if (window->DC.ItemFlags & ImGuiItemFlags_ButtonRepeat) flags |= ImGuiButtonFlags_Repeat; 
     bool hovered, held;
     bool pressed = ImGui::ButtonBehavior(bb, id, &hovered, &held, flags);
-    float rainbowSpeed = 0.001;
-    static float staticHue = 0;
-    staticHue -= rainbowSpeed;
-    if (staticHue < -1.f) staticHue += 1.f;
-    if (selected)
-        window->DrawList->AddRectFilled({ bb.Min.x,bb.Min.y }, { bb.Max.x,bb.Max.y }, ImColor(43, 43, 43, 255));
-    if (selected)
-        window->DrawList->AddRectFilled(ImVec2(bb.Min.x, bb.Max.y - 4), ImVec2(bb.Max.x, bb.Max.y), ImColor(253, 112, 0));
+    if (selected){
+        window->DrawList->AddRectFilled({ bb.Min.x,bb.Min.y }, { bb.Max.x,bb.Max.y }, ImColor(0.23f, 0.23f, 0.23f, style.Alpha));
+        window->DrawList->AddRectFilled(ImVec2(bb.Min.x, bb.Max.y - 4), ImVec2(bb.Max.x, bb.Max.y), ImColor(0.99f, 0.43f, 0.f, style.Alpha));
+    }
+    else{
+        window->DrawList->AddRectFilled({ bb.Min.x,bb.Min.y }, { bb.Max.x,bb.Max.y }, ImColor(0.11f, 0.11f, 0.11f, style.Alpha));
+    }
+    //window->DrawList->AddText(ImVec2(((pos.x + size.x) - label_size.x) / 2, ((pos.y + size.y) - label_size.y) / 2), ImColor(255, 255, 255), label);
     //window->DrawList->AddText(ImVec2(bb.Min.x + 5, bb.Min.y + size_arg.y / 2 - ImGui::CalcTextSize(label).y / 2), ImColor(255,255,255, 255), label);
     return pressed;
 }
@@ -89,16 +90,14 @@ bool CustomWidgets::Switch(const char* label, bool* v)
 
     }
     else {
-
-
         col_bg = ImGui::GetColorU32(ImLerp(ImVec4(0.17f, 0.21f, 0.24f, 1.00f), ImVec4(0.15f, 0.82f, 0.35f, 1.00f), t));
     }
     draw_list->AddRectFilled(p, ImVec2(p.x + width, p.y + 13.f), col_bg, height * 0.5f); // top arkası
     if (ImGui::IsItemClicked()) {
-        draw_list->AddCircleFilled(ImVec2(p.x + radius - 2.f + t * (width + 5.f - radius * 2.0f), p.y + radius / 1.5), radius - 1.5f, IM_COL32(255, 255, 255, 255), 30); //top
+        draw_list->AddCircleFilled(ImVec2(p.x + radius - 2.f + t * (width + 5.f - radius * 2.0f), p.y + radius / 1.5), radius - 1.5f, ImColor(1.0f, 1.0f, 1.0f, style.Alpha), 30); //top
     }
     else {
-        draw_list->AddCircleFilled(ImVec2(p.x + radius - 2.f + t * (width + 5.f - radius * 2.0f), p.y + radius / 1.5), radius - 1.5f, IM_COL32(255, 255, 255, 255), 30); //top
+        draw_list->AddCircleFilled(ImVec2(p.x + radius - 2.f + t * (width + 5.f - radius * 2.0f), p.y + radius / 1.5), radius - 1.5f, ImColor(1.0f, 1.0f, 1.0f, style.Alpha), 30); //top
     }
 
     if (ImGui::IsItemHovered()) {
@@ -108,10 +107,7 @@ bool CustomWidgets::Switch(const char* label, bool* v)
 
     if (window->SkipItems)
         return false;
-
-
-
-
+    
     ImGui::ItemSize(total_bb, style.FramePadding.y);
 
 

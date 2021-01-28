@@ -55,6 +55,7 @@ using namespace std;
 #include "Interfaces/IEngineTrace.h"
 #include "Classes/IMaterial.h"
 #include "Interfaces/IVModuleInfo.h"
+#include "Interfaces/IVModelRender.h"
 #include "Classes/CUserCmd.h"
 #include "VMT.h"
 

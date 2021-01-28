@@ -20,6 +20,8 @@ extern IEngineClient* pEngine;
 extern IVModelInfo* pModelInfo;
 extern IEngineTrace* pEngineTrace;
 extern IClientMode* pClientMode;
+extern IVModelRender* pModelRender;
 
 extern VMT* paintVMT;
+extern VMT* dmeVMT;
 #endif /* Interfaces_hpp */

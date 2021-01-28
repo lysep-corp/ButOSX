@@ -18,20 +18,21 @@
 
 #include "Design/CustomWidgets.hpp"
 
-#define WINDOW_WIDTH  800
-#define WINDOW_HEIGHT 400
+#define WINDOW_HEIGHT   400
+#define WINDOW_PADDING  WINDOW_HEIGHT / 25
+#define WINDOW_WIDTH    750 + (WINDOW_PADDING * 2)
 
 #include "SDL.h"
-struct ImDrawList;
 
 namespace MenuRenderer {
-void RenderMenu(bool _visible);
-void DrawWatermark(ImDrawList* bruh);
-void InitTheme();
+    void RenderMenu(bool _visible);
+    void InitTheme();
 }
 
 namespace Pages {
-void VisualsPage();
+    extern char *PageList[];
+    void VisualsPage();
+    void AssistsPage();
 }
 
 

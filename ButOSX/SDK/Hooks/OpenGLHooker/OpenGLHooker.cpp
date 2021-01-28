@@ -10,6 +10,7 @@
 #include "xorstr.h"
 #include "../../Menu/Datas.h"
 #include "../../Menu/MenuRenderer.hpp"
+#include "Visuals.hpp"
 
 Uint8 SDLCALL SDL_GameControllerGetButton(SDL_GameController *gamecontroller, SDL_GameControllerButton button){
     typedef Uint8(*currFn) (SDL_GameController*, SDL_GameControllerButton);
@@ -205,9 +206,9 @@ uintptr_t pollevent_original = NULL;
 int PollEventHK(SDL_Event* event) { // Needed for getting inputs mostly show / hide menu and anything else is needed like inputs etc.
     static int (*oSDL_PollEvent) (SDL_Event*) = reinterpret_cast<int(*)(SDL_Event*)>(pollevent_original);
     int returnAddr =  0;
-    static SDL_Event _event;
+    static SDL_Event _event; 
     if(SDLHook::_visible){
-        ImGui_ImplSDL2_ProcessEvent(&_event);
+       ImGui_ImplSDL2_ProcessEvent(&_event);
         returnAddr = oSDL_PollEvent(&_event);
     }
     else{
@@ -252,16 +253,12 @@ int SDLCALL SDL_Init(Uint32 flags) {
     return SDL_InitFn(flags);
 }
 
-uintptr_t* swapwindow_ptr = nullptr;
-uintptr_t swapwindow_original = NULL;
-static SDL_GLContext context = NULL;
 ImGuiContext* ctx = ImGui::CreateContext();
 ImGuiIO& io = ImGui::GetIO();
-bool SDLHook::_visible = false;
-void SDLHook::SwapWindow(SDL_Window* window) {
-    static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_Window*)>(swapwindow_original);
-    ImGui::CreateContext(); // Ghetto MacOs Context Crash Fix Like a Boss
-    static SDL_GLContext original_context = SDL_GL_GetCurrentContext();
+static SDL_GLContext original_context;
+void InitImGui(SDL_Window* window){
+    static SDL_GLContext context = NULL;
+    original_context = SDL_GL_GetCurrentContext();
     if(!context){
         context = SDL_GL_CreateContext(window);
         ImGui_ImplSDL2_InitForOpenGL(window, context);
@@ -270,31 +267,47 @@ void SDLHook::SwapWindow(SDL_Window* window) {
     ctx = ImGui::GetCurrentContext();
     SDL_GL_MakeCurrent(window, context);
     IMGUI_CHECKVERSION();
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    io = ImGui::GetIO(); (void)io;
     static bool LoadBytes = false;
     if(!LoadBytes){
-        g_GirisFontBüyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 22.f, nullptr, ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
-        g_Font = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 18.f, nullptr, ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
-        g_Büyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 42.f, nullptr, ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
+        g_GirisFontBüyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 20.f, nullptr, ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
+        g_Font = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 15.f, nullptr, ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
+        g_Büyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 30.f, nullptr, ImGui::GetIO().Fonts->GetGlyphRangesCyrillic());
         LoadBytes = true;
     }
     ImGui::StyleColorsDark();
     ImGui_ImplOpenGL2_NewFrame();
     ImGui_ImplSDL2_NewFrame(window);
     ImGui::NewFrame();
-    if ( io.KeysDownDuration[73] == 0.0f ) {
+}
+
+uintptr_t* swapwindow_ptr = nullptr;
+uintptr_t swapwindow_original = NULL;
+bool SDLHook::_visible = false;
+void SDLHook::SwapWindow(SDL_Window* window) {
+    static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_Window*)>(swapwindow_original);
+    InitImGui(window);
+    if ( io.KeysDownDuration[73] == 0.0f )
         _visible = !_visible;
-    }
+    //Just... Doesn't work...
+    //    if(_visible){
+//        pSurface->UnlockCursor();
+//    }
+//    else{
+//        pSurface->LockCursor();
+//    }
+    static ImDrawList* BackDrawList = ImGui::GetBackgroundDrawList();
+    //OPENGL RENDERS
+    Visuals::Others::Watermark(BackDrawList);
     
     MenuRenderer::RenderMenu(_visible);
-    
-    
     oSDL_GL_SwapWindow(window);
     SDL_GL_MakeCurrent(window, original_context);
-    glFlush();
+    glFlush(); //libSDL2's weird thing?
 }
 
 void SDLHook::Init() {
+    ImGui::CreateContext(); // Ghetto MacOSX Context Crash Fix Like a Boss
     uintptr_t swapwindowFn = reinterpret_cast<uintptr_t>(dlsym(RTLD_DEFAULT, xorstr("SDL_GL_SwapWindow")));
     uintptr_t sdllib = reinterpret_cast<uintptr_t>(embryo::module(xorstr("libSDL2-2.0.0.dylib")).start());
     swapwindow_ptr = reinterpret_cast<uintptr_t*>(helpers::GetAbsoluteAddress(sdllib, swapwindowFn, 0xF, 0x4));

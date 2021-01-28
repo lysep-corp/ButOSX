@@ -8,10 +8,12 @@
 
 #include "GameHooker.hpp"
 #include "ValveSDK.h"
-#include "ESP.hpp"
+#include "Visuals.hpp"
+#include "OpenGLHooker.hpp"
 
 HFONT eFont;
 typedef void(*tPaintTraverse)(void*, VPANEL, bool, bool);
+
 extern void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool allowForce);
 void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool allowForce) {
     paintVMT->GetOriginalMethod<tPaintTraverse>(42)(thisptr, vguiPanel, forceRepaint, allowForce);
@@ -25,8 +27,19 @@ void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool al
     }
     
     if(vguiPanel == currentPanel) {
-        ESP(); 
+        Visuals::ESP::ESP();
     }
+}
+typedef void(*tDrawModelExecute)(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
+
+extern void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
+void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld) {
+    dmeVMT->GetOriginalMethod<tDrawModelExecute>(21)(thisptr, context, state, model_info, pCustomBoneToWorld);
+    if(SDLHook::_visible){
+        //DME IS SPOSED TO GIVE ME ISURFACE?
+        //pSurface->LockCursor(ISURFACE, edx);
+    }
+    pModelRender->ForcedMaterialOverride(NULL);
 }
 
 void GameHooker::Init(){
@@ -43,6 +56,9 @@ void GameHooker::HookVMTs(){
     paintVMT = new VMT(pPanel);
     paintVMT->HookVM((void*)hkPaintTraverse, 42);
     paintVMT->ApplyVMT();
+    dmeVMT = new VMT(pModelRender);
+    dmeVMT->HookVM((void*)hkDrawModelExecute, 21);
+    dmeVMT->ApplyVMT();
 }
 
 void GameHooker::LoadInterfaces(){
@@ -55,4 +71,5 @@ void GameHooker::LoadInterfaces(){
     pOverlay        = GetInterface<IVDebugOverlay>("./bin/osx64/engine.dylib", "VDebugOverlay");
     pEngineTrace    = GetInterface<IEngineTrace>("./bin/osx64/engine.dylib", "EngineTraceClient");
     pModelInfo      = GetInterface<IVModelInfo>("./bin/osx64/engine.dylib", "VModelInfoClient");
+    pModelRender    = GetInterface<IVModelRender>("./bin/osx64/engine.dylib", "VEngineModel");
 }
