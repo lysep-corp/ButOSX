@@ -135,6 +135,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A017BA425C4C2A80096CFA8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		1A017BA525C4C2A80096CFA8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		1A42E91825BC90D6006BB177 /* Interfaces.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Interfaces.cpp; sourceTree = "<group>"; };
 		1A42E91925BC90D6006BB177 /* Interfaces.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Interfaces.hpp; sourceTree = "<group>"; };
 		1A42E91E25BC9163006BB177 /* ISurface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISurface.h; sourceTree = "<group>"; };
@@ -375,6 +377,8 @@
 		1A471E21254A1CA400FFF49B /* ButOSX */ = {
 			isa = PBXGroup;
 			children = (
+				1A017BA525C4C2A80096CFA8 /* LICENSE */,
+				1A017BA425C4C2A80096CFA8 /* README.md */,
 				1A42E94725BCA3AA006BB177 /* Features */,
 				1AC4B8FA254C905A0035B067 /* Classes */,
 				1A471E50254A1F1100FFF49B /* SDK */,

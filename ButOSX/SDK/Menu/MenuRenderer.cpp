@@ -67,53 +67,22 @@ void MenuRenderer::RenderMenu(bool _visible){
             UI->AddRectFilled(ImVec2(ImGui::GetWindowPos().x + WINDOW_PADDING, ImGui::GetWindowPos().y + (WINDOW_PADDING * 3) + 1), ImVec2(ImGui::GetWindowPos().x + WindowSize.x - WINDOW_PADDING, ImGui::GetWindowPos().y + (WINDOW_PADDING * 3) + 2), ImColor(1.0f, 1.0f, 1.0f, style.Alpha));
             
             //CONTROLBOX
-            style.FrameRounding = WINDOW_PADDING;
-            //Close Button
-            style.Colors[ImGuiCol_Button] = ImVec4(1.00f, 0.36f, 0.33f, style.Alpha);
-            style.Colors[ImGuiCol_ButtonHovered] = ImVec4(1.00f, 0.56f, 0.53f, style.Alpha);
-            style.Colors[ImGuiCol_ButtonActive] = ImVec4(1.00f, 0.26f, 0.23f, style.Alpha);
-            style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 0.00f);
-            ImGui::SetCursorPos(ImVec2(10, 9));
-            if (ImGui::Button(xorstr("X"), ImVec2(10, 10))){
-                Hooker::Destroy();
-            }
-            
-            //Minimize Button
-            style.Colors[ImGuiCol_Button] = ImVec4(1.00f, 0.76f, 0.20f, style.Alpha);
-            style.Colors[ImGuiCol_ButtonHovered] = ImVec4(1.00f, 0.96f, 0.40f, style.Alpha);
-            style.Colors[ImGuiCol_ButtonActive] = ImVec4(1.00f, 0.66f, 0.10f, style.Alpha);
-            style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 0.00f);
-            ImGui::SetCursorPos(ImVec2(25, 9));
-            if (ImGui::Button(xorstr("_"), ImVec2(10, 10))){
-                SDLHook::_visible = false;
-            }
-            
-            //Fullscreen Button
-            style.Colors[ImGuiCol_Button] = ImVec4(0.14f, 0.49f, 0.20f, style.Alpha);
-            style.Colors[ImGuiCol_ButtonHovered] = ImVec4(0.14f, 0.69f, 0.40f, style.Alpha);
-            style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.14f, 0.39f, 0.10f, style.Alpha);
-            style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 0.00f);
-            ImGui::SetCursorPos(ImVec2(40, 9));
-            if (ImGui::Button(xorstr("<>"), ImVec2(10, 10)))
-            {
-                isFullscreen = !isFullscreen;
-            }
-            style.FrameRounding = 0;
+            CustomWidgets::ControlBox(SDLHook::Unhook, &SDLHook::_visible, &isFullscreen);
             
             //TABs Renderer
             ImGui::PushFont(g_GirisFontBüyük);
             static int PageCount = 5 /*sizeof(Pages::PageList[0]) / sizeof(Pages::PageList)*/;
             ImVec2 TabSize = ImVec2((WindowSize.x - (WINDOW_PADDING * 2)) / PageCount, WINDOW_PADDING * 2);
-            UI->AddRectFilled(ImVec2(ImGui::GetWindowPos().x + WINDOW_PADDING, ImGui::GetWindowPos().y + (WINDOW_PADDING * 3.5f)), ImVec2(ImGui::GetWindowPos().x + WindowSize.x - WINDOW_PADDING + 2, ImGui::GetWindowPos().y + (WINDOW_PADDING * 3.5f) + TabSize.y), ImColor(0.20f, 0.20f, 0.20f, style.Alpha));
+            //UI->AddRectFilled(ImVec2(ImGui::GetWindowPos().x + WINDOW_PADDING, ImGui::GetWindowPos().y + (WINDOW_PADDING * 3.5f)), ImVec2(ImGui::GetWindowPos().x + WindowSize.x - (WINDOW_PADDING + 2.0), ImGui::GetWindowPos().y + (WINDOW_PADDING * 3.5f) + TabSize.y), ImColor(0.20f, 0.20f, 0.20f, style.Alpha));
             for(int i = 0; i <= PageCount - 1; i++){
                 style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, flAlpha);
                 const char* PageName = Pages::PageList[i];
                 ImVec2 PageNameSize = ImGui::CalcTextSize(PageName);
-                ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + 2 + (TabSize.x * i), WINDOW_PADDING * 3.5f));
+                ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (TabSize.x * i), WINDOW_PADDING * 3.5f));
                 if (CustomWidgets::SubTab(PageName, TabSize, selected_Tab == i ? true : false))
                     selected_Tab = i;
-                ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + 2 + (((TabSize.x * (i + 1)) - PageNameSize.x) / 2) + ((TabSize.x * i) / 2), (WINDOW_PADDING * 3.5f) + ((TabSize.y - PageNameSize.y - 4) / 2)));
-                ImGui::Text(PageName); 
+                ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (((TabSize.x * (i + 1)) - PageNameSize.x) / 2) + ((TabSize.x * i) / 2), (WINDOW_PADDING * 3.5f) + ((TabSize.y - PageNameSize.y - 4) / 2)));
+                ImGui::Text(PageName);
             }
             switch (selected_Tab){
                 case 0:

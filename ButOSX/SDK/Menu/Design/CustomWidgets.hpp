@@ -14,7 +14,8 @@ struct ImVec2;
 
 namespace CustomWidgets {
     bool SubTab(const char* label, const ImVec2& size_arg, const bool selected);
-    bool Switch(const char* label, bool* v); 
+    bool Switch(const char* label, bool* v);
+    bool ControlBox(void (*UnHookFunction)(), bool* HideShowBool, bool* FullScreenBool); 
 }
 
 #endif /* CustomWidgets_hpp */

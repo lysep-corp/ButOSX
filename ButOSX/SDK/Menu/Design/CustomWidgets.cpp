@@ -9,6 +9,7 @@
 #include "CustomWidgets.hpp"
 #include "imgui.h"
 #include "imgui_internal.h"
+#include "xorstr.h"
 
 bool CustomWidgets::SubTab(const char* label, const ImVec2& size_arg, const bool selected)
 {
@@ -120,4 +121,42 @@ bool CustomWidgets::Switch(const char* label, bool* v)
     }
 
     return pressed;
+}
+
+bool CustomWidgets::ControlBox(void (*UnHookFunction)(), bool* HideShowBool, bool* FullScreenBool){
+    ImGuiStyle& style = ImGui::GetStyle();
+    static int oldFrameRounding = style.FrameRounding;
+    style.FrameRounding = 10;
+    //Close Button
+    style.Colors[ImGuiCol_Button] = ImVec4(1.00f, 0.36f, 0.33f, style.Alpha);
+    style.Colors[ImGuiCol_ButtonHovered] = ImVec4(1.00f, 0.56f, 0.53f, style.Alpha);
+    style.Colors[ImGuiCol_ButtonActive] = ImVec4(1.00f, 0.26f, 0.23f, style.Alpha);
+    style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 0.00f);
+    ImGui::SetCursorPos(ImVec2(10, 9));
+    if (ImGui::Button(xorstr("X"), ImVec2(10, 10))){
+        UnHookFunction();
+    }
+    
+    //Minimize Button
+    style.Colors[ImGuiCol_Button] = ImVec4(1.00f, 0.76f, 0.20f, style.Alpha);
+    style.Colors[ImGuiCol_ButtonHovered] = ImVec4(1.00f, 0.96f, 0.40f, style.Alpha);
+    style.Colors[ImGuiCol_ButtonActive] = ImVec4(1.00f, 0.66f, 0.10f, style.Alpha);
+    style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 0.00f);
+    ImGui::SetCursorPos(ImVec2(25, 9));
+    if (ImGui::Button(xorstr("_"), ImVec2(10, 10))){
+        *HideShowBool = false;
+    }
+    
+    //Fullscreen Button
+    style.Colors[ImGuiCol_Button] = ImVec4(0.14f, 0.49f, 0.20f, style.Alpha);
+    style.Colors[ImGuiCol_ButtonHovered] = ImVec4(0.14f, 0.69f, 0.40f, style.Alpha);
+    style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.14f, 0.39f, 0.10f, style.Alpha);
+    style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 0.00f);
+    ImGui::SetCursorPos(ImVec2(40, 9));
+    if (ImGui::Button(xorstr("<>"), ImVec2(10, 10)))
+    {
+        *FullScreenBool = !*FullScreenBool;
+    }
+    style.FrameRounding = oldFrameRounding;
+    return true;
 }
