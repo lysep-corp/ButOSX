@@ -291,12 +291,12 @@ void SDLHook::SwapWindow(SDL_Window* window) {
         _visible = !_visible;
     
     //Just... Doesn't work...
-    if(_visible){
-        pSurface->UnlockCursor();
-    }
-    else{
-        pSurface->LockCursor();
-    }
+//    if(_visible){
+//        pSurface->UnlockCursor();
+//    }
+//    else{
+//        pSurface->LockCursor();
+//    }
     
     static ImDrawList* BackDrawList = ImGui::GetBackgroundDrawList();
     //OPENGL RENDERS

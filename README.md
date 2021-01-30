@@ -1,7 +1,8 @@
-<p align="center">
 <h1>ButOSX</h1> <br>
+<p align="center">
 <img src="https://i.imgur.com/jSHJ5Ib.png" width="200"> 
 </p>
+
 ##### NOTE: THIS PROJECT IS STILL WORK IN PROGRESS !
 ButOSX is an internal cheat project for Counter Strike: Global Offensive. This project is made with educational purposes. This is my first big C++ project, so code is probably very messy. Apologies.
 
