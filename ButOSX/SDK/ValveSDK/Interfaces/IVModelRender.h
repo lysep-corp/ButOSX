@@ -1,23 +1,29 @@
-typedef unsigned short ModelInstanceHandle_t;
+struct DrawModelState_t {
+    void*            m_pStudioHdr;
+    void*            m_pStudioHWData;
+    void*        m_pRenderable;
+    const matrix3x4_t        *m_pModelToWorld;
+    void*        m_decals;
+    int                        m_drawFlags;
+    int                        m_lod;
+};
 
+struct ModelRenderInfo_t {
+    Vector origin;
+    QAngle angles;
+    char _padding[0x4];
+    void** pRenderable;
+    const model_t* pModel;
+    const matrix3x4_t* pModelToWorld;
+    const matrix3x4_t* pLightingOffset;
+    const Vector* pLightingOrigin;
+    int flags;
+    int entity_index;
+    int skin;
+    int body;
+    int hitboxset;
+    void* instance;
 
-struct ModelRenderInfo_t
-{
-    Vector              origin;
-    QAngle              angles;
-    char                pad[0x4];
-    void*               pRenderable;
-    const model_t*      pModel;
-    const matrix3x4_t*  pModelToWorld;
-    const matrix3x4_t*  pLightingOffset;
-    const Vector*       pLightingOrigin;
-    int                 flags;
-    int                 entity_index;
-    int                 skin;
-    int                 body;
-    int                 hitboxset;
-    ModelInstanceHandle_t instance;
-    
     ModelRenderInfo_t()
     {
         pModelToWorld = NULL;
@@ -25,16 +31,16 @@ struct ModelRenderInfo_t
         pLightingOrigin = NULL;
     }
 };
-class IVModelRender
-{
+
+class IVModelRender {
 public:
-    
-    virtual void ForcedMaterialOverride(IMaterial* material){
-        typedef void (* oForcedMaterialOverride)(void*, IMaterial*, int, int);
-        return getvfunc<oForcedMaterialOverride>(this, 1)(this, material, 0, 0);
+    void ForcedMaterialOverride(IMaterial* mat) {
+        typedef void (*Fn)(void*, IMaterial*, int, int);
+        return getvfunc<Fn>(this, 1)(this, mat, 0, 0);
     }
-    virtual void DrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld = NULL) {
-        typedef void (*oDrawModelExecute)(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
-        return getvfunc<oDrawModelExecute>(this, 21)(thisptr, context, state, model_info, pCustomBoneToWorld);
+
+    void DrawModelExecute(void* ctx, const DrawModelState_t &state, const ModelRenderInfo_t &pInfo, matrix3x4_t *pCustomBoneToWorld = NULL) {
+        typedef void (*Fn)(void*, void* ctx, const DrawModelState_t &state, const ModelRenderInfo_t &pInfo, matrix3x4_t *pCustomBoneToWorld);
+        return getvfunc<Fn>(this, 21)(this, ctx, state, pInfo, pCustomBoneToWorld);
     }
 };
