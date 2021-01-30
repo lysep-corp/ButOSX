@@ -11,11 +11,13 @@
 #include <stdio.h>
 
 struct ImVec2;
+struct ImVec4;
 
 namespace CustomWidgets {
     bool SubTab(const char* label, const ImVec2& size_arg, const bool selected);
     bool Switch(const char* label, bool* v);
-    bool ControlBox(void (*UnHookFunction)(), bool* HideShowBool, bool* FullScreenBool); 
+    bool ControlBox(void (*UnHookFunction)(), bool* HideShowBool, bool* FullScreenBool);
+    void Spinner(float radius, float thickness, int num_segments, ImVec4 color);
 }
 
 #endif /* CustomWidgets_hpp */

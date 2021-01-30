@@ -168,7 +168,8 @@ void Pages::AssistsPage(){ //Page for assists.
 
 static bool TEST = false;
 void Pages::SettingsPage(){ //Page for settings;
-    ImGui::GetStyle().Colors[ImGuiCol_Border] = ImVec4(0.99f, 0.43f, 0.f, ImGui::GetStyle().Alpha);
+    static ImVec4 COL = ImVec4(0.99f, 0.43f, 0.f, ImGui::GetStyle().Alpha);
+    ImGui::GetStyle().Colors[ImGuiCol_Border] = COL;
     ImGui::GetStyle().WindowBorderSize = 1;
     ImGui::Begin(xorstr("UI Tests"), NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar);{
         ImGui::PushFont(g_Font);
@@ -176,6 +177,8 @@ void Pages::SettingsPage(){ //Page for settings;
         ImGui::SetWindowPos(ImVec2(ImGui::FindWindowByName(xorstr("ButOSX - Godly Cheat of MACOSX"))->Pos.x + WINDOW_WIDTH + 30, ImGui::FindWindowByName(xorstr("ButOSX - Godly Cheat of MACOSX"))->Pos.y));
         ImGui::SetCursorPos(ImVec2(10, 30));
         CustomWidgets::Switch(xorstr("TEST OLUR GIBI"), &TEST);
+        ImGui::SameLine();
+        CustomWidgets::Spinner(16, 5, 100, COL);
         if(TEST){
             ImGui::GetWindowDrawList()->AddRect(ImVec2(ImGui::GetWindowPos().x + 10, ImGui::GetWindowPos().y + 80), ImVec2(ImGui::GetWindowPos().x + 140, ImGui::GetWindowPos().y + WINDOW_HEIGHT - 40), ImColor(0.f, 1.0f, 0.f, ImGui::GetStyle().Alpha));
             ImGui::SetCursorPos(ImVec2((10 + 140 - ImGui::CalcTextSize(xorstr("Lyceion")).x) / 2.f, WINDOW_HEIGHT - 35));

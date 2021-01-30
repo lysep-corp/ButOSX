@@ -56,9 +56,9 @@ void GameHooker::HookVMTs(){
     paintVMT = new VMT(pPanel);
     paintVMT->HookVM((void*)hkPaintTraverse, 42);
     paintVMT->ApplyVMT();
-    //dmeVMT = new VMT(pModelRender);
-    //dmeVMT->HookVM((void*)hkDrawModelExecute, 21);
-    //dmeVMT->ApplyVMT();
+    dmeVMT = new VMT(pModelRender);
+    dmeVMT->HookVM((void*)hkDrawModelExecute, 21);
+    dmeVMT->ApplyVMT();
 }
 
 void GameHooker::LoadInterfaces(){

@@ -31,7 +31,10 @@ public:
     
     virtual void ForcedMaterialOverride(IMaterial* material){
         typedef void (* oForcedMaterialOverride)(void*, IMaterial*, int, int);
-        return getvfunc<oForcedMaterialOverride>(this, 33)(this, material, 0, 0);
+        return getvfunc<oForcedMaterialOverride>(this, 1)(this, material, 0, 0);
     }
-    
+    virtual void DrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld = NULL) {
+        typedef void (*oDrawModelExecute)(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
+        return getvfunc<oDrawModelExecute>(this, 21)(thisptr, context, state, model_info, pCustomBoneToWorld);
+    }
 };
