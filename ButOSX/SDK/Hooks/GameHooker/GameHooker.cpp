@@ -39,7 +39,7 @@ void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderIn
         //pSurface->LockCursor(ISURFACE, edx);
     }
     dmeVMT->GetOriginalMethod<tDrawModelExecute>(21)(thisptr, context, state, model_info, pCustomBoneToWorld); //Get from my old source probably pasted.
-    pModelRender->ForcedMaterialOverride(NULL);
+    pModelRender->ForcedMaterialOverride(0);
 }
 
 void GameHooker::Init(){
