@@ -326,6 +326,7 @@ void SDLHook::Init() {
 
 void SDLHook::Unhook() {
     //Unhook doesn't work (?)
+    _visible = false;
     ImGui_ImplOpenGL2_Shutdown(); //Shutdowns ImGui
     ImGui_ImplSDL2_Shutdown(); //Shutdowns ImGui
     *swapwindow_ptr = swapwindow_original; //Reverts back to game's original Swap Window.

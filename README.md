@@ -1,6 +1,6 @@
 <h1>ButOSX</h1> <br>
 <p align="center">
-<img src="https://i.imgur.com/jSHJ5Ib.png" width="200"> 
+<img src="https://i.imgur.com/jSHJ5Ib.png" width="200"> <br>
 Brought to you by xMuraty & Lyceion
 </p>
 

@@ -18,9 +18,9 @@
 
 #include "Design/CustomWidgets.hpp"
 
-#define WINDOW_HEIGHT   350
+#define WINDOW_HEIGHT   375
 #define WINDOW_PADDING  WINDOW_HEIGHT / 25
-#define WINDOW_WIDTH    (WINDOW_HEIGHT * 1.61803398875) //Golden Ratio ?!???!?
+#define WINDOW_WIDTH    (WINDOW_HEIGHT * 1.2 * 1.61803398875) //Golden Ratio ?!???!?
 
 #include "SDL.h"
 
@@ -33,6 +33,7 @@ namespace Pages {
     extern char *PageList[];
     void VisualsPage();
     void AssistsPage();
+    void SettingsPage();
 }
 
 
