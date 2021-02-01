@@ -23,6 +23,7 @@ namespace Visuals{
     namespace Others{
         void Watermark(ImDrawList* bruh);
         void NightMode();
+    
     }
 }
 

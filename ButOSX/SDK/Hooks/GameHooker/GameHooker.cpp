@@ -10,10 +10,10 @@
 #include "ValveSDK.h"
 #include "Visuals.hpp"
 #include "OpenGLHooker.hpp"
+#include "PatternScanner.hpp"
 
 HFONT eFont;
 typedef void(*tPaintTraverse)(void*, VPANEL, bool, bool);
-
 extern void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool allowForce);
 void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool allowForce) {
     paintVMT->GetOriginalMethod<tPaintTraverse>(42)(thisptr, vguiPanel, forceRepaint, allowForce);
@@ -30,8 +30,8 @@ void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool al
         Visuals::ESP::ESPSurface();
     }
 }
-typedef void(*tDrawModelExecute)(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
 
+typedef void(*tDrawModelExecute)(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
 extern void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
 void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld) {
     if(SDLHook::_visible){
@@ -42,12 +42,33 @@ void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderIn
     pModelRender->ForcedMaterialOverride(0);
 }
 
-typedef void(*tFrameStageNotify)(void* thisptr, FrameStage stage);
+//void protect_addr(void* addr, int prot)
+//{
+//    long pagesize = sysconf(_SC_PAGESIZE);
+//    void* address = (void*)((long)(uintptr_t)addr & ~(pagesize - 1));
+//    mprotect(address, sizeof(address), prot);
+//}
+//
+//#include <inttypes.h>
+//#define R_LoadNamedSky1 "\x55\x89\xE5\x53\x57\x56\x81\xEC\x00\x00\x00\x00\xE8\x00\x00\x00\x00\x59\x89\x8D\x00\x00\x00\x00"
+//#define R_LoadNamedSky1_MASK "xxxxxxxx????x????xxx????"
+//#define R_LoadNamedSky  "\x55\x89\xE8\x53\x57\x56\x81\xEC"
+//#define R_LoadNamedSky_MASK "xxxxxxxx"
+//typedef void (*LoadNamedSkyFn) (const char*);
+//
 
+typedef void(*tFrameStageNotify)(void* thisptr, FrameStage stage);
 extern void hkFrameStageNotify(void* thisptr, FrameStage stage);
 void hkFrameStageNotify(void* thisptr, FrameStage stage) {
     if (stage == FrameStage::RENDER_START) {
         Visuals::Others::NightMode();
+        //static C_PatternScanner* scanner = C_PatternScanner::get();
+        //static uintptr_t LoadNamedSkyPtr = scanner->get_procedure("engine.dylib", (Byte*)R_LoadNamedSky, R_LoadNamedSky_MASK);
+        //static LoadNamedSkyFn LoadNamedSky = reinterpret_cast<LoadNamedSkyFn>(LoadNamedSkyPtr);
+        //protect_addr((void*)LoadNamedSky, PROT_READ | PROT_WRITE | PROT_EXEC);
+        //if(pEngine->IsInGame()){
+            //LoadNamedSky("sky_csgo_night02");
+        //}
     }
     fsnVMT->GetOriginalMethod<tFrameStageNotify>(37)(thisptr, stage);
 }
