@@ -176,7 +176,7 @@ void Pages::SettingsPage(){ //Page for settings;
         ImGui::SetWindowSize(ImVec2(150, WINDOW_HEIGHT));
         ImGui::SetWindowPos(ImVec2(ImGui::FindWindowByName(xorstr("ButOSX - Godly Cheat of MACOSX"))->Pos.x + WINDOW_WIDTH + 30, ImGui::FindWindowByName(xorstr("ButOSX - Godly Cheat of MACOSX"))->Pos.y));
         ImGui::SetCursorPos(ImVec2(10, 30));
-        CustomWidgets::Switch(xorstr("TEST OLUR GIBI"), &TEST);
+        CustomWidgets::Switch(xorstr("TEST OLUR GIBI"), &CheatSettings::NightMode);
         ImGui::SameLine();
         CustomWidgets::Spinner(16, 5, 100, COL);
         if(TEST){

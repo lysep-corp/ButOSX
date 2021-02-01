@@ -11,5 +11,7 @@
 
 #include "C_BaseEntity.h"
 #include "CUserCmd.h"
+#include "ConVar.h"
+#include "FrameStage.h"
 
 #endif /* Classes_h */

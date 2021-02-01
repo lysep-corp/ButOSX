@@ -11,5 +11,6 @@
 namespace CheatSettings {
     extern bool WaterMark;
     extern bool ESP;
+    extern bool NightMode;
 };
 #endif /* CheatSettings_h */

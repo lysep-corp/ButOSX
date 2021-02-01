@@ -48,7 +48,6 @@ using namespace std;
 #include "Interfaces/IPanel.h"
 #include "Interfaces/ICvar.h"
 #include "Offsets.hpp"
-#include "Classes/C_BaseEntity.h"
 #include "Interfaces/IClientEntityList.h"
 #include "Interfaces/IVDebugOverlay.h"
 #include "Interfaces/IEngineClient.h"
@@ -56,7 +55,8 @@ using namespace std;
 #include "Classes/IMaterial.h"
 #include "Interfaces/IVModuleInfo.h"
 #include "Interfaces/IVModelRender.h"
-#include "Classes/CUserCmd.h"
+#include "Interfaces/IVMaterialSystem.h"
+#include "Classes/Classes.h"
 #include "VMT.h"
 
 // Interfaces

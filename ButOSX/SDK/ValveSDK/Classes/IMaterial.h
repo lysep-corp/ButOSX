@@ -191,4 +191,5 @@ public:
         typedef void (* oGetColorModulate)(void*, float*, float*, float*);
         return getvfunc<oGetColorModulate>(this, 45)(this, r, g, b);
     }
+    virtual bool IsErrorMaterial() const = 0;
 };

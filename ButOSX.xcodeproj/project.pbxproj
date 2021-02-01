@@ -284,6 +284,11 @@
 		1A7C47A0254EF0D100A58870 /* PatternScanner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PatternScanner.cpp; sourceTree = "<group>"; };
 		1A7C47A1254EF0D100A58870 /* PatternScanner.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PatternScanner.hpp; sourceTree = "<group>"; };
 		1AC4B8FB254C90740035B067 /* CheatSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheatSettings.h; sourceTree = "<group>"; };
+		1AC8779325C7518200659F75 /* IVMaterialSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVMaterialSystem.h; sourceTree = "<group>"; };
+		1AC8779725C757B400659F75 /* UtlVector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtlVector.h; sourceTree = "<group>"; };
+		1AC8779A25C7598B00659F75 /* ConVar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConVar.h; sourceTree = "<group>"; };
+		1AC8779C25C75A0D00659F75 /* IAppSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAppSystem.h; sourceTree = "<group>"; };
+		1AC8779E25C763CA00659F75 /* FrameStage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameStage.h; sourceTree = "<group>"; };
 		1AC8B1CA25BAF84C00F754B1 /* xorstr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xorstr.h; sourceTree = "<group>"; };
 		1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tables.cpp; sourceTree = "<group>"; };
 		1AF384DC254CBE2400336590 /* CustomWidgets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CustomWidgets.cpp; sourceTree = "<group>"; };
@@ -323,6 +328,8 @@
 				1A42E92625BC92D8006BB177 /* IVModuleInfo.h */,
 				1A42E92725BC92F9006BB177 /* IEngineTrace.h */,
 				1A518E5B25C238380080F876 /* IVModelRender.h */,
+				1AC8779325C7518200659F75 /* IVMaterialSystem.h */,
+				1AC8779C25C75A0D00659F75 /* IAppSystem.h */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -334,6 +341,9 @@
 				1A42E93225BC99C0006BB177 /* C_BaseEntity.h */,
 				1A42E93325BC99EB006BB177 /* CUserCmd.h */,
 				1A42E94525BC9EE3006BB177 /* IMaterial.h */,
+				1AC8779725C757B400659F75 /* UtlVector.h */,
+				1AC8779A25C7598B00659F75 /* ConVar.h */,
+				1AC8779E25C763CA00659F75 /* FrameStage.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -341,6 +351,7 @@
 		1A42E94725BCA3AA006BB177 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				1AC8779125C750B200659F75 /* Assists */,
 				1A42E94825BCA3B7006BB177 /* Visuals */,
 			);
 			path = Features;
@@ -691,6 +702,13 @@
 				1A7C476C254EEB0100A58870 /* Headers.h */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		1AC8779125C750B200659F75 /* Assists */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assists;
 			sourceTree = "<group>";
 		};
 		1AF384DB254CBE0D00336590 /* Design */ = {

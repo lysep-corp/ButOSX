@@ -20,6 +20,9 @@ IVModelInfo* pModelInfo = nullptr;
 IEngineTrace* pEngineTrace = nullptr;
 IClientMode* pClientMode = nullptr;
 IVModelRender* pModelRender = nullptr;
+IVMaterialSystem* pMaterialSystem = nullptr;
+IAppSystem* pAppSystem = nullptr;
 
 VMT* paintVMT = nullptr;
 VMT* dmeVMT = nullptr;
+VMT* fsnVMT = nullptr;

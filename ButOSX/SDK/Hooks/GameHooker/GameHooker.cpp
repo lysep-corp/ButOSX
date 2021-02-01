@@ -42,6 +42,16 @@ void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderIn
     pModelRender->ForcedMaterialOverride(0);
 }
 
+typedef void(*tFrameStageNotify)(void* thisptr, FrameStage stage);
+
+extern void hkFrameStageNotify(void* thisptr, FrameStage stage);
+void hkFrameStageNotify(void* thisptr, FrameStage stage) {
+    if (stage == FrameStage::RENDER_START) {
+        Visuals::Others::NightMode();
+    }
+    fsnVMT->GetOriginalMethod<tFrameStageNotify>(37)(thisptr, stage);
+}
+
 void GameHooker::Init(){
     LoadInterfaces();
     HookVMTs();
@@ -59,6 +69,9 @@ void GameHooker::HookVMTs(){
     dmeVMT = new VMT(pModelRender);
     dmeVMT->HookVM((void*)hkDrawModelExecute, 21);
     dmeVMT->ApplyVMT();
+    fsnVMT = new VMT(pClient);
+    fsnVMT->HookVM((void*)hkFrameStageNotify, 37);
+    fsnVMT->ApplyVMT();
 }
 
 void GameHooker::LoadInterfaces(){
@@ -72,4 +85,5 @@ void GameHooker::LoadInterfaces(){
     pEngineTrace    = GetInterface<IEngineTrace>("./bin/osx64/engine.dylib", "EngineTraceClient");
     pModelInfo      = GetInterface<IVModelInfo>("./bin/osx64/engine.dylib", "VModelInfoClient");
     pModelRender    = GetInterface<IVModelRender>("./bin/osx64/engine.dylib", "VEngineModel");
+    pMaterialSystem = GetInterface<IVMaterialSystem>("./bin/osx64/materialsystem.dylib", "VMaterialSystem");
 }
