@@ -42,7 +42,6 @@
 		1A471F0B254B35E900FFF49B /* MenuRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471F09254B35E900FFF49B /* MenuRenderer.cpp */; };
 		1A471F0C254B35E900FFF49B /* MenuRenderer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A471F0A254B35E900FFF49B /* MenuRenderer.hpp */; };
 		1A518E5125C206980080F876 /* Others.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A518E4F25C206980080F876 /* Others.cpp */; };
-		1A518E5625C207150080F876 /* Visuals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A518E5425C207150080F876 /* Visuals.cpp */; };
 		1A518E5725C207150080F876 /* Visuals.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A518E5525C207150080F876 /* Visuals.hpp */; };
 		1A7C475A254EE8D700A58870 /* GameHooker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C4758254EE8D700A58870 /* GameHooker.cpp */; };
 		1A7C475B254EE8D700A58870 /* GameHooker.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A7C4759254EE8D700A58870 /* GameHooker.hpp */; };
@@ -204,10 +203,9 @@
 		1A471F09254B35E900FFF49B /* MenuRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuRenderer.cpp; sourceTree = "<group>"; };
 		1A471F0A254B35E900FFF49B /* MenuRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuRenderer.hpp; sourceTree = "<group>"; };
 		1A518E4F25C206980080F876 /* Others.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Others.cpp; sourceTree = "<group>"; };
-		1A518E5425C207150080F876 /* Visuals.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Visuals.cpp; sourceTree = "<group>"; };
 		1A518E5525C207150080F876 /* Visuals.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Visuals.hpp; sourceTree = "<group>"; };
 		1A518E5B25C238380080F876 /* IVModelRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVModelRender.h; sourceTree = "<group>"; };
-		1A77C52C25BDC50100BF3B0E /* Datas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Datas.h; sourceTree = "<group>"; };
+		1A77C52C25BDC50100BF3B0E /* Datas.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Datas.hpp; sourceTree = "<group>"; };
 		1A7C4758254EE8D700A58870 /* GameHooker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameHooker.cpp; sourceTree = "<group>"; };
 		1A7C4759254EE8D700A58870 /* GameHooker.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameHooker.hpp; sourceTree = "<group>"; };
 		1A7C4767254EEA4000A58870 /* Global.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Global.cpp; sourceTree = "<group>"; };
@@ -390,7 +388,6 @@
 			children = (
 				1A42E94925BCA3D6006BB177 /* ESP.cpp */,
 				1A518E4F25C206980080F876 /* Others.cpp */,
-				1A518E5425C207150080F876 /* Visuals.cpp */,
 				1A518E5525C207150080F876 /* Visuals.hpp */,
 			);
 			path = Visuals;
@@ -544,7 +541,7 @@
 				1AF384DB254CBE0D00336590 /* Design */,
 				1A471F09254B35E900FFF49B /* MenuRenderer.cpp */,
 				1A471F0A254B35E900FFF49B /* MenuRenderer.hpp */,
-				1A77C52C25BDC50100BF3B0E /* Datas.h */,
+				1A77C52C25BDC50100BF3B0E /* Datas.hpp */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -904,7 +901,7 @@
 		1A471E17254A1CA300FFF49B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = VersteckteKrone;
 				TargetAttributes = {
 					1A471E1E254A1CA400FFF49B = {
@@ -944,7 +941,6 @@
 				1A471E3F254A1D6000FFF49B /* imgui.cpp in Sources */,
 				1A42E94B25BCA3D6006BB177 /* ESP.cpp in Sources */,
 				1A471F01254A266D00FFF49B /* Helpers.cpp in Sources */,
-				1A518E5625C207150080F876 /* Visuals.cpp in Sources */,
 				1A518E5125C206980080F876 /* Others.cpp in Sources */,
 				1AC8B1D025BAF90F00F754B1 /* imgui_tables.cpp in Sources */,
 				1A471E3B254A1D6000FFF49B /* imgui_widgets.cpp in Sources */,
@@ -969,6 +965,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -991,6 +988,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1027,6 +1025,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1049,6 +1048,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

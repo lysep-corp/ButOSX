@@ -115,22 +115,3 @@ std::string NetVarManager::dumpTable(RecvTable *table, int depth)
 
     return ss.str();
 }
-
-void NetVarManager::dumpNetvars()
-{
-    std::stringstream ss;
-    char cwd[1024];
-
-    for (ClientClass *pClass = pClient->GetAllClasses(); pClass != NULL; pClass = pClass->m_pNext)
-    {
-        RecvTable *table = pClass->m_pRecvTable;
-        ss << NetVarManager::dumpTable(table, 0);
-    }
-
-    getcwd(cwd, sizeof(cwd));
-
-    char* netvarsPath;
-    asprintf(&netvarsPath, "%s/netvars.txt", cwd);
-
-    std::ofstream(netvarsPath) << ss.str();
-}
