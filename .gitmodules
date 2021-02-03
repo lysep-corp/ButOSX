@@ -4,6 +4,6 @@
 [submodule "ButOSX/Thirdparty/xorstr"]
 	path = ButOSX/Thirdparty/xorstr
 	url = https://github.com/qis/xorstr
-[submodule "SDL2"]
+[submodule "ButOSX/Thirdparty/SDL2"]
 	path = ButOSX/Thirdparty/SDL2
 	url = https://github.com/spurious/SDL-mirror
