@@ -13,11 +13,11 @@
 #include "CustomWidgets.hpp"
 
 char *Pages::PageList[]{
-    "VISUALS",
-    "ASSISTS",
-    "CHANGERS",
-    "MISCS",
-    "SETTINGS"
+    (char *)"VISUALS",
+    (char *)"ASSISTS",
+    (char *)"CHANGERS",
+    (char *)"MISCS",
+    (char *)"SETTINGS"
 };
 
 float clip(float n, float lower, float upper)
@@ -100,7 +100,7 @@ void MenuRenderer::RenderMenu(bool _visible){
                 if (CustomWidgets::SubTab(PageName, TabSize, selected_Tab == i ? true : false))
                     selected_Tab = i;
                 ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (((TabSize.x * (i + 1)) - PageNameSize.x) / 2) + ((TabSize.x * i) / 2), (WINDOW_PADDING * 3.5f) + ((TabSize.y - PageNameSize.y - 4) / 2)));
-                ImGui::Text(PageName);
+                ImGui::Text("%s", xorstr(PageName));
             }
             switch (selected_Tab){
                 case 0:
@@ -182,7 +182,7 @@ void Pages::SettingsPage(){ //Page for settings;
         if(TEST){
             ImGui::GetWindowDrawList()->AddRect(ImVec2(ImGui::GetWindowPos().x + 10, ImGui::GetWindowPos().y + 80), ImVec2(ImGui::GetWindowPos().x + 140, ImGui::GetWindowPos().y + WINDOW_HEIGHT - 40), ImColor(0.f, 1.0f, 0.f, ImGui::GetStyle().Alpha));
             ImGui::SetCursorPos(ImVec2((10 + 140 - ImGui::CalcTextSize(xorstr("Lyceion")).x) / 2.f, WINDOW_HEIGHT - 35));
-            ImGui::Text(xorstr("Lyceion"));
+            ImGui::Text("%s", xorstr("Lyceion"));
         }
         ImGui::PopFont();
     }

@@ -52,6 +52,7 @@ void DrawLine(int x, int y, int xx, int yy, Color color) {
 
 void DrawString(int x, int y, Color color, HFONT font, bool bCenter, const char* szString) {
     std::wstring wString = StringToWstring(szString);
+    int strSize = (int)wcslen(wString.c_str());
     if(bCenter) {
         int wide, tall;
         pSurface->GetTextSize(font, wString.c_str(), wide, tall);
@@ -61,7 +62,7 @@ void DrawString(int x, int y, Color color, HFONT font, bool bCenter, const char*
     pSurface->DrawSetTextPos(x, y);
     pSurface->DrawSetTextFont(font);
     pSurface->DrawSetTextColor(color);
-    pSurface->DrawPrintText(wString.c_str(), wcslen(wString.c_str()));
+    pSurface->DrawPrintText(wString.c_str(), strSize);
 }
 
 void DrawHealthbar(int x, int y, int w, int h, int health, Color color) {
