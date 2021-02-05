@@ -38,9 +38,4 @@ public:
         typedef void (*Fn)(void*, IMaterial*, int, int);
         return getvfunc<Fn>(this, 1)(this, mat, 0, 0);
     }
-
-    void DrawModelExecute(void* ctx, const DrawModelState_t &state, const ModelRenderInfo_t &pInfo, matrix3x4_t *pCustomBoneToWorld = NULL) {
-        typedef void (*Fn)(void*, void* ctx, const DrawModelState_t &state, const ModelRenderInfo_t &pInfo, matrix3x4_t *pCustomBoneToWorld);
-        return getvfunc<Fn>(this, 21)(this, ctx, state, pInfo, pCustomBoneToWorld);
-    }
 };

@@ -140,6 +140,7 @@
 		1AC8B1D025BAF90F00F754B1 /* imgui_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */; };
 		1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AF384DC254CBE2400336590 /* CustomWidgets.cpp */; };
 		1AF384DF254CBE2400336590 /* CustomWidgets.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1AF384DD254CBE2400336590 /* CustomWidgets.hpp */; };
+		36EE828925CDD0AC00B0F612 /* Vector4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36EE828825CDD0AC00B0F612 /* Vector4D.cpp */; };
 		6A22195225BC491300F879B2 /* NSTouchBar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A22195125BC491300F879B2 /* NSTouchBar.mm */; };
 		6A22195725BC492D00F879B2 /* NSTouchBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A22195625BC492D00F879B2 /* NSTouchBar.h */; };
 		6A22195F25BC4B2800F879B2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */; };
@@ -319,6 +320,8 @@
 		1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tables.cpp; sourceTree = "<group>"; };
 		1AF384DC254CBE2400336590 /* CustomWidgets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CustomWidgets.cpp; sourceTree = "<group>"; };
 		1AF384DD254CBE2400336590 /* CustomWidgets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomWidgets.hpp; sourceTree = "<group>"; };
+		36EE828625CDCF8B00B0F612 /* Vector4D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector4D.h; sourceTree = "<group>"; };
+		36EE828825CDD0AC00B0F612 /* Vector4D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4D.cpp; sourceTree = "<group>"; };
 		6A22195125BC491300F879B2 /* NSTouchBar.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NSTouchBar.mm; sourceTree = "<group>"; };
 		6A22195625BC492D00F879B2 /* NSTouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTouchBar.h; sourceTree = "<group>"; };
 		6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -588,6 +591,8 @@
 				1A7C4791254EEDC400A58870 /* Vector3D.h */,
 				1A7C4792254EEDDE00A58870 /* Vector2D.h */,
 				1A7C4794254EEDF500A58870 /* QAngle.h */,
+				36EE828625CDCF8B00B0F612 /* Vector4D.h */,
+				36EE828825CDD0AC00B0F612 /* Vector4D.cpp */,
 			);
 			path = Vector;
 			sourceTree = "<group>";
@@ -952,6 +957,7 @@
 				1A7C47A2254EF0D100A58870 /* PatternScanner.cpp in Sources */,
 				1A471E55254A1F3E00FFF49B /* OpenGLHooker.cpp in Sources */,
 				1A471EFD254A265E00FFF49B /* Module.cpp in Sources */,
+				36EE828925CDD0AC00B0F612 /* Vector4D.cpp in Sources */,
 				1A42E93D25BC9C91006BB177 /* Offsets.cpp in Sources */,
 				1A471E4C254A1EBD00FFF49B /* imgui_impl_opengl2.cpp in Sources */,
 			);

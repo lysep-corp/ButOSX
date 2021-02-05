@@ -74,7 +74,7 @@ bool CustomWidgets::Switch(const char* label, bool* v)
     ImGui::SameLine();
     ImGui::SameLine();
     ImGui::RenderText(ImVec2(18 + check_bb.Max.x + style.ItemInnerSpacing.x, check_bb.Min.y + style.FramePadding.y - 5), label);
-    float ANIM_SPEED = 0.44f;
+    float ANIM_SPEED = 0.25f;
     if (g.LastActiveId == g.CurrentWindow->GetID(label))
     {
 

@@ -12,7 +12,11 @@
 #include "CheatSettings.h"
 #include "imgui.h"
 
-bool CheatSettings::ESP;
+bool CheatSettings::ESP::enabled;
+bool CheatSettings::ESP::box;
+bool CheatSettings::ESP::name;
+bool CheatSettings::ESP::health;
+bool CheatSettings::ESP::skeleton;
 
 std::wstring StringToWstring(std::string str) { 
     std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
@@ -169,6 +173,8 @@ void DrawSkeletonImGui(ImDrawList* drawArea, C_BaseEntity* pEntity, Color color)
 
 
 extern void Visuals::ESP::ESPSurface() {
+    if(!CheatSettings::ESP::enabled)
+        return;
     C_BaseEntity* pLocal = (C_BaseEntity*)pEntList->GetClientEntity(pEngine->GetLocalPlayer());
     for(int i = 0; i < pEntList->GetHighestEntityIndex(); i++) {
         C_BaseEntity* pEntity = (C_BaseEntity*)pEntList->GetClientEntity(i);
@@ -178,21 +184,19 @@ extern void Visuals::ESP::ESPSurface() {
         auto isVisible = TestTrace(pEntity, pLocal);
         IEngineClient::player_info_t pInfo;
         pEngine->GetPlayerInfo(i, &pInfo);
-        if(CheatSettings::ESP){
+        if(CheatSettings::ESP::box){
             if(DrawPlayerBox(pEntity, players)) {
-                if(pEntity->GetTeam() == Terrorist) { // Draw box ESP on T
+                if(pEntity->GetTeam() == Terrorist)
                     DrawBoxOutline(players.x, players.y, players.w, players.h, isVisible ? Color::Red() : Color::Yellow());
-                }
-                if(pEntity->GetTeam() == CounterTerrorist) { // Draw box ESP on CT
+                if(pEntity->GetTeam() == CounterTerrorist)
                     DrawBoxOutline(players.x, players.y, players.w, players.h, isVisible ? Color::Green() : Color::Blue());
-                }
-                /* Draw Skeleton */
-                DrawSkeleton(pEntity, Color::White());
-                /* Draws health bar */
-                DrawHealthbar(players.x - 5, players.y, 3, players.h, pEntity->GetHealth(), Color::Green());
-                /* Draws player name */
-                DrawString(players.x + players.w / 2, players.y - 12, Color::White(), eFont, true, pInfo.name);
             }
+            if(CheatSettings::ESP::name)
+                DrawString(players.x + players.w / 2, players.y - 12, Color::White(), eFont, true, pInfo.name);
+            if(CheatSettings::ESP::health)
+                DrawHealthbar(players.x - 5, players.y, 3, players.h, pEntity->GetHealth(), Color::Green());
+            if(CheatSettings::ESP::skeleton)
+                DrawSkeleton(pEntity, Color::White());
         }
     }
 }
@@ -201,7 +205,7 @@ extern void Visuals::ESP::EspImGui(ImDrawList* drawArea){
     C_BaseEntity* pLocal = (C_BaseEntity*)pEntList->GetClientEntity(pEngine->GetLocalPlayer());
     for(int i = 0; i < pEntList->GetHighestEntityIndex(); i++) {
         C_BaseEntity* pEntity = (C_BaseEntity*)pEntList->GetClientEntity(i);
-        if(!CheatSettings::ESP || !pEntity || !pLocal || pEntity->GetHealth() < 1 || pEntity->GetTeam() == pLocal->GetTeam() || pEntity->IsDormant() || pEntity->IsGhost() || pEntity == pLocal)
+        if(!CheatSettings::ESP::enabled || !pEntity || !pLocal || pEntity->GetHealth() < 1 || pEntity->GetTeam() == pLocal->GetTeam() || pEntity->IsDormant() || pEntity->IsGhost() || pEntity == pLocal)
             continue;
 
         bBoxStyle players;

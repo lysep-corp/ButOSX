@@ -10,7 +10,13 @@
 #define CheatSettings_h
 namespace CheatSettings {
     extern bool WaterMark;
-    extern bool ESP;
+    namespace ESP{
+        extern bool enabled;
+        extern bool box;
+        extern bool name;
+        extern bool health;
+        extern bool skeleton;
+    };
     extern bool NightMode;
 };
 #endif /* CheatSettings_h */
