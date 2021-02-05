@@ -12,7 +12,7 @@
 #include "MainHooker.hpp"
 #include "CustomWidgets.hpp"
 
-char *Pages::PageList[]{
+char *Pages::PageList[8]{
     (char *)"VISUALS",
     (char *)"ASSISTS",
     (char *)"CHANGERS",

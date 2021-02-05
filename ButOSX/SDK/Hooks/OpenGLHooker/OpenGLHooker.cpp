@@ -8,7 +8,7 @@
 
 #include "OpenGLHooker.hpp"
 #include "xorstr.h"
-#include "../../Menu/Datas.h"
+#include "../../Menu/Datas.hpp"
 #include "../../Menu/MenuRenderer.hpp"
 #include "Visuals.hpp"
 
