@@ -37,12 +37,12 @@ void MenuRenderer::RenderMenu(bool _visible){
     static float flAlpha = 0;
     if(_visible){
         chinaVisible = true;
-        flAlpha = clip(flAlpha + (1 / 0.55f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
+        flAlpha = clip(flAlpha + (1 / 0.85f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
     }
     else{
         if(flAlpha == 0.f)
             chinaVisible = false;
-        flAlpha = clip(flAlpha - (1 / 0.55f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
+        flAlpha = clip(flAlpha - (1 / 0.85f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
     }
     if(chinaVisible){
         static ImVec2 ScreenSize;
@@ -117,7 +117,7 @@ void MenuRenderer::RenderMenu(bool _visible){
                     Pages::SettingsPage();
                     break;
             }
-            UI->AddRectFilled(ImVec2(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y + WindowSize.y - 4), ImVec2(ImGui::GetWindowPos().x + WindowSize.x, ImGui::GetWindowPos().y + WindowSize.y + 2), ImColor(0.99f, 0.43f, 0.f, style.Alpha), 3, ImDrawCornerFlags_Bot);
+            //UI->AddRectFilled(ImVec2(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y + WindowSize.y - 4), ImVec2(ImGui::GetWindowPos().x + WindowSize.x, ImGui::GetWindowPos().y + WindowSize.y + 2), ImColor(0.99f, 0.43f, 0.f, style.Alpha), 3, ImDrawCornerFlags_Bot);
             ScreenSize = ImGui::GetIO().DisplaySize;
             ImGui::GetBackgroundDrawList()->AddRectFilled(ImVec2(0, 0), ScreenSize, ImColor(0.f, 0.f, 0.f, (style.Alpha / 1.2f)));
         }

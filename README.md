@@ -4,7 +4,7 @@
 Brought to you by xMuraty & Lyceion
 </p>
 
-##### NOTE: THIS PROJECT IS STILL WORK IN PROGRESS !
+##### NOTE: THIS PROJECT IS STILL WORK IN PROGRESS!
 ButOSX is an internal cheat project for Counter Strike: Global Offensive. This project is made with educational purposes. This is my first big C++ project, so code is probably very messy. Apologies.
 
 UI is powered by ImGui.
@@ -33,7 +33,7 @@ UI is powered by ImGui.
 More will be comming soon.
 
 ### Screenshots:
-[![Screenshot 1](https://i.imgur.com/vCyB8vs.png "Screenshot 1")](https://i.imgur.com/vCyB8vs.png "Screenshot 1")
+[![Screenshot 1](https://i.imgur.com/8zmB3Hd.png "Screenshot 1")](https://i.imgur.com/8zmB3Hd.png "Screenshot 1")
 [![Screenshot 2](https://i.imgur.com/1rlDksO.png "Screenshot 2")](https://i.imgur.com/1rlDksO.png "Screenshot 2")
 
 ##### Also includes TouchBar API:
