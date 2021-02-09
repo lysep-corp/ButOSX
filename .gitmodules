@@ -7,3 +7,6 @@
 [submodule "ButOSX/Thirdparty/SDL2"]
 	path = ButOSX/Thirdparty/SDL2
 	url = https://github.com/spurious/SDL-mirror
+[submodule "ButOSX/Thirdparty/NSTouchbarAPI"]
+	path = ButOSX/Thirdparty/NSTouchbarAPI
+	url = https://github.com/xMuratY/TouchBar-ObjectiveC
