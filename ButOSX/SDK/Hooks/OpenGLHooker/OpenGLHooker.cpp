@@ -8,8 +8,8 @@
 
 #include "OpenGLHooker.hpp"
 #include "xorstr.h"
-#include "../../Menu/Datas.hpp"
-#include "../../Menu/MenuRenderer.hpp"
+#include "../../Menu/ImGuiMenu/Datas.hpp"
+#include "../../Menu/ImGuiMenu/MenuRenderer.hpp"
 #include "Visuals.hpp"
 
 Uint8 SDLCALL SDL_GameControllerGetButton(SDL_GameController *gamecontroller, SDL_GameControllerButton button){

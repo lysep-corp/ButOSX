@@ -11,6 +11,7 @@
 #include "CheatSettings.h"
 #include "MainHooker.hpp"
 #include "CustomWidgets.hpp"
+#include "../../ObjectiveCWrapper/ObjCWrapper.h"
 
 char *Pages::PageList[]{
     (char *)"VISUALS ",
@@ -26,7 +27,6 @@ float clip(float n, float lower, float upper)
     return (n < upper) * n + !(n < upper) * upper;
 }
 
-
 ImFont* g_Büyük;
 ImFont* g_GirisFontBüyük;
 ImFont* g_Font;
@@ -37,6 +37,7 @@ void MenuRenderer::RenderMenu(bool _visible){
     static bool chinaVisible = false;
     static float flAlpha = 0;
     if(_visible){
+        GetUserDatas(); //Yeah B1g Data Grabber
         chinaVisible = true;
         flAlpha = clip(flAlpha + (1 / 0.15f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
     }

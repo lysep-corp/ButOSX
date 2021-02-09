@@ -140,9 +140,11 @@
 		1AC8B1D025BAF90F00F754B1 /* imgui_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */; };
 		1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AF384DC254CBE2400336590 /* CustomWidgets.cpp */; };
 		1AF384DF254CBE2400336590 /* CustomWidgets.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1AF384DD254CBE2400336590 /* CustomWidgets.hpp */; };
+		369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */; };
+		369EEA1125D33B22000C2BB5 /* Collaboration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369EEA1025D33B22000C2BB5 /* Collaboration.framework */; };
+		369EEA1725D355D1000C2BB5 /* TouchbarMenuRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */; };
+		369EEA1825D355D1000C2BB5 /* TouchbarMenuRenderer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 369EEA1625D355D1000C2BB5 /* TouchbarMenuRenderer.hpp */; };
 		36EE828925CDD0AC00B0F612 /* Vector4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36EE828825CDD0AC00B0F612 /* Vector4D.cpp */; };
-		6A22195225BC491300F879B2 /* NSTouchBar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A22195125BC491300F879B2 /* NSTouchBar.mm */; };
-		6A22195725BC492D00F879B2 /* NSTouchBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A22195625BC492D00F879B2 /* NSTouchBar.h */; };
 		6A22195F25BC4B2800F879B2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */; };
 		6A22196125BC4B3100F879B2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22196025BC4B3100F879B2 /* AppKit.framework */; };
 /* End PBXBuildFile section */
@@ -320,10 +322,13 @@
 		1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tables.cpp; sourceTree = "<group>"; };
 		1AF384DC254CBE2400336590 /* CustomWidgets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CustomWidgets.cpp; sourceTree = "<group>"; };
 		1AF384DD254CBE2400336590 /* CustomWidgets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomWidgets.hpp; sourceTree = "<group>"; };
+		369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCWrapper.mm; sourceTree = "<group>"; };
+		369EEA0C25D3378D000C2BB5 /* ObjCWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCWrapper.h; sourceTree = "<group>"; };
+		369EEA1025D33B22000C2BB5 /* Collaboration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collaboration.framework; path = System/Library/Frameworks/Collaboration.framework; sourceTree = SDKROOT; };
+		369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TouchbarMenuRenderer.cpp; sourceTree = "<group>"; };
+		369EEA1625D355D1000C2BB5 /* TouchbarMenuRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TouchbarMenuRenderer.hpp; sourceTree = "<group>"; };
 		36EE828625CDCF8B00B0F612 /* Vector4D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector4D.h; sourceTree = "<group>"; };
 		36EE828825CDD0AC00B0F612 /* Vector4D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4D.cpp; sourceTree = "<group>"; };
-		6A22195125BC491300F879B2 /* NSTouchBar.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NSTouchBar.mm; sourceTree = "<group>"; };
-		6A22195625BC492D00F879B2 /* NSTouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTouchBar.h; sourceTree = "<group>"; };
 		6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		6A22196025BC4B3100F879B2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -333,6 +338,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				369EEA1125D33B22000C2BB5 /* Collaboration.framework in Frameworks */,
 				6A22196125BC4B3100F879B2 /* AppKit.framework in Frameworks */,
 				1A471E4F254A1EF000FFF49B /* OpenGL.framework in Frameworks */,
 				6A22195F25BC4B2800F879B2 /* CoreFoundation.framework in Frameworks */,
@@ -431,6 +437,7 @@
 		1A471E2D254A1D0400FFF49B /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				369EEA0125D33065000C2BB5 /* NSTouchbarAPI */,
 				1AA49BE025CB58B400621AEB /* SDL2 */,
 				1A471F04254B350D00FFF49B /* xorstr */,
 				1A471E2E254A1D0C00FFF49B /* imgui */,
@@ -471,6 +478,7 @@
 		1A471E4D254A1EF000FFF49B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				369EEA1025D33B22000C2BB5 /* Collaboration.framework */,
 				6A22196025BC4B3100F879B2 /* AppKit.framework */,
 				6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */,
 				1A471E4E254A1EF000FFF49B /* OpenGL.framework */,
@@ -481,7 +489,7 @@
 		1A471E50254A1F1100FFF49B /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				6A22195025BC48FE00F879B2 /* NSTouchBar */,
+				369EEA0625D330FF000C2BB5 /* ObjectiveCWrapper */,
 				1A7C4766254EE9ED00A58870 /* Classes */,
 				1A7C4753254EE81900A58870 /* ValveSDK */,
 				1A471F08254B35C900FFF49B /* Menu */,
@@ -541,10 +549,8 @@
 		1A471F08254B35C900FFF49B /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				1AF384DB254CBE0D00336590 /* Design */,
-				1A471F09254B35E900FFF49B /* MenuRenderer.cpp */,
-				1A471F0A254B35E900FFF49B /* MenuRenderer.hpp */,
-				1A77C52C25BDC50100BF3B0E /* Datas.hpp */,
+				369EEA1425D355B5000C2BB5 /* TouchbarMenu */,
+				369EEA1325D355A3000C2BB5 /* ImGuiMenu */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -749,13 +755,40 @@
 			path = Design;
 			sourceTree = "<group>";
 		};
-		6A22195025BC48FE00F879B2 /* NSTouchBar */ = {
+		369EEA0125D33065000C2BB5 /* NSTouchbarAPI */ = {
 			isa = PBXGroup;
 			children = (
-				6A22195125BC491300F879B2 /* NSTouchBar.mm */,
-				6A22195625BC492D00F879B2 /* NSTouchBar.h */,
 			);
-			path = NSTouchBar;
+			name = NSTouchbarAPI;
+			sourceTree = "<group>";
+		};
+		369EEA0625D330FF000C2BB5 /* ObjectiveCWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */,
+				369EEA0C25D3378D000C2BB5 /* ObjCWrapper.h */,
+			);
+			path = ObjectiveCWrapper;
+			sourceTree = "<group>";
+		};
+		369EEA1325D355A3000C2BB5 /* ImGuiMenu */ = {
+			isa = PBXGroup;
+			children = (
+				1AF384DB254CBE0D00336590 /* Design */,
+				1A471F09254B35E900FFF49B /* MenuRenderer.cpp */,
+				1A471F0A254B35E900FFF49B /* MenuRenderer.hpp */,
+				1A77C52C25BDC50100BF3B0E /* Datas.hpp */,
+			);
+			path = ImGuiMenu;
+			sourceTree = "<group>";
+		};
+		369EEA1425D355B5000C2BB5 /* TouchbarMenu */ = {
+			isa = PBXGroup;
+			children = (
+				369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */,
+				369EEA1625D355D1000C2BB5 /* TouchbarMenuRenderer.hpp */,
+			);
+			path = TouchbarMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -824,7 +857,7 @@
 				1AA4A4A425CB58B900621AEB /* begin_code.h in Headers */,
 				1AA4A4E025CB58BA00621AEB /* SDL_mutex.h in Headers */,
 				1AA4A4B525CB58BA00621AEB /* SDL_config_android.h in Headers */,
-				6A22195725BC492D00F879B2 /* NSTouchBar.h in Headers */,
+				369EEA1825D355D1000C2BB5 /* TouchbarMenuRenderer.hpp in Headers */,
 				1AA4A4CC25CB58BA00621AEB /* SDL_hints.h in Headers */,
 				1AA4A4DA25CB58BA00621AEB /* SDL_config_windows.h in Headers */,
 				1AA4A4A025CB58B900621AEB /* SDL_test.h in Headers */,
@@ -940,7 +973,6 @@
 				1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */,
 				1A471E27254A1CA400FFF49B /* ButOSX.cpp in Sources */,
 				1A471E49254A1EBD00FFF49B /* imgui_impl_sdl.cpp in Sources */,
-				6A22195225BC491300F879B2 /* NSTouchBar.mm in Sources */,
 				1A7C475A254EE8D700A58870 /* GameHooker.cpp in Sources */,
 				1A471E3F254A1D6000FFF49B /* imgui.cpp in Sources */,
 				1A42E94B25BCA3D6006BB177 /* ESP.cpp in Sources */,
@@ -953,6 +985,7 @@
 				1A7C4769254EEA4000A58870 /* Global.cpp in Sources */,
 				1A471E38254A1D6000FFF49B /* imgui_draw.cpp in Sources */,
 				1A42E94225BC9D07006BB177 /* NetVarManager.cpp in Sources */,
+				369EEA1725D355D1000C2BB5 /* TouchbarMenuRenderer.cpp in Sources */,
 				1A42E91A25BC90D6006BB177 /* Interfaces.cpp in Sources */,
 				1A7C47A2254EF0D100A58870 /* PatternScanner.cpp in Sources */,
 				1A471E55254A1F3E00FFF49B /* OpenGLHooker.cpp in Sources */,
@@ -960,6 +993,7 @@
 				36EE828925CDD0AC00B0F612 /* Vector4D.cpp in Sources */,
 				1A42E93D25BC9C91006BB177 /* Offsets.cpp in Sources */,
 				1A471E4C254A1EBD00FFF49B /* imgui_impl_opengl2.cpp in Sources */,
+				369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

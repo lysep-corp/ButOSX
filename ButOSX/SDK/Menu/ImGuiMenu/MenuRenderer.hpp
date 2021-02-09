@@ -11,10 +11,10 @@
 
 #include <stdio.h>
 
-#include "../../Thirdparty/imgui/imgui.h"
-#include "../../Thirdparty/imgui/backends/imgui_impl_sdl.h"
-#include "../../Thirdparty/imgui/backends/imgui_impl_opengl2.h"
-#include "../../Thirdparty/imgui/imgui_internal.h"
+#include "../../../Thirdparty/imgui/imgui.h"
+#include "../../../Thirdparty/imgui/backends/imgui_impl_sdl.h"
+#include "../../../Thirdparty/imgui/backends/imgui_impl_opengl2.h"
+#include "../../../Thirdparty/imgui/imgui_internal.h"
 
 #include "Design/CustomWidgets.hpp"
 
