@@ -3,7 +3,7 @@
 //  ButOSX
 //
 //  Created by Can on 31.10.2020.
-//  Copyright © 2020 VersteckteKrone. All rights reserved.
+//  Copyright © 2020 Lyceion. All rights reserved.
 //
 
 #include "CustomWidgets.hpp"
@@ -64,8 +64,7 @@ bool CustomWidgets::Switch(const char* label, bool* v)
 
     const float square_sz = ImGui::GetFrameHeight();
     ImVec2 pos = window->DC.CursorPos;
-    const ImRect total_bb(pos, ImVec2(pos.x + square_sz + (label_size.x > 5.0f ? style.ItemInnerSpacing.x + label_size.x : 5.0f), pos.y + label_size.y + style.FramePadding.y * 3.0f)); //arasındaki boşluk
-
+    const ImRect total_bb(pos, ImVec2(pos.x + square_sz + (label_size.x > 5.0f ? style.ItemInnerSpacing.x + label_size.x : 5.0f), pos.y + label_size.y + style.FramePadding.y * 3.0f)); 
     ImGui::InvisibleButton(label, ImVec2(width, height));
     if (ImGui::IsItemClicked())
         *v = !*v;
@@ -77,34 +76,26 @@ bool CustomWidgets::Switch(const char* label, bool* v)
     float ANIM_SPEED = 0.25f;
     if (g.LastActiveId == g.CurrentWindow->GetID(label))
     {
-
         float t_anim = ImSaturate(g.LastActiveIdTimer / ANIM_SPEED);
         t = *v ? (t_anim) : (1.0f - t_anim);
     }
 
-    ImU32 col_bg;
-    ImU32 top_bg2;
-
+    ImU32 col_bg, top_bg2;
     if (ImGui::IsItemHovered()) {
         col_bg = ImGui::GetColorU32(ImLerp(ImVec4(0.17f, 0.21f, 0.24f, 1.00f), ImVec4(0.15f, 0.82f, 0.35f, 1.00f), t));
         top_bg2 = IM_COL32(103, 23, 244, 50);
 
     }
-    else {
+    else
         col_bg = ImGui::GetColorU32(ImLerp(ImVec4(0.17f, 0.21f, 0.24f, 1.00f), ImVec4(0.15f, 0.82f, 0.35f, 1.00f), t));
-    }
     draw_list->AddRectFilled(p, ImVec2(p.x + width, p.y + 13.f), col_bg, height * 0.5f); // top arkası
-    if (ImGui::IsItemClicked()) {
+    if (ImGui::IsItemClicked())
         draw_list->AddCircleFilled(ImVec2(p.x + radius - 2.f + t * (width + 5.f - radius * 2.0f), p.y + radius / 1.5), radius - 1.5f, ImColor(1.0f, 1.0f, 1.0f, style.Alpha), 30); //top
-    }
-    else {
+    else
         draw_list->AddCircleFilled(ImVec2(p.x + radius - 2.f + t * (width + 5.f - radius * 2.0f), p.y + radius / 1.5), radius - 1.5f, ImColor(1.0f, 1.0f, 1.0f, style.Alpha), 30); //top
-    }
 
-    if (ImGui::IsItemHovered()) {
+    if (ImGui::IsItemHovered())
         draw_list->AddCircleFilled(ImVec2(p.x + radius2 - 6.f + t * (width + 13.f - radius2 * 2.0f), p.y + radius2 / 2), radius2 - 0.5f, IM_COL32(255, 255, 255, 50), 24); // saydam top
-
-    }
 
     if (window->SkipItems)
         return false;
@@ -152,17 +143,16 @@ void CustomWidgets::Spinner(float radius, float thickness, int num_segments, ImV
 
 bool CustomWidgets::ControlBox(void (*UnHookFunction)(), bool* HideShowBool, bool* FullScreenBool){
     ImGuiStyle& style = ImGui::GetStyle();
-    static int oldFrameRounding = style.FrameRounding;
-    style.FrameRounding = 10;
+    ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 10);
+    
     //Close Button
     style.Colors[ImGuiCol_Button] = ImVec4(1.00f, 0.36f, 0.33f, style.Alpha);
     style.Colors[ImGuiCol_ButtonHovered] = ImVec4(1.00f, 0.56f, 0.53f, style.Alpha);
     style.Colors[ImGuiCol_ButtonActive] = ImVec4(1.00f, 0.26f, 0.23f, style.Alpha);
     style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 0.00f);
     ImGui::SetCursorPos(ImVec2(10, 9));
-    if (ImGui::Button(xorstr("X"), ImVec2(10, 10))){
+    if (ImGui::Button(xorstr("X"), ImVec2(10, 10)))
         UnHookFunction();
-    }
     
     //Minimize Button
     style.Colors[ImGuiCol_Button] = ImVec4(1.00f, 0.76f, 0.20f, style.Alpha);
@@ -170,9 +160,8 @@ bool CustomWidgets::ControlBox(void (*UnHookFunction)(), bool* HideShowBool, boo
     style.Colors[ImGuiCol_ButtonActive] = ImVec4(1.00f, 0.66f, 0.10f, style.Alpha);
     style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 0.00f);
     ImGui::SetCursorPos(ImVec2(25, 9));
-    if (ImGui::Button(xorstr("_"), ImVec2(10, 10))){
+    if (ImGui::Button(xorstr("_"), ImVec2(10, 10)))
         *HideShowBool = false;
-    }
     
     //Fullscreen Button
     style.Colors[ImGuiCol_Button] = ImVec4(0.14f, 0.49f, 0.20f, style.Alpha);
@@ -181,9 +170,7 @@ bool CustomWidgets::ControlBox(void (*UnHookFunction)(), bool* HideShowBool, boo
     style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 0.00f);
     ImGui::SetCursorPos(ImVec2(40, 9));
     if (ImGui::Button(xorstr("<>"), ImVec2(10, 10)))
-    {
         *FullScreenBool = !*FullScreenBool;
-    }
-    style.FrameRounding = oldFrameRounding;
+    ImGui::PopStyleVar();
     return true;
 }

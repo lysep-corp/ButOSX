@@ -3,7 +3,7 @@
 //  ButOSX
 //
 //  Created by Can Destan on 27.01.2021.
-//  Copyright © 2021 VersteckteKrone. All rights reserved.
+//  Copyright © 2021 Lyceion. All rights reserved.
 //
 
 #include "Visuals.hpp"
@@ -12,6 +12,7 @@
 #include "CheatSettings.h"
 #include "xorstr.h"
 #include "PatternScanner.hpp"
+#include "OpenGLHooker.hpp"
 
 ImVec2 textsize;
 bool CheatSettings::WaterMark = false;
@@ -19,6 +20,7 @@ bool CheatSettings::NightMode = false;
 void Visuals::Others::Watermark(ImDrawList* drawArea){ //Draws watermark which proudly written by me while i'm learning imgui in 2~3 hrs. LMAO
     if(!CheatSettings::WaterMark)
         return;
+    ImGui::PushFont(g_Font);
     ImVec2 WindowSize = ImGui::GetIO().DisplaySize;
     time_t rawtime;
     struct tm * timeinfo;
@@ -34,6 +36,7 @@ void Visuals::Others::Watermark(ImDrawList* drawArea){ //Draws watermark which p
     const char* watermark_text = waterMarkBuff.c_str();
     textsize = ImGui::CalcTextSize(watermark_text); 
     drawArea->AddText(ImVec2(WindowSize.x - (textsize.x + 60), 20 + (30 - (textsize.y + 6)) / 2), ImColor(255, 255, 255, 255), watermark_text);
+    ImGui::PopFont();
 }
 
 void Visuals::Others::NightMode(){

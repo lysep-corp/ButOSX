@@ -3,7 +3,7 @@
 //  ButOSX
 //
 //  Created by Can on 29.10.2020.
-//  Copyright © 2020 VersteckteKrone. All rights reserved.
+//  Copyright © 2020 Lyceion. All rights reserved.
 //
 
 #include "MenuRenderer.hpp"
@@ -36,8 +36,12 @@ void MenuRenderer::RenderMenu(bool _visible){
     const char* CheatName = xorstr("ButOSX - Godly Cheat of MACOSX");
     static bool chinaVisible = false;
     static float flAlpha = 0;
+    static bool GetUserData = false;
+    if(!GetUserData){
+        GetUserDatas(); /*Yeah B1g Data Grabber*/
+        GetUserData = true;
+    }
     if(_visible){
-        GetUserDatas(); //Yeah B1g Data Grabber
         chinaVisible = true;
         flAlpha = clip(flAlpha + (1 / 0.15f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
     }
@@ -54,14 +58,14 @@ void MenuRenderer::RenderMenu(bool _visible){
         style.Colors[ImGuiCol_WindowBg] = ImVec4(0.12f, 0.12f, 0.12f, style.Alpha);
         style.Colors[ImGuiCol_Button] = ImVec4(0.11f, 0.11f, 0.11f, style.Alpha);
         style.Colors[ImGuiCol_Border] = ImVec4(0.11f, 0.11f, 0.11f, style.Alpha);
-        style.WindowBorderSize = 0;
-        style.ChildBorderSize = 0.01f;
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize | ImGuiStyleVar_ChildBorderSize, 0);
         ImGui::SetNextWindowSize(MainWindowSize);
         ImGui::SetNextWindowBgAlpha(style.Alpha);
         static int selected_Tab = 0;
         static bool isFullscreen = false;
         static ImGuiWindowFlags UI_FLAGS = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar;
         ImGui::Begin(CheatName, NULL, UI_FLAGS); {
+            ImGui::PopStyleVar();
             MainWindowPos = ImGui::GetWindowPos();
             static ImGuiWindow* window = ImGui::GetCurrentWindow();
             static ImDrawList* UI = window->DrawList;

@@ -3,7 +3,7 @@
 //  ButOSX
 //
 //  Created by Can on 23.01.2021.
-//  Copyright © 2021 VersteckteKrone. All rights reserved.
+//  Copyright © 2021 Lyceion. All rights reserved.
 //
 
 //FULLY STOLEN RN I'M GONNE SWITCH TO THE IMGUI RENDER AND WRITE FROM SCRATH. THAT WAS FOR SHOWDOWN! 28.01.2021

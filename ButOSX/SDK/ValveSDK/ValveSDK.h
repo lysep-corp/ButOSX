@@ -3,7 +3,7 @@
 //  ButOSX
 //
 //  Created by Can on 23.01.2021.
-//  Copyright © 2021 VersteckteKrone. All rights reserved.
+//  Copyright © 2021 Lyceion. All rights reserved.
 //
 
 #ifndef ValveSDK_h

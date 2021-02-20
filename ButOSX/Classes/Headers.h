@@ -3,7 +3,7 @@
 //  ButOSX
 //
 //  Created by Can on 1.11.2020.
-//  Copyright © 2020 VersteckteKrone. All rights reserved.
+//  Copyright © 2020 Lyceion. All rights reserved.
 //
 
 #ifndef Headers_h

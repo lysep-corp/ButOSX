@@ -8,13 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1A42E91A25BC90D6006BB177 /* Interfaces.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A42E91825BC90D6006BB177 /* Interfaces.cpp */; };
-		1A42E91B25BC90D6006BB177 /* Interfaces.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A42E91925BC90D6006BB177 /* Interfaces.hpp */; };
 		1A42E93D25BC9C91006BB177 /* Offsets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A42E93B25BC9C91006BB177 /* Offsets.cpp */; };
-		1A42E93E25BC9C91006BB177 /* Offsets.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A42E93C25BC9C91006BB177 /* Offsets.hpp */; };
 		1A42E94225BC9D07006BB177 /* NetVarManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A42E94025BC9D07006BB177 /* NetVarManager.cpp */; };
-		1A42E94325BC9D07006BB177 /* NetVarManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A42E94125BC9D07006BB177 /* NetVarManager.hpp */; };
 		1A42E94B25BCA3D6006BB177 /* ESP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A42E94925BCA3D6006BB177 /* ESP.cpp */; };
-		1A471E23254A1CA400FFF49B /* ButOSX.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A471E22254A1CA400FFF49B /* ButOSX.hpp */; };
 		1A471E27254A1CA400FFF49B /* ButOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471E26254A1CA400FFF49B /* ButOSX.cpp */; };
 		1A471E38254A1D6000FFF49B /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471E2F254A1D6000FFF49B /* imgui_draw.cpp */; };
 		1A471E39254A1D6000FFF49B /* imstb_textedit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A471E30254A1D6000FFF49B /* imstb_textedit.h */; };
@@ -25,30 +21,19 @@
 		1A471E3E254A1D6000FFF49B /* imgui.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A471E35254A1D6000FFF49B /* imgui.h */; };
 		1A471E3F254A1D6000FFF49B /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471E36254A1D6000FFF49B /* imgui.cpp */; };
 		1A471E40254A1D6000FFF49B /* imgui_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A471E37254A1D6000FFF49B /* imgui_internal.h */; };
-		1A471E48254A1EBD00FFF49B /* imgui_impl_opengl2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A471E43254A1EBC00FFF49B /* imgui_impl_opengl2.h */; };
 		1A471E49254A1EBD00FFF49B /* imgui_impl_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471E44254A1EBC00FFF49B /* imgui_impl_sdl.cpp */; };
 		1A471E4A254A1EBD00FFF49B /* imgui_impl_osx.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A471E45254A1EBD00FFF49B /* imgui_impl_osx.h */; };
 		1A471E4B254A1EBD00FFF49B /* imgui_impl_sdl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A471E46254A1EBD00FFF49B /* imgui_impl_sdl.h */; };
-		1A471E4C254A1EBD00FFF49B /* imgui_impl_opengl2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471E47254A1EBD00FFF49B /* imgui_impl_opengl2.cpp */; };
 		1A471E4F254A1EF000FFF49B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A471E4E254A1EF000FFF49B /* OpenGL.framework */; };
 		1A471E55254A1F3E00FFF49B /* OpenGLHooker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471E53254A1F3E00FFF49B /* OpenGLHooker.cpp */; };
-		1A471E56254A1F3E00FFF49B /* OpenGLHooker.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A471E54254A1F3E00FFF49B /* OpenGLHooker.hpp */; };
 		1A471E59254A201100FFF49B /* MainHooker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471E57254A201100FFF49B /* MainHooker.cpp */; };
-		1A471E5A254A201100FFF49B /* MainHooker.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A471E58254A201100FFF49B /* MainHooker.hpp */; };
 		1A471EFD254A265E00FFF49B /* Module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471EFB254A265E00FFF49B /* Module.cpp */; };
-		1A471EFE254A265E00FFF49B /* Module.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A471EFC254A265E00FFF49B /* Module.hpp */; };
 		1A471F01254A266D00FFF49B /* Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471EFF254A266D00FFF49B /* Helpers.cpp */; };
-		1A471F02254A266D00FFF49B /* Helpers.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A471F00254A266D00FFF49B /* Helpers.hpp */; };
 		1A471F0B254B35E900FFF49B /* MenuRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471F09254B35E900FFF49B /* MenuRenderer.cpp */; };
-		1A471F0C254B35E900FFF49B /* MenuRenderer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A471F0A254B35E900FFF49B /* MenuRenderer.hpp */; };
 		1A518E5125C206980080F876 /* Others.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A518E4F25C206980080F876 /* Others.cpp */; };
-		1A518E5725C207150080F876 /* Visuals.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A518E5525C207150080F876 /* Visuals.hpp */; };
 		1A7C475A254EE8D700A58870 /* GameHooker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C4758254EE8D700A58870 /* GameHooker.cpp */; };
-		1A7C475B254EE8D700A58870 /* GameHooker.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A7C4759254EE8D700A58870 /* GameHooker.hpp */; };
 		1A7C4769254EEA4000A58870 /* Global.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C4767254EEA4000A58870 /* Global.cpp */; };
-		1A7C476A254EEA4000A58870 /* Global.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A7C4768254EEA4000A58870 /* Global.hpp */; };
 		1A7C47A2254EF0D100A58870 /* PatternScanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C47A0254EF0D100A58870 /* PatternScanner.cpp */; };
-		1A7C47A3254EF0D100A58870 /* PatternScanner.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1A7C47A1254EF0D100A58870 /* PatternScanner.hpp */; };
 		1AA4A49825CB58B900621AEB /* SDL_misc.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA49D3125CB58B500621AEB /* SDL_misc.h */; };
 		1AA4A49925CB58B900621AEB /* SDL_opengles2_gl2ext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA49D3225CB58B500621AEB /* SDL_opengles2_gl2ext.h */; };
 		1AA4A49A25CB58B900621AEB /* SDL_test_random.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA49D3325CB58B500621AEB /* SDL_test_random.h */; };
@@ -139,11 +124,11 @@
 		1AC8B1CB25BAF84C00F754B1 /* xorstr.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AC8B1CA25BAF84C00F754B1 /* xorstr.h */; };
 		1AC8B1D025BAF90F00F754B1 /* imgui_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */; };
 		1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AF384DC254CBE2400336590 /* CustomWidgets.cpp */; };
-		1AF384DF254CBE2400336590 /* CustomWidgets.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1AF384DD254CBE2400336590 /* CustomWidgets.hpp */; };
+		367C2E6D25D687E200AD3C5B /* imgui_impl_opengl2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 367C2E6B25D687E200AD3C5B /* imgui_impl_opengl2.cpp */; };
+		367C2E6E25D687E200AD3C5B /* imgui_impl_opengl2.h in Headers */ = {isa = PBXBuildFile; fileRef = 367C2E6C25D687E200AD3C5B /* imgui_impl_opengl2.h */; };
 		369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */; };
 		369EEA1125D33B22000C2BB5 /* Collaboration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369EEA1025D33B22000C2BB5 /* Collaboration.framework */; };
 		369EEA1725D355D1000C2BB5 /* TouchbarMenuRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */; };
-		369EEA1825D355D1000C2BB5 /* TouchbarMenuRenderer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 369EEA1625D355D1000C2BB5 /* TouchbarMenuRenderer.hpp */; };
 		36EE828925CDD0AC00B0F612 /* Vector4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36EE828825CDD0AC00B0F612 /* Vector4D.cpp */; };
 		6A22195F25BC4B2800F879B2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */; };
 		6A22196125BC4B3100F879B2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22196025BC4B3100F879B2 /* AppKit.framework */; };
@@ -189,11 +174,9 @@
 		1A471E35254A1D6000FFF49B /* imgui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui.h; sourceTree = "<group>"; };
 		1A471E36254A1D6000FFF49B /* imgui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui.cpp; sourceTree = "<group>"; };
 		1A471E37254A1D6000FFF49B /* imgui_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_internal.h; sourceTree = "<group>"; };
-		1A471E43254A1EBC00FFF49B /* imgui_impl_opengl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_opengl2.h; sourceTree = "<group>"; };
 		1A471E44254A1EBC00FFF49B /* imgui_impl_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_sdl.cpp; sourceTree = "<group>"; };
 		1A471E45254A1EBD00FFF49B /* imgui_impl_osx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_osx.h; sourceTree = "<group>"; };
 		1A471E46254A1EBD00FFF49B /* imgui_impl_sdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_sdl.h; sourceTree = "<group>"; };
-		1A471E47254A1EBD00FFF49B /* imgui_impl_opengl2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_opengl2.cpp; sourceTree = "<group>"; };
 		1A471E4E254A1EF000FFF49B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		1A471E53254A1F3E00FFF49B /* OpenGLHooker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OpenGLHooker.cpp; sourceTree = "<group>"; };
 		1A471E54254A1F3E00FFF49B /* OpenGLHooker.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = OpenGLHooker.hpp; sourceTree = "<group>"; };
@@ -322,11 +305,16 @@
 		1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tables.cpp; sourceTree = "<group>"; };
 		1AF384DC254CBE2400336590 /* CustomWidgets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CustomWidgets.cpp; sourceTree = "<group>"; };
 		1AF384DD254CBE2400336590 /* CustomWidgets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomWidgets.hpp; sourceTree = "<group>"; };
+		367C2E6B25D687E200AD3C5B /* imgui_impl_opengl2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_opengl2.cpp; sourceTree = "<group>"; };
+		367C2E6C25D687E200AD3C5B /* imgui_impl_opengl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_opengl2.h; sourceTree = "<group>"; };
+		367C2E7225D6895A00AD3C5B /* imgui_impl_opengl3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_opengl3.cpp; sourceTree = "<group>"; };
+		367C2E7325D6895A00AD3C5B /* imgui_impl_opengl3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imgui_impl_opengl3.h; sourceTree = "<group>"; };
 		369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCWrapper.mm; sourceTree = "<group>"; };
 		369EEA0C25D3378D000C2BB5 /* ObjCWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCWrapper.h; sourceTree = "<group>"; };
 		369EEA1025D33B22000C2BB5 /* Collaboration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collaboration.framework; path = System/Library/Frameworks/Collaboration.framework; sourceTree = SDKROOT; };
 		369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TouchbarMenuRenderer.cpp; sourceTree = "<group>"; };
 		369EEA1625D355D1000C2BB5 /* TouchbarMenuRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TouchbarMenuRenderer.hpp; sourceTree = "<group>"; };
+		36CECC7625DF1F4B0029A263 /* TouchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchBar.m; sourceTree = "<group>"; };
 		36EE828625CDCF8B00B0F612 /* Vector4D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector4D.h; sourceTree = "<group>"; };
 		36EE828825CDD0AC00B0F612 /* Vector4D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4D.cpp; sourceTree = "<group>"; };
 		6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -437,7 +425,7 @@
 		1A471E2D254A1D0400FFF49B /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
-				369EEA0125D33065000C2BB5 /* NSTouchbarAPI */,
+				36CECC7525DF1F200029A263 /* TouchBar-ObjectiveC */,
 				1AA49BE025CB58B400621AEB /* SDL2 */,
 				1A471F04254B350D00FFF49B /* xorstr */,
 				1A471E2E254A1D0C00FFF49B /* imgui */,
@@ -466,8 +454,10 @@
 		1A471E42254A1DEF00FFF49B /* backends */ = {
 			isa = PBXGroup;
 			children = (
-				1A471E47254A1EBD00FFF49B /* imgui_impl_opengl2.cpp */,
-				1A471E43254A1EBC00FFF49B /* imgui_impl_opengl2.h */,
+				367C2E7225D6895A00AD3C5B /* imgui_impl_opengl3.cpp */,
+				367C2E7325D6895A00AD3C5B /* imgui_impl_opengl3.h */,
+				367C2E6B25D687E200AD3C5B /* imgui_impl_opengl2.cpp */,
+				367C2E6C25D687E200AD3C5B /* imgui_impl_opengl2.h */,
 				1A471E45254A1EBD00FFF49B /* imgui_impl_osx.h */,
 				1A471E44254A1EBC00FFF49B /* imgui_impl_sdl.cpp */,
 				1A471E46254A1EBD00FFF49B /* imgui_impl_sdl.h */,
@@ -755,13 +745,6 @@
 			path = Design;
 			sourceTree = "<group>";
 		};
-		369EEA0125D33065000C2BB5 /* NSTouchbarAPI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = NSTouchbarAPI;
-			sourceTree = "<group>";
-		};
 		369EEA0625D330FF000C2BB5 /* ObjectiveCWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -791,6 +774,14 @@
 			path = TouchbarMenu;
 			sourceTree = "<group>";
 		};
+		36CECC7525DF1F200029A263 /* TouchBar-ObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				36CECC7625DF1F4B0029A263 /* TouchBar.m */,
+			);
+			path = "TouchBar-ObjectiveC";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -801,13 +792,11 @@
 				1AA4A4ED25CB58BA00621AEB /* SDL_test_compare.h in Headers */,
 				1AA4A4E125CB58BA00621AEB /* close_code.h in Headers */,
 				1AA4A4E825CB58BA00621AEB /* SDL_opengles2_khrplatform.h in Headers */,
-				1A518E5725C207150080F876 /* Visuals.hpp in Headers */,
 				1AA4A49E25CB58B900621AEB /* SDL_clipboard.h in Headers */,
 				1AA4A4CE25CB58BA00621AEB /* SDL_timer.h in Headers */,
 				1AA4A4B125CB58BA00621AEB /* SDL_main.h in Headers */,
 				1A471E4B254A1EBD00FFF49B /* imgui_impl_sdl.h in Headers */,
 				1AA4A4D825CB58BA00621AEB /* SDL_version.h in Headers */,
-				1A42E91B25BC90D6006BB177 /* Interfaces.hpp in Headers */,
 				1AA4A4C125CB58BA00621AEB /* SDL_test_common.h in Headers */,
 				1AA4A4A225CB58B900621AEB /* SDL_endian.h in Headers */,
 				1AA4A4CB25CB58BA00621AEB /* SDL_system.h in Headers */,
@@ -823,12 +812,10 @@
 				1AA4A4A125CB58B900621AEB /* SDL_test_assert.h in Headers */,
 				1AA4A4DC25CB58BA00621AEB /* SDL_thread.h in Headers */,
 				1AA4A4BB25CB58BA00621AEB /* SDL_platform.h in Headers */,
-				1A471EFE254A265E00FFF49B /* Module.hpp in Headers */,
 				1AC8B1CB25BAF84C00F754B1 /* xorstr.h in Headers */,
 				1AA4A4A825CB58BA00621AEB /* SDL_config_psp.h in Headers */,
 				1AA4A4BD25CB58BA00621AEB /* SDL_config_minimal.h in Headers */,
 				1AA4A4AE25CB58BA00621AEB /* SDL_egl.h in Headers */,
-				1A471E5A254A201100FFF49B /* MainHooker.hpp in Headers */,
 				1A471E3E254A1D6000FFF49B /* imgui.h in Headers */,
 				1AA4A4A325CB58B900621AEB /* SDL_error.h in Headers */,
 				1AA4A4DB25CB58BA00621AEB /* SDL_copying.h in Headers */,
@@ -839,10 +826,8 @@
 				1A471E40254A1D6000FFF49B /* imgui_internal.h in Headers */,
 				1AA4A4EC25CB58BA00621AEB /* SDL_cpuinfo.h in Headers */,
 				1AA4A4DE25CB58BA00621AEB /* SDL_rect.h in Headers */,
-				1A471E23254A1CA400FFF49B /* ButOSX.hpp in Headers */,
 				1AA4A49825CB58B900621AEB /* SDL_misc.h in Headers */,
 				1AA4A4D025CB58BA00621AEB /* SDL_atomic.h in Headers */,
-				1A7C476A254EEA4000A58870 /* Global.hpp in Headers */,
 				1AA4A4B625CB58BA00621AEB /* SDL_touch.h in Headers */,
 				1AA4A4D325CB58BA00621AEB /* SDL_render.h in Headers */,
 				1AA4A4BF25CB58BA00621AEB /* SDL_loadso.h in Headers */,
@@ -857,16 +842,13 @@
 				1AA4A4A425CB58B900621AEB /* begin_code.h in Headers */,
 				1AA4A4E025CB58BA00621AEB /* SDL_mutex.h in Headers */,
 				1AA4A4B525CB58BA00621AEB /* SDL_config_android.h in Headers */,
-				369EEA1825D355D1000C2BB5 /* TouchbarMenuRenderer.hpp in Headers */,
 				1AA4A4CC25CB58BA00621AEB /* SDL_hints.h in Headers */,
 				1AA4A4DA25CB58BA00621AEB /* SDL_config_windows.h in Headers */,
 				1AA4A4A025CB58B900621AEB /* SDL_test.h in Headers */,
 				1AA4A4C825CB58BA00621AEB /* SDL_test_fuzzer.h in Headers */,
 				1AA4A4CF25CB58BA00621AEB /* SDL_surface.h in Headers */,
-				1A7C47A3254EF0D100A58870 /* PatternScanner.hpp in Headers */,
 				1AA4A4D625CB58BA00621AEB /* SDL_video.h in Headers */,
 				1AA4A4C225CB58BA00621AEB /* SDL_config.h in Headers */,
-				1A471E48254A1EBD00FFF49B /* imgui_impl_opengl2.h in Headers */,
 				1AA4A4C425CB58BA00621AEB /* SDL_sensor.h in Headers */,
 				1AA4A4E225CB58BA00621AEB /* SDL_config_wiz.h in Headers */,
 				1AA4A4DF25CB58BA00621AEB /* SDL_metal.h in Headers */,
@@ -884,32 +866,26 @@
 				1A471E39254A1D6000FFF49B /* imstb_textedit.h in Headers */,
 				1AA4A4C725CB58BA00621AEB /* SDL_gesture.h in Headers */,
 				1AA4A4E925CB58BA00621AEB /* SDL_test_md5.h in Headers */,
-				1A471F02254A266D00FFF49B /* Helpers.hpp in Headers */,
 				1AA4A49925CB58B900621AEB /* SDL_opengles2_gl2ext.h in Headers */,
 				1AA4A4AC25CB58BA00621AEB /* SDL_test_font.h in Headers */,
 				1AA4A4E525CB58BA00621AEB /* SDL_filesystem.h in Headers */,
 				1AA4A4AB25CB58BA00621AEB /* SDL_test_crc32.h in Headers */,
 				1AA4A4D225CB58BA00621AEB /* SDL_rwops.h in Headers */,
-				1A471E56254A1F3E00FFF49B /* OpenGLHooker.hpp in Headers */,
 				1AA4A4C625CB58BA00621AEB /* SDL_blendmode.h in Headers */,
 				1AA4A4B025CB58BA00621AEB /* SDL_test_memory.h in Headers */,
 				1AA4A4AF25CB58BA00621AEB /* SDL_vulkan.h in Headers */,
-				1A471F0C254B35E900FFF49B /* MenuRenderer.hpp in Headers */,
 				1AA4A4B325CB58BA00621AEB /* SDL_scancode.h in Headers */,
 				1A471E4A254A1EBD00FFF49B /* imgui_impl_osx.h in Headers */,
-				1A42E93E25BC9C91006BB177 /* Offsets.hpp in Headers */,
+				367C2E6E25D687E200AD3C5B /* imgui_impl_opengl2.h in Headers */,
 				1AA4A4AA25CB58BA00621AEB /* SDL_config_pandora.h in Headers */,
 				1AA4A4CA25CB58BA00621AEB /* SDL_opengles.h in Headers */,
 				1AA4A4D425CB58BA00621AEB /* SDL_syswm.h in Headers */,
 				1AA4A4EA25CB58BA00621AEB /* SDL_config_os2.h in Headers */,
 				1AA4A4A625CB58BA00621AEB /* SDL_keycode.h in Headers */,
 				1AA4A4EB25CB58BA00621AEB /* SDL_pixels.h in Headers */,
-				1A42E94325BC9D07006BB177 /* NetVarManager.hpp in Headers */,
 				1AA4A49F25CB58B900621AEB /* SDL_haptic.h in Headers */,
 				1AA4A4CD25CB58BA00621AEB /* SDL_mouse.h in Headers */,
-				1AF384DF254CBE2400336590 /* CustomWidgets.hpp in Headers */,
 				1AA4A4A925CB58BA00621AEB /* SDL_opengl_glext.h in Headers */,
-				1A7C475B254EE8D700A58870 /* GameHooker.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -940,7 +916,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1220;
-				ORGANIZATIONNAME = VersteckteKrone;
+				ORGANIZATIONNAME = Lyceion;
 				TargetAttributes = {
 					1A471E1E254A1CA400FFF49B = {
 						CreatedOnToolsVersion = 11.6;
@@ -972,6 +948,7 @@
 			files = (
 				1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */,
 				1A471E27254A1CA400FFF49B /* ButOSX.cpp in Sources */,
+				367C2E6D25D687E200AD3C5B /* imgui_impl_opengl2.cpp in Sources */,
 				1A471E49254A1EBD00FFF49B /* imgui_impl_sdl.cpp in Sources */,
 				1A7C475A254EE8D700A58870 /* GameHooker.cpp in Sources */,
 				1A471E3F254A1D6000FFF49B /* imgui.cpp in Sources */,
@@ -992,7 +969,6 @@
 				1A471EFD254A265E00FFF49B /* Module.cpp in Sources */,
 				36EE828925CDD0AC00B0F612 /* Vector4D.cpp in Sources */,
 				1A42E93D25BC9C91006BB177 /* Offsets.cpp in Sources */,
-				1A471E4C254A1EBD00FFF49B /* imgui_impl_opengl2.cpp in Sources */,
 				369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1007,7 +983,7 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1067,7 +1043,7 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
