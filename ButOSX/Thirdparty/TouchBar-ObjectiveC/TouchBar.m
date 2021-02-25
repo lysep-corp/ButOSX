@@ -17,6 +17,8 @@ void UpdateTouchBar(NSInteger iIndex);
         NSString* title;
         bool state;
         NSInteger objid;
+        NSString *btnimage;
+        NSColor* color;
 }
 @end
 @implementation TBWMenuItem
@@ -26,20 +28,39 @@ void UpdateTouchBar(NSInteger iIndex);
 @public
     NSString* title;
     NSInteger ctxid;
+    NSString *btnimage;
     NSMutableArray<TBWMenuItem *> *mItems;
 }
 
 -(TBWMenuItem*)AddButton:(NSString*)title;
+-(TBWMenuItem*)AddButtonWithImage:(NSString*)title :(NSString*)image;
+-(TBWMenuItem*)AddColorPicker:(NSString*)title :(NSColor*)defaultColor;
+-(TBWMenuItem*)AddButton:(NSString*)title :(NSString*)image :(NSColor*)defaultColor;
 @end
 
 NSInteger objIdGlobal = 1000;
 @implementation TBWMenuContext
     -(TBWMenuItem*)AddButton:(NSString*)title
     {
+        return [self AddButton:title:NULL:NULL];
+    }
+    -(TBWMenuItem*)AddButtonWithImage:(NSString*)title :(NSString*)image
+    {
+        return [self AddButton:title:image:NULL];
+    }
+    -(TBWMenuItem*)AddColorPicker:(NSString*)title :(NSColor*)defaultColor;
+    {
+        return [self AddButton:title:NULL:defaultColor];
+    }
+    -(TBWMenuItem*)AddButton:(NSString*)title :(NSString*)image :(NSColor*)defaultColor
+    {
         TBWMenuItem* menuItem = [TBWMenuItem alloc];
         menuItem->state = false;
         menuItem->title = title;
         menuItem->objid = objIdGlobal;
+        menuItem->btnimage = image;
+        menuItem->color = defaultColor;
+        
         [mItems addObject:menuItem];
         objIdGlobal++;
         return menuItem;
@@ -51,18 +72,26 @@ NSInteger     ctxIdGlobal = 0;
 
 @interface TBWrapperMenu : NSObject
     - (TBWMenuContext*)BeginMenu:(NSString*)title;
+    - (TBWMenuContext*)BeginMenu:(NSString*)title : (NSString*) image;
     - (void)EndMenu:(TBWMenuContext*)context;
     - (NSArray<NSString*>*)GetCtx: (NSInteger)ctxID;
 @end
 
 @implementation TBWrapperMenu
 
+
 - (TBWMenuContext*)BeginMenu:(NSString*)title
+{
+    return [self BeginMenu:title : 0];
+}
+
+- (TBWMenuContext*)BeginMenu:(NSString*)title  : (NSString*) image
 {
     TBWMenuContext* context = [TBWMenuContext alloc];
     context->title = title;
     context->ctxid = ctxIdGlobal;
     context->mItems = [[NSMutableArray alloc] init];
+    context->btnimage = image;
     ctxIdGlobal++;
     return context;
 }
@@ -83,11 +112,17 @@ NSInteger     ctxIdGlobal = 0;
                 return;
             [object->mItems enumerateObjectsUsingBlock:^(TBWMenuItem* altobject, NSUInteger idx, BOOL *stop)
             {
-                [array addObject:[NSString stringWithFormat:@"%ld:%ld:%@:%d", object->ctxid, altobject->objid, altobject->title, altobject->state]];
+                if(altobject->color == NULL)
+                    [array addObject:[NSString stringWithFormat:@"%ld:%ld:%@:%@:%d", object->ctxid, altobject->objid, altobject->title, altobject->btnimage, altobject->state]];
+                else
+                {
+                    [array addObject:[NSString stringWithFormat:@"%ld:%ld:coloritemtitle:%@", object->ctxid, altobject->objid, altobject->title]];
+                    [array addObject:[NSString stringWithFormat:@"%ld:%ld:coloritem", object->ctxid, altobject->objid]];
+                }
             }];
         }else
         {
-            [array addObject:[NSString stringWithFormat:@"%ld:%@", object->ctxid,object->title]];
+            [array addObject:[NSString stringWithFormat:@"%ld:%@:%@", object->ctxid,object->title, object->btnimage]];
         }
     }];
     return [NSArray arrayWithArray:array];
@@ -100,6 +135,7 @@ TBWrapperMenu* wrapperMenu;
     - (NSTouchBar *)makeTouchBar: (NSInteger)touchbarIdentifier;
     - (NSTouchBarItem *)touchBar:(NSTouchBar *)touchBar makeItemForIdentifier:(NSTouchBarItemIdentifier)identifier;
     - (void)glfwButtonAction:(id)sender;
+- (void)colorAction:(id)sender;
 @end
 
 @implementation CustomTouchBarDelegate
@@ -134,19 +170,60 @@ TBWrapperMenu* wrapperMenu;
         
         NSInteger identifierSplitCount = identifierSplitResult.count;
                 
-        if( identifierSplitCount < 2 )
+        if( identifierSplitCount < 3 )
             return nil;
-                
-        NSInteger baseCounter = identifierSplitCount == 4 ? 1 : 0;
+        
+        
+        if( [identifierSplitResult[2] isEqualToString:@"coloritemtitle"] )
+        {
+            NSCustomTouchBarItem* colorpickerlbl = [[NSCustomTouchBarItem alloc] initWithIdentifier:identifier];
+            [colorpickerlbl setView:[NSTextField labelWithString:identifierSplitResult[3]]];
+            return colorpickerlbl;
+        }
+        
+        if( [identifierSplitResult[2] isEqualToString:@"coloritem"] )
+        {
+            NSColorPickerTouchBarItem *colorPickerItem = [NSColorPickerTouchBarItem colorPickerWithIdentifier:identifier];
+            [colorPickerItem setTarget:self];
+            [colorPickerItem setAction:@selector(colorAction:)];
+            
+            [colorPickerItem setCustomizationLabel:identifierSplitResult[1]];
+
+            [mMenus enumerateObjectsUsingBlock:^(TBWMenuContext* object, NSUInteger idx1, BOOL *stop1) {
+                if(object->ctxid != [identifierSplitResult[0] intValue])
+                    return;
+                [object->mItems enumerateObjectsUsingBlock:^(TBWMenuItem* altobject, NSUInteger idx2, BOOL *stop2)
+                {
+                    if(altobject->objid == [identifierSplitResult[1] intValue])
+                    {
+                        [colorPickerItem setColor:altobject->color];
+                        *stop1 = *stop2 = YES;
+                        return;
+                    }
+                }];
+            }];
+            return colorPickerItem;
+        }
+        
+        NSInteger baseCounter = identifierSplitCount == 5 ? 1 : 0;
         
         NSButton* mButton = [NSButton buttonWithTitle:identifierSplitResult[baseCounter+1] target:self action:@selector(glfwButtonAction:)];
+        
+        if( ![identifierSplitResult[baseCounter+2] isEqualToString:@"(null)"] )
+        {
+            NSImage* image = [NSImage imageNamed:identifierSplitResult[baseCounter+2]];
+            [mButton setImage:image];
+            [mButton setImagePosition:NSImageLeft];
+        }
+        
         [mButton setTag:[identifierSplitResult[baseCounter] intValue]];
+        
         if([mButton tag] >= 1000)
         {
-            NSColor* btnColor = [identifierSplitResult[baseCounter+2] intValue] == 0 ? NSColor.systemRedColor : NSColor.systemGreenColor;
+            NSColor* btnColor = [identifierSplitResult[baseCounter+3] intValue] == 0 ? NSColor.systemRedColor : NSColor.systemGreenColor;
             [mButton setBezelColor:btnColor];
         }
-
+        
         NSCustomTouchBarItem* mTouchBarItem = [[NSCustomTouchBarItem alloc] initWithIdentifier:identifier];
         [mTouchBarItem setView:mButton];
 
@@ -161,11 +238,15 @@ TBWrapperMenu* wrapperMenu;
             NSColor* colorResult = ((NSButton*)sender).bezelColor == NSColor.systemRedColor ? NSColor.systemGreenColor : NSColor.systemRedColor;
             [senderbtn setBezelColor:colorResult];
             
-            [mMenus enumerateObjectsUsingBlock:^(TBWMenuContext* object, NSUInteger idx, BOOL *stop) {
-                [object->mItems enumerateObjectsUsingBlock:^(TBWMenuItem* altobject, NSUInteger idx, BOOL *stop)
+            [mMenus enumerateObjectsUsingBlock:^(TBWMenuContext* object, NSUInteger idx1, BOOL *stop1) {
+                [object->mItems enumerateObjectsUsingBlock:^(TBWMenuItem* altobject, NSUInteger idx2, BOOL *stop2)
                 {
                     if(altobject->objid == [sender tag])
+                    {
                         altobject->state = !altobject->state;
+                        *stop1 = *stop2 = YES;
+                        return;
+                    }
                 }];
             }];
             
@@ -173,8 +254,27 @@ TBWrapperMenu* wrapperMenu;
         }
         
         NSString* identifierstr = [sender title];
+
+        printf("Clicked %s - %ld\n", identifierstr.UTF8String, [sender tag]);
+       
         UpdateTouchBar([sender tag]);
     }
+
+    - (void)colorAction:(id)sender
+    {
+        [mMenus enumerateObjectsUsingBlock:^(TBWMenuContext* object, NSUInteger idx1, BOOL *stop1) {
+            [object->mItems enumerateObjectsUsingBlock:^(TBWMenuItem* altobject, NSUInteger idx2, BOOL *stop2)
+            {
+                if(altobject->objid == [[sender customizationLabel] intValue])
+                {
+                    altobject->color = [sender color];
+                    *stop1 = *stop2 = YES;
+                    return;
+                }
+            }];
+        }];
+    }
+
 @end
 
 CustomTouchBarDelegate* currentMenuTouchbarDelegate = NULL;
@@ -192,27 +292,3 @@ void UpdateTouchBar(NSInteger iIndex)
         wnd.touchBar = mTouchBar;
     }
 }
-
-@implementation AppDelegate
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
-    wrapperMenu = [[TBWrapperMenu alloc] init];
-    mMenus = [[NSMutableArray alloc] init];
-    TBWMenuContext* menu_Test = [wrapperMenu BeginMenu:@"Test"];
-    
-    TBWMenuItem* menuitem_Opt1 = [menu_Test AddButton:@"Opt1"];
-    TBWMenuItem* menuitem_Opt2 = [menu_Test AddButton:@"Opt2"];
-    TBWMenuItem* menuitem_Opt3 = [menu_Test AddButton:@"Opt3"];
-    
-    [wrapperMenu EndMenu:menu_Test];
-    
-    TBWMenuContext* menu_TestEmpty = [wrapperMenu BeginMenu:@"Test Empty"];
-    [wrapperMenu EndMenu:menu_TestEmpty];
-    
-    currentMenuTouchbarDelegate = [[CustomTouchBarDelegate alloc] init];
-    [NSApplication sharedApplication].automaticCustomizeTouchBarMenuItemEnabled = YES;
-    UpdateTouchBar(-1);
-}
-
-@end

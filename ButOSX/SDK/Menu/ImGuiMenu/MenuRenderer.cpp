@@ -12,6 +12,7 @@
 #include "MainHooker.hpp"
 #include "CustomWidgets.hpp"
 #include "../../ObjectiveCWrapper/ObjCWrapper.h"
+#include "Visuals.hpp"
 
 char *Pages::PageList[]{
     (char *)"VISUALS ",
@@ -107,7 +108,7 @@ void MenuRenderer::RenderMenu(bool _visible){
                 if (CustomWidgets::SubTab(PageName, TabSize, selected_Tab == i ? true : false))
                     selected_Tab = i;
                 ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (((TabSize.x * (i + 1)) - PageNameSize.x) / 2) + ((TabSize.x * i) / 2), (WINDOW_PADDING * 3.5f) + ((TabSize.y - PageNameSize.y - 4) / 2)));
-                ImGui::Text("%s", xorstr(PageName));
+                ImGui::Text("%s", PageName);
             }
             switch (selected_Tab){
                 case 0:
@@ -126,7 +127,10 @@ void MenuRenderer::RenderMenu(bool _visible){
             }
             //UI->AddRectFilled(ImVec2(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y + WindowSize.y - 4), ImVec2(ImGui::GetWindowPos().x + WindowSize.x, ImGui::GetWindowPos().y + WindowSize.y + 2), ImColor(0.99f, 0.43f, 0.f, style.Alpha), 3, ImDrawCornerFlags_Bot);
             ScreenSize = ImGui::GetIO().DisplaySize;
+            char array[5];
+            sprintf(array, "%f", ImGui::GetIO().Framerate);
             ImGui::GetBackgroundDrawList()->AddRectFilled(ImVec2(0, 0), ScreenSize, ImColor(0.f, 0.f, 0.f, (style.Alpha / 1.2f)));
+            ImGui::GetBackgroundDrawList()->AddText(ImVec2(ScreenSize.x - (ImGui::CalcTextSize(array).x + 5), ImGui::CalcTextSize(array).y), ImColor(255,255,255), array);
         }
         ImGui::PopFont();
         ImGui::End();
@@ -184,7 +188,7 @@ void Pages::VisualsPage(){ //Page for visuals.
             if(CheatSettings::ESP::name){
                 ImGui::SetCursorPos(ImVec2((WindowSize.x - ImGui::CalcTextSize(xorstr("Lyceion")).x) / 2.f, ESPBoxLocation.y - ImGui::GetWindowPos().y - ImGui::CalcTextSize(xorstr("Lyceion")).y));
                 ImGui::Text("%s", xorstr("Lyceion"));
-                ESPBoxLocation.y = ImGui::GetWindowPos().y - ImGui::CalcTextSize(xorstr("Lyceion")).y + ((WindowSize.y - ESPBoxSize.y) / 2);
+                ESPBoxLocation.y = ImGui::GetWindowPos().y + ImGui::CalcTextSize(xorstr("Lyceion")).y + ((WindowSize.y - ESPBoxSize.y) / 2);
             }
             else{
                 ESPBoxLocation.y = ImGui::GetWindowPos().y + ((WindowSize.y - ESPBoxSize.y) / 2);

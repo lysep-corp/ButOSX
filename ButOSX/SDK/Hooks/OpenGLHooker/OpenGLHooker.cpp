@@ -285,18 +285,21 @@ uintptr_t* swapwindow_ptr = nullptr;
 uintptr_t swapwindow_original = NULL;
 bool SDLHook::_visible = false;
 void SDLHook::SwapWindow(SDL_Window* window) {
-    static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_Window*)>(swapwindow_original);
+static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_Window*)>(swapwindow_original);
     InitImGui(window);
     if ( io.KeysDownDuration[73] == 0.0f )
         _visible = !_visible;
+        
+    static ImDrawList* BackDrawList;
+    if(BackDrawList != ImGui::GetBackgroundDrawList())
+        BackDrawList = ImGui::GetBackgroundDrawList();
     
-    //static ImDrawList* BackDrawList = ImGui::GetBackgroundDrawList();
-    static ImDrawList* DrawList     = ImGui::GetOverlayDrawList();
     //OPENGL RENDERS
     // Visuals::ESP::EspImGui(BackDrawList); /* BETA */
-    Visuals::Others::Watermark(DrawList);
+    Visuals::Others::Watermark(BackDrawList);
     
     MenuRenderer::RenderMenu(_visible);
+    
     oSDL_GL_SwapWindow(window);
     SDL_GL_MakeCurrent(window, original_context);
     glFlush(); //libSDL2's weird thing?

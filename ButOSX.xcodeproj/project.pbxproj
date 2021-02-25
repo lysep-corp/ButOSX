@@ -307,8 +307,6 @@
 		1AF384DD254CBE2400336590 /* CustomWidgets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomWidgets.hpp; sourceTree = "<group>"; };
 		367C2E6B25D687E200AD3C5B /* imgui_impl_opengl2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_opengl2.cpp; sourceTree = "<group>"; };
 		367C2E6C25D687E200AD3C5B /* imgui_impl_opengl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_opengl2.h; sourceTree = "<group>"; };
-		367C2E7225D6895A00AD3C5B /* imgui_impl_opengl3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_opengl3.cpp; sourceTree = "<group>"; };
-		367C2E7325D6895A00AD3C5B /* imgui_impl_opengl3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imgui_impl_opengl3.h; sourceTree = "<group>"; };
 		369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCWrapper.mm; sourceTree = "<group>"; };
 		369EEA0C25D3378D000C2BB5 /* ObjCWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCWrapper.h; sourceTree = "<group>"; };
 		369EEA1025D33B22000C2BB5 /* Collaboration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collaboration.framework; path = System/Library/Frameworks/Collaboration.framework; sourceTree = SDKROOT; };
@@ -454,8 +452,6 @@
 		1A471E42254A1DEF00FFF49B /* backends */ = {
 			isa = PBXGroup;
 			children = (
-				367C2E7225D6895A00AD3C5B /* imgui_impl_opengl3.cpp */,
-				367C2E7325D6895A00AD3C5B /* imgui_impl_opengl3.h */,
 				367C2E6B25D687E200AD3C5B /* imgui_impl_opengl2.cpp */,
 				367C2E6C25D687E200AD3C5B /* imgui_impl_opengl2.h */,
 				1A471E45254A1EBD00FFF49B /* imgui_impl_osx.h */,

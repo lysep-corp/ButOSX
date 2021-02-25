@@ -20,7 +20,7 @@ bool CheatSettings::NightMode = false;
 void Visuals::Others::Watermark(ImDrawList* drawArea){ //Draws watermark which proudly written by me while i'm learning imgui in 2~3 hrs. LMAO
     if(!CheatSettings::WaterMark)
         return;
-    ImGui::PushFont(g_Font);
+    ImGui::PushFont(g_GirisFontBüyük);
     ImVec2 WindowSize = ImGui::GetIO().DisplaySize;
     time_t rawtime;
     struct tm * timeinfo;
@@ -34,7 +34,7 @@ void Visuals::Others::Watermark(ImDrawList* drawArea){ //Draws watermark which p
     drawArea->AddRectFilled(ImVec2(WindowSize.x - (textsize.x + 91), 45), ImVec2(WindowSize.x - 29, 51), ImColor(253, 112, 0, 255), 6, ImDrawCornerFlags_Bot);
     string waterMarkBuff = xorstr("ButOSX | hello Lyceion & xMuraty | ") + str;
     const char* watermark_text = waterMarkBuff.c_str();
-    textsize = ImGui::CalcTextSize(watermark_text); 
+    textsize = ImGui::CalcTextSize(watermark_text);
     drawArea->AddText(ImVec2(WindowSize.x - (textsize.x + 60), 20 + (30 - (textsize.y + 6)) / 2), ImColor(255, 255, 255, 255), watermark_text);
     ImGui::PopFont();
 }
