@@ -23,8 +23,10 @@ extern IClientMode* pClientMode;
 extern IVModelRender* pModelRender;
 extern IVMaterialSystem* pMaterialSystem;
 extern IAppSystem* pAppSystem;
+extern IClientMode* pClientMod;
 
 extern VMT* paintVMT;
 extern VMT* dmeVMT;
 extern VMT* fsnVMT;
+extern VMT* crtmVMT;
 #endif /* Interfaces_hpp */

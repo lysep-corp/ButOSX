@@ -5,7 +5,7 @@
 //  Created by Can on 19.02.2021.
 //  Copyright © 2021 Lyceion. All rights reserved.
 //
-// YEAH STOLEN FROM https://github.com/xMuratY/TouchBar-ObjectiveC w/His permission
+// YEAH STOLEN FROM https://github.com/xMuratY/TouchBar-ObjectiveC w/His permission (He is in the contributors what can i else do?!?)
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>

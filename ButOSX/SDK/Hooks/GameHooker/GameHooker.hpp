@@ -10,11 +10,16 @@
 #define GameHooker_hpp
 
 #include <stdio.h>
+#include "PatternScanner.hpp"
 
 namespace GameHooker{
 void Init();
 void Destroy();
+void ScanSigs();
 void HookVMTs();
 void LoadInterfaces();
+
+extern C_PatternScanner* sigScanner;
+extern intptr_t clientModePointer;
 }
 #endif /* GameHooker_hpp */

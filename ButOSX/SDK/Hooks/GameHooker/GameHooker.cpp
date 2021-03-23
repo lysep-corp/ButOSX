@@ -31,6 +31,16 @@ void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool al
     }
 }
 
+typedef bool(*tCreateMove)(void* thisptr, float inputSampleTime, CUserCmd* cmd);
+extern bool hkCreateMove(void* thisptr, float inputSampleTime, CUserCmd* cmd);
+bool hkCreateMove(void* thisptr, float inputSampleTime, CUserCmd* cmd)
+{
+    crtmVMT->GetOriginalMethod<tCreateMove>(25)(thisptr, inputSampleTime, cmd);
+    //CREATEMOVE THINGS
+ 
+    return false;
+}
+
 typedef void(*tDrawModelExecute)(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
 extern void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
 void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld) {
@@ -50,6 +60,7 @@ void hkFrameStageNotify(void* thisptr, FrameStage stage) {
 }
 
 void GameHooker::Init(){
+    ScanSigs();
     LoadInterfaces();
     HookVMTs();
     Offsets::getOffsets();
@@ -57,6 +68,12 @@ void GameHooker::Init(){
 
 void GameHooker::Destroy(){
     
+}
+
+intptr_t GameHooker::clientModePointer;
+void GameHooker::ScanSigs(){
+    C_PatternScanner* sigScanner = C_PatternScanner::get();
+    clientModePointer = sigScanner->get_pointer("client.dylib", (Byte*)"\x48\x8B\xB7\x00\x00\x00\x00\x48\x8D\x3D\x00\x00\x00\x00\x5D\xE9", "xxx????xxx????xx", 0xA) + 0x4;
 }
 
 void GameHooker::HookVMTs(){
@@ -69,9 +86,13 @@ void GameHooker::HookVMTs(){
     fsnVMT = new VMT(pClient);
     fsnVMT->HookVM((void*)hkFrameStageNotify, 37);
     fsnVMT->ApplyVMT();
+    crtmVMT = new VMT(pClientMod);
+    crtmVMT->HookVM((void*)hkCreateMove, 25); //24 on windows. NOTED!
+    crtmVMT->ApplyVMT();
 }
 
 void GameHooker::LoadInterfaces(){
+    pClientMod          = reinterpret_cast<IClientMode*>(clientModePointer);
     pSurface            = GetInterface<ISurface>("./bin/osx64/vguimatsurface.dylib", "VGUI_Surface");
     pPanel              = GetInterface<IPanel>("./bin/osx64/vgui2.dylib", "VGUI_Panel");
     pCvar               = GetInterface<ICvar>("./bin/osx64/materialsystem.dylib", "VEngineCvar");
