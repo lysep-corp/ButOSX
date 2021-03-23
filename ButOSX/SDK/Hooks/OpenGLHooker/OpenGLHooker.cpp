@@ -266,15 +266,16 @@ void InitImGui(SDL_Window* window){
     }
     ctx = ImGui::GetCurrentContext();
     SDL_GL_MakeCurrent(window, context);
-    IMGUI_CHECKVERSION();
-    ImGui::StyleColorsDark();
     static bool LoadBytes = false;
     if(!LoadBytes){
-        g_GirisFontBüyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 20.f, nullptr, io.Fonts->GetGlyphRangesCyrillic());
-        g_Font = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 15.f, nullptr, io.Fonts->GetGlyphRangesCyrillic());
-        g_Büyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 30.f, nullptr, io.Fonts->GetGlyphRangesCyrillic());
+        ImGuiIO& uiIO = ImGui::GetIO();
+        g_GirisFontBüyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 20.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());
+        g_Font = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 15.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());
+        g_Büyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 30.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());
         LoadBytes = true;
     }
+    IMGUI_CHECKVERSION();
+    ImGui::StyleColorsDark();
     ImGui_ImplOpenGL2_NewFrame();
     ImGui_ImplSDL2_NewFrame(window);
     ImGui::NewFrame();

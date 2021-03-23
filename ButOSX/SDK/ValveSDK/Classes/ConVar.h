@@ -68,12 +68,48 @@ typedef void(*FnChangeCallback_t)(ConVar *var, const char *pOldValue, float flOl
 class ConVar
 {
 public:
-    virtual void SetValue(const char *pValue) = 0;
-    virtual void SetValue(float flValue) = 0;
-    virtual void SetValue(int nValue) = 0;
-    virtual void SetValue(Color value) = 0;
-    virtual const char *GetName(void) const = 0;
-    virtual const char *GetBaseName(void) const = 0;
-    virtual bool IsFlagSet(int nFlag) const = 0;
-    virtual int GetSplitScreenPlayerSlot() const = 0;
+    Color GetColor() {
+        typedef Color (* oGetColor)(void*);
+        return getvfunc<oGetColor>(this, 13)(this);
+    }
+    
+    const char* GetString() {
+        typedef char* (* oGetString)(void*);
+        return getvfunc<oGetString>(this, 14)(this);
+    }
+    
+    float GetFloat() {
+        typedef float (* oGetFloat)(void*);
+        return getvfunc<oGetFloat>(this, 15)(this);
+    }
+
+    int GetInt() {
+        typedef int (* oGetInt)(void*);
+        return getvfunc<oGetInt>(this, 16)(this);
+    }
+    
+    void SetValue(const char* value) {
+        typedef void(* oSetValue)(void*, const char*);
+        return getvfunc<oSetValue>(this, 17)(this, value);
+    }
+
+    bool GetBool() {
+        typedef bool (* oGetBool)(void*);
+        return getvfunc<oGetBool>(this, 18)(this);
+    }
+
+    void SetValue(float value) {
+        typedef void(* oSetValue)(void*, float);
+        return getvfunc<oSetValue>(this, 18)(this, value);
+    }
+
+    void SetValue(int value) {
+        typedef void(* oSetValue)(void*, int);
+        return getvfunc<oSetValue>(this, 19)(this, value);
+    }
+
+    void SetValue(Color value) {
+        typedef void(* oSetValue)(void*, Color);
+        return getvfunc<oSetValue>(this, 20)(this, value);
+    }
 };

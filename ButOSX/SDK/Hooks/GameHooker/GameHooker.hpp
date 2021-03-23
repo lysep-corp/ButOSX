@@ -20,6 +20,6 @@ void HookVMTs();
 void LoadInterfaces();
 
 extern C_PatternScanner* sigScanner;
-extern intptr_t clientModePointer;
+extern uintptr_t clientModePointer;
 }
 #endif /* GameHooker_hpp */

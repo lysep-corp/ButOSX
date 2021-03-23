@@ -70,7 +70,7 @@ void GameHooker::Destroy(){
     
 }
 
-intptr_t GameHooker::clientModePointer;
+uintptr_t GameHooker::clientModePointer;
 void GameHooker::ScanSigs(){
     C_PatternScanner* sigScanner = C_PatternScanner::get();
     clientModePointer = sigScanner->get_pointer("client.dylib", (Byte*)"\x48\x8B\xB7\x00\x00\x00\x00\x48\x8D\x3D\x00\x00\x00\x00\x5D\xE9", "xxx????xxx????xx", 0xA) + 0x4;

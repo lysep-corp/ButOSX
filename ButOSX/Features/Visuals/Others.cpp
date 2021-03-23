@@ -46,13 +46,13 @@ void Visuals::Others::NightMode(){
     C_BasePlayer* pLocal = (C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer());
     if (pLocal->GetAlive()){
         if ( bPerformed != CheatSettings::NightMode ){
-            //static ConVar* sv_skyname = pCvar->FindVar("sv_skyname");
+            static ConVar* sv_skyname = pCvar->FindVar("sv_skyname");
             for (short h = pMaterialSystem->firstMaterial(); h != pMaterialSystem->invalidMaterial(); h = pMaterialSystem->nextMaterial(h)){
                 auto material = pMaterialSystem->getMaterial(h);
                 if ( !material )
                     continue;
                 if (strstr( material->GetTextureGroupName(), ("World")) || strstr( material->GetTextureGroupName(), ("SkyBox")) || strstr( material->GetTextureGroupName(), ("StaticProp"))){
-                    //sv_skyname->SetValue("sky_csgo_night02");
+                    sv_skyname->SetValue("sky_csgo_night02");
                     material->ColorModulate( 0.1f, 0.1f, 0.1f );
                     pSurface->DrawSetColor(0,0,0, 125);
                     pSurface->DrawFilledRect(0, 0, ImGui::GetIO().DisplaySize.x, ImGui::GetIO().DisplaySize.y); //B1g feature yeah
