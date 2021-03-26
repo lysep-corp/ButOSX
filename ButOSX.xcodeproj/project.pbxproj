@@ -32,7 +32,6 @@
 		1A471F0B254B35E900FFF49B /* MenuRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471F09254B35E900FFF49B /* MenuRenderer.cpp */; };
 		1A518E5125C206980080F876 /* Others.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A518E4F25C206980080F876 /* Others.cpp */; };
 		1A7C475A254EE8D700A58870 /* GameHooker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C4758254EE8D700A58870 /* GameHooker.cpp */; };
-		1A7C4769254EEA4000A58870 /* Global.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C4767254EEA4000A58870 /* Global.cpp */; };
 		1A7C47A2254EF0D100A58870 /* PatternScanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7C47A0254EF0D100A58870 /* PatternScanner.cpp */; };
 		1AA4A49825CB58B900621AEB /* SDL_misc.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA49D3125CB58B500621AEB /* SDL_misc.h */; };
 		1AA4A49925CB58B900621AEB /* SDL_opengles2_gl2ext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA49D3225CB58B500621AEB /* SDL_opengles2_gl2ext.h */; };
@@ -124,6 +123,7 @@
 		1AC8B1CB25BAF84C00F754B1 /* xorstr.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AC8B1CA25BAF84C00F754B1 /* xorstr.h */; };
 		1AC8B1D025BAF90F00F754B1 /* imgui_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */; };
 		1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AF384DC254CBE2400336590 /* CustomWidgets.cpp */; };
+		365BB2CA260E3DAB00A74D60 /* TouchBar.h in Sources */ = {isa = PBXBuildFile; fileRef = 365BB2C9260E3DAB00A74D60 /* TouchBar.h */; };
 		367C2E6D25D687E200AD3C5B /* imgui_impl_opengl2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 367C2E6B25D687E200AD3C5B /* imgui_impl_opengl2.cpp */; };
 		367C2E6E25D687E200AD3C5B /* imgui_impl_opengl2.h in Headers */ = {isa = PBXBuildFile; fileRef = 367C2E6C25D687E200AD3C5B /* imgui_impl_opengl2.h */; };
 		369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */; };
@@ -194,9 +194,6 @@
 		1A77C52C25BDC50100BF3B0E /* Datas.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Datas.hpp; sourceTree = "<group>"; };
 		1A7C4758254EE8D700A58870 /* GameHooker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameHooker.cpp; sourceTree = "<group>"; };
 		1A7C4759254EE8D700A58870 /* GameHooker.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameHooker.hpp; sourceTree = "<group>"; };
-		1A7C4767254EEA4000A58870 /* Global.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Global.cpp; sourceTree = "<group>"; };
-		1A7C4768254EEA4000A58870 /* Global.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Global.hpp; sourceTree = "<group>"; };
-		1A7C476C254EEB0100A58870 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
 		1A7C4791254EEDC400A58870 /* Vector3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
 		1A7C4792254EEDDE00A58870 /* Vector2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
 		1A7C4794254EEDF500A58870 /* QAngle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAngle.h; sourceTree = "<group>"; };
@@ -305,6 +302,7 @@
 		1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tables.cpp; sourceTree = "<group>"; };
 		1AF384DC254CBE2400336590 /* CustomWidgets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CustomWidgets.cpp; sourceTree = "<group>"; };
 		1AF384DD254CBE2400336590 /* CustomWidgets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomWidgets.hpp; sourceTree = "<group>"; };
+		365BB2C9260E3DAB00A74D60 /* TouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBar.h; sourceTree = "<group>"; };
 		367C2E6B25D687E200AD3C5B /* imgui_impl_opengl2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_opengl2.cpp; sourceTree = "<group>"; };
 		367C2E6C25D687E200AD3C5B /* imgui_impl_opengl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_opengl2.h; sourceTree = "<group>"; };
 		369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCWrapper.mm; sourceTree = "<group>"; };
@@ -312,7 +310,6 @@
 		369EEA1025D33B22000C2BB5 /* Collaboration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collaboration.framework; path = System/Library/Frameworks/Collaboration.framework; sourceTree = SDKROOT; };
 		369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TouchbarMenuRenderer.cpp; sourceTree = "<group>"; };
 		369EEA1625D355D1000C2BB5 /* TouchbarMenuRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TouchbarMenuRenderer.hpp; sourceTree = "<group>"; };
-		36CECC7625DF1F4B0029A263 /* TouchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchBar.m; sourceTree = "<group>"; };
 		36EE828625CDCF8B00B0F612 /* Vector4D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector4D.h; sourceTree = "<group>"; };
 		36EE828825CDD0AC00B0F612 /* Vector4D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4D.cpp; sourceTree = "<group>"; };
 		6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -561,8 +558,6 @@
 			children = (
 				1A7C4758254EE8D700A58870 /* GameHooker.cpp */,
 				1A7C4759254EE8D700A58870 /* GameHooker.hpp */,
-				1A7C4767254EEA4000A58870 /* Global.cpp */,
-				1A7C4768254EEA4000A58870 /* Global.hpp */,
 			);
 			path = GameHooker;
 			sourceTree = "<group>";
@@ -720,7 +715,6 @@
 			isa = PBXGroup;
 			children = (
 				1AC4B8FB254C90740035B067 /* CheatSettings.h */,
-				1A7C476C254EEB0100A58870 /* Headers.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -773,7 +767,7 @@
 		36CECC7525DF1F200029A263 /* TouchBar-ObjectiveC */ = {
 			isa = PBXGroup;
 			children = (
-				36CECC7625DF1F4B0029A263 /* TouchBar.m */,
+				365BB2C9260E3DAB00A74D60 /* TouchBar.h */,
 			);
 			path = "TouchBar-ObjectiveC";
 			sourceTree = "<group>";
@@ -955,7 +949,6 @@
 				1A471E3B254A1D6000FFF49B /* imgui_widgets.cpp in Sources */,
 				1A471E59254A201100FFF49B /* MainHooker.cpp in Sources */,
 				1A471F0B254B35E900FFF49B /* MenuRenderer.cpp in Sources */,
-				1A7C4769254EEA4000A58870 /* Global.cpp in Sources */,
 				1A471E38254A1D6000FFF49B /* imgui_draw.cpp in Sources */,
 				1A42E94225BC9D07006BB177 /* NetVarManager.cpp in Sources */,
 				369EEA1725D355D1000C2BB5 /* TouchbarMenuRenderer.cpp in Sources */,
@@ -965,6 +958,7 @@
 				1A471EFD254A265E00FFF49B /* Module.cpp in Sources */,
 				36EE828925CDD0AC00B0F612 /* Vector4D.cpp in Sources */,
 				1A42E93D25BC9C91006BB177 /* Offsets.cpp in Sources */,
+				365BB2CA260E3DAB00A74D60 /* TouchBar.h in Sources */,
 				369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1012,7 +1006,8 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1071,7 +1066,8 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1095,6 +1091,7 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
@@ -1115,6 +1112,7 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = (

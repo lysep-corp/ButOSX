@@ -8,11 +8,12 @@
 
 #include <iostream>
 #include "ButOSX.hpp"
+#include "SDK/Menu/TouchbarMenu/TouchbarMenuRenderer.hpp"
 
 int __attribute__((constructor))
 attach() //Main attach function which executes when library loads.
 {
-    //ShowTouchBar(); //Start's Touchbar API BUT REMOVED BECAUSE OF API IN W.I.P
+    TouchBarMenu::RenderTouchBar();
     Hooker::Init();
     return 0;
 }

@@ -6,11 +6,10 @@
 //  Copyright © 2021 Lyceion. All rights reserved.
 //
 // YEAH STOLEN FROM https://github.com/xMuratY/TouchBar-ObjectiveC w/His permission (He is in the contributors what can i else do?!?)
-
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 
-void UpdateTouchBar(NSInteger iIndex);
+extern void UpdateTouchBar(NSInteger iIndex);
 
 @interface TBWMenuItem : NSObject {
     @public
@@ -292,3 +291,4 @@ void UpdateTouchBar(NSInteger iIndex)
         wnd.touchBar = mTouchBar;
     }
 }
+

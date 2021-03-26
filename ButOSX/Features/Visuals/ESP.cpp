@@ -13,10 +13,10 @@
 #include "imgui.h"
 
 bool CheatSettings::ESP::enabled;
-bool CheatSettings::ESP::box;
-bool CheatSettings::ESP::name;
-bool CheatSettings::ESP::health;
-bool CheatSettings::ESP::skeleton;
+bool CheatSettings::ESP::box = true;
+bool CheatSettings::ESP::name = true;
+bool CheatSettings::ESP::health = true;
+bool CheatSettings::ESP::skeleton = true;
 
 std::wstring StringToWstring(std::string str) { 
     std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
@@ -191,13 +191,13 @@ extern void Visuals::ESP::ESPSurface() {
                 if(pEntity->GetTeam() == CounterTerrorist)
                     DrawBoxOutline(players.x, players.y, players.w, players.h, isVisible ? Color::Green() : Color::Blue());
             }
-            if(CheatSettings::ESP::name)
-                DrawString(players.x + players.w / 2, players.y - 12, Color::White(), eFont, true, pInfo.name);
-            if(CheatSettings::ESP::health)
-                DrawHealthbar(players.x - 5, players.y, 3, players.h, pEntity->GetHealth(), Color::Green());
-            if(CheatSettings::ESP::skeleton)
-                DrawSkeleton(pEntity, Color::White());
         }
+        if(CheatSettings::ESP::name)
+            DrawString(players.x + players.w / 2, players.y - 12, Color::White(), eFont, true, pInfo.name);
+        if(CheatSettings::ESP::health)
+            DrawHealthbar(players.x - 5, players.y, 3, players.h, pEntity->GetHealth(), Color::Green());
+        if(CheatSettings::ESP::skeleton)
+            DrawSkeleton(pEntity, Color::White());
     }
 }
 
