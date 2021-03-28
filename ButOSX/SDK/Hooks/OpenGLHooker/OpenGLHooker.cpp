@@ -10,6 +10,7 @@
 #include "xorstr.h"
 #include "../../Menu/ImGuiMenu/Datas.hpp"
 #include "../../Menu/ImGuiMenu/MenuRenderer.hpp"
+#include "../../Menu/TouchbarMenu/TouchbarMenuRenderer.hpp"
 #include "Visuals.hpp"
 
 Uint8 SDLCALL SDL_GameControllerGetButton(SDL_GameController *gamecontroller, SDL_GameControllerButton button){
@@ -288,6 +289,7 @@ bool SDLHook::_visible = false;
 void SDLHook::SwapWindow(SDL_Window* window) {
 static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_Window*)>(swapwindow_original);
     InitImGui(window);
+    //TouchBarMenu::UpdateButtonInputs(); //Disabled until fix the in-game-ui bug.
     if ( io.KeysDownDuration[73] == 0.0f )
         _visible = !_visible;
         

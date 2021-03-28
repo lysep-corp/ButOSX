@@ -10,5 +10,6 @@
 
 namespace TouchBarMenu {
     void RenderTouchBar();
+    void UpdateButtonInputs();
 }
 

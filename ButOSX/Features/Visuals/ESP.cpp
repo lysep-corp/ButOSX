@@ -184,20 +184,20 @@ extern void Visuals::ESP::ESPSurface() {
         auto isVisible = TestTrace(pEntity, pLocal);
         IEngineClient::player_info_t pInfo;
         pEngine->GetPlayerInfo(i, &pInfo);
-        if(CheatSettings::ESP::box){
-            if(DrawPlayerBox(pEntity, players)) {
+        if(DrawPlayerBox(pEntity, players)) {
+            if(CheatSettings::ESP::box){
                 if(pEntity->GetTeam() == Terrorist)
                     DrawBoxOutline(players.x, players.y, players.w, players.h, isVisible ? Color::Red() : Color::Yellow());
                 if(pEntity->GetTeam() == CounterTerrorist)
                     DrawBoxOutline(players.x, players.y, players.w, players.h, isVisible ? Color::Green() : Color::Blue());
             }
+            if(CheatSettings::ESP::name)
+                DrawString(players.x + players.w / 2, players.y - 12, Color::White(), eFont, true, pInfo.name);
+            if(CheatSettings::ESP::health)
+                DrawHealthbar(players.x - 5, players.y, 3, players.h, pEntity->GetHealth(), Color::Green());
+            if(CheatSettings::ESP::skeleton)
+                DrawSkeleton(pEntity, Color::White());
         }
-        if(CheatSettings::ESP::name)
-            DrawString(players.x + players.w / 2, players.y - 12, Color::White(), eFont, true, pInfo.name);
-        if(CheatSettings::ESP::health)
-            DrawHealthbar(players.x - 5, players.y, 3, players.h, pEntity->GetHealth(), Color::Green());
-        if(CheatSettings::ESP::skeleton)
-            DrawSkeleton(pEntity, Color::White());
     }
 }
 
