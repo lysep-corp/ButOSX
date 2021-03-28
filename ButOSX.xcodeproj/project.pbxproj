@@ -310,6 +310,7 @@
 		369EEA1025D33B22000C2BB5 /* Collaboration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collaboration.framework; path = System/Library/Frameworks/Collaboration.framework; sourceTree = SDKROOT; };
 		369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TouchbarMenuRenderer.cpp; sourceTree = "<group>"; };
 		369EEA1625D355D1000C2BB5 /* TouchbarMenuRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TouchbarMenuRenderer.hpp; sourceTree = "<group>"; };
+		36A69A8D261130D20078BAC6 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		36EE828625CDCF8B00B0F612 /* Vector4D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector4D.h; sourceTree = "<group>"; };
 		36EE828825CDD0AC00B0F612 /* Vector4D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4D.cpp; sourceTree = "<group>"; };
 		6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -420,6 +421,7 @@
 		1A471E2D254A1D0400FFF49B /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				36A69A8C261130C40078BAC6 /* stb */,
 				36CECC7525DF1F200029A263 /* TouchBar-ObjectiveC */,
 				1AA49BE025CB58B400621AEB /* SDL2 */,
 				1A471F04254B350D00FFF49B /* xorstr */,
@@ -762,6 +764,14 @@
 				369EEA1625D355D1000C2BB5 /* TouchbarMenuRenderer.hpp */,
 			);
 			path = TouchbarMenu;
+			sourceTree = "<group>";
+		};
+		36A69A8C261130C40078BAC6 /* stb */ = {
+			isa = PBXGroup;
+			children = (
+				36A69A8D261130D20078BAC6 /* stb_image.h */,
+			);
+			path = stb;
 			sourceTree = "<group>";
 		};
 		36CECC7525DF1F200029A263 /* TouchBar-ObjectiveC */ = {

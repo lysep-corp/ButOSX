@@ -14,6 +14,46 @@
 #include "../../ObjectiveCWrapper/ObjCWrapper.h"
 #include "Visuals.hpp"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "../../../Thirdparty/stb/stb_image.h"
+
+
+//PROUDLY PASTED
+// Simple helper function to load an image into a OpenGL texture with common settings
+bool LoadTextureFromMemory(stbi_uc const *buffer, int len, int *x, int *y, GLuint* out_texture)
+{
+    // Load from file
+    int image_width = 0;
+    int image_height = 0;
+    unsigned char* image_data_buffer = stbi_load_from_memory(buffer, len, x, y, NULL, 4);
+    if (image_data_buffer == NULL)
+        return false;
+
+    // Create a OpenGL texture identifier
+    GLuint image_texture;
+    glGenTextures(1, &image_texture);
+    glBindTexture(GL_TEXTURE_2D, image_texture);
+
+    // Setup filtering parameters for display
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); // This is required on WebGL for non power-of-two textures
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); // Same
+
+    // Upload pixels into texture
+#if defined(GL_UNPACK_ROW_LENGTH) && !defined(__EMSCRIPTEN__)
+    glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+#endif
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image_width, image_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data_buffer);
+    stbi_image_free(image_data_buffer);
+
+    *out_texture = image_texture;
+    *x = image_width;
+    *y = image_height;
+
+    return true;
+}
+
 char *Pages::PageList[]{
     (char *)"VISUALS ",
     (char *)"ASSISTS ",
@@ -33,6 +73,9 @@ ImFont* g_GirisFontBüyük;
 ImFont* g_Font;
 static ImVec2 MainWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 static ImVec2 MainWindowPos;
+int my_image_width = 0;
+int my_image_height = 0;
+GLuint my_image_texture = 0;
 void MenuRenderer::RenderMenu(bool _visible){
     const char* CheatName = xorstr("ButOSX - Godly Cheat of MACOSX");
     static bool chinaVisible = false;
@@ -40,6 +83,14 @@ void MenuRenderer::RenderMenu(bool _visible){
     static bool GetUserData = false;
     if(!GetUserData){
         GetUserDatas(); /*Yeah B1g Data Grabber*/
+//        bool ret = LoadTextureFromMemory(UserData::ImageBuffer, sizeof(UserData::ImageBuffer), &my_image_width, &my_image_height, &my_image_texture);
+//        if(ret){
+//            printf("OK!");
+//            printf("%d", my_image_texture);
+//            printf("%d", my_image_height);
+//            printf("%d", my_image_width);
+//            GetUserData = true;
+//        }
         GetUserData = true;
     }
     if(_visible){
