@@ -254,8 +254,6 @@ int SDLCALL SDL_Init(Uint32 flags) {
     return SDL_InitFn(flags);
 }
 
-ImGuiContext* ctx = ImGui::CreateContext();
-ImGuiIO& io = ImGui::GetIO();
 static SDL_GLContext original_context;
 void InitImGui(SDL_Window* window){
     static SDL_GLContext context = NULL;
@@ -265,7 +263,6 @@ void InitImGui(SDL_Window* window){
         ImGui_ImplSDL2_InitForOpenGL(window, context);
         ImGui_ImplOpenGL2_Init();
     }
-    ctx = ImGui::GetCurrentContext();
     SDL_GL_MakeCurrent(window, context);
     static bool LoadBytes = false;
     if(!LoadBytes){
@@ -280,7 +277,6 @@ void InitImGui(SDL_Window* window){
     ImGui_ImplOpenGL2_NewFrame();
     ImGui_ImplSDL2_NewFrame(window);
     ImGui::NewFrame();
-    io = ImGui::GetIO(); (void)io;
 }
 
 uintptr_t* swapwindow_ptr = nullptr;
@@ -290,22 +286,19 @@ void SDLHook::SwapWindow(SDL_Window* window) {
 static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_Window*)>(swapwindow_original);
     InitImGui(window);
     //TouchBarMenu::UpdateButtonInputs(); //Disabled until fix the in-game-ui bug.
-    if ( io.KeysDownDuration[73] == 0.0f )
+    if ( ImGui::GetIO().KeysDownDuration[73] == 0.0f )
         _visible = !_visible;
-        
     static ImDrawList* BackDrawList;
     if(BackDrawList != ImGui::GetBackgroundDrawList())
         BackDrawList = ImGui::GetBackgroundDrawList();
     
-    //OPENGL RENDERS
-    // Visuals::ESP::EspImGui(BackDrawList); /* BETA */
+    //ImGui RENDERS
     Visuals::Others::Watermark(BackDrawList);
-    
     MenuRenderer::RenderMenu(_visible);
     
     oSDL_GL_SwapWindow(window);
     SDL_GL_MakeCurrent(window, original_context);
-    glFlush(); //libSDL2's weird thing?
+    glFlush();
 }
 
 void SDLHook::Init() {

@@ -176,7 +176,6 @@ void MenuRenderer::RenderMenu(bool _visible){
                     Pages::SettingsPage();
                     break;
             }
-            //UI->AddRectFilled(ImVec2(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y + WindowSize.y - 4), ImVec2(ImGui::GetWindowPos().x + WindowSize.x, ImGui::GetWindowPos().y + WindowSize.y + 2), ImColor(0.99f, 0.43f, 0.f, style.Alpha), 3, ImDrawCornerFlags_Bot);
             ScreenSize = ImGui::GetIO().DisplaySize;
             char array[5];
             sprintf(array, "%f", ImGui::GetIO().Framerate);
