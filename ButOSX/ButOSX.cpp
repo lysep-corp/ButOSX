@@ -9,11 +9,13 @@
 #include <iostream>
 #include "ButOSX.hpp"
 #include "SDK/Menu/TouchbarMenu/TouchbarMenuRenderer.hpp"
+#include "Classes/DiscordRPC.hpp"
 
 int __attribute__((constructor))
 attach() //Main attach function which executes when library loads.
 {
-    TouchBarMenu::RenderTouchBar();
     Hooker::Init();
+    TouchBarMenu::RenderTouchBar();
+    //DiscordRPC::StartDiscordRPC();
     return 0;
 }
