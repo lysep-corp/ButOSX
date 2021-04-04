@@ -17,6 +17,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "../../../Thirdparty/stb/stb_image.h"
 
+#include "TouchBar.h"
+
 
 //PROUDLY PASTED
 // Simple helper function to load an image into a OpenGL texture with common settings
@@ -188,6 +190,8 @@ void MenuRenderer::RenderMenu(bool _visible){
     else {
         flAlpha = 0;
     }
+    UpdateButton(visButton_ESP);
+    UpdateButton(visButton_Watermark);
     ImGui::Render();
     ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
 }
@@ -198,8 +202,8 @@ void Pages::VisualsPage(){ //Page for visuals.
     ImVec2 ChildSize = ImVec2((MainWindowSize.x - (WINDOW_PADDING * 2)) / ChildCount, MainWindowSize.y - ((WINDOW_PADDING * 7.5f ) + 5) );
     ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (ChildSize.x * 0), WINDOW_PADDING * 6.5f));
     ImGui::BeginChild(xorstr("##1"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
-        CustomWidgets::Switch(xorstr("ESP"), &CheatSettings::ESP::enabled);
-        if(CheatSettings::ESP::enabled){
+        CustomWidgets::Switch(xorstr("ESP"), &visButton_ESP->state);
+        if(visButton_ESP->state){
             ImGui::BeginChild(xorstr("##ESP"), ImVec2(ChildSize.x / 1.5f, 100), true, ImGuiWindowFlags_NoScrollbar);{
                 ImGui::Checkbox(xorstr("Box"), &CheatSettings::ESP::box);
                 ImGui::Checkbox(xorstr("Name"), &CheatSettings::ESP::name);
@@ -208,7 +212,7 @@ void Pages::VisualsPage(){ //Page for visuals.
             }
             ImGui::EndChild();
         }
-        CustomWidgets::Switch(xorstr("Watermark"), &CheatSettings::WaterMark);
+        CustomWidgets::Switch(xorstr("Watermark"), &visButton_Watermark->state);
     }
     ImGui::EndChild();
     ImGui::PopFont();
@@ -267,6 +271,7 @@ void Pages::SettingsPage(){ //Page for settings;
     static ImVec4 COL = ImVec4(0.99f, 0.43f, 0.f, ImGui::GetStyle().Alpha);
     ImGui::GetStyle().Colors[ImGuiCol_Border] = COL;
     ImGui::GetStyle().WindowBorderSize = 1;
+    CustomWidgets::ColorPicker4("TESTTEST", setCol_ESP, 0);
     ImGui::Begin(xorstr("UI Tests"), NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar);{
         ImGui::PushFont(g_Font);
         ImGui::SetWindowSize(ImVec2(150, WINDOW_HEIGHT));

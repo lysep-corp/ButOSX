@@ -11,6 +11,7 @@
 #include "Visuals.hpp"
 #include "CheatSettings.h"
 #include "imgui.h"
+#include "TouchBar.h"
 
 bool CheatSettings::ESP::enabled;
 bool CheatSettings::ESP::box = true;
@@ -164,7 +165,7 @@ auto TestTrace(C_BaseEntity* pEntity, C_BaseEntity* pLocal) -> bool {
 //}
 
 extern void Visuals::ESP::ESPSurface() {
-    if(!CheatSettings::ESP::enabled)
+    if(!visButton_ESP->state)
         return;
     C_BaseEntity* pLocal = (C_BaseEntity*)pEntList->GetClientEntity(pEngine->GetLocalPlayer());
     for(int i = 0; i < pEntList->GetHighestEntityIndex(); i++) {

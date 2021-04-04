@@ -123,7 +123,6 @@
 		1AC8B1CB25BAF84C00F754B1 /* xorstr.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AC8B1CA25BAF84C00F754B1 /* xorstr.h */; };
 		1AC8B1D025BAF90F00F754B1 /* imgui_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */; };
 		1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AF384DC254CBE2400336590 /* CustomWidgets.cpp */; };
-		365BB2CA260E3DAB00A74D60 /* TouchBar.h in Sources */ = {isa = PBXBuildFile; fileRef = 365BB2C9260E3DAB00A74D60 /* TouchBar.h */; };
 		366A0E3C2614A1A6000804E8 /* DiscordRPC.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 366A0E3A2614A1A6000804E8 /* DiscordRPC.hpp */; };
 		366A0E3D2614A1A6000804E8 /* DiscordRPC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 366A0E3B2614A1A6000804E8 /* DiscordRPC.cpp */; };
 		366A0F462614A341000804E8 /* fwd.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F202614A341000804E8 /* fwd.h */; };
@@ -177,7 +176,7 @@
 		36848C8726122839001E1947 /* Aimbot.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 36848C8526122839001E1947 /* Aimbot.hpp */; };
 		369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */; };
 		369EEA1125D33B22000C2BB5 /* Collaboration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369EEA1025D33B22000C2BB5 /* Collaboration.framework */; };
-		369EEA1725D355D1000C2BB5 /* TouchbarMenuRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */; };
+		36DE0634261A4ED100F7F17F /* TouchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 36DE0633261A4ED100F7F17F /* TouchBar.m */; };
 		36EE828925CDD0AC00B0F612 /* Vector4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36EE828825CDD0AC00B0F612 /* Vector4D.cpp */; };
 		6A22195F25BC4B2800F879B2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */; };
 		6A22196125BC4B3100F879B2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22196025BC4B3100F879B2 /* AppKit.framework */; };
@@ -351,7 +350,6 @@
 		1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tables.cpp; sourceTree = "<group>"; };
 		1AF384DC254CBE2400336590 /* CustomWidgets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CustomWidgets.cpp; sourceTree = "<group>"; };
 		1AF384DD254CBE2400336590 /* CustomWidgets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomWidgets.hpp; sourceTree = "<group>"; };
-		365BB2C9260E3DAB00A74D60 /* TouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBar.h; sourceTree = "<group>"; };
 		366A0CD126148D80000804E8 /* Valve-DiscordRPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Valve-DiscordRPC.h"; sourceTree = "<group>"; };
 		366A0E3A2614A1A6000804E8 /* DiscordRPC.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DiscordRPC.hpp; sourceTree = "<group>"; };
 		366A0E3B2614A1A6000804E8 /* DiscordRPC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiscordRPC.cpp; sourceTree = "<group>"; };
@@ -407,9 +405,9 @@
 		369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCWrapper.mm; sourceTree = "<group>"; };
 		369EEA0C25D3378D000C2BB5 /* ObjCWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCWrapper.h; sourceTree = "<group>"; };
 		369EEA1025D33B22000C2BB5 /* Collaboration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collaboration.framework; path = System/Library/Frameworks/Collaboration.framework; sourceTree = SDKROOT; };
-		369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TouchbarMenuRenderer.cpp; sourceTree = "<group>"; };
-		369EEA1625D355D1000C2BB5 /* TouchbarMenuRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TouchbarMenuRenderer.hpp; sourceTree = "<group>"; };
 		36A69A8D261130D20078BAC6 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		36DE0633261A4ED100F7F17F /* TouchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchBar.m; sourceTree = "<group>"; };
+		36DE0636261A4F1F00F7F17F /* TouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBar.h; sourceTree = "<group>"; };
 		36EE828625CDCF8B00B0F612 /* Vector4D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector4D.h; sourceTree = "<group>"; };
 		36EE828825CDD0AC00B0F612 /* Vector4D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4D.cpp; sourceTree = "<group>"; };
 		6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -635,7 +633,6 @@
 		1A471F08254B35C900FFF49B /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				369EEA1425D355B5000C2BB5 /* TouchbarMenu */,
 				369EEA1325D355A3000C2BB5 /* ImGuiMenu */,
 			);
 			path = Menu;
@@ -954,15 +951,6 @@
 			path = ImGuiMenu;
 			sourceTree = "<group>";
 		};
-		369EEA1425D355B5000C2BB5 /* TouchbarMenu */ = {
-			isa = PBXGroup;
-			children = (
-				369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */,
-				369EEA1625D355D1000C2BB5 /* TouchbarMenuRenderer.hpp */,
-			);
-			path = TouchbarMenu;
-			sourceTree = "<group>";
-		};
 		36A69A8C261130C40078BAC6 /* stb */ = {
 			isa = PBXGroup;
 			children = (
@@ -974,7 +962,8 @@
 		36CECC7525DF1F200029A263 /* TouchBar-ObjectiveC */ = {
 			isa = PBXGroup;
 			children = (
-				365BB2C9260E3DAB00A74D60 /* TouchBar.h */,
+				36DE0633261A4ED100F7F17F /* TouchBar.m */,
+				36DE0636261A4F1F00F7F17F /* TouchBar.h */,
 			);
 			path = "TouchBar-ObjectiveC";
 			sourceTree = "<group>";
@@ -1188,6 +1177,7 @@
 				1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */,
 				1A471E27254A1CA400FFF49B /* ButOSX.cpp in Sources */,
 				366A0F8F2614A6C0000804E8 /* rpc_connection.cpp in Sources */,
+				36DE0634261A4ED100F7F17F /* TouchBar.m in Sources */,
 				367C2E6D25D687E200AD3C5B /* imgui_impl_opengl2.cpp in Sources */,
 				1A471E49254A1EBD00FFF49B /* imgui_impl_sdl.cpp in Sources */,
 				1A7C475A254EE8D700A58870 /* GameHooker.cpp in Sources */,
@@ -1205,7 +1195,6 @@
 				1A471F0B254B35E900FFF49B /* MenuRenderer.cpp in Sources */,
 				1A471E38254A1D6000FFF49B /* imgui_draw.cpp in Sources */,
 				1A42E94225BC9D07006BB177 /* NetVarManager.cpp in Sources */,
-				369EEA1725D355D1000C2BB5 /* TouchbarMenuRenderer.cpp in Sources */,
 				1A42E91A25BC90D6006BB177 /* Interfaces.cpp in Sources */,
 				1A7C47A2254EF0D100A58870 /* PatternScanner.cpp in Sources */,
 				1A471E55254A1F3E00FFF49B /* OpenGLHooker.cpp in Sources */,
@@ -1214,7 +1203,6 @@
 				366A0F8D2614A6C0000804E8 /* serialization.cpp in Sources */,
 				366A0F8A2614A6C0000804E8 /* discord_rpc.cpp in Sources */,
 				1A42E93D25BC9C91006BB177 /* Offsets.cpp in Sources */,
-				365BB2CA260E3DAB00A74D60 /* TouchBar.h in Sources */,
 				369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,7 +23,7 @@ void DiscordRPC::UpdateDiscordRPC()
     memset(&discordPresence, 0, sizeof(discordPresence));
     discordPresence.state = "by github.com/Lyceion";
     discordPresence.details = "Game: CSGO";
-    discordPresence.largeImageKey = "butosxmin";
+    discordPresence.largeImageKey = "butosxmax";
     discordPresence.largeImageText = "ButOSX - CSGO";
     discordPresence.partyId = "ae488379-351d-4a4f-ad32-2b9b01c91657";
     discordPresence.joinSecret = "MTI4NzM0OjFpMmhuZToxMjMxMjM= ";

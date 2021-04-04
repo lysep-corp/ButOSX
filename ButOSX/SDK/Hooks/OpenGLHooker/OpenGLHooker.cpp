@@ -10,7 +10,6 @@
 #include "xorstr.h"
 #include "../../Menu/ImGuiMenu/Datas.hpp"
 #include "../../Menu/ImGuiMenu/MenuRenderer.hpp"
-#include "../../Menu/TouchbarMenu/TouchbarMenuRenderer.hpp"
 #include "Visuals.hpp"
 
 Uint8 SDLCALL SDL_GameControllerGetButton(SDL_GameController *gamecontroller, SDL_GameControllerButton button){

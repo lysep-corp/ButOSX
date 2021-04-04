@@ -9,6 +9,7 @@
 #ifndef CustomWidgets_hpp
 #define CustomWidgets_hpp
 #include <stdio.h>
+#include "TouchBar.h"
 
 struct ImVec2;
 struct ImVec4;
@@ -18,6 +19,7 @@ namespace CustomWidgets {
     bool Switch(const char* label, bool* v);
     bool ControlBox(void (*UnHookFunction)(), bool* HideShowBool, bool* FullScreenBool);
     void Spinner(float radius, float thickness, int num_segments, ImVec4 color);
+    bool ColorPicker4(const char* label, TBWMenuItem* color, int flags);
 }
 
 #endif /* CustomWidgets_hpp */
