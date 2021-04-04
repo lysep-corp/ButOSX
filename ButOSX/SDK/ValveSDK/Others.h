@@ -2,6 +2,7 @@ typedef unsigned long long VPANEL;
 typedef unsigned long long HFONT;
 
 #define LIFE_ALIVE 0
+
 class IClientMode {
 };
 class ILauncherMgr;
@@ -19,10 +20,10 @@ typedef void (*StartDrawingFn) (void*);
 typedef void (*FinishDrawingFn) (void*);
 
 enum TeamID: int {
-    TEAM_UNASSIGNED,
-    TEAM_SPECTATOR,
-    TEAM_TERRORIST,
-    TEAM_COUNTER_TERRORIST,
+    TEAM_UNASSIGNED = 0,
+    TEAM_SPECTATOR = 1,
+    TEAM_TERRORIST = 2,
+    TEAM_COUNTER_TERRORIST = 3,
 };
 
 enum class FontFeature: int {

@@ -13,12 +13,13 @@
 #include "xorstr.h"
 #include "PatternScanner.hpp"
 #include "OpenGLHooker.hpp"
+#include "TouchBar.h"
 
 ImVec2 textsize;
 bool CheatSettings::WaterMark = false;
 bool CheatSettings::NightMode = false;
 void Visuals::Others::Watermark(ImDrawList* drawArea){ //Draws watermark which proudly written by me while i'm learning imgui in 2~3 hrs. LMAO
-    if(!CheatSettings::WaterMark)
+    if(!visButton_Watermark->state)
         return;
     ImGui::PushFont(g_GirisFontBüyük);
     ImVec2 WindowSize = ImGui::GetIO().DisplaySize;

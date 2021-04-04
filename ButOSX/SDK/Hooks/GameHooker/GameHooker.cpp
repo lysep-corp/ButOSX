@@ -11,6 +11,7 @@
 #include "Visuals.hpp"
 #include "OpenGLHooker.hpp"
 #include "PatternScanner.hpp"
+//#include "DiscordRPC.hpp"
 
 HFONT eFont;
 typedef void(*tPaintTraverse)(void*, VPANEL, bool, bool);
@@ -54,6 +55,7 @@ typedef void(*tFrameStageNotify)(void* thisptr, FrameStage stage);
 extern void hkFrameStageNotify(void* thisptr, FrameStage stage);
 void hkFrameStageNotify(void* thisptr, FrameStage stage) {
     if (stage == FrameStage::RENDER_START) {
+        //DiscordRPC::StartDiscordRPC();
         Visuals::Others::NightMode();
     }
     fsnVMT->GetOriginalMethod<tFrameStageNotify>(37)(thisptr, stage);

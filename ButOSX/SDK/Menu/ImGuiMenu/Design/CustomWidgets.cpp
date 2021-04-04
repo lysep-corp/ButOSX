@@ -48,7 +48,6 @@ bool CustomWidgets::SubTab(const char* label, const ImVec2& size_arg, const bool
 
 bool CustomWidgets::Switch(const char* label, bool* v)
 {
-
     ImVec2 p = ImGui::GetCursorScreenPos();
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
     float height = 20.00f;
@@ -104,14 +103,16 @@ bool CustomWidgets::Switch(const char* label, bool* v)
 
 
     bool hovered, held;
+    bool isChanged = false;
     bool pressed = ImGui::ButtonBehavior(total_bb, id, &hovered, &held);
     if (pressed)
     {
+        isChanged = true;
         *v = !(*v);
         ImGui::MarkItemEdited(id);
     }
 
-    return pressed;
+    return isChanged;
 }
 
 void CustomWidgets::Spinner(float radius, float thickness, int num_segments, ImVec4 color) {
@@ -172,5 +173,15 @@ bool CustomWidgets::ControlBox(void (*UnHookFunction)(), bool* HideShowBool, boo
     if (ImGui::Button(xorstr("<>"), ImVec2(10, 10)))
         *FullScreenBool = !*FullScreenBool;
     ImGui::PopStyleVar();
+    return true;
+}
+
+bool CustomWidgets::ColorPicker4(const char* label, TBWMenuItem* color, int flags)
+{
+    float col4[4] = { (float)color->color.redComponent, (float)color->color.greenComponent, (float)color->color.blueComponent, (float)color->color.alphaComponent };
+    if (!ImGui::ColorPicker4(label, col4, flags))
+        return false;
+    color->color = [NSColor colorWithCalibratedRed:(CGFloat)(col4[0]) green:(CGFloat)(col4[1]) blue:(CGFloat)(col4[2]) alpha:(CGFloat)col4[3]];
+    [color->colReferance setColor:color->color];
     return true;
 }

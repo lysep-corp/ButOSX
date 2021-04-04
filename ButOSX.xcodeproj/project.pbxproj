@@ -123,12 +123,60 @@
 		1AC8B1CB25BAF84C00F754B1 /* xorstr.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AC8B1CA25BAF84C00F754B1 /* xorstr.h */; };
 		1AC8B1D025BAF90F00F754B1 /* imgui_tables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */; };
 		1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AF384DC254CBE2400336590 /* CustomWidgets.cpp */; };
-		365BB2CA260E3DAB00A74D60 /* TouchBar.h in Sources */ = {isa = PBXBuildFile; fileRef = 365BB2C9260E3DAB00A74D60 /* TouchBar.h */; };
+		366A0E3C2614A1A6000804E8 /* DiscordRPC.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 366A0E3A2614A1A6000804E8 /* DiscordRPC.hpp */; };
+		366A0E3D2614A1A6000804E8 /* DiscordRPC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 366A0E3B2614A1A6000804E8 /* DiscordRPC.cpp */; };
+		366A0F462614A341000804E8 /* fwd.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F202614A341000804E8 /* fwd.h */; };
+		366A0F472614A341000804E8 /* memorystream.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F212614A341000804E8 /* memorystream.h */; };
+		366A0F482614A341000804E8 /* reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F222614A341000804E8 /* reader.h */; };
+		366A0F492614A341000804E8 /* prettywriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F232614A341000804E8 /* prettywriter.h */; };
+		366A0F4A2614A341000804E8 /* ostreamwrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F242614A341000804E8 /* ostreamwrapper.h */; };
+		366A0F4B2614A341000804E8 /* encodedstream.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F252614A341000804E8 /* encodedstream.h */; };
+		366A0F4C2614A341000804E8 /* filereadstream.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F262614A341000804E8 /* filereadstream.h */; };
+		366A0F4D2614A341000804E8 /* istreamwrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F272614A341000804E8 /* istreamwrapper.h */; };
+		366A0F4E2614A341000804E8 /* stringbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F282614A341000804E8 /* stringbuffer.h */; };
+		366A0F4F2614A341000804E8 /* ieee754.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F2A2614A341000804E8 /* ieee754.h */; };
+		366A0F502614A341000804E8 /* strtod.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F2B2614A341000804E8 /* strtod.h */; };
+		366A0F512614A341000804E8 /* swap.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F2C2614A341000804E8 /* swap.h */; };
+		366A0F522614A341000804E8 /* regex.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F2D2614A341000804E8 /* regex.h */; };
+		366A0F532614A341000804E8 /* diyfp.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F2E2614A341000804E8 /* diyfp.h */; };
+		366A0F542614A341000804E8 /* biginteger.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F2F2614A341000804E8 /* biginteger.h */; };
+		366A0F552614A341000804E8 /* strfunc.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F302614A341000804E8 /* strfunc.h */; };
+		366A0F562614A341000804E8 /* itoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F312614A341000804E8 /* itoa.h */; };
+		366A0F572614A341000804E8 /* stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F322614A341000804E8 /* stack.h */; };
+		366A0F582614A341000804E8 /* dtoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F332614A341000804E8 /* dtoa.h */; };
+		366A0F592614A341000804E8 /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F342614A341000804E8 /* meta.h */; };
+		366A0F5A2614A341000804E8 /* pow10.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F352614A341000804E8 /* pow10.h */; };
+		366A0F5B2614A342000804E8 /* encodings.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F362614A341000804E8 /* encodings.h */; };
+		366A0F5C2614A342000804E8 /* schema.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F372614A341000804E8 /* schema.h */; };
+		366A0F5D2614A342000804E8 /* stream.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F382614A341000804E8 /* stream.h */; };
+		366A0F5E2614A342000804E8 /* filewritestream.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F392614A341000804E8 /* filewritestream.h */; };
+		366A0F5F2614A342000804E8 /* rapidjson.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F3A2614A341000804E8 /* rapidjson.h */; };
+		366A0F602614A342000804E8 /* document.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F3B2614A341000804E8 /* document.h */; };
+		366A0F612614A342000804E8 /* allocators.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F3C2614A341000804E8 /* allocators.h */; };
+		366A0F622614A342000804E8 /* writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F3D2614A341000804E8 /* writer.h */; };
+		366A0F632614A342000804E8 /* error.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F3F2614A341000804E8 /* error.h */; };
+		366A0F642614A342000804E8 /* en.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F402614A341000804E8 /* en.h */; };
+		366A0F652614A342000804E8 /* memorybuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F412614A341000804E8 /* memorybuffer.h */; };
+		366A0F662614A342000804E8 /* pointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F422614A341000804E8 /* pointer.h */; };
+		366A0F892614A6C0000804E8 /* backoff.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F812614A6BF000804E8 /* backoff.h */; };
+		366A0F8A2614A6C0000804E8 /* discord_rpc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 366A0F822614A6BF000804E8 /* discord_rpc.cpp */; };
+		366A0F8B2614A6C0000804E8 /* serialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F832614A6C0000804E8 /* serialization.h */; };
+		366A0F8C2614A6C0000804E8 /* rpc_connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F842614A6C0000804E8 /* rpc_connection.h */; };
+		366A0F8D2614A6C0000804E8 /* serialization.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 366A0F852614A6C0000804E8 /* serialization.cpp */; };
+		366A0F8E2614A6C0000804E8 /* discord_register_osx.m in Sources */ = {isa = PBXBuildFile; fileRef = 366A0F862614A6C0000804E8 /* discord_register_osx.m */; };
+		366A0F8F2614A6C0000804E8 /* rpc_connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 366A0F872614A6C0000804E8 /* rpc_connection.cpp */; };
+		366A0F942614A6DB000804E8 /* discord_register.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F922614A6DB000804E8 /* discord_register.h */; };
+		366A0F952614A6DB000804E8 /* discord_rpc.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F932614A6DB000804E8 /* discord_rpc.h */; };
+		366A0F982614A6FA000804E8 /* msg_queue.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F972614A6FA000804E8 /* msg_queue.h */; };
+		366A0F9C2614AC71000804E8 /* connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 366A0F9B2614AC71000804E8 /* connection.h */; };
+		366A0F9F2614AC86000804E8 /* connection_unix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 366A0F9E2614AC86000804E8 /* connection_unix.cpp */; };
 		367C2E6D25D687E200AD3C5B /* imgui_impl_opengl2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 367C2E6B25D687E200AD3C5B /* imgui_impl_opengl2.cpp */; };
 		367C2E6E25D687E200AD3C5B /* imgui_impl_opengl2.h in Headers */ = {isa = PBXBuildFile; fileRef = 367C2E6C25D687E200AD3C5B /* imgui_impl_opengl2.h */; };
+		36848C8626122839001E1947 /* Aimbot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36848C8426122839001E1947 /* Aimbot.cpp */; };
+		36848C8726122839001E1947 /* Aimbot.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 36848C8526122839001E1947 /* Aimbot.hpp */; };
 		369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */; };
 		369EEA1125D33B22000C2BB5 /* Collaboration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369EEA1025D33B22000C2BB5 /* Collaboration.framework */; };
-		369EEA1725D355D1000C2BB5 /* TouchbarMenuRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */; };
+		36DE0634261A4ED100F7F17F /* TouchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 36DE0633261A4ED100F7F17F /* TouchBar.m */; };
 		36EE828925CDD0AC00B0F612 /* Vector4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36EE828825CDD0AC00B0F612 /* Vector4D.cpp */; };
 		6A22195F25BC4B2800F879B2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */; };
 		6A22196125BC4B3100F879B2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A22196025BC4B3100F879B2 /* AppKit.framework */; };
@@ -302,15 +350,64 @@
 		1AC8B1CF25BAF90F00F754B1 /* imgui_tables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_tables.cpp; sourceTree = "<group>"; };
 		1AF384DC254CBE2400336590 /* CustomWidgets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CustomWidgets.cpp; sourceTree = "<group>"; };
 		1AF384DD254CBE2400336590 /* CustomWidgets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomWidgets.hpp; sourceTree = "<group>"; };
-		365BB2C9260E3DAB00A74D60 /* TouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBar.h; sourceTree = "<group>"; };
+		366A0CD126148D80000804E8 /* Valve-DiscordRPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Valve-DiscordRPC.h"; sourceTree = "<group>"; };
+		366A0E3A2614A1A6000804E8 /* DiscordRPC.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DiscordRPC.hpp; sourceTree = "<group>"; };
+		366A0E3B2614A1A6000804E8 /* DiscordRPC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiscordRPC.cpp; sourceTree = "<group>"; };
+		366A0F202614A341000804E8 /* fwd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fwd.h; sourceTree = "<group>"; };
+		366A0F212614A341000804E8 /* memorystream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memorystream.h; sourceTree = "<group>"; };
+		366A0F222614A341000804E8 /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
+		366A0F232614A341000804E8 /* prettywriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prettywriter.h; sourceTree = "<group>"; };
+		366A0F242614A341000804E8 /* ostreamwrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ostreamwrapper.h; sourceTree = "<group>"; };
+		366A0F252614A341000804E8 /* encodedstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encodedstream.h; sourceTree = "<group>"; };
+		366A0F262614A341000804E8 /* filereadstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filereadstream.h; sourceTree = "<group>"; };
+		366A0F272614A341000804E8 /* istreamwrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = istreamwrapper.h; sourceTree = "<group>"; };
+		366A0F282614A341000804E8 /* stringbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringbuffer.h; sourceTree = "<group>"; };
+		366A0F2A2614A341000804E8 /* ieee754.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ieee754.h; sourceTree = "<group>"; };
+		366A0F2B2614A341000804E8 /* strtod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strtod.h; sourceTree = "<group>"; };
+		366A0F2C2614A341000804E8 /* swap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swap.h; sourceTree = "<group>"; };
+		366A0F2D2614A341000804E8 /* regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regex.h; sourceTree = "<group>"; };
+		366A0F2E2614A341000804E8 /* diyfp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = diyfp.h; sourceTree = "<group>"; };
+		366A0F2F2614A341000804E8 /* biginteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = biginteger.h; sourceTree = "<group>"; };
+		366A0F302614A341000804E8 /* strfunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strfunc.h; sourceTree = "<group>"; };
+		366A0F312614A341000804E8 /* itoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itoa.h; sourceTree = "<group>"; };
+		366A0F322614A341000804E8 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		366A0F332614A341000804E8 /* dtoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dtoa.h; sourceTree = "<group>"; };
+		366A0F342614A341000804E8 /* meta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = meta.h; sourceTree = "<group>"; };
+		366A0F352614A341000804E8 /* pow10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pow10.h; sourceTree = "<group>"; };
+		366A0F362614A341000804E8 /* encodings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encodings.h; sourceTree = "<group>"; };
+		366A0F372614A341000804E8 /* schema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = schema.h; sourceTree = "<group>"; };
+		366A0F382614A341000804E8 /* stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stream.h; sourceTree = "<group>"; };
+		366A0F392614A341000804E8 /* filewritestream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filewritestream.h; sourceTree = "<group>"; };
+		366A0F3A2614A341000804E8 /* rapidjson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rapidjson.h; sourceTree = "<group>"; };
+		366A0F3B2614A341000804E8 /* document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = document.h; sourceTree = "<group>"; };
+		366A0F3C2614A341000804E8 /* allocators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allocators.h; sourceTree = "<group>"; };
+		366A0F3D2614A341000804E8 /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
+		366A0F3F2614A341000804E8 /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
+		366A0F402614A341000804E8 /* en.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = en.h; sourceTree = "<group>"; };
+		366A0F412614A341000804E8 /* memorybuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memorybuffer.h; sourceTree = "<group>"; };
+		366A0F422614A341000804E8 /* pointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pointer.h; sourceTree = "<group>"; };
+		366A0F812614A6BF000804E8 /* backoff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = backoff.h; sourceTree = "<group>"; };
+		366A0F822614A6BF000804E8 /* discord_rpc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = discord_rpc.cpp; sourceTree = "<group>"; };
+		366A0F832614A6C0000804E8 /* serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serialization.h; sourceTree = "<group>"; };
+		366A0F842614A6C0000804E8 /* rpc_connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rpc_connection.h; sourceTree = "<group>"; };
+		366A0F852614A6C0000804E8 /* serialization.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = serialization.cpp; sourceTree = "<group>"; };
+		366A0F862614A6C0000804E8 /* discord_register_osx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = discord_register_osx.m; sourceTree = "<group>"; };
+		366A0F872614A6C0000804E8 /* rpc_connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rpc_connection.cpp; sourceTree = "<group>"; };
+		366A0F922614A6DB000804E8 /* discord_register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = discord_register.h; sourceTree = "<group>"; };
+		366A0F932614A6DB000804E8 /* discord_rpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = discord_rpc.h; sourceTree = "<group>"; };
+		366A0F972614A6FA000804E8 /* msg_queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msg_queue.h; sourceTree = "<group>"; };
+		366A0F9B2614AC71000804E8 /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
+		366A0F9E2614AC86000804E8 /* connection_unix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = connection_unix.cpp; sourceTree = "<group>"; };
 		367C2E6B25D687E200AD3C5B /* imgui_impl_opengl2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_impl_opengl2.cpp; sourceTree = "<group>"; };
 		367C2E6C25D687E200AD3C5B /* imgui_impl_opengl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_impl_opengl2.h; sourceTree = "<group>"; };
+		36848C8426122839001E1947 /* Aimbot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Aimbot.cpp; sourceTree = "<group>"; };
+		36848C8526122839001E1947 /* Aimbot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Aimbot.hpp; sourceTree = "<group>"; };
 		369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCWrapper.mm; sourceTree = "<group>"; };
 		369EEA0C25D3378D000C2BB5 /* ObjCWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCWrapper.h; sourceTree = "<group>"; };
 		369EEA1025D33B22000C2BB5 /* Collaboration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collaboration.framework; path = System/Library/Frameworks/Collaboration.framework; sourceTree = SDKROOT; };
-		369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TouchbarMenuRenderer.cpp; sourceTree = "<group>"; };
-		369EEA1625D355D1000C2BB5 /* TouchbarMenuRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TouchbarMenuRenderer.hpp; sourceTree = "<group>"; };
 		36A69A8D261130D20078BAC6 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		36DE0633261A4ED100F7F17F /* TouchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchBar.m; sourceTree = "<group>"; };
+		36DE0636261A4F1F00F7F17F /* TouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBar.h; sourceTree = "<group>"; };
 		36EE828625CDCF8B00B0F612 /* Vector4D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector4D.h; sourceTree = "<group>"; };
 		36EE828825CDD0AC00B0F612 /* Vector4D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4D.cpp; sourceTree = "<group>"; };
 		6A22195E25BC4B2800F879B2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -363,6 +460,7 @@
 				1AC8779725C757B400659F75 /* UtlVector.h */,
 				1AC8779A25C7598B00659F75 /* ConVar.h */,
 				1AC8779E25C763CA00659F75 /* FrameStage.h */,
+				366A0CD126148D80000804E8 /* Valve-DiscordRPC.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -421,6 +519,7 @@
 		1A471E2D254A1D0400FFF49B /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				366A0EAD2614A1E2000804E8 /* discord-rpc */,
 				36A69A8C261130C40078BAC6 /* stb */,
 				36CECC7525DF1F200029A263 /* TouchBar-ObjectiveC */,
 				1AA49BE025CB58B400621AEB /* SDL2 */,
@@ -534,7 +633,6 @@
 		1A471F08254B35C900FFF49B /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				369EEA1425D355B5000C2BB5 /* TouchbarMenu */,
 				369EEA1325D355A3000C2BB5 /* ImGuiMenu */,
 			);
 			path = Menu;
@@ -717,6 +815,8 @@
 			isa = PBXGroup;
 			children = (
 				1AC4B8FB254C90740035B067 /* CheatSettings.h */,
+				366A0E3B2614A1A6000804E8 /* DiscordRPC.cpp */,
+				366A0E3A2614A1A6000804E8 /* DiscordRPC.hpp */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -724,6 +824,8 @@
 		1AC8779125C750B200659F75 /* Assists */ = {
 			isa = PBXGroup;
 			children = (
+				36848C8426122839001E1947 /* Aimbot.cpp */,
+				36848C8526122839001E1947 /* Aimbot.hpp */,
 			);
 			path = Assists;
 			sourceTree = "<group>";
@@ -735,6 +837,98 @@
 				1AF384DD254CBE2400336590 /* CustomWidgets.hpp */,
 			);
 			path = Design;
+			sourceTree = "<group>";
+		};
+		366A0EAD2614A1E2000804E8 /* discord-rpc */ = {
+			isa = PBXGroup;
+			children = (
+				366A0EB72614A1E2000804E8 /* include */,
+				366A0F0A2614A1E2000804E8 /* src */,
+			);
+			path = "discord-rpc";
+			sourceTree = "<group>";
+		};
+		366A0EB72614A1E2000804E8 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				366A0F922614A6DB000804E8 /* discord_register.h */,
+				366A0F932614A6DB000804E8 /* discord_rpc.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		366A0F0A2614A1E2000804E8 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				366A0F9E2614AC86000804E8 /* connection_unix.cpp */,
+				366A0F9B2614AC71000804E8 /* connection.h */,
+				366A0F972614A6FA000804E8 /* msg_queue.h */,
+				366A0F812614A6BF000804E8 /* backoff.h */,
+				366A0F862614A6C0000804E8 /* discord_register_osx.m */,
+				366A0F822614A6BF000804E8 /* discord_rpc.cpp */,
+				366A0F872614A6C0000804E8 /* rpc_connection.cpp */,
+				366A0F842614A6C0000804E8 /* rpc_connection.h */,
+				366A0F852614A6C0000804E8 /* serialization.cpp */,
+				366A0F832614A6C0000804E8 /* serialization.h */,
+				366A0F1F2614A341000804E8 /* rapidjson */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		366A0F1F2614A341000804E8 /* rapidjson */ = {
+			isa = PBXGroup;
+			children = (
+				366A0F202614A341000804E8 /* fwd.h */,
+				366A0F212614A341000804E8 /* memorystream.h */,
+				366A0F222614A341000804E8 /* reader.h */,
+				366A0F232614A341000804E8 /* prettywriter.h */,
+				366A0F242614A341000804E8 /* ostreamwrapper.h */,
+				366A0F252614A341000804E8 /* encodedstream.h */,
+				366A0F262614A341000804E8 /* filereadstream.h */,
+				366A0F272614A341000804E8 /* istreamwrapper.h */,
+				366A0F282614A341000804E8 /* stringbuffer.h */,
+				366A0F292614A341000804E8 /* internal */,
+				366A0F362614A341000804E8 /* encodings.h */,
+				366A0F372614A341000804E8 /* schema.h */,
+				366A0F382614A341000804E8 /* stream.h */,
+				366A0F392614A341000804E8 /* filewritestream.h */,
+				366A0F3A2614A341000804E8 /* rapidjson.h */,
+				366A0F3B2614A341000804E8 /* document.h */,
+				366A0F3C2614A341000804E8 /* allocators.h */,
+				366A0F3D2614A341000804E8 /* writer.h */,
+				366A0F3E2614A341000804E8 /* error */,
+				366A0F412614A341000804E8 /* memorybuffer.h */,
+				366A0F422614A341000804E8 /* pointer.h */,
+			);
+			path = rapidjson;
+			sourceTree = "<group>";
+		};
+		366A0F292614A341000804E8 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				366A0F2A2614A341000804E8 /* ieee754.h */,
+				366A0F2B2614A341000804E8 /* strtod.h */,
+				366A0F2C2614A341000804E8 /* swap.h */,
+				366A0F2D2614A341000804E8 /* regex.h */,
+				366A0F2E2614A341000804E8 /* diyfp.h */,
+				366A0F2F2614A341000804E8 /* biginteger.h */,
+				366A0F302614A341000804E8 /* strfunc.h */,
+				366A0F312614A341000804E8 /* itoa.h */,
+				366A0F322614A341000804E8 /* stack.h */,
+				366A0F332614A341000804E8 /* dtoa.h */,
+				366A0F342614A341000804E8 /* meta.h */,
+				366A0F352614A341000804E8 /* pow10.h */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		366A0F3E2614A341000804E8 /* error */ = {
+			isa = PBXGroup;
+			children = (
+				366A0F3F2614A341000804E8 /* error.h */,
+				366A0F402614A341000804E8 /* en.h */,
+			);
+			path = error;
 			sourceTree = "<group>";
 		};
 		369EEA0625D330FF000C2BB5 /* ObjectiveCWrapper */ = {
@@ -757,15 +951,6 @@
 			path = ImGuiMenu;
 			sourceTree = "<group>";
 		};
-		369EEA1425D355B5000C2BB5 /* TouchbarMenu */ = {
-			isa = PBXGroup;
-			children = (
-				369EEA1525D355D1000C2BB5 /* TouchbarMenuRenderer.cpp */,
-				369EEA1625D355D1000C2BB5 /* TouchbarMenuRenderer.hpp */,
-			);
-			path = TouchbarMenu;
-			sourceTree = "<group>";
-		};
 		36A69A8C261130C40078BAC6 /* stb */ = {
 			isa = PBXGroup;
 			children = (
@@ -777,7 +962,8 @@
 		36CECC7525DF1F200029A263 /* TouchBar-ObjectiveC */ = {
 			isa = PBXGroup;
 			children = (
-				365BB2C9260E3DAB00A74D60 /* TouchBar.h */,
+				36DE0633261A4ED100F7F17F /* TouchBar.m */,
+				36DE0636261A4F1F00F7F17F /* TouchBar.h */,
 			);
 			path = "TouchBar-ObjectiveC";
 			sourceTree = "<group>";
@@ -789,43 +975,58 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				366A0F632614A342000804E8 /* error.h in Headers */,
+				366A0F572614A341000804E8 /* stack.h in Headers */,
 				1AA4A4ED25CB58BA00621AEB /* SDL_test_compare.h in Headers */,
 				1AA4A4E125CB58BA00621AEB /* close_code.h in Headers */,
 				1AA4A4E825CB58BA00621AEB /* SDL_opengles2_khrplatform.h in Headers */,
 				1AA4A49E25CB58B900621AEB /* SDL_clipboard.h in Headers */,
+				366A0F952614A6DB000804E8 /* discord_rpc.h in Headers */,
 				1AA4A4CE25CB58BA00621AEB /* SDL_timer.h in Headers */,
 				1AA4A4B125CB58BA00621AEB /* SDL_main.h in Headers */,
+				366A0F502614A341000804E8 /* strtod.h in Headers */,
 				1A471E4B254A1EBD00FFF49B /* imgui_impl_sdl.h in Headers */,
 				1AA4A4D825CB58BA00621AEB /* SDL_version.h in Headers */,
+				366A0E3C2614A1A6000804E8 /* DiscordRPC.hpp in Headers */,
 				1AA4A4C125CB58BA00621AEB /* SDL_test_common.h in Headers */,
 				1AA4A4A225CB58B900621AEB /* SDL_endian.h in Headers */,
 				1AA4A4CB25CB58BA00621AEB /* SDL_system.h in Headers */,
+				366A0F8B2614A6C0000804E8 /* serialization.h in Headers */,
 				1AA4A4B925CB58BA00621AEB /* SDL_test_images.h in Headers */,
 				1AA4A4C025CB58BA00621AEB /* SDL_config_macosx.h in Headers */,
 				1AA4A4BE25CB58BA00621AEB /* SDL_locale.h in Headers */,
 				1AA4A4D525CB58BA00621AEB /* SDL_bits.h in Headers */,
 				1AA4A4B225CB58BA00621AEB /* SDL_stdinc.h in Headers */,
+				366A0F662614A342000804E8 /* pointer.h in Headers */,
 				1AA4A4C325CB58BA00621AEB /* SDL_audio.h in Headers */,
 				1AA4A4D925CB58BA00621AEB /* SDL_gamecontroller.h in Headers */,
 				1AA4A4DD25CB58BA00621AEB /* SDL_test_harness.h in Headers */,
 				1AA4A4E425CB58BA00621AEB /* SDL.h in Headers */,
+				366A0F5B2614A342000804E8 /* encodings.h in Headers */,
 				1AA4A4A125CB58B900621AEB /* SDL_test_assert.h in Headers */,
 				1AA4A4DC25CB58BA00621AEB /* SDL_thread.h in Headers */,
 				1AA4A4BB25CB58BA00621AEB /* SDL_platform.h in Headers */,
 				1AC8B1CB25BAF84C00F754B1 /* xorstr.h in Headers */,
 				1AA4A4A825CB58BA00621AEB /* SDL_config_psp.h in Headers */,
 				1AA4A4BD25CB58BA00621AEB /* SDL_config_minimal.h in Headers */,
+				366A0F982614A6FA000804E8 /* msg_queue.h in Headers */,
 				1AA4A4AE25CB58BA00621AEB /* SDL_egl.h in Headers */,
 				1A471E3E254A1D6000FFF49B /* imgui.h in Headers */,
 				1AA4A4A325CB58B900621AEB /* SDL_error.h in Headers */,
 				1AA4A4DB25CB58BA00621AEB /* SDL_copying.h in Headers */,
+				366A0F652614A342000804E8 /* memorybuffer.h in Headers */,
 				1AA4A4E725CB58BA00621AEB /* SDL_opengles2_gl2platform.h in Headers */,
 				1AA4A4AD25CB58BA00621AEB /* SDL_test_log.h in Headers */,
 				1A471E3D254A1D6000FFF49B /* imstb_rectpack.h in Headers */,
+				366A0F5A2614A341000804E8 /* pow10.h in Headers */,
+				366A0F582614A341000804E8 /* dtoa.h in Headers */,
+				366A0F4A2614A341000804E8 /* ostreamwrapper.h in Headers */,
+				366A0F942614A6DB000804E8 /* discord_register.h in Headers */,
 				1AA4A4A725CB58BA00621AEB /* SDL_keyboard.h in Headers */,
 				1A471E40254A1D6000FFF49B /* imgui_internal.h in Headers */,
 				1AA4A4EC25CB58BA00621AEB /* SDL_cpuinfo.h in Headers */,
 				1AA4A4DE25CB58BA00621AEB /* SDL_rect.h in Headers */,
+				366A0F4D2614A341000804E8 /* istreamwrapper.h in Headers */,
 				1AA4A49825CB58B900621AEB /* SDL_misc.h in Headers */,
 				1AA4A4D025CB58BA00621AEB /* SDL_atomic.h in Headers */,
 				1AA4A4B625CB58BA00621AEB /* SDL_touch.h in Headers */,
@@ -833,44 +1034,69 @@
 				1AA4A4BF25CB58BA00621AEB /* SDL_loadso.h in Headers */,
 				1AA4A4B725CB58BA00621AEB /* SDL_opengles2.h in Headers */,
 				1AA4A4C925CB58BA00621AEB /* SDL_config_iphoneos.h in Headers */,
+				366A0F4B2614A341000804E8 /* encodedstream.h in Headers */,
+				366A0F512614A341000804E8 /* swap.h in Headers */,
+				366A0F5F2614A342000804E8 /* rapidjson.h in Headers */,
+				366A0F5D2614A342000804E8 /* stream.h in Headers */,
 				1AA4A49D25CB58B900621AEB /* SDL_events.h in Headers */,
 				1AA4A4B425CB58BA00621AEB /* SDL_quit.h in Headers */,
+				366A0F542614A341000804E8 /* biginteger.h in Headers */,
+				366A0F622614A342000804E8 /* writer.h in Headers */,
+				366A0F562614A341000804E8 /* itoa.h in Headers */,
+				366A0F472614A341000804E8 /* memorystream.h in Headers */,
+				366A0F4F2614A341000804E8 /* ieee754.h in Headers */,
 				1AA4A49A25CB58B900621AEB /* SDL_test_random.h in Headers */,
+				366A0F5C2614A342000804E8 /* schema.h in Headers */,
 				1AA4A49B25CB58B900621AEB /* SDL_power.h in Headers */,
 				1AA4A4C525CB58BA00621AEB /* SDL_opengl.h in Headers */,
 				1AA4A4BA25CB58BA00621AEB /* SDL_name.h in Headers */,
 				1AA4A4A425CB58B900621AEB /* begin_code.h in Headers */,
+				366A0F8C2614A6C0000804E8 /* rpc_connection.h in Headers */,
 				1AA4A4E025CB58BA00621AEB /* SDL_mutex.h in Headers */,
+				366A0F4C2614A341000804E8 /* filereadstream.h in Headers */,
 				1AA4A4B525CB58BA00621AEB /* SDL_config_android.h in Headers */,
 				1AA4A4CC25CB58BA00621AEB /* SDL_hints.h in Headers */,
+				366A0F592614A341000804E8 /* meta.h in Headers */,
 				1AA4A4DA25CB58BA00621AEB /* SDL_config_windows.h in Headers */,
+				366A0F4E2614A341000804E8 /* stringbuffer.h in Headers */,
 				1AA4A4A025CB58B900621AEB /* SDL_test.h in Headers */,
 				1AA4A4C825CB58BA00621AEB /* SDL_test_fuzzer.h in Headers */,
+				366A0F602614A342000804E8 /* document.h in Headers */,
 				1AA4A4CF25CB58BA00621AEB /* SDL_surface.h in Headers */,
 				1AA4A4D625CB58BA00621AEB /* SDL_video.h in Headers */,
+				366A0F462614A341000804E8 /* fwd.h in Headers */,
 				1AA4A4C225CB58BA00621AEB /* SDL_config.h in Headers */,
 				1AA4A4C425CB58BA00621AEB /* SDL_sensor.h in Headers */,
+				366A0F892614A6C0000804E8 /* backoff.h in Headers */,
 				1AA4A4E225CB58BA00621AEB /* SDL_config_wiz.h in Headers */,
+				366A0F5E2614A342000804E8 /* filewritestream.h in Headers */,
 				1AA4A4DF25CB58BA00621AEB /* SDL_metal.h in Headers */,
 				1AA4A4E625CB58BA00621AEB /* SDL_messagebox.h in Headers */,
 				1AA4A4B825CB58BA00621AEB /* SDL_config_winrt.h in Headers */,
 				1A471E3A254A1D6000FFF49B /* imconfig.h in Headers */,
 				1AA4A4BC25CB58BA00621AEB /* SDL_shape.h in Headers */,
 				1AA4A49C25CB58B900621AEB /* SDL_revision.h in Headers */,
+				36848C8726122839001E1947 /* Aimbot.hpp in Headers */,
 				1A471E3C254A1D6000FFF49B /* imstb_truetype.h in Headers */,
 				1AA4A4D125CB58BA00621AEB /* SDL_log.h in Headers */,
 				1AA4A4A525CB58BA00621AEB /* SDL_types.h in Headers */,
+				366A0F552614A341000804E8 /* strfunc.h in Headers */,
+				366A0F532614A341000804E8 /* diyfp.h in Headers */,
 				1AA4A4EE25CB58BA00621AEB /* SDL_opengles2_gl2.h in Headers */,
 				1AA4A4D725CB58BA00621AEB /* SDL_assert.h in Headers */,
 				1AA4A4E325CB58BA00621AEB /* SDL_joystick.h in Headers */,
 				1A471E39254A1D6000FFF49B /* imstb_textedit.h in Headers */,
 				1AA4A4C725CB58BA00621AEB /* SDL_gesture.h in Headers */,
+				366A0F612614A342000804E8 /* allocators.h in Headers */,
+				366A0F522614A341000804E8 /* regex.h in Headers */,
 				1AA4A4E925CB58BA00621AEB /* SDL_test_md5.h in Headers */,
 				1AA4A49925CB58B900621AEB /* SDL_opengles2_gl2ext.h in Headers */,
+				366A0F492614A341000804E8 /* prettywriter.h in Headers */,
 				1AA4A4AC25CB58BA00621AEB /* SDL_test_font.h in Headers */,
 				1AA4A4E525CB58BA00621AEB /* SDL_filesystem.h in Headers */,
 				1AA4A4AB25CB58BA00621AEB /* SDL_test_crc32.h in Headers */,
 				1AA4A4D225CB58BA00621AEB /* SDL_rwops.h in Headers */,
+				366A0F642614A342000804E8 /* en.h in Headers */,
 				1AA4A4C625CB58BA00621AEB /* SDL_blendmode.h in Headers */,
 				1AA4A4B025CB58BA00621AEB /* SDL_test_memory.h in Headers */,
 				1AA4A4AF25CB58BA00621AEB /* SDL_vulkan.h in Headers */,
@@ -880,6 +1106,8 @@
 				1AA4A4AA25CB58BA00621AEB /* SDL_config_pandora.h in Headers */,
 				1AA4A4CA25CB58BA00621AEB /* SDL_opengles.h in Headers */,
 				1AA4A4D425CB58BA00621AEB /* SDL_syswm.h in Headers */,
+				366A0F9C2614AC71000804E8 /* connection.h in Headers */,
+				366A0F482614A341000804E8 /* reader.h in Headers */,
 				1AA4A4EA25CB58BA00621AEB /* SDL_config_os2.h in Headers */,
 				1AA4A4A625CB58BA00621AEB /* SDL_keycode.h in Headers */,
 				1AA4A4EB25CB58BA00621AEB /* SDL_pixels.h in Headers */,
@@ -948,27 +1176,33 @@
 			files = (
 				1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */,
 				1A471E27254A1CA400FFF49B /* ButOSX.cpp in Sources */,
+				366A0F8F2614A6C0000804E8 /* rpc_connection.cpp in Sources */,
+				36DE0634261A4ED100F7F17F /* TouchBar.m in Sources */,
 				367C2E6D25D687E200AD3C5B /* imgui_impl_opengl2.cpp in Sources */,
 				1A471E49254A1EBD00FFF49B /* imgui_impl_sdl.cpp in Sources */,
 				1A7C475A254EE8D700A58870 /* GameHooker.cpp in Sources */,
+				366A0F9F2614AC86000804E8 /* connection_unix.cpp in Sources */,
 				1A471E3F254A1D6000FFF49B /* imgui.cpp in Sources */,
 				1A42E94B25BCA3D6006BB177 /* ESP.cpp in Sources */,
+				36848C8626122839001E1947 /* Aimbot.cpp in Sources */,
 				1A471F01254A266D00FFF49B /* Helpers.cpp in Sources */,
+				366A0F8E2614A6C0000804E8 /* discord_register_osx.m in Sources */,
 				1A518E5125C206980080F876 /* Others.cpp in Sources */,
 				1AC8B1D025BAF90F00F754B1 /* imgui_tables.cpp in Sources */,
 				1A471E3B254A1D6000FFF49B /* imgui_widgets.cpp in Sources */,
+				366A0E3D2614A1A6000804E8 /* DiscordRPC.cpp in Sources */,
 				1A471E59254A201100FFF49B /* MainHooker.cpp in Sources */,
 				1A471F0B254B35E900FFF49B /* MenuRenderer.cpp in Sources */,
 				1A471E38254A1D6000FFF49B /* imgui_draw.cpp in Sources */,
 				1A42E94225BC9D07006BB177 /* NetVarManager.cpp in Sources */,
-				369EEA1725D355D1000C2BB5 /* TouchbarMenuRenderer.cpp in Sources */,
 				1A42E91A25BC90D6006BB177 /* Interfaces.cpp in Sources */,
 				1A7C47A2254EF0D100A58870 /* PatternScanner.cpp in Sources */,
 				1A471E55254A1F3E00FFF49B /* OpenGLHooker.cpp in Sources */,
 				1A471EFD254A265E00FFF49B /* Module.cpp in Sources */,
 				36EE828925CDD0AC00B0F612 /* Vector4D.cpp in Sources */,
+				366A0F8D2614A6C0000804E8 /* serialization.cpp in Sources */,
+				366A0F8A2614A6C0000804E8 /* discord_rpc.cpp in Sources */,
 				1A42E93D25BC9C91006BB177 /* Offsets.cpp in Sources */,
-				365BB2CA260E3DAB00A74D60 /* TouchBar.h in Sources */,
 				369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1101,6 +1335,10 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ButOSX/Thirdparty/discord-rpc/lib",
+				);
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1122,6 +1360,10 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ButOSX/Thirdparty/discord-rpc/lib",
+				);
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

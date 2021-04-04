@@ -1,5 +1,17 @@
 class IEngineClient {
 public:
+    typedef struct Matrix4x4 {
+        union {
+            struct {
+                float _11, _12, _13, _14;
+                float _21, _22, _23, _24;
+                float _31, _32, _33, _34;
+                float _41, _42, _43, _44;
+
+            };
+            float m[4][4];
+        };
+    }Matrix4x4;
     typedef struct player_info_s
     {
         int64_t __pad0;
@@ -74,6 +86,10 @@ public:
     void GetScreenSize(int& width, int& height){
         typedef void(*oGetScreenSize)(void*);
         return getvfunc<oGetScreenSize>(this, 5)(this);
+    }
+    Matrix4x4 WorldToScreenMatrix(){
+        typedef Matrix4x4(*oWorldToScreenMatrix)(void*);
+        return getvfunc<oWorldToScreenMatrix>(this, 37)(this);
     }
 
 };

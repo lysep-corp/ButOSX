@@ -10,3 +10,6 @@
 [submodule "ButOSX/Thirdparty/NSTouchbarAPI"]
 	path = ButOSX/Thirdparty/NSTouchbarAPI
 	url = https://github.com/xMuratY/TouchBar-ObjectiveC
+[submodule "ButOSX/Thirdparty/discord-rpc"]
+	path = ButOSX/Thirdparty/discord-rpc
+	url = https://github.com/discord/discord-rpc
