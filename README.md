@@ -37,8 +37,10 @@ More will be comming soon.
 [![Screenshot 2](https://i.imgur.com/1rlDksO.png "Screenshot 2")](https://i.imgur.com/1rlDksO.png "Screenshot 2")
 
 ##### Also includes TouchBar API:
-[![Touchbar 1](https://i.imgur.com/AmmUbSI.png "Touchbar 1")](https://i.imgur.com/AmmUbSI.png "Touchbar 1")
-[![Touchbar 2](https://i.imgur.com/pLL7U7y.png "Touchbar 2")](https://i.imgur.com/pLL7U7y.png "Touchbar 2")
+[![Touchbar 1](https://i.imgur.com/hpJb5nz.png "Touchbar 1")](https://i.imgur.com/hpJb5nz.png "Touchbar 1")
+[![Touchbar 2](https://i.imgur.com/uDwdRP7.png "Touchbar 2")](https://i.imgur.com/uDwdRP7.png "Touchbar 2")
+[![Touchbar 3](https://i.imgur.com/3XqzUoV.png "Touchbar 3")](https://i.imgur.com/3XqzUoV.png "Touchbar 3")
+[![Touchbar 4](https://i.imgur.com/4MxdOKf.png "Touchbar 4")](https://i.imgur.com/4MxdOKf.png "Touchbar 4")
 
 ### Credits
 [ocornut/imgui](https://github.com/ocornut/imgui) for incredible menu framework. <br>
