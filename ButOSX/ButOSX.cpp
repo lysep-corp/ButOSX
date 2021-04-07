@@ -9,7 +9,7 @@
 #include <iostream>
 #include "ButOSX.hpp"
 #include "Thirdparty/TouchBar-ObjectiveC/TouchBar.h"
-#include "Classes/DiscordRPC.hpp"
+//#include "Classes/DiscordRPC.hpp"
 
 int __attribute__((constructor))
 attach() //Main attach function which executes when library loads.
