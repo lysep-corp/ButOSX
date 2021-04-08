@@ -6,10 +6,7 @@
 	url = https://github.com/qis/xorstr
 [submodule "ButOSX/Thirdparty/SDL2"]
 	path = ButOSX/Thirdparty/SDL2
-	url = https://github.com/spurious/SDL-mirror
-[submodule "ButOSX/Thirdparty/NSTouchbarAPI"]
-	path = ButOSX/Thirdparty/NSTouchbarAPI
-	url = https://github.com/xMuratY/TouchBar-ObjectiveC
+	url = https://github.com/libsdl-org/SDL
 [submodule "ButOSX/Thirdparty/discord-rpc"]
 	path = ButOSX/Thirdparty/discord-rpc
 	url = https://github.com/discord/discord-rpc
