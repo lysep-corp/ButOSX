@@ -17,12 +17,11 @@ extern HFONT eFont;
 
 namespace Visuals{
     namespace ESP{
-        void ESPSurface();
-        void EspImGui(ImDrawList* drawArea);
+        extern void ESPSurface();
     }
     namespace Others{
-        void Watermark(ImDrawList* bruh);
-        void NightMode();
+        extern void Watermark(ImDrawList* bruh);
+        extern void NightMode();
     
     }
 }

@@ -299,7 +299,6 @@ void RenderTouchBar(){
     
     TBWMenuContext* menu_Main = [wrapperMenu BeginMenu:@"ButOSX"];
     butButton_Menu = [menu_Main AddButton:@"In-Game Menu"];
-    SDLHook::_visible = butButton_Menu->state;
     [wrapperMenu EndMenu:menu_Main];
     
     TBWMenuContext* menu_Visuals = [wrapperMenu BeginMenu:@"Visuals"];

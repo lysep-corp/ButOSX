@@ -10,7 +10,6 @@
 #include "xorstr.h"
 #include "../../Menu/ImGuiMenu/Datas.hpp"
 #include "../../Menu/ImGuiMenu/MenuRenderer.hpp"
-#include "Visuals.hpp"
 
 Uint8 SDLCALL SDL_GameControllerGetButton(SDL_GameController *gamecontroller, SDL_GameControllerButton button){
     typedef Uint8(*currFn) (SDL_GameController*, SDL_GameControllerButton);
@@ -207,7 +206,7 @@ int PollEventHK(SDL_Event* event) { // Needed for getting inputs mostly show / h
     static int (*oSDL_PollEvent) (SDL_Event*) = reinterpret_cast<int(*)(SDL_Event*)>(pollevent_original);
     int returnAddr =  0;
     static SDL_Event _event; 
-    if(SDLHook::_visible){
+    if(butButton_Menu->state){
        ImGui_ImplSDL2_ProcessEvent(&_event);
         returnAddr = oSDL_PollEvent(&_event);
     }
@@ -280,20 +279,16 @@ void InitImGui(SDL_Window* window){
 
 uintptr_t* swapwindow_ptr = nullptr;
 uintptr_t swapwindow_original = NULL;
-bool SDLHook::_visible = false;
 void SDLHook::SwapWindow(SDL_Window* window) {
 static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_Window*)>(swapwindow_original);
     InitImGui(window);
-    //TouchBarMenu::UpdateButtonInputs(); //Disabled until fix the in-game-ui bug.
-    if ( ImGui::GetIO().KeysDownDuration[73] == 0.0f )
-        _visible = !_visible;
     static ImDrawList* BackDrawList;
     if(BackDrawList != ImGui::GetBackgroundDrawList())
         BackDrawList = ImGui::GetBackgroundDrawList();
     
     //ImGui RENDERS
     Visuals::Others::Watermark(BackDrawList);
-    MenuRenderer::RenderMenu(_visible);
+    MenuRenderer::RenderMenu();
     
     oSDL_GL_SwapWindow(window);
     SDL_GL_MakeCurrent(window, original_context);
@@ -317,7 +312,6 @@ void SDLHook::Init() {
 
 void SDLHook::Unhook() {
     //Unhook doesn't work (?)
-    _visible = false;
     ImGui_ImplOpenGL2_Shutdown(); //Shutdowns ImGui
     ImGui_ImplSDL2_Shutdown(); //Shutdowns ImGui
     *swapwindow_ptr = swapwindow_original; //Reverts back to game's original Swap Window.

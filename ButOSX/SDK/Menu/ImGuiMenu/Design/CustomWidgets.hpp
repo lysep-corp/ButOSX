@@ -17,7 +17,7 @@ struct ImVec4;
 namespace CustomWidgets {
     bool SubTab(const char* label, const ImVec2& size_arg, const bool selected);
     bool Switch(const char* label, bool* v);
-    bool ControlBox(void (*UnHookFunction)(), bool* HideShowBool, bool* FullScreenBool);
+    bool ControlBox(bool* HideShowBool, bool* FullScreenBool);
     void Spinner(float radius, float thickness, int num_segments, ImVec4 color);
     bool ColorPicker4(const char* label, TBWMenuItem* color, int flags);
 }

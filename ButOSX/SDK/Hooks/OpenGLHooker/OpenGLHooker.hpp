@@ -18,6 +18,8 @@
 #include "Functions/Helpers.hpp"
 #include "Functions/Module.hpp"
 
+#include "Visuals.hpp"
+
 struct ImFont;
 extern ImFont* g_GirisFontBüyük;
 extern ImFont* g_Font;
@@ -31,7 +33,6 @@ extern ImFont* g_Büyük;
 namespace SDLHook {
     void Init();
     void SwapWindow(SDL_Window* window);
-    extern bool _visible;
     void Unhook();
 }
 #endif /* OpenGLHooker_hpp */
