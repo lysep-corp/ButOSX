@@ -29,6 +29,7 @@ float clip(float n, float lower, float upper)
 static ImVec2 MainWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 static ImVec2 MainWindowPos;
 void MenuRenderer::RenderMenu(){
+    const char* CheatName = xorstr("ButOSX - Godly Cheat of MACOSX");
     if(butButton_Menu->state){
         chinaVisible = true;
         flAlpha = clip(flAlpha + (1 / 0.15f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
@@ -49,7 +50,6 @@ void MenuRenderer::RenderMenu(){
         ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize | ImGuiStyleVar_ChildBorderSize, 0);
         ImGui::SetNextWindowSize(MainWindowSize);
         ImGui::SetNextWindowBgAlpha(style.Alpha);
-        const char* CheatName = xorstr("ButOSX - Godly Cheat of MACOSX");
         static int selected_Tab = 0;
         static bool isFullscreen = false;
         static ImGuiWindowFlags UI_FLAGS = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar;
@@ -154,7 +154,7 @@ void Pages::VisualsPage(){ //Page for visuals.
     }
     ImGui::EndChild();
     ImGui::PopFont();
-    if(CheatSettings::ESP::enabled){
+    if(visButton_ESP->state){
         static ImVec4 COL = ImVec4(0.99f, 0.43f, 0.f, ImGui::GetStyle().Alpha);
         ImGui::GetStyle().Colors[ImGuiCol_Border] = COL;
         ImGui::GetStyle().WindowBorderSize = 1;
@@ -207,25 +207,16 @@ void Pages::AssistsPage(){ //Page for assists.
 }
 
 
-static bool TEST = false;
 void Pages::SettingsPage(){ //Page for settings;
     static ImVec4 COL = ImVec4(0.99f, 0.43f, 0.f, ImGui::GetStyle().Alpha);
     ImGui::GetStyle().Colors[ImGuiCol_Border] = COL;
     ImGui::GetStyle().WindowBorderSize = 1;
-    CustomWidgets::ColorPicker4("TESTTEST", setCol_ESP, 0);
     ImGui::Begin(xorstr("UI Tests"), NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar);{
-        ImGui::PushFont(g_Font);
         ImGui::SetWindowSize(ImVec2(150, WINDOW_HEIGHT));
         ImGui::SetWindowPos(ImVec2(MainWindowPos.x + WINDOW_WIDTH + 30, MainWindowPos.y));
         ImGui::SetCursorPos(ImVec2(10, 30));
-        CustomWidgets::Switch(xorstr("TEST OLUR GIBI"), &CheatSettings::NightMode);
-        ImGui::SameLine();
-        CustomWidgets::Spinner(16, 5, 100, COL);
-        if(TEST){
-            ImGui::GetWindowDrawList()->AddRect(ImVec2(ImGui::GetWindowPos().x + 10, ImGui::GetWindowPos().y + 80), ImVec2(ImGui::GetWindowPos().x + 140, ImGui::GetWindowPos().y + WINDOW_HEIGHT - 40), ImColor(0.f, 1.0f, 0.f, ImGui::GetStyle().Alpha));
-            ImGui::SetCursorPos(ImVec2((10 + 140 - ImGui::CalcTextSize(xorstr("Lyceion")).x) / 2.f, WINDOW_HEIGHT - 35));
-            ImGui::Text("%s", xorstr("Lyceion"));
-        }
+        ImGui::PushFont(g_Font);
+        CustomWidgets::ColorPicker4(xorstr("Color Picker TEST"), setCol_ESP, 0);
         ImGui::PopFont();
     }
     ImGui::End();
