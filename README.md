@@ -7,6 +7,8 @@ Brought to you by xMuraty & Lyceion
 ##### NOTE: THIS PROJECT IS STILL WORK IN PROGRESS!
 ButOSX is an internal cheat project for Counter Strike: Global Offensive. This project is made with educational purposes. This is my first big C++ project, so code is probably very messy. Apologies.
 
+Menu key is **Right Arrow** or **Insert**
+
 UI is powered by ImGui.
 
 ### Features:
@@ -17,7 +19,6 @@ UI is powered by ImGui.
     - ESP
         - Box
         - Name
-        - Skeleton
     - Watermark
 - Assists
     - WIP
@@ -44,6 +45,6 @@ More will be comming soon.
 [dwnste/imgui_sdl_osx](https://github.com/dwnste/imgui_sdl_osx) for SDL2 hooking example. <br>
 [sonicrules11/Microwave-Open-Source](https://github.com/sonicrules11/Microwave-Open-Source)  <br>
  And where i pasted from (IDK I Don't remember this is my first big cpp project)<br>
- 
  <br>
- [Click to join ButOSX community server.](https://discord.gg/cJmWH7YQ58)
+ 
+ [Click to join ButOSX community discord server!](https://discord.gg/cJmWH7YQ58)

@@ -12,10 +12,12 @@
 int __attribute__((constructor))
 attach() //Main attach function which executes when library loads.
 {
-    //Initialize Hooker.
-    Hooker::Init();
     //Initialize TouchBar UI.
     RenderTouchBar();
+    
+    //Initialize Hooker.
+    Hooker::Init();
+    
     //Inıtalize Objective-C API.
     GetUserDatas();
     return 0;

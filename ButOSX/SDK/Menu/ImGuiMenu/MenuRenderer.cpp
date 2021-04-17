@@ -29,7 +29,6 @@ float clip(float n, float lower, float upper)
 static ImVec2 MainWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 static ImVec2 MainWindowPos;
 void MenuRenderer::RenderMenu(){
-    const char* CheatName = xorstr("ButOSX - Godly Cheat of MACOSX");
     if(butButton_Menu->state){
         chinaVisible = true;
         flAlpha = clip(flAlpha + (1 / 0.15f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
@@ -53,7 +52,7 @@ void MenuRenderer::RenderMenu(){
         static int selected_Tab = 0;
         static bool isFullscreen = false;
         static ImGuiWindowFlags UI_FLAGS = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar;
-        ImGui::Begin(CheatName, NULL, UI_FLAGS); {
+        ImGui::Begin(xorstr("Main"), NULL, UI_FLAGS); {
             ImGui::PopStyleVar();
             MainWindowPos = ImGui::GetWindowPos();
             static ImGuiWindow* window = ImGui::GetCurrentWindow();
@@ -77,7 +76,8 @@ void MenuRenderer::RenderMenu(){
             
             //UI TITLE
             ImGui::PushFont(g_Büyük);
-            UI->AddText(ImVec2((ImGui::GetWindowPos().x + MainWindowSize.x) - (ImGui::CalcTextSize(CheatName).x + WINDOW_PADDING), ImGui::GetWindowPos().y + (WINDOW_PADDING * 3) - ImGui::CalcTextSize(CheatName).y), ImColor(1.0f, 1.0f, 1.0f, style.Alpha), CheatName);
+            ImVec2 CheatTitleSize = ImGui::CalcTextSize(xorstr("ButOSX"));
+            UI->AddText(ImVec2((ImGui::GetWindowPos().x + MainWindowSize.x) - (CheatTitleSize.x + WINDOW_PADDING), ImGui::GetWindowPos().y + (WINDOW_PADDING * 3) - CheatTitleSize.y), ImColor(1.0f, 1.0f, 1.0f, style.Alpha), xorstr("ButOSX"));
             ImGui::PopFont();
             UI->AddRectFilled(ImVec2(ImGui::GetWindowPos().x + WINDOW_PADDING, ImGui::GetWindowPos().y + (WINDOW_PADDING * 3) + 1), ImVec2(ImGui::GetWindowPos().x + MainWindowSize.x - WINDOW_PADDING, ImGui::GetWindowPos().y + (WINDOW_PADDING * 3) + 2), ImColor(1.0f, 1.0f, 1.0f, style.Alpha));
             
@@ -122,14 +122,17 @@ void MenuRenderer::RenderMenu(){
         flAlpha = 0;
     }
     
-    //MENU KEY IS INSERT!!!
+    //DEFAULT MENU KEY IS RIGHT ARROW or INSERT!!!
     //Open&Close Menu Key Handler
-    if ( ImGui::GetIO().KeysDownDuration[73] == 0.0f )
+    if ( ImGui::GetIO().KeysDownDuration[SDL_SCANCODE_RIGHT] == 0.0f || ImGui::GetIO().KeysDownDuration[SDL_SCANCODE_INSERT] == 0.0f )
         butButton_Menu->state = !butButton_Menu->state;
     
+    //Touchbar Updater
     UpdateButton(butButton_Menu);
     UpdateButton(visButton_ESP);
     UpdateButton(visButton_Watermark);
+    
+    //ImGui Functions
     ImGui::Render();
     ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
 }
@@ -154,44 +157,6 @@ void Pages::VisualsPage(){ //Page for visuals.
     }
     ImGui::EndChild();
     ImGui::PopFont();
-    if(visButton_ESP->state){
-        static ImVec4 COL = ImVec4(0.99f, 0.43f, 0.f, ImGui::GetStyle().Alpha);
-        ImGui::GetStyle().Colors[ImGuiCol_Border] = COL;
-        ImGui::GetStyle().WindowBorderSize = 1;
-        ImGui::Begin(xorstr("ESP Preview"), NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar);{
-            ImGui::PushFont(g_Font);
-            ImVec2 WindowSize(300, WINDOW_HEIGHT);
-            ImGui::SetWindowSize(WindowSize);
-            ImGui::SetWindowPos(ImVec2(MainWindowPos.x + WINDOW_WIDTH + 30, MainWindowPos.y));
-            
-            static ImVec2 ESPBoxSize(150, WINDOW_HEIGHT - 100);
-            static ImVec2 ESPBoxLocation(ImGui::GetWindowPos().x + ((WindowSize.x - ESPBoxSize.x) / 2), ImGui::GetWindowPos().y + ((WindowSize.y - ESPBoxSize.y) / 2));
-            if(CheatSettings::ESP::box){
-                ImGui::GetWindowDrawList()->AddRect(ESPBoxLocation, ImVec2(ESPBoxLocation.x + ESPBoxSize.x, ESPBoxLocation.y + ESPBoxSize.y), ImColor(0.f, 1.0f, 0.f, ImGui::GetStyle().Alpha));
-            }
-            
-            //static ImVec2 HealthBarSize(3, ESPSize.y);
-            //static ImVec2 HealthBarPos(BoxPos.x - 5, BoxPos.y);
-            if(CheatSettings::ESP::health){
-                //ImGui::GetWindowDrawList()->AddRect(HealthBarPos, ImVec2(ImGui::GetWindowSize().x + HealthBarPos.x + HealthBarSize.x, ImGui::GetWindowSize().y + HealthBarPos.y + HealthBarSize.y), ImColor(1.f, 0.f, 0.f, ImGui::GetStyle().Alpha));
-               // BoxPos.x = (ImGui::GetWindowPos().x + (ImGui::GetWindowSize().x - ESPSize.x) / 2) + 5;
-            }
-            else{
-                ESPBoxLocation.x = ImGui::GetWindowPos().x + ((WindowSize.x - ESPBoxSize.x) / 2);
-            }
-            
-            if(CheatSettings::ESP::name){
-                ImGui::SetCursorPos(ImVec2((WindowSize.x - ImGui::CalcTextSize(xorstr("Lyceion")).x) / 2.f, ESPBoxLocation.y - ImGui::GetWindowPos().y - ImGui::CalcTextSize(xorstr("Lyceion")).y));
-                ImGui::Text("%s", xorstr("Lyceion"));
-                ESPBoxLocation.y = ImGui::GetWindowPos().y + ImGui::CalcTextSize(xorstr("Lyceion")).y + ((WindowSize.y - ESPBoxSize.y) / 2);
-            }
-            else{
-                ESPBoxLocation.y = ImGui::GetWindowPos().y + ((WindowSize.y - ESPBoxSize.y) / 2);
-            }
-            ImGui::PopFont();
-        }
-        ImGui::End();
-    }
 }
 
 void Pages::AssistsPage(){ //Page for assists.
@@ -208,16 +173,13 @@ void Pages::AssistsPage(){ //Page for assists.
 
 
 void Pages::SettingsPage(){ //Page for settings;
-    static ImVec4 COL = ImVec4(0.99f, 0.43f, 0.f, ImGui::GetStyle().Alpha);
-    ImGui::GetStyle().Colors[ImGuiCol_Border] = COL;
-    ImGui::GetStyle().WindowBorderSize = 1;
-    ImGui::Begin(xorstr("UI Tests"), NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar);{
-        ImGui::SetWindowSize(ImVec2(150, WINDOW_HEIGHT));
-        ImGui::SetWindowPos(ImVec2(MainWindowPos.x + WINDOW_WIDTH + 30, MainWindowPos.y));
-        ImGui::SetCursorPos(ImVec2(10, 30));
-        ImGui::PushFont(g_Font);
+    ImGui::PushFont(g_Font);
+    static int ChildCount = 1;
+    ImVec2 ChildSize = ImVec2((MainWindowSize.x - (WINDOW_PADDING * 2)) / ChildCount, MainWindowSize.y - ((WINDOW_PADDING * 7.5f ) + 5) );
+    ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (ChildSize.x * 0), WINDOW_PADDING * 6.5f));
+    ImGui::BeginChild(xorstr("##5"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
         CustomWidgets::ColorPicker4(xorstr("Color Picker TEST"), setCol_ESP, 0);
-        ImGui::PopFont();
     }
-    ImGui::End();
+    ImGui::EndChild();
+    ImGui::PopFont();
 }
