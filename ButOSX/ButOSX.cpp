@@ -8,14 +8,17 @@
 
 #include <iostream>
 #include "ButOSX.hpp"
-#include "Thirdparty/TouchBar-ObjectiveC/TouchBar.h"
-//#include "Classes/DiscordRPC.hpp"
 
 int __attribute__((constructor))
 attach() //Main attach function which executes when library loads.
 {
-    Hooker::Init();
+    //Initialize TouchBar UI.
     RenderTouchBar();
-    //DiscordRPC::StartDiscordRPC();
+    
+    //Initialize Hooker.
+    Hooker::Init();
+    
+    //Inıtalize Objective-C API.
+    GetUserDatas();
     return 0;
 }

@@ -9,9 +9,11 @@
 #ifndef ButOSX_
 #define ButOSX_
 
+#include "SDK/Hooks/MainHooker.hpp"
+#include "Thirdparty/TouchBar-ObjectiveC/TouchBar.h"
+#include "SDK/ObjectiveCWrapper/ObjCWrapper.h"
 /* The classes below are exported */
 #pragma GCC visibility push(default)
-#include "SDK/Hooks/MainHooker.hpp"
 
 class ButOSX
 {

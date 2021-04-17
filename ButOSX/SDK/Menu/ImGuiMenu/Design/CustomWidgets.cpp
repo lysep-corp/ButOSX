@@ -142,7 +142,7 @@ void CustomWidgets::Spinner(float radius, float thickness, int num_segments, ImV
     window->DrawList->PathStroke(ImGui::GetColorU32(color), false, thickness);
 }
 
-bool CustomWidgets::ControlBox(void (*UnHookFunction)(), bool* HideShowBool, bool* FullScreenBool){
+bool CustomWidgets::ControlBox(bool* HideShowBool, bool* FullScreenBool){
     ImGuiStyle& style = ImGui::GetStyle();
     ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 10);
     
@@ -153,7 +153,7 @@ bool CustomWidgets::ControlBox(void (*UnHookFunction)(), bool* HideShowBool, boo
     style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 0.00f);
     ImGui::SetCursorPos(ImVec2(10, 9));
     if (ImGui::Button(xorstr("X"), ImVec2(10, 10)))
-        UnHookFunction();
+        exit(0);
     
     //Minimize Button
     style.Colors[ImGuiCol_Button] = ImVec4(1.00f, 0.76f, 0.20f, style.Alpha);
