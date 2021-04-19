@@ -21,9 +21,8 @@ private:
     
 private:
     
-    void load_modules();
-    
 public:
+    void load_modules();
     
     static C_PatternScanner* get()
     {

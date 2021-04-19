@@ -9,9 +9,16 @@
 #include <iostream>
 #include "ButOSX.hpp"
 
+
 int __attribute__((constructor))
 attach() //Main attach function which executes when library loads.
 {
+    static C_PatternScanner* PatternScanner = C_PatternScanner::get();
+    while (!PatternScanner->get_base_address(xorstr("serverbrowser.dylib"))) {
+        //sleep(1);
+        PatternScanner->load_modules();
+    }
+    
     //Initialize TouchBar UI.
     RenderTouchBar();
     

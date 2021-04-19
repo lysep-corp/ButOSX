@@ -19,6 +19,7 @@
 #include "Functions/Module.hpp"
 
 #include "Visuals.hpp"
+#include "xorstr.h"
 
 struct ImFont;
 extern ImFont* g_GirisFontBüyük;
@@ -26,7 +27,6 @@ extern ImFont* g_Font;
 extern ImFont* g_Büyük;
 
 //extern SDL_Texture* images;
-
 
 #include <dlfcn.h>
 
