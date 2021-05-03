@@ -24,6 +24,8 @@ namespace Visuals{
         extern void NightMode();
         extern void NoVisRecoil();
         extern void NoFlash();
+        extern void SniperCrosshair();
+        extern void RecoilCrosshair();
     }
 }
 

@@ -58,6 +58,8 @@ void hkFrameStageNotify(void* thisptr, FrameStage stage) {
         //Visuals::Others::NightMode();
         Visuals::Others::NoVisRecoil();
         Visuals::Others::NoFlash();
+        Visuals::Others::SniperCrosshair();
+        Visuals::Others::RecoilCrosshair();
     }
     fsnVMT->GetOriginalMethod<tFrameStageNotify>(37)(thisptr, stage);
 }

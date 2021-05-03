@@ -142,7 +142,7 @@ public:
         return *(unsigned char*)((uintptr_t)this + offsets.DT_BasePlayer.m_lifeState);
     }
     
-    bool GetAlive()
+    bool IsAlive()
     {
         return this->GetHealth() > 0 && this->GetLifeState() == LIFE_ALIVE;
     }

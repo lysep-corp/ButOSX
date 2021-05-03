@@ -138,6 +138,7 @@ void MenuRenderer::RenderMenu(){
     //UpdateButton(visButton_NightMode);
     UpdateButton(visButton_NoVisRecoil);
     UpdateButton(visButton_NoFlash);
+    UpdateButton(visButton_SniperCrosshair);
     
     MessageBox::Show(xorstr("WELCOME - ButOSX"), xorstr("Hello, welcome to ButOSX. I'm Lyceion. Would you like to join our support discord?"), xorstr("YES PLEASE!"), OpenDiscord);
     
@@ -166,6 +167,8 @@ void Pages::VisualsPage(){ //Page for visuals.
         //CustomWidgets::Switch(xorstr("Nightmode"), &visButton_NightMode->state);
         CustomWidgets::Switch(xorstr("No Visual Recoil"), &visButton_NoVisRecoil->state);
         CustomWidgets::Switch(xorstr("No Flash"), &visButton_NoFlash->state);
+        CustomWidgets::Switch(xorstr("Sniper Crosshair"), &visButton_SniperCrosshair->state);
+        CustomWidgets::Switch(xorstr("Recoil Crosshair"), &visButton_RecoilCrosshair->state);
     }
     ImGui::EndChild();
     ImGui::PopFont();
@@ -199,6 +202,7 @@ void Pages::SettingsPage(){ //Page for settings;
 void MenuRenderer::MessageBox::Show(const char* Title, const char* Text, const char* ButtonText, void (*ButtonFunction)()){
     static bool show = true;
     if(show){
+        ImGui::GetBackgroundDrawList()->AddRectFilled(ImVec2(0,0), ImGui::GetIO().DisplaySize, ImColor(0,0,0,212));
         static ImGuiStyle& style = ImGui::GetStyle();
         style.WindowRounding = WINDOW_PADDING / 2;
         style.Colors[ImGuiCol_WindowBg] = ImVec4(0.12f, 0.12f, 0.12f, 1.0f);

@@ -293,6 +293,8 @@ TBWMenuItem* visButton_Watermark;
 TBWMenuItem* visButton_NightMode;
 TBWMenuItem* visButton_NoVisRecoil;
 TBWMenuItem* visButton_NoFlash;
+TBWMenuItem* visButton_SniperCrosshair;
+TBWMenuItem* visButton_RecoilCrosshair;
 
 TBWMenuItem* setCol_ESP;
 
@@ -310,6 +312,8 @@ void RenderTouchBar(){
     //visButton_NightMode = [menu_Visuals AddButton:@"Night Mode"];
     visButton_NoVisRecoil = [menu_Visuals AddButton:@"No Visual Recoil"];
     visButton_NoFlash = [menu_Visuals AddButton:@"No Flash"];
+    visButton_SniperCrosshair = [menu_Visuals AddButton:@"Sniper Crosshair"];
+    visButton_RecoilCrosshair = [menu_Visuals AddButton:@"Recoil Crosshair"];
     [wrapperMenu EndMenu:menu_Visuals];
     
     TBWMenuContext* menu_Assists = [wrapperMenu BeginMenu:@"Assists"];
