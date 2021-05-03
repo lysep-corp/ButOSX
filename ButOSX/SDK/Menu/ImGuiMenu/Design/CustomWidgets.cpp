@@ -153,7 +153,7 @@ bool CustomWidgets::ControlBox(bool* HideShowBool, bool* FullScreenBool){
     style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, 0.00f);
     ImGui::SetCursorPos(ImVec2(10, 9));
     if (ImGui::Button(xorstr("X"), ImVec2(10, 10)))
-        exit(0);
+        exit(69); //Nice.
     
     //Minimize Button
     style.Colors[ImGuiCol_Button] = ImVec4(1.00f, 0.76f, 0.20f, style.Alpha);
