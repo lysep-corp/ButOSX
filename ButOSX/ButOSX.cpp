@@ -6,6 +6,9 @@
 //  Copyright © 2020 Lyceion. All rights reserved.
 //
 
+
+//AND IT IS NOT A F*CKIN MICROWAVE FORK.
+
 #include <iostream>
 #include "ButOSX.hpp"
 
@@ -15,7 +18,6 @@ attach() //Main attach function which executes when library loads.
 {
     static C_PatternScanner* PatternScanner = C_PatternScanner::get();
     while (!PatternScanner->get_base_address(xorstr("serverbrowser.dylib"))) {
-        //sleep(1);
         PatternScanner->load_modules();
     }
     

@@ -48,6 +48,9 @@ extern TBWMenuItem* butButton_Menu;
 
 extern TBWMenuItem* visButton_ESP;
 extern TBWMenuItem* visButton_Watermark;
+extern TBWMenuItem* visButton_NightMode;
+extern TBWMenuItem* visButton_NoVisRecoil;
+extern TBWMenuItem* visButton_NoFlash;
 
 extern TBWMenuItem* setCol_ESP;
 

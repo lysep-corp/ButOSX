@@ -20,6 +20,9 @@ UI is powered by ImGui.
         - Box
         - Name
     - Watermark
+    - Night Mode (Beta ONLY)
+    - No Visual Recoil
+    - No Flash
 - Assists
     - WIP
 - Changers
@@ -40,11 +43,10 @@ More will be comming soon.
 [![Touchbar 4](https://i.imgur.com/4MxdOKf.png "Touchbar 4")](https://i.imgur.com/4MxdOKf.png "Touchbar 4")
 
 ### Credits
-[ocornut/imgui](https://github.com/ocornut/imgui) for incredible menu framework. <br>
-[LibSDL.org](https://github.com/libsdl-org/SDL) for rendering. <br>
 [dwnste/imgui_sdl_osx](https://github.com/dwnste/imgui_sdl_osx) for SDL2 hooking example. <br>
-[sonicrules11/Microwave-Open-Source](https://github.com/sonicrules11/Microwave-Open-Source)  <br>
+[sonicrules11/Microwave-Open-Source](https://github.com/sonicrules11/Microwave-Open-Source)  for some functions. <br>
  And where i pasted from (IDK I Don't remember this is my first big cpp project)<br>
+ IT'S NOT A MICROWAVE FORK.
  <br>
  
  [Click to join ButOSX community discord server!](https://discord.gg/cJmWH7YQ58)

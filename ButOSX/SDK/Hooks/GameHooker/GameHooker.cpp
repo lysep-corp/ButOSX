@@ -55,8 +55,9 @@ typedef void(*tFrameStageNotify)(void* thisptr, FrameStage stage);
 extern void hkFrameStageNotify(void* thisptr, FrameStage stage);
 void hkFrameStageNotify(void* thisptr, FrameStage stage) {
     if (stage == FrameStage::RENDER_START) {
-        //DiscordRPC::StartDiscordRPC();
-        Visuals::Others::NightMode();
+        //Visuals::Others::NightMode();
+        Visuals::Others::NoVisRecoil();
+        Visuals::Others::NoFlash();
     }
     fsnVMT->GetOriginalMethod<tFrameStageNotify>(37)(thisptr, stage);
 }

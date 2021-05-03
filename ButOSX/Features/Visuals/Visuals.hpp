@@ -20,9 +20,10 @@ namespace Visuals{
         extern void ESPSurface();
     }
     namespace Others{
-        extern void Watermark(ImDrawList* bruh);
+        extern void Watermark(ImDrawList* drawArea);
         extern void NightMode();
-    
+        extern void NoVisRecoil();
+        extern void NoFlash();
     }
 }
 

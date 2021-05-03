@@ -290,6 +290,9 @@ TBWMenuItem* butButton_Menu;
 
 TBWMenuItem* visButton_ESP;
 TBWMenuItem* visButton_Watermark;
+TBWMenuItem* visButton_NightMode;
+TBWMenuItem* visButton_NoVisRecoil;
+TBWMenuItem* visButton_NoFlash;
 
 TBWMenuItem* setCol_ESP;
 
@@ -304,6 +307,9 @@ void RenderTouchBar(){
     TBWMenuContext* menu_Visuals = [wrapperMenu BeginMenu:@"Visuals"];
     visButton_ESP = [menu_Visuals AddButton:@"ESP"];
     visButton_Watermark = [menu_Visuals AddButton:@"Watermark"];
+    //visButton_NightMode = [menu_Visuals AddButton:@"Night Mode"];
+    visButton_NoVisRecoil = [menu_Visuals AddButton:@"No Visual Recoil"];
+    visButton_NoFlash = [menu_Visuals AddButton:@"No Flash"];
     [wrapperMenu EndMenu:menu_Visuals];
     
     TBWMenuContext* menu_Assists = [wrapperMenu BeginMenu:@"Assists"];

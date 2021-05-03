@@ -135,6 +135,9 @@ void MenuRenderer::RenderMenu(){
     UpdateButton(butButton_Menu);
     UpdateButton(visButton_ESP);
     UpdateButton(visButton_Watermark);
+    //UpdateButton(visButton_NightMode);
+    UpdateButton(visButton_NoVisRecoil);
+    UpdateButton(visButton_NoFlash);
     
     MessageBox::Show(xorstr("WELCOME - ButOSX"), xorstr("Hello, welcome to ButOSX. I'm Lyceion. Would you like to join our support discord?"), xorstr("YES PLEASE!"), OpenDiscord);
     
@@ -160,6 +163,9 @@ void Pages::VisualsPage(){ //Page for visuals.
             ImGui::EndChild();
         }
         CustomWidgets::Switch(xorstr("Watermark"), &visButton_Watermark->state);
+        //CustomWidgets::Switch(xorstr("Nightmode"), &visButton_NightMode->state);
+        CustomWidgets::Switch(xorstr("No Visual Recoil"), &visButton_NoVisRecoil->state);
+        CustomWidgets::Switch(xorstr("No Flash"), &visButton_NoFlash->state);
     }
     ImGui::EndChild();
     ImGui::PopFont();
