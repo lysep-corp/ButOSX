@@ -28,6 +28,10 @@ float clip(float n, float lower, float upper)
 
 static ImVec2 MainWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 static ImVec2 MainWindowPos;
+void OpenDiscord(){
+    std::string op = std::string(xorstr("open https://discord.gg/cJmWH7YQ58"));
+    system(op.c_str());
+}
 void MenuRenderer::RenderMenu(){
     if(butButton_Menu->state){
         chinaVisible = true;
@@ -131,6 +135,12 @@ void MenuRenderer::RenderMenu(){
     UpdateButton(butButton_Menu);
     UpdateButton(visButton_ESP);
     UpdateButton(visButton_Watermark);
+    //UpdateButton(visButton_NightMode);
+    UpdateButton(visButton_NoVisRecoil);
+    UpdateButton(visButton_NoFlash);
+    UpdateButton(visButton_SniperCrosshair);
+    
+    MessageBox::Show(xorstr("WELCOME - ButOSX"), xorstr("Hello, welcome to ButOSX. I'm Lyceion. Would you like to join our support discord?"), xorstr("YES PLEASE!"), OpenDiscord);
     
     //ImGui Functions
     ImGui::Render();
@@ -154,6 +164,11 @@ void Pages::VisualsPage(){ //Page for visuals.
             ImGui::EndChild();
         }
         CustomWidgets::Switch(xorstr("Watermark"), &visButton_Watermark->state);
+        //CustomWidgets::Switch(xorstr("Nightmode"), &visButton_NightMode->state);
+        CustomWidgets::Switch(xorstr("No Visual Recoil"), &visButton_NoVisRecoil->state);
+        CustomWidgets::Switch(xorstr("No Flash"), &visButton_NoFlash->state);
+        CustomWidgets::Switch(xorstr("Sniper Crosshair"), &visButton_SniperCrosshair->state);
+        CustomWidgets::Switch(xorstr("Recoil Crosshair"), &visButton_RecoilCrosshair->state);
     }
     ImGui::EndChild();
     ImGui::PopFont();
@@ -182,4 +197,48 @@ void Pages::SettingsPage(){ //Page for settings;
     }
     ImGui::EndChild();
     ImGui::PopFont();
+}
+
+void MenuRenderer::MessageBox::Show(const char* Title, const char* Text, const char* ButtonText, void (*ButtonFunction)()){
+    static bool show = true;
+    if(show){
+        ImGui::GetBackgroundDrawList()->AddRectFilled(ImVec2(0,0), ImGui::GetIO().DisplaySize, ImColor(0,0,0,212));
+        static ImGuiStyle& style = ImGui::GetStyle();
+        style.WindowRounding = WINDOW_PADDING / 2;
+        style.Colors[ImGuiCol_WindowBg] = ImVec4(0.12f, 0.12f, 0.12f, 1.0f);
+        style.Colors[ImGuiCol_Button] = ImVec4(0.11f, 0.11f, 0.11f, 1.0f);
+        style.Colors[ImGuiCol_Border] = ImVec4(0.99f, 0.43f, 0.f, 1.0f);
+        style.Colors[ImGuiCol_ButtonHovered] = ImVec4(0.99f, 0.43f, 0.f, 1.0f);
+        style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.79f, 0.23f, 0.f, 1.0f);
+        style.WindowBorderSize = 1;
+        static ImVec2 TitleSize = ImGui::CalcTextSize(Title);
+        static ImVec2 TextSize  = ImGui::CalcTextSize(Text);
+        static ImVec2 WindowSize= ImVec2(TextSize.x + (WINDOW_PADDING * 2), TextSize.y + WINDOW_PADDING * 7);
+        ImGui::SetNextWindowSize(WindowSize);
+        ImGui::SetNextWindowPos(ImVec2((ImGui::GetIO().DisplaySize.x - WindowSize.x) / 2, (ImGui::GetIO().DisplaySize.y - WindowSize.y) / 2));
+        static ImGuiWindowFlags UI_FLAGS = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove;
+        ImGui::Begin(Title, &show, UI_FLAGS); {
+            
+            //TITLE
+            ImGui::PushFont(g_Büyük);
+            static ImGuiWindow* window = ImGui::GetCurrentWindow();
+            static ImDrawList* UI = window->DrawList;
+            UI->AddText(ImVec2(ImGui::GetWindowPos().x + WINDOW_PADDING, ImGui::GetWindowPos().y + (WINDOW_PADDING * 2) - TitleSize.y), ImColor(1.0f, 1.0f, 1.0f, 1.0f), Title);
+            ImGui::PopFont();
+            UI->AddRectFilled(ImVec2(ImGui::GetWindowPos().x + WINDOW_PADDING, ImGui::GetWindowPos().y + (WINDOW_PADDING * 3) + 1), ImVec2(ImGui::GetWindowPos().x + WindowSize.x - WINDOW_PADDING, ImGui::GetWindowPos().y + (WINDOW_PADDING * 3) + 2), ImColor(1.0f, 1.0f, 1.0f, 1.0f));
+            ImGui::SetCursorPos(ImVec2(WINDOW_PADDING, WINDOW_PADDING * 4));
+            ImGui::PushFont(g_GirisFontBüyük);
+            ImGui::Text("%s", Text);
+            ImGui::SetCursorPos(ImVec2(WINDOW_PADDING, WindowSize.y - (WINDOW_PADDING * 2)));
+            if(ImGui::Button(ButtonText)){
+                ButtonFunction();
+            }
+            ImGui::SameLine();
+            if(ImGui::Button(xorstr("CLOSE"))){
+                show = false;
+            }
+            ImGui::PopFont();
+        }
+        ImGui::End();
+    }
 }

@@ -7,7 +7,6 @@
 //
 
 #include "OpenGLHooker.hpp"
-#include "xorstr.h"
 #include "../../Menu/ImGuiMenu/Datas.hpp"
 #include "../../Menu/ImGuiMenu/MenuRenderer.hpp"
 
@@ -290,6 +289,7 @@ static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_W
     Visuals::Others::Watermark(BackDrawList);
     MenuRenderer::RenderMenu();
     
+    ImGui::EndFrame();
     oSDL_GL_SwapWindow(window);
     SDL_GL_MakeCurrent(window, original_context);
     glFlush();

@@ -80,7 +80,7 @@ public:
 
     void ClientCmd_Unrestricted(const char* szCommand) {
         typedef void(*oClientCmd)(void*);
-        return getvfunc<oClientCmd>(this, 7)(this);
+        return getvfunc<oClientCmd>(this, 114)(this); //OLD WAS 7
     }
     
     void GetScreenSize(int& width, int& height){

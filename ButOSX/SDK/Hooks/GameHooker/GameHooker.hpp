@@ -12,6 +12,17 @@
 #include <stdio.h>
 #include "PatternScanner.hpp"
 
+// FUNC INDEXES
+#define DME_INDEX 21
+#define CMV_INDEX 25
+#define FSN_INDEX 37
+#define PTV_INDEX 42
+
+//DLL NAMES
+#define CLIENTMODULE xorstr("client.dylib")
+#define ENGINEMODULE xorstr("engine.dylib")
+#define SRVBRWMODULE xorstr("serverbrowser.dylib")
+
 namespace GameHooker{
 void Init();
 void Destroy();

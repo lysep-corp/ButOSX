@@ -38,6 +38,9 @@ namespace MenuRenderer {
     static float flAlpha = 0;
     void RenderMenu();
     void InitTheme();
+    namespace  MessageBox{
+            void Show(const char* Title, const char* Text, const char* ButtonText, void (*ButtonFunction)());
+    };
 }
 
 namespace Pages {

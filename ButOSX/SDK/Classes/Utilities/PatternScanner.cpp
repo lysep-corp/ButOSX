@@ -38,6 +38,7 @@ string C_PatternScanner::base_name(string const& pathname)
 
 void C_PatternScanner::load_modules()
 {
+    loaded_modules.clear();
     struct task_dyld_info dyld_info;
     vm_address_t address = 0;
     mach_msg_type_number_t count = TASK_DYLD_INFO_COUNT;
@@ -150,6 +151,5 @@ string C_PatternScanner::get_module_path(string imageName)
 
 uintptr_t C_PatternScanner::get_base_address(string imageName)
 {
-    memory_module_t module = loaded_modules[imageName];
-    return module.address;
+    return loaded_modules[imageName].address;
 }

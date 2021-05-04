@@ -13,9 +13,7 @@
 class VMT
 {
 private:
-    
     uintptr_t* vmt;
-    
 public:
     
     uintptr_t**  interface      = nullptr;
@@ -39,6 +37,7 @@ public:
         
         memcpy(vmt, original_vmt, sizeof(uintptr_t) * method_count);
     }
+    ~VMT() { delete (vmt); delete (original_vmt); delete (interface); }
     
     // Hook virtual method
     void HookVM(void* method, size_t methodIndex)
@@ -46,10 +45,10 @@ public:
         vmt[methodIndex] = reinterpret_cast<uintptr_t>(method);
     }
     
-    template<typename Fn>
-    Fn GetOriginalMethod(size_t methodIndex)
+    template<typename T>
+    T GetOriginalMethod(size_t methodIndex)
     {
-        return reinterpret_cast<Fn>(original_vmt[methodIndex]);
+        return reinterpret_cast<T>(original_vmt[methodIndex]);
     }
     
     void ApplyVMT()
@@ -59,8 +58,10 @@ public:
     
     void ReleaseVMT()
     {
-     }
-    
+        free(vmt);
+        free(interface);
+        free(original_vmt);
+    }
 };
 
 

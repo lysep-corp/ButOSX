@@ -7,11 +7,13 @@
 //
 
 //FULLY STOLEN RN I'M GONNE SWITCH TO THE IMGUI RENDER AND WRITE FROM SCRATH. THAT WAS FOR SHOWDOWN! 28.01.2021
+//YEAH ESP IS PASTED FROM MICROWAVE. DONT JUDGE ME PLS BUT IT DOESN'T MEAN IT'S FORKED FROM MICROWAVE! 03.05.2021
 
 #include "Visuals.hpp"
 #include "CheatSettings.h"
 #include "imgui.h"
 #include "TouchBar.h"
+
 
 bool CheatSettings::ESP::enabled;
 bool CheatSettings::ESP::box = true;
