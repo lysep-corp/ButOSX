@@ -94,7 +94,7 @@ void Visuals::Others::SniperCrosshair(){
     if(!pEngine->IsInGame())
         return;
     
-    ConVar* weapon_debug = pCvar->FindVar("weapon_debug_spread_show");
+    ConVar* weapon_debug = pCvar->FindVar(xorstr("weapon_debug_spread_show"));
     if(!visButton_SniperCrosshair->state)
         weapon_debug->SetValue(0);
     
@@ -109,7 +109,7 @@ void Visuals::Others::RecoilCrosshair(){
     if(!pEngine->IsInGame())
         return;
     
-    ConVar* recoil_cross = pCvar->FindVar("cl_crosshair_recoil");
+    ConVar* recoil_cross = pCvar->FindVar(xorstr("cl_crosshair_recoil"));
     if(!visButton_RecoilCrosshair->state)
         recoil_cross->SetValue(0);
     

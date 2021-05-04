@@ -147,6 +147,16 @@ public:
         return this->GetHealth() > 0 && this->GetLifeState() == LIFE_ALIVE;
     }
     
+//    bool IsEnemy()
+//    {
+//        const static auto mp_teammates_are_enemies = pCvar->FindVar(xorstr("mp_teammates_are_enemies"));
+//
+//        if (mp_teammates_are_enemies->GetInt())
+//            return this != localPlayer;
+//
+//        return this->GetTeam() != csgo::game::local->m_iTeamNum ( );
+//    } I'M GONNA FIX WHEN I DO OPTIMIZATION.
+    
     int* GetWeapons()
     {
         return (int*)((uintptr_t)this + offsets.DT_BaseCombatCharacter.m_hMyWeapons);

@@ -12,10 +12,9 @@
 #include <iostream>
 #include <cstring>
 #include "SDK/Hooks/MainHooker.hpp"
-#include "Thirdparty/TouchBar-ObjectiveC/TouchBar.h"
 #include "SDK/ObjectiveCWrapper/ObjCWrapper.h"
 #include "SDK/Classes/Utilities/PatternScanner.hpp"
-#include "Thirdparty/xorstr/include/xorstr.h"
+#include "Thirdparty/TouchBar-ObjectiveC/TouchBar.h"
 
 /* The classes below are exported */
 #pragma GCC visibility push(default)

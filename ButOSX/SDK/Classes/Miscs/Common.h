@@ -44,7 +44,7 @@ interface* GetInterface(const char* filename, const char* version, bool exact = 
     if (!library)
         return nullptr;
     
-    void* interfaces_sym = dlsym(library, "s_pInterfaceRegs");
+    void* interfaces_sym = dlsym(library, xorstr("s_pInterfaceRegs"));
     
     if (!interfaces_sym)
     {
