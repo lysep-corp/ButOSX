@@ -140,7 +140,7 @@ void MenuRenderer::RenderMenu(){
     UpdateButton(visButton_NoFlash);
     UpdateButton(visButton_SniperCrosshair);
     
-    MessageBox::Show(xorstr("WELCOME - ButOSX"), xorstr("Hello, welcome to ButOSX. I'm Lyceion. Would you like to join our support discord?"), xorstr("YES PLEASE!"), OpenDiscord);
+    MessageBox::Show(xorstr("WELCOME - ButOSX"), xorstr("Hello, welcome to ButOSX.\nCheat is sucsessfully injected. \nI'm Lyceion. Would you like to join our community discord?"), xorstr("Yes, Please!"), OpenDiscord);
     
     //ImGui Functions
     ImGui::Render();
@@ -152,7 +152,7 @@ void Pages::VisualsPage(){ //Page for visuals.
     static int ChildCount = 3;
     ImVec2 ChildSize = ImVec2((MainWindowSize.x - (WINDOW_PADDING * 2)) / ChildCount, MainWindowSize.y - ((WINDOW_PADDING * 7.5f ) + 5) );
     ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (ChildSize.x * 0), WINDOW_PADDING * 6.5f));
-    ImGui::BeginChild(xorstr("##1"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
+    ImGui::BeginChild(xorstr("##0"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
         CustomWidgets::Switch(xorstr("ESP"), &visButton_ESP->state);
         if(visButton_ESP->state){
             ImGui::BeginChild(xorstr("##ESP"), ImVec2(ChildSize.x / 1.5f, 100), true, ImGuiWindowFlags_NoScrollbar);{
@@ -165,10 +165,14 @@ void Pages::VisualsPage(){ //Page for visuals.
         }
         CustomWidgets::Switch(xorstr("Watermark"), &visButton_Watermark->state);
         //CustomWidgets::Switch(xorstr("Nightmode"), &visButton_NightMode->state);
-        CustomWidgets::Switch(xorstr("No Visual Recoil"), &visButton_NoVisRecoil->state);
-        CustomWidgets::Switch(xorstr("No Flash"), &visButton_NoFlash->state);
         CustomWidgets::Switch(xorstr("Sniper Crosshair"), &visButton_SniperCrosshair->state);
         CustomWidgets::Switch(xorstr("Recoil Crosshair"), &visButton_RecoilCrosshair->state);
+    }
+    ImGui::EndChild();
+    ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (ChildSize.x * 1), WINDOW_PADDING * 6.5f));
+    ImGui::BeginChild(xorstr("##1"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
+        CustomWidgets::Switch(xorstr("No Visual Recoil"), &visButton_NoVisRecoil->state);
+        CustomWidgets::Switch(xorstr("No Flash"), &visButton_NoFlash->state);
     }
     ImGui::EndChild();
     ImGui::PopFont();
@@ -199,6 +203,7 @@ void Pages::SettingsPage(){ //Page for settings;
     ImGui::PopFont();
 }
 
+bool MenuRenderer::MessageBox::MsgBoxTriggered = true;
 void MenuRenderer::MessageBox::Show(const char* Title, const char* Text, const char* ButtonText, void (*ButtonFunction)()){
     static bool show = true;
     if(show){
@@ -229,13 +234,14 @@ void MenuRenderer::MessageBox::Show(const char* Title, const char* Text, const c
             ImGui::SetCursorPos(ImVec2(WINDOW_PADDING, WINDOW_PADDING * 4));
             ImGui::PushFont(g_GirisFontBüyük);
             ImGui::Text("%s", Text);
-            ImGui::SetCursorPos(ImVec2(WINDOW_PADDING, WindowSize.y - (WINDOW_PADDING * 2)));
+            ImGui::SetCursorPos(ImVec2(WINDOW_PADDING, WindowSize.y - (WINDOW_PADDING * 2.5)));
             if(ImGui::Button(ButtonText)){
                 ButtonFunction();
             }
             ImGui::SameLine();
             if(ImGui::Button(xorstr("CLOSE"))){
                 show = false;
+                MsgBoxTriggered = false;
             }
             ImGui::PopFont();
         }

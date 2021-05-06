@@ -95,9 +95,7 @@ void C_PatternScanner::load_modules()
         
         loaded_modules[base_name(imageName)] = memoryModule;
     }
-    
     free(g_dii);
-    
 }
 
 bool C_PatternScanner::compare(const unsigned char* pData, const unsigned char* bMask, const char* szMask)

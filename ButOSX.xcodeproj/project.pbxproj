@@ -306,6 +306,7 @@
 		369EEA0C25D3378D000C2BB5 /* ObjCWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCWrapper.h; sourceTree = "<group>"; };
 		369EEA1025D33B22000C2BB5 /* Collaboration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collaboration.framework; path = System/Library/Frameworks/Collaboration.framework; sourceTree = SDKROOT; };
 		36A69A8D261130D20078BAC6 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		36B3B585264379200015441A /* IInputSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IInputSystem.h; sourceTree = "<group>"; };
 		36D920DC261FA1F2007D54C5 /* imgui_impl_sdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imgui_impl_sdl.h; path = backends/imgui_impl_sdl.h; sourceTree = "<group>"; };
 		36D920DD261FA1F2007D54C5 /* imgui_impl_opengl2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_impl_opengl2.cpp; path = backends/imgui_impl_opengl2.cpp; sourceTree = "<group>"; };
 		36D920DE261FA1F2007D54C5 /* imgui_impl_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_impl_sdl.cpp; path = backends/imgui_impl_sdl.cpp; sourceTree = "<group>"; };
@@ -350,6 +351,7 @@
 				1A518E5B25C238380080F876 /* IVModelRender.h */,
 				1AC8779325C7518200659F75 /* IVMaterialSystem.h */,
 				1AC8779C25C75A0D00659F75 /* IAppSystem.h */,
+				36B3B585264379200015441A /* IInputSystem.h */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";

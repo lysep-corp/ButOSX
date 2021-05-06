@@ -14,9 +14,10 @@
 
 // FUNC INDEXES
 #define DME_INDEX 21
-#define CMV_INDEX 25
+#define CMV_INDEX 25 //24 on windows. NOTED!
 #define FSN_INDEX 37
 #define PTV_INDEX 42
+#define LKC_INDEX 67
 
 //DLL NAMES
 #define CLIENTMODULE xorstr("client.dylib")

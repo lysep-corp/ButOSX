@@ -28,6 +28,8 @@ extern ImFont* g_Büyük;
 
 //extern SDL_Texture* images;
 
+extern bool FreeTheCursor;
+
 #include <dlfcn.h>
 
 namespace SDLHook {

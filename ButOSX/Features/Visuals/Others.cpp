@@ -44,10 +44,10 @@ void Visuals::Others::NightMode(){
     static bool bPerformed = false;
     if(!pEngine->IsInGame())
         return;
-    C_BasePlayer* pLocal = (C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer());
+    static unique_ptr<C_BasePlayer>pLocal((C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer()));
     if (pLocal->IsAlive()){
         if ( bPerformed != visButton_NightMode->state ){
-            static ConVar* sv_skyname = pCvar->FindVar("sv_skyname");
+            static unique_ptr<ConVar>sv_skyname(pCvar->FindVar("sv_skyname"));
             for (short h = pMaterialSystem->firstMaterial(); h != pMaterialSystem->invalidMaterial(); h = pMaterialSystem->nextMaterial(h)){
                 auto material = pMaterialSystem->getMaterial(h);
                 if ( !material )
@@ -70,7 +70,7 @@ void Visuals::Others::NoVisRecoil(){
     if(!pEngine->IsInGame())
         return;
     
-    C_BasePlayer* pLocal = (C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer());
+    static unique_ptr<C_BasePlayer>pLocal((C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer()));
     QAngle* apg = pLocal->GetViewPunchAngle();
     QAngle* vpa = pLocal->GetViewPunchAngle();
     if (apg)
@@ -83,7 +83,7 @@ void Visuals::Others::NoFlash(){
     if(!pEngine->IsInGame())
         return;
     
-    C_BasePlayer* pLocal = (C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer());
+    static unique_ptr<C_BasePlayer>pLocal((C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer()));
     if(visButton_NoFlash->state)
         *pLocal->GetFlashMaxAlpha() = 0.f;
     else
@@ -94,9 +94,12 @@ void Visuals::Others::SniperCrosshair(){
     if(!pEngine->IsInGame())
         return;
     
-    ConVar* weapon_debug = pCvar->FindVar(xorstr("weapon_debug_spread_show"));
-    if(!visButton_SniperCrosshair->state)
+    
+    static unique_ptr<ConVar>weapon_debug(pCvar->FindVar(xorstr("weapon_debug_spread_show")));
+    if(!visButton_SniperCrosshair->state){
         weapon_debug->SetValue(0);
+        return;
+    }
     
     C_BasePlayer* pLocal = (C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer());
     if(pLocal->IsAlive() && !pLocal->IsScoped())
@@ -109,11 +112,13 @@ void Visuals::Others::RecoilCrosshair(){
     if(!pEngine->IsInGame())
         return;
     
-    ConVar* recoil_cross = pCvar->FindVar(xorstr("cl_crosshair_recoil"));
-    if(!visButton_RecoilCrosshair->state)
+    static unique_ptr<ConVar>recoil_cross(pCvar->FindVar(xorstr("cl_crosshair_recoil")));
+    if(!visButton_RecoilCrosshair->state){
         recoil_cross->SetValue(0);
+        return;
+    }
     
-    C_BasePlayer* pLocal = (C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer());
+    static unique_ptr<C_BasePlayer>pLocal((C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer()));
     if(pLocal->IsAlive() && !pLocal->IsScoped())
         recoil_cross->SetValue(1);
     else if(pLocal->IsAlive() && pLocal->IsScoped())
