@@ -21,35 +21,26 @@ bool CheatSettings::ESP::name = true;
 bool CheatSettings::ESP::health = true;
 bool CheatSettings::ESP::skeleton = true;
 
-void StringToWString(std::wstring &ws, const std::string &s)
-{
-    std::wstring wsTmp(s.begin(), s.end());
-    ws = wsTmp;
+//On OS X wstring uses UTF-32 rather than UTF-16. -> https://stackoverflow.com/questions/10737644/convert-const-char-to-wstring
+std::wstring StringToWString(std::string const &s) {
+    std::wstring_convert<
+        usable_facet<std::codecvt<char32_t,char,std::mbstate_t>>
+        ,char32_t> convert;
+    std::u32string utf32 = convert.from_bytes(s);
+    static_assert(sizeof(wchar_t)==sizeof(char32_t),"char32_t and wchar_t must have same size");
+    return {begin(utf32),end(utf32)};
 }
-
-//std::wstring StringToWstring(std::string str) {
-//    std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
-//
-//    try
-//    {
-//        return converter.from_bytes(str);
-//    }
-//    catch (std::range_error)
-//    {
-//        std::wostringstream s;
-//        s << str.c_str();
-//        return s.str();
-//    }
-//}
 
 void FillRGBA(int x, int y, int w, int h, Color color) {
     pSurface->DrawSetColor(color);
     pSurface->DrawFilledRect(x, y, x +  w, y + h);
+    pSurface->DrawSetColor(255, 255, 255);
 }
 
 void DrawBox(int x, int y, int w, int h, Color color) {
     pSurface->DrawSetColor(color);
     pSurface->DrawOutlinedRect(x, y, x + w, y + h);
+    pSurface->DrawSetColor(255, 255, 255);
 }
 
 void DrawBoxOutline(int x, int y, int w, int h, Color color) {
@@ -61,22 +52,23 @@ void DrawBoxOutline(int x, int y, int w, int h, Color color) {
 void DrawLine(int x, int y, int xx, int yy, Color color) {
     pSurface->DrawSetColor(color);
     pSurface->DrawLine(x, y, xx, yy);
+    pSurface->DrawSetColor(255, 255, 255);
 }
 
 void DrawString(int x, int y, Color color, HFONT font, bool bCenter, const char* szString) {
-    std::wstring wString;
-    StringToWString(wString, szString);
-    int strSize = (int)wcslen(wString.c_str());
+    std::wstring buffer = StringToWString(szString);
+    int strSize = (int)wcslen(buffer.c_str());
     if(bCenter) {
         int wide, tall;
-        pSurface->GetTextSize(font, wString.c_str(), wide, tall);
+        pSurface->GetTextSize(font, buffer.c_str(), wide, tall);
         x -= wide / 2;
         y -= tall / 2;
     }
     pSurface->DrawSetTextPos(x, y);
     pSurface->DrawSetTextFont(font);
     pSurface->DrawSetTextColor(color);
-    pSurface->DrawPrintText(wString.c_str(), strSize);
+    pSurface->DrawPrintText(buffer.c_str(), strSize);
+    pSurface->DrawSetTextColor(255, 255, 255, 255);
 }
 
 void DrawHealthbar(int x, int y, int w, int h, int health, Color color) {
@@ -157,7 +149,7 @@ bool DrawPlayerBox(C_BaseEntity* pEntity, bBoxStyle& boxes) {
     return true;
 }
 
-auto TestTrace(C_BaseEntity* pEntity, C_BaseEntity* pLocal) -> bool {
+bool TestTrace(C_BaseEntity* pEntity, C_BaseEntity* pLocal) {
     Ray_t ray;
     trace_t trace;
     CTraceFilter filter;
