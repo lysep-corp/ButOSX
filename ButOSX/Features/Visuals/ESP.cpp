@@ -21,20 +21,26 @@ bool CheatSettings::ESP::name = true;
 bool CheatSettings::ESP::health = true;
 bool CheatSettings::ESP::skeleton = true;
 
-std::wstring StringToWstring(std::string str) { 
-    std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
-    
-    try
-    {
-        return converter.from_bytes(str);
-    }
-    catch (std::range_error)
-    {
-        std::wostringstream s;
-        s << str.c_str();
-        return s.str();
-    }
+void StringToWString(std::wstring &ws, const std::string &s)
+{
+    std::wstring wsTmp(s.begin(), s.end());
+    ws = wsTmp;
 }
+
+//std::wstring StringToWstring(std::string str) {
+//    std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
+//
+//    try
+//    {
+//        return converter.from_bytes(str);
+//    }
+//    catch (std::range_error)
+//    {
+//        std::wostringstream s;
+//        s << str.c_str();
+//        return s.str();
+//    }
+//}
 
 void FillRGBA(int x, int y, int w, int h, Color color) {
     pSurface->DrawSetColor(color);
@@ -58,7 +64,8 @@ void DrawLine(int x, int y, int xx, int yy, Color color) {
 }
 
 void DrawString(int x, int y, Color color, HFONT font, bool bCenter, const char* szString) {
-    std::wstring wString = StringToWstring(szString);
+    std::wstring wString;
+    StringToWString(wString, szString);
     int strSize = (int)wcslen(wString.c_str());
     if(bCenter) {
         int wide, tall;
