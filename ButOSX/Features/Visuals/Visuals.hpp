@@ -15,6 +15,18 @@
 struct ImDrawList;
 extern HFONT eFont;
 
+// make facets usable by giving them a public destructor
+template <class Facet>
+class usable_facet
+    : public Facet
+{
+public:
+    template <class ...Args>
+        usable_facet(Args&& ...args)
+            : Facet(std::forward<Args>(args)...) {}
+    ~usable_facet() {}
+};
+
 namespace Visuals{
     namespace ESP{
         extern void ESPSurface();
@@ -26,6 +38,7 @@ namespace Visuals{
         extern void NoFlash();
         extern void SniperCrosshair();
         extern void RecoilCrosshair();
+        extern void GrenadePrediction();
     }
 }
 

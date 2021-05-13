@@ -23,8 +23,10 @@ IVModelRender* pModelRender = nullptr;
 IVMaterialSystem* pMaterialSystem = nullptr;
 IAppSystem* pAppSystem = nullptr;
 IClientMode* pClientMod = nullptr;
+IInputSystem* pInputSystem = nullptr;
 
 VMT* paintVMT = nullptr;
 VMT* dmeVMT = nullptr;
 VMT* fsnVMT = nullptr;
 VMT* crtmVMT = nullptr;
+VMT* lkcVMT = nullptr;

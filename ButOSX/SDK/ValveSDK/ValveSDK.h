@@ -56,6 +56,7 @@ using namespace std;
 #include "Interfaces/IVModuleInfo.h"
 #include "Interfaces/IVModelRender.h"
 #include "Interfaces/IVMaterialSystem.h"
+#include "Interfaces/IInputSystem.h"
 #include "Classes/Classes.h"
 #include "VMT.h"
 

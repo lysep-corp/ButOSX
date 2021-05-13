@@ -295,39 +295,66 @@ TBWMenuItem* visButton_NoVisRecoil;
 TBWMenuItem* visButton_NoFlash;
 TBWMenuItem* visButton_SniperCrosshair;
 TBWMenuItem* visButton_RecoilCrosshair;
+TBWMenuItem* visButton_GrenadePrediction;
 
 TBWMenuItem* setCol_ESP;
 
 void RenderTouchBar(){
     wrapperMenu = [[TBWrapperMenu alloc] init];
     mMenus = [[NSMutableArray alloc] init];
-    
-    TBWMenuContext* menu_Main = [wrapperMenu BeginMenu:@"ButOSX"];
-    butButton_Menu = [menu_Main AddButton:@"In-Game Menu"];
+    //
+    // Menu: Main
+    //
+    TBWMenuContext* menu_Main       = [wrapperMenu BeginMenu:[NSString stringWithUTF8String:xorstr("ButOSX")]];
+    butButton_Menu                  = [menu_Main AddButton:[NSString stringWithUTF8String:xorstr("In-Game Menu")]];
     [wrapperMenu EndMenu:menu_Main];
+    //
+    // Menu: Visuals
+    //
+    TBWMenuContext* menu_Visuals    = [wrapperMenu BeginMenu:[NSString stringWithUTF8String:xorstr("Visuals")]];
     
-    TBWMenuContext* menu_Visuals = [wrapperMenu BeginMenu:@"Visuals"];
-    visButton_ESP = [menu_Visuals AddButton:@"ESP"];
-    visButton_Watermark = [menu_Visuals AddButton:@"Watermark"];
-    //visButton_NightMode = [menu_Visuals AddButton:@"Night Mode"];
-    visButton_NoVisRecoil = [menu_Visuals AddButton:@"No Visual Recoil"];
-    visButton_NoFlash = [menu_Visuals AddButton:@"No Flash"];
-    visButton_SniperCrosshair = [menu_Visuals AddButton:@"Sniper Crosshair"];
-    visButton_RecoilCrosshair = [menu_Visuals AddButton:@"Recoil Crosshair"];
+    visButton_ESP                   = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("ESP")]];
+    visButton_Watermark             = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Watermark")]];
+    //visButton_NightMode             = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Night Mode")]];
+    visButton_NoVisRecoil           = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("No Visual Recoil")]];
+    visButton_NoFlash               = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("No Flash")]];
+    visButton_SniperCrosshair       = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Sniper Crosshair")]];
+    visButton_RecoilCrosshair       = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Recoil Crosshair")]];
+    visButton_GrenadePrediction     = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Grenade Prediction")]];
+    
     [wrapperMenu EndMenu:menu_Visuals];
+    //
+    // Menu: Assists
+    //
+    TBWMenuContext* menu_Assists    = [wrapperMenu BeginMenu:[NSString stringWithUTF8String:xorstr("Assists")]];
     
-    TBWMenuContext* menu_Assists = [wrapperMenu BeginMenu:@"Assists"];
+    
+    
     [wrapperMenu EndMenu:menu_Assists];
+    //
+    // Menu: Changers
+    //
+    TBWMenuContext* menu_Changers   = [wrapperMenu BeginMenu:[NSString stringWithUTF8String:xorstr("Changers")]];
     
-    TBWMenuContext* menu_Changers = [wrapperMenu BeginMenu:@"Changers"];
+    
+    
     [wrapperMenu EndMenu:menu_Changers];
+    //
+    // Menu: Others
+    //
+    TBWMenuContext* menu_Others     = [wrapperMenu BeginMenu:[NSString stringWithUTF8String:xorstr("Others")]];
     
-    TBWMenuContext* menu_Others = [wrapperMenu BeginMenu:@"Others"];
+    
+    
     [wrapperMenu EndMenu:menu_Others];
-    
+    //
+    // Menu: Settings
+    //
     NSColor* TEST = NSColor.redColor;
-    TBWMenuContext* menu_Settings = [wrapperMenu BeginMenu:@"Settings"];
-    setCol_ESP = [menu_Settings AddColorPicker:@"ESP Color":TEST];
+    TBWMenuContext* menu_Settings   = [wrapperMenu BeginMenu:[NSString stringWithUTF8String:xorstr("Settings")]];
+    
+    setCol_ESP                      = [menu_Settings AddColorPicker:[NSString stringWithUTF8String:xorstr("ESP Color")]:TEST];
+    
     [wrapperMenu EndMenu:menu_Settings];
 
     currentMenuTouchbarDelegate = [[CustomTouchBarDelegate alloc] init];

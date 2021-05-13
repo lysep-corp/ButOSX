@@ -23,6 +23,7 @@ UI is powered by ImGui.
     - Night Mode (Beta ONLY)
     - No Visual Recoil
     - No Flash
+    - Grenade Prediction
 - Assists
     - WIP
 - Changers

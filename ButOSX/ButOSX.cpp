@@ -16,8 +16,9 @@
 int __attribute__((constructor))
 attach() //Main attach function which executes when library loads.
 {
-    static C_PatternScanner* PatternScanner = C_PatternScanner::get();
+    static unique_ptr<C_PatternScanner>PatternScanner(C_PatternScanner::get());
     while (!PatternScanner->get_base_address(SRVBRWMODULE)) {
+        sleep(10);
         PatternScanner->load_modules();
     }
     

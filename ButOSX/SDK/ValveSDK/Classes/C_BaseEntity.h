@@ -395,16 +395,16 @@ public:
     {
         switch (*this->GetItemDefinitionIndex())
         {
-            case WEAPON_DEAGLE:
-            case WEAPON_ELITE:
-            case WEAPON_FIVESEVEN:
-            case WEAPON_GLOCK:
-            case WEAPON_TEC9:
-            case WEAPON_HKP2000:
-            case WEAPON_USP_SILENCER:
-            case WEAPON_P250:
-            case WEAPON_CZ75A:
-            case WEAPON_REVOLVER:
+            case weapon_deagle:
+            case weapon_elite:
+            case weapon_fiveseven:
+            case weapon_glock:
+            case weapon_tec9:
+            case weapon_hkp2000:
+            case weapon_usp_silencer:
+            case weapon_p250:
+            case weapon_cz75a:
+            case weapon_revolver:
                 return true;
             default:
                 return false;
@@ -415,22 +415,22 @@ public:
     {
         switch (*this->GetItemDefinitionIndex())
         {
-            case WEAPON_AK47:
-            case WEAPON_AUG:
-            case WEAPON_FAMAS:
-            case WEAPON_GALILAR:
-            case WEAPON_M249:
-            case WEAPON_M4A1:
-            case WEAPON_M4A1_SILENCER:
-            case WEAPON_MAC10:
-            case WEAPON_P90:
-            case WEAPON_MP5:
-            case WEAPON_UMP45:
-            case WEAPON_BIZON:
-            case WEAPON_NEGEV:
-            case WEAPON_MP7:
-            case WEAPON_MP9:
-            case WEAPON_SG556:
+            case weapon_ak47:
+            case weapon_aug:
+            case weapon_famas:
+            case weapon_galilar:
+            case weapon_m249:
+            case weapon_m4a1:
+            case weapon_m4a1_silencer:
+            case weapon_mac10:
+            case weapon_p90:
+            case weapon_mp5sd:
+            case weapon_ump45:
+            case weapon_bizon:
+            case weapon_negev:
+            case weapon_mp7:
+            case weapon_mp9:
+            case weapon_sg556:
                 return true;
             default:
                 return false;
@@ -441,18 +441,28 @@ public:
     {
         switch (*this->GetItemDefinitionIndex())
         {
-            case WEAPON_KNIFE:
-            case WEAPON_KNIFE_T:
-            case WEAPON_KNIFE_GUT:
-            case WEAPON_KNIFE_FLIP:
-            case WEAPON_KNIFE_BAYONET:
-            case WEAPON_KNIFE_M9_BAYONET:
-            case WEAPON_KNIFE_KARAMBIT:
-            case WEAPON_KNIFE_TACTICAL:
-            case WEAPON_KNIFE_BUTTERFLY:
-            case WEAPON_KNIFE_SURVIVAL_BOWIE:
-            case WEAPON_KNIFE_FALCHION:
-            case WEAPON_KNIFE_PUSH:
+            case weapon_knife:
+            case weapon_knife_t:
+            case weapon_knife_gut:
+            case weapon_knifegg:
+            case weapon_knife_css:
+            case weapon_knife_cord:
+            case weapon_knife_flip:
+            case weapon_knife_push:
+            case weapon_knife_canis:
+            case weapon_knife_ghost:
+            case weapon_knife_ursus:
+            case weapon_knife_outdoor:
+            case weapon_knife_falchion:
+            case weapon_knife_karambit:
+            case weapon_knife_skeleton:
+            case weapon_knife_stiletto:
+            case weapon_knife_tactical:
+            case weapon_knife_butterfly:
+            case weapon_knife_widowmaker:
+            case weapon_knife_m9_bayonet:
+            case weapon_knife_survival_bowie:
+            case weapon_knife_gypsy_jackknife:
                 return true;
             default:
                 return false;
@@ -463,12 +473,12 @@ public:
     {
         switch (*this->GetItemDefinitionIndex())
         {
-            case WEAPON_SMOKEGRENADE:
-            case WEAPON_HEGRENADE:
-            case WEAPON_INCGRENADE:
-            case WEAPON_FLASHBANG:
-            case WEAPON_MOLOTOV:
-            case WEAPON_DECOY:
+            case weapon_smokegrenade:
+            case weapon_hegrenade:
+            case weapon_incgrenade:
+            case weapon_flashbang:
+            case weapon_molotov:
+            case weapon_decoy:
                 return true;
             default:
                 return false;
@@ -477,19 +487,19 @@ public:
     
     bool IsBomb()
     {
-        return *this->GetItemDefinitionIndex() == WEAPON_C4;
+        return *this->GetItemDefinitionIndex() == weapon_c4;
     }
     
     bool CanScope()
     {
         switch (*this->GetItemDefinitionIndex())
         {
-            case WEAPON_AUG:
-            case WEAPON_AWP:
-            case WEAPON_G3SG1:
-            case WEAPON_SCAR20:
-            case WEAPON_SG556:
-            case WEAPON_SSG08:
+            case weapon_aug:
+            case weapon_awp:
+            case weapon_g3sg1:
+            case weapon_scar20:
+            case weapon_sg556:
+            case weapon_ssg08:
                 return true;
             default:
                 return false;
