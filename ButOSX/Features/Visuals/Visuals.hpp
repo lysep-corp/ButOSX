@@ -38,6 +38,7 @@ namespace Visuals{
         extern void NoFlash();
         extern void SniperCrosshair();
         extern void RecoilCrosshair();
+        extern void GrenadePrediction();
     }
 }
 

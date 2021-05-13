@@ -173,6 +173,7 @@ void Pages::VisualsPage(){ //Page for visuals.
     ImGui::BeginChild(xorstr("##1"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
         CustomWidgets::Switch(xorstr("No Visual Recoil"), &visButton_NoVisRecoil->state);
         CustomWidgets::Switch(xorstr("No Flash"), &visButton_NoFlash->state);
+        CustomWidgets::Switch(xorstr("Grenade Prediction"), &visButton_GrenadePrediction->state);
     }
     ImGui::EndChild();
     ImGui::PopFont();

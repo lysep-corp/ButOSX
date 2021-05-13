@@ -124,3 +124,19 @@ void Visuals::Others::RecoilCrosshair(){
     else if(pLocal->IsAlive() && pLocal->IsScoped())
         recoil_cross->SetValue(0);
 }
+
+void Visuals::Others::GrenadePrediction(){
+    if(!pEngine->IsInGame())
+        return;
+    static unique_ptr<ConVar>grenade_preview(pCvar->FindVar(xorstr("cl_grenadepreview")));
+    if(!visButton_GrenadePrediction->state){
+        grenade_preview->SetValue(0);
+        return;
+    }
+    
+    static unique_ptr<C_BasePlayer>pLocal((C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer()));
+    if(!pLocal->IsAlive())
+        grenade_preview->SetValue(0);
+    else
+        grenade_preview->SetValue(1);
+}

@@ -42,6 +42,7 @@ void hkFrameStageNotify(void* thisptr, FrameStage stage) {
         Visuals::Others::NoFlash();
         Visuals::Others::SniperCrosshair();
         Visuals::Others::RecoilCrosshair();
+        Visuals::Others::GrenadePrediction();
     }
     fsnVMT->GetMethod<tFrameStageNotify>(FSN_INDEX)(thisptr, stage);
 }
