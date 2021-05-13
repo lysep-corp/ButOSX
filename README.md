@@ -1,7 +1,7 @@
 <h1>ButOSX</h1> <br>
 <p align="center">
 <img src="https://i.imgur.com/jSHJ5Ib.png" width="200"> <br>
-Brought to you by xMuraty & Lyceion
+Brought to you by Lyceion
 </p>
 
 ##### NOTE: THIS PROJECT IS STILL WORK IN PROGRESS!
@@ -46,6 +46,7 @@ More will be comming soon.
 ### Credits
 [dwnste/imgui_sdl_osx](https://github.com/dwnste/imgui_sdl_osx) for SDL2 hooking example. <br>
 [sonicrules11/Microwave-Open-Source](https://github.com/sonicrules11/Microwave-Open-Source)  for some functions. <br>
+[xMuratY/TouchBar-ObjectiveC](https://github.com/xMuratY/TouchBar-ObjectiveC)  for TouchBar API <br>
  And where i pasted from (IDK I Don't remember this is my first big cpp project)<br>
  IT'S NOT A MICROWAVE FORK.
  <br>
