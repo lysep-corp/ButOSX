@@ -12,8 +12,9 @@
 #include <stdio.h>
 
 #define GL_SILENCE_DEPRECATION
-#include <OpenGL/gl3.h>
+#include <OpenGL/gl.h>
 #include "SDL.h"
+#include "SDL_video.h"
 
 #include "Functions/Helpers.hpp"
 #include "Functions/Module.hpp"
@@ -24,7 +25,7 @@
 struct ImFont;
 extern ImFont* g_GirisFontBüyük;
 extern ImFont* g_Font;
-extern ImFont* g_Büyük;
+extern ImFont* g_Buyuk;
 
 //extern SDL_Texture* images;
 

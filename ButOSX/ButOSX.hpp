@@ -19,11 +19,10 @@
 /* The classes below are exported */
 #pragma GCC visibility push(default)
 
-class ButOSX
+namespace ButOSX
 {
-    public:
-    void attach();
-    void detach();
+    void Initalize();
+    void Unload();
 };
 
 #pragma GCC visibility pop

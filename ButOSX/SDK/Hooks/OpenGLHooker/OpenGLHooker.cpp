@@ -266,10 +266,11 @@ void InitImGui(SDL_Window* window){
     SDL_GL_MakeCurrent(window, context);
     static bool LoadBytes = false;
     if(!LoadBytes){
+        //SDL_GL_SetSwapInterval(0); //Disable SDL VSYNCING
         ImGuiIO& uiIO = ImGui::GetIO();
         g_GirisFontBüyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 20.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());
         g_Font = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 15.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());
-        g_Büyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 30.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());
+        g_Buyuk = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 30.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());
         LoadBytes = true;
     }
     IMGUI_CHECKVERSION();
@@ -289,7 +290,7 @@ static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_W
         BackDrawList = ImGui::GetBackgroundDrawList();
     
     //ImGui RENDERS
-    Visuals::Others::Watermark(BackDrawList);
+    //Visuals::Others::Watermark(BackDrawList);
     //pInputSystem->EnableInput(!butButton_Menu->state);
     MenuRenderer::RenderMenu();
     

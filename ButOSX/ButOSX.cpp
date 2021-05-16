@@ -2,23 +2,17 @@
 //  ButOSX.cpp
 //  ButOSX
 //
-//  Created by Can on 29.10.2020.
-//  Copyright © 2020 Lyceion. All rights reserved.
+//  Created by Can on 16.05.2021.
+//  Copyright © 2021 Lyceion. All rights reserved.
 //
 
-
-//AND IT IS NOT A F*CKIN MICROWAVE FORK.
-
-#include <iostream>
+#include <stdio.h>
 #include "ButOSX.hpp"
 
-
-int __attribute__((constructor))
-attach() //Main attach function which executes when library loads.
-{
+void ButOSX::Initalize(){
     static unique_ptr<C_PatternScanner>PatternScanner(C_PatternScanner::get());
     while (!PatternScanner->get_base_address(SRVBRWMODULE)) {
-        sleep(10);
+        sleep(1);
         PatternScanner->load_modules();
     }
     

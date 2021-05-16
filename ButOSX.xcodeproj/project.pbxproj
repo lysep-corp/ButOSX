@@ -11,7 +11,7 @@
 		1A42E93D25BC9C91006BB177 /* Offsets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A42E93B25BC9C91006BB177 /* Offsets.cpp */; };
 		1A42E94225BC9D07006BB177 /* NetVarManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A42E94025BC9D07006BB177 /* NetVarManager.cpp */; };
 		1A42E94B25BCA3D6006BB177 /* ESP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A42E94925BCA3D6006BB177 /* ESP.cpp */; };
-		1A471E27254A1CA400FFF49B /* ButOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471E26254A1CA400FFF49B /* ButOSX.cpp */; };
+		1A471E27254A1CA400FFF49B /* dylibmain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471E26254A1CA400FFF49B /* dylibmain.cpp */; };
 		1A471E38254A1D6000FFF49B /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A471E2F254A1D6000FFF49B /* imgui_draw.cpp */; };
 		1A471E39254A1D6000FFF49B /* imstb_textedit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A471E30254A1D6000FFF49B /* imstb_textedit.h */; };
 		1A471E3A254A1D6000FFF49B /* imconfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A471E31254A1D6000FFF49B /* imconfig.h */; };
@@ -122,6 +122,7 @@
 		1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AF384DC254CBE2400336590 /* CustomWidgets.cpp */; };
 		36848C8626122839001E1947 /* Aimbot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36848C8426122839001E1947 /* Aimbot.cpp */; };
 		36848C8726122839001E1947 /* Aimbot.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 36848C8526122839001E1947 /* Aimbot.hpp */; };
+		368546492651A0E400B3A502 /* ButOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 368546482651A0E400B3A502 /* ButOSX.cpp */; };
 		369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */; };
 		369EEA1125D33B22000C2BB5 /* Collaboration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369EEA1025D33B22000C2BB5 /* Collaboration.framework */; };
 		36D920E0261FA1F2007D54C5 /* imgui_impl_sdl.h in Headers */ = {isa = PBXBuildFile; fileRef = 36D920DC261FA1F2007D54C5 /* imgui_impl_sdl.h */; };
@@ -164,7 +165,7 @@
 		1A42E94925BCA3D6006BB177 /* ESP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ESP.cpp; sourceTree = "<group>"; };
 		1A471E1F254A1CA400FFF49B /* libButOSX.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libButOSX.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A471E22254A1CA400FFF49B /* ButOSX.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ButOSX.hpp; sourceTree = "<group>"; };
-		1A471E26254A1CA400FFF49B /* ButOSX.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ButOSX.cpp; sourceTree = "<group>"; };
+		1A471E26254A1CA400FFF49B /* dylibmain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dylibmain.cpp; sourceTree = "<group>"; };
 		1A471E2F254A1D6000FFF49B /* imgui_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_draw.cpp; sourceTree = "<group>"; };
 		1A471E30254A1D6000FFF49B /* imstb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imstb_textedit.h; sourceTree = "<group>"; };
 		1A471E31254A1D6000FFF49B /* imconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imconfig.h; sourceTree = "<group>"; };
@@ -302,6 +303,7 @@
 		366A0CD126148D80000804E8 /* Valve-DiscordRPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Valve-DiscordRPC.h"; sourceTree = "<group>"; };
 		36848C8426122839001E1947 /* Aimbot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Aimbot.cpp; sourceTree = "<group>"; };
 		36848C8526122839001E1947 /* Aimbot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Aimbot.hpp; sourceTree = "<group>"; };
+		368546482651A0E400B3A502 /* ButOSX.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ButOSX.cpp; sourceTree = "<group>"; };
 		369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCWrapper.mm; sourceTree = "<group>"; };
 		369EEA0C25D3378D000C2BB5 /* ObjCWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCWrapper.h; sourceTree = "<group>"; };
 		369EEA1025D33B22000C2BB5 /* Collaboration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collaboration.framework; path = System/Library/Frameworks/Collaboration.framework; sourceTree = SDKROOT; };
@@ -417,7 +419,8 @@
 				1A471E50254A1F1100FFF49B /* SDK */,
 				1A471E2D254A1D0400FFF49B /* Thirdparty */,
 				1A471E22254A1CA400FFF49B /* ButOSX.hpp */,
-				1A471E26254A1CA400FFF49B /* ButOSX.cpp */,
+				368546482651A0E400B3A502 /* ButOSX.cpp */,
+				1A471E26254A1CA400FFF49B /* dylibmain.cpp */,
 			);
 			path = ButOSX;
 			sourceTree = "<group>";
@@ -942,8 +945,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368546492651A0E400B3A502 /* ButOSX.cpp in Sources */,
 				1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */,
-				1A471E27254A1CA400FFF49B /* ButOSX.cpp in Sources */,
+				1A471E27254A1CA400FFF49B /* dylibmain.cpp in Sources */,
 				36DE0634261A4ED100F7F17F /* TouchBar.m in Sources */,
 				1A7C475A254EE8D700A58870 /* GameHooker.cpp in Sources */,
 				1A471E3F254A1D6000FFF49B /* imgui.cpp in Sources */,
