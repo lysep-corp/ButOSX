@@ -17,7 +17,7 @@ char *Pages::PageList[]{
     //(char *)"ASSISTS ",
     //(char *)"CHANGERS",
     //(char *)"MISCS   ",
-    //(char *)"SETTINGS"
+    (char *)"SETTINGS"
 };
 
 float clip(float n, float lower, float upper)
@@ -48,11 +48,35 @@ void HandleInputs(){
         MenuRenderer::flAlpha = clip(MenuRenderer::flAlpha - (1 / 0.15f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
     }
     
-    MenuRenderer::MessageBox::Show(xorstr("WELCOME - ButOSX"), xorstr("Hello, welcome to ButOSX.\nCheat is sucsessfully injected. \nI'm Lyceion. Would you like to join our community discord?"), xorstr("Yes, Please!"), OpenDiscord);
     UpdateButton(butButton_Menu);
 }
 
+void RenderUserHelloMessage(){
+    static bool oneTime = false;
+    static GLuint my_image_texture = 0;
+    static int my_image_width = 50;
+    static int my_image_height = 50;
+    if(!oneTime){
+        oneTime = true;
+        //LoadTextureFromMemory(UserData::ImageData, &my_image_texture, my_image_width, my_image_height);
+    }
+    if(butButton_Menu->state){
+        static ImGuiStyle& style = ImGui::GetStyle();
+        style.Alpha = MenuRenderer::flAlpha;
+        style.WindowRounding = 0;
+        style.Colors[ImGuiCol_WindowBg] = ImVec4(0.12f, 0.12f, 0.12f, style.Alpha);
+        ImGui::SetNextWindowBgAlpha(style.Alpha);
+        ImGui::Begin(xorstr("User"), NULL);{
+            ImGui::Text(xorstr("pointer = %u"), my_image_texture);
+            ImGui::Text(xorstr("size = %d x %d"), my_image_width, my_image_height);
+            ImGui::Image((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
+        }
+        ImGui::End();
+    }
+}
+
 void MenuRenderer::RenderMenu(){
+    MenuRenderer::MessageBox::Show(xorstr("WELCOME - ButOSX"), xorstr("Hello, welcome to ButOSX.\nCheat is sucsessfully injected. \nI'm Lyceion. Would you like to join our community discord?"), xorstr("Yes, Please!"), OpenDiscord);
     HandleInputs();
     if(chinaVisible){
         ImGui::StyleColorsDark();
@@ -75,7 +99,7 @@ void MenuRenderer::RenderMenu(){
             
             
             ImGui::PushFont(g_GirisFontBüyük);
-            static int PageCount = 1 /*sizeof(Pages::PageList[0]) / sizeof(Pages::PageList)*/;
+            static int PageCount = 2 /*sizeof(Pages::PageList[0]) / sizeof(Pages::PageList)*/;
             ImVec2 TabSize = ImVec2((MainWindowSize.x - (WINDOW_PADDING * 2)) / PageCount, WINDOW_PADDING * 2);
             for(int i = 0; i <= PageCount - 1; i++){
                 style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, flAlpha);

@@ -19,10 +19,11 @@ void ButOSX::Initalize(){
     //Initialize TouchBar UI.
     RenderTouchBar();
     
+    //Inıtalize Objective-C API.
+    GetUserDatas();
+    
     //Initialize Hooker.
     Hooker::Init();
     
-    //Inıtalize Objective-C API.
-    GetUserDatas();
     return 0;
 }

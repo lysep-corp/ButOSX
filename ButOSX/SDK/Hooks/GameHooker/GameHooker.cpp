@@ -7,24 +7,13 @@
 //
 
 #include "GameHooker.hpp"
-#include "ValveSDK.h"
-#include "Visuals.hpp"
-#include "OpenGLHooker.hpp"
-#include "PatternScanner.hpp"
-#include "TouchBar.h"
-//#include "DiscordRPC.hpp"
 
-
-typedef void(*tDrawModelExecute)(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
-extern void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
 void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld) {
     //DME THINGS...
     dmeVMT->GetMethod<tDrawModelExecute>(DME_INDEX)(thisptr, context, state, model_info, pCustomBoneToWorld); //Get from my old source probably pasted.
     pModelRender->ForcedMaterialOverride(0);
 }
 
-typedef bool(*tCreateMove)(void* thisptr, float inputSampleTime, CUserCmd* cmd);
-extern bool hkCreateMove(void* thisptr, float inputSampleTime, CUserCmd* cmd);
 bool hkCreateMove(void* thisptr, float inputSampleTime, CUserCmd* cmd)
 {
     crtmVMT->GetMethod<tCreateMove>(CMV_INDEX)(thisptr, inputSampleTime, cmd);
@@ -33,8 +22,6 @@ bool hkCreateMove(void* thisptr, float inputSampleTime, CUserCmd* cmd)
     return false;
 }
 
-typedef void(*tFrameStageNotify)(void* thisptr, FrameStage stage);
-extern void hkFrameStageNotify(void* thisptr, FrameStage stage);
 void hkFrameStageNotify(void* thisptr, FrameStage stage) {
     if (stage == FrameStage::RENDER_START) {
         //Visuals::Others::NightMode();
@@ -48,8 +35,6 @@ void hkFrameStageNotify(void* thisptr, FrameStage stage) {
 }
 
 HFONT eFont;
-typedef void(*tPaintTraverse)(void*, VPANEL, bool, bool);
-extern void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool allowForce);
 void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool allowForce) {
     paintVMT->GetMethod<tPaintTraverse>(PTV_INDEX)(thisptr, vguiPanel, forceRepaint, allowForce);
     static VPANEL currentPanel = 0;
@@ -64,8 +49,6 @@ void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool al
         Visuals::ESP::ESPSurface();
 }
 
-typedef void(*tLockCursor)(void* thisptr);
-extern void hkLockCursor(void* thisptr);
 void hkLockCursor(void* thisptr)
 {
     //Weirdly it lock's mouse when i open the menu?

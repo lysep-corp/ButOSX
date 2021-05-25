@@ -15,6 +15,7 @@
 #include "SDL.h"
 
 #include "../../../Thirdparty/imgui/imgui.h"
+#define IMGUI_DEFINE_MATH_OPERATORS
 #include "../../../Thirdparty/imgui/imgui_internal.h"
 #include "../../../Thirdparty/imgui/backends/imgui_impl_sdl.h"
 #include "../../../Thirdparty/imgui/backends/imgui_impl_opengl2.h"

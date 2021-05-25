@@ -254,6 +254,13 @@ int SDLCALL SDL_Init(Uint32 flags) {
     return SDL_InitFn(flags);
 }
 
+int SDLCALL SDL_GL_SetSwapInterval(int interval){
+    typedef int(*currFn) (Uint32);
+    static currFn SDL_GL_SetSwapIntervalFn = reinterpret_cast<currFn>(dlsym(RTLD_DEFAULT, xorstr("SDL_GL_SetSwapInterval")));
+    
+    return SDL_GL_SetSwapIntervalFn(interval);
+}
+
 static SDL_GLContext original_context;
 void InitImGui(SDL_Window* window){
     static SDL_GLContext context = NULL;
@@ -266,7 +273,7 @@ void InitImGui(SDL_Window* window){
     SDL_GL_MakeCurrent(window, context);
     static bool LoadBytes = false;
     if(!LoadBytes){
-        //SDL_GL_SetSwapInterval(0); //Disable SDL VSYNCING
+        SDL_GL_SetSwapInterval(0); //Disable SDL VSYNCING
         ImGuiIO& uiIO = ImGui::GetIO();
         g_GirisFontBüyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 20.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());
         g_Font = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 15.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());

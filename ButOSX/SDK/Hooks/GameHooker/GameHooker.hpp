@@ -11,6 +11,12 @@
 
 #include <stdio.h>
 #include "PatternScanner.hpp"
+#include "ValveSDK.h"
+#include "Visuals.hpp"
+#include "OpenGLHooker.hpp"
+#include "PatternScanner.hpp"
+#include "TouchBar.h"
+//#include "DiscordRPC.hpp"
 
 // FUNC INDEXES
 #define DME_INDEX 21
@@ -23,6 +29,22 @@
 #define CLIENTMODULE xorstr("client.dylib")
 #define ENGINEMODULE xorstr("engine.dylib")
 #define SRVBRWMODULE xorstr("serverbrowser.dylib")
+
+typedef void(*tDrawModelExecute)(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
+extern void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
+
+typedef bool(*tCreateMove)(void* thisptr, float inputSampleTime, CUserCmd* cmd);
+extern bool hkCreateMove(void* thisptr, float inputSampleTime, CUserCmd* cmd);
+
+typedef void(*tFrameStageNotify)(void* thisptr, FrameStage stage);
+extern void hkFrameStageNotify(void* thisptr, FrameStage stage);
+
+typedef void(*tPaintTraverse)(void*, VPANEL, bool, bool);
+extern void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool allowForce);
+
+typedef void(*tLockCursor)(void* thisptr);
+extern void hkLockCursor(void* thisptr);
+
 
 namespace GameHooker{
 void Init();
