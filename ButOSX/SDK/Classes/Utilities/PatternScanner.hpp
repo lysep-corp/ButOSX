@@ -19,8 +19,6 @@ private:
     
     static C_PatternScanner* _instance;
     
-private:
-    
 public:
     void load_modules();
     

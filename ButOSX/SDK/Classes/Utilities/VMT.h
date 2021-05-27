@@ -39,6 +39,7 @@ public:
     }
     void Release()
     {
+        methodCount = 0;
         free(vmtAddr);
         free(interface);
         free(original_vmt);

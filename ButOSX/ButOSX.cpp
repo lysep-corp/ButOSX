@@ -6,14 +6,15 @@
 //  Copyright © 2021 Lyceion. All rights reserved.
 //
 
-#include <stdio.h>
 #include "ButOSX.hpp"
 
 void ButOSX::Initalize(){
-    static unique_ptr<C_PatternScanner>PatternScanner(C_PatternScanner::get());
-    while (!PatternScanner->get_base_address(SRVBRWMODULE)) {
+    // Implemention of new module system
+    static Memory::Module* ServerBrowser = new Memory::Module(SRVBRWMODULE);
+    while (!ServerBrowser->IsRunning) {
         sleep(1);
-        PatternScanner->load_modules();
+        free(ServerBrowser);
+        ServerBrowser = new Memory::Module(SRVBRWMODULE);
     }
     
     //Initialize TouchBar UI.

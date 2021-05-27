@@ -255,7 +255,7 @@ int SDLCALL SDL_Init(Uint32 flags) {
 }
 
 int SDLCALL SDL_GL_SetSwapInterval(int interval){
-    typedef int(*currFn) (Uint32);
+    typedef int(*currFn) (int);
     static currFn SDL_GL_SetSwapIntervalFn = reinterpret_cast<currFn>(dlsym(RTLD_DEFAULT, xorstr("SDL_GL_SetSwapInterval")));
     
     return SDL_GL_SetSwapIntervalFn(interval);
@@ -310,13 +310,13 @@ static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_W
 void SDLHook::Init() {
     ImGui::CreateContext(); // Ghetto MacOSX Context Crash Fix Like a Boss
     uintptr_t swapwindowFn = reinterpret_cast<uintptr_t>(dlsym(RTLD_DEFAULT, xorstr("SDL_GL_SwapWindow")));
-    uintptr_t sdllib = reinterpret_cast<uintptr_t>(embryo::module(xorstr("libSDL2-2.0.0.dylib")).start());
-    swapwindow_ptr = reinterpret_cast<uintptr_t*>(helpers::GetAbsoluteAddress(sdllib, swapwindowFn, 0xF, 0x4));
+    Memory::Module sdllib(xorstr("libSDL2-2.0.0.dylib"));
+    swapwindow_ptr = sdllib.GetAbsoluteAddress(swapwindowFn, 0x4);
     swapwindow_original = *swapwindow_ptr;
     *swapwindow_ptr = reinterpret_cast<uintptr_t>(&SDLHook::SwapWindow); //Calls our Swap Window instead of the game's orginial.
     
     uintptr_t polleventFn = reinterpret_cast<uintptr_t>(dlsym(RTLD_DEFAULT, xorstr("SDL_PollEvent")));
-    pollevent_ptr = reinterpret_cast<uintptr_t*>(helpers::GetAbsoluteAddress(sdllib, polleventFn, 0xF, 0x4));
+    pollevent_ptr = sdllib.GetAbsoluteAddress(polleventFn, 0x4);
     pollevent_original = *pollevent_ptr;
     *pollevent_ptr = reinterpret_cast<uintptr_t>(&PollEventHK); //Calls our Poll Event instead of the game's orginial.
     

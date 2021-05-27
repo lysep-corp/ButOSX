@@ -7,9 +7,6 @@
 //
 
 
-//AND IT IS NOT A F*CKIN MICROWAVE FORK.
-
-#include <iostream>
 #include "ButOSX.hpp"
 
 int __attribute__((constructor))

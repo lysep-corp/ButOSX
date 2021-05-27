@@ -65,11 +65,6 @@ interface* GetInterface(const char* filename, const char* version, bool exact = 
     return nullptr;
 }
 
-inline uintptr_t GetAbsoluteAddress(uintptr_t instruction_ptr, int offset, int size)
-{
-    return instruction_ptr + *reinterpret_cast<uint32_t*>(instruction_ptr + offset) + size;
-};
-
 template <typename T>
 T GetSymbolAddress(const char* filename, const char* symbol)
 {
