@@ -25,6 +25,15 @@ namespace Memory {
     class Module{
         private:
             void* HeaderPTR = nullptr;
+        
+            typedef void* (*InstantiateInterfaceFn) ();
+            struct InterfaceReg
+            {
+                InstantiateInterfaceFn CreateFn;
+                const char *Name;
+                InterfaceReg *Next;
+            };
+        
         public:
             std::string Name;
             std::string FilePath;
@@ -36,6 +45,31 @@ namespace Memory {
                 uintptr_t fileOffset = signatureAddress - Address;
                 
                 return reinterpret_cast<uintptr_t*>(Address + (offset + fileOffset) + size);
+            }
+            template <typename interface>
+            interface* GetInterface(const char* version, bool exact = false)
+            {
+                InterfaceReg* interfaces = *reinterpret_cast<InterfaceReg**>(dlsym(reinterpret_cast<void*>(Handle), xorstr("s_pInterfaceRegs")));
+                if(!interfaces)
+                {
+                    free(interfaces);
+                    return nullptr;
+                }
+                for (InterfaceReg* cur_interface = interfaces; cur_interface; cur_interface = cur_interface->Next)
+                {
+                    if (exact)
+                    {
+                        if (strcmp(cur_interface->Name, version) == 0)
+                            return reinterpret_cast<interface*>(cur_interface->CreateFn());
+                    }
+                    else
+                    {
+                        if (strstr(cur_interface->Name, version) && strlen(cur_interface->Name) - 3 == strlen(version))
+                            return reinterpret_cast<interface*>(cur_interface->CreateFn());
+                    }
+                }
+                
+                return nullptr;
             }
             bool IsRunning {Handle ? true : false};
             Module(std::string ModuleName){
@@ -53,16 +87,15 @@ namespace Memory {
                         imageName = imageFilePath.substr(pos+1, imageFilePath.length() - pos);
                     if (imageName != ModuleName) continue;
                     
-                    IsRunning = TRUE;
                     HeaderPTR = header;
                     Name = ModuleName;
                     FilePath = imageFilePath;
-                    Handle = reinterpret_cast<uintptr_t>(dlopen(imageFilePath.c_str(), RTLD_GLOBAL | RTLD_LAZY));
+                    Handle = reinterpret_cast<uintptr_t>(dlopen(imageFilePath.c_str(), RTLD_GLOBAL | RTLD_LAZY | RTLD_NOW));
                     
                     break;
                 }
             }
-        ~Module(){free(HeaderPTR);};
+        ~Module(){free(HeaderPTR); dlclose(reinterpret_cast<void*>(Handle)); /* The POSIX standard actually does not require dlclose to ever unload a library from address space dlclose only frees the memory so using free instead of dlclose is just enough. Anways, for tradition...*/};
     };
 }
 

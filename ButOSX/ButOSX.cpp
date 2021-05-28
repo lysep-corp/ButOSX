@@ -7,14 +7,13 @@
 //
 
 #include "ButOSX.hpp"
-
 void ButOSX::Initalize(){
     // Implemention of new module system
-    static Memory::Module* ServerBrowser = new Memory::Module(SRVBRWMODULE);
-    while (!ServerBrowser->IsRunning) {
+    static Memory::Module* ServerBrowser = new Memory::Module(xorstr("serverbrowser.dylib"));
+    while (!ServerBrowser->Handle) {
         sleep(1);
         free(ServerBrowser);
-        ServerBrowser = new Memory::Module(SRVBRWMODULE);
+        ServerBrowser = new Memory::Module(xorstr("serverbrowser.dylib"));
     }
     
     //Initialize TouchBar UI.

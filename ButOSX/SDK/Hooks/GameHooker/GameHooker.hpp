@@ -16,6 +16,7 @@
 #include "OpenGLHooker.hpp"
 #include "PatternScanner.hpp"
 #include "TouchBar.h"
+#include "Memory.hpp"
 //#include "DiscordRPC.hpp"
 
 // FUNC INDEXES
@@ -26,9 +27,6 @@
 #define LKC_INDEX 67
 
 //DLL NAMES
-#define CLIENTMODULE xorstr("client.dylib")
-#define ENGINEMODULE xorstr("engine.dylib")
-#define SRVBRWMODULE xorstr("serverbrowser.dylib")
 
 typedef void(*tDrawModelExecute)(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
 extern void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
@@ -49,6 +47,7 @@ extern void hkLockCursor(void* thisptr);
 namespace GameHooker{
 void Init();
 void Destroy();
+void LoadModules();
 void ScanSigs();
 void HookVMTs();
 void LoadInterfaces();
