@@ -8,8 +8,8 @@
 
 #include "Visuals.hpp"
 #include "imgui.h"
+#define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui_internal.h"
-#include "CheatSettings.h"
 #include "xorstr.h"
 #include "PatternScanner.hpp"
 #include "OpenGLHooker.hpp"
@@ -140,3 +140,19 @@ void Visuals::Others::GrenadePrediction(){
     else
         grenade_preview->SetValue(1);
 }
+
+//void Visuals::Others::SpreadCircle(ImDrawList* drawArea){
+//    if(!visButton_BulletSpread->state)
+//        return;
+//    if(!pEngine->IsInGame())
+//        return;
+//    static unique_ptr<C_BasePlayer>pLocal((C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer()));
+//    if(pLocal->IsScoped() || !pLocal->IsAlive())
+//        return;
+//    C_BaseCombatWeapon* activeWeapon = (C_BaseCombatWeapon*) pEntList->GetClientEntityFromHandle(pLocal->GetActiveWeapon());
+//    float Spread = activeWeapon->GetSpread();
+//    float Inaccuracy = activeWeapon->GetInaccuracy();
+//    float fSpreadDistance = ((Inaccuracy + Spread) * 320.0f / tanf(DEG2RAD(90) / 2));
+//    fSpreadDistance = (int)(fSpreadDistance * (ImGui::GetIO().DisplaySize.y / 480.0f));
+//    drawArea->AddCircleFilled(ImGui::GetIO().DisplaySize / 2, abs(fSpreadDistance), IM_COL32(0,0,0, 255));
+//}

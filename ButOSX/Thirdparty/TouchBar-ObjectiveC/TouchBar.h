@@ -54,6 +54,9 @@ extern TBWMenuItem* visButton_NoFlash;
 extern TBWMenuItem* visButton_SniperCrosshair;
 extern TBWMenuItem* visButton_RecoilCrosshair;
 extern TBWMenuItem* visButton_GrenadePrediction;
+extern TBWMenuItem* visButton_BulletSpread;
+
+extern TBWMenuItem* miscButton_BunnyHop;
 
 extern TBWMenuItem* setCol_ESP;
 

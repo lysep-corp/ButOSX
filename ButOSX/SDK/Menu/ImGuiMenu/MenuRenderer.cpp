@@ -14,9 +14,9 @@ ImFont* g_Font;
 
 char *Pages::PageList[]{
     (char *)"VISUALS ",
-    //(char *)"ASSISTS ",
-    //(char *)"CHANGERS",
-    //(char *)"MISCS   ",
+    (char *)"ASSISTS ",
+    (char *)"CHANGERS",
+    (char *)"MISCS   ",
     (char *)"SETTINGS"
 };
 
@@ -99,7 +99,7 @@ void MenuRenderer::RenderMenu(){
             
             
             ImGui::PushFont(g_GirisFontBüyük);
-            static int PageCount = 2 /*sizeof(Pages::PageList[0]) / sizeof(Pages::PageList)*/;
+            static int PageCount = 5 /*sizeof(Pages::PageList[0]) / sizeof(Pages::PageList)*/;
             ImVec2 TabSize = ImVec2((MainWindowSize.x - (WINDOW_PADDING * 2)) / PageCount, WINDOW_PADDING * 2);
             for(int i = 0; i <= PageCount - 1; i++){
                 style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, flAlpha);
@@ -121,6 +121,7 @@ void MenuRenderer::RenderMenu(){
                 case 2:
                     break;
                 case 3:
+                    Pages::MiscsPage();
                     break;
                 case 4:
                     Pages::SettingsPage();
@@ -131,9 +132,8 @@ void MenuRenderer::RenderMenu(){
         ImGui::PopFont();
         ImGui::End();
     }
-    else{
+    else
         flAlpha = 0;
-    }
     
     //ImGui Functions
     ImGui::Render();
@@ -167,6 +167,7 @@ void Pages::VisualsPage(){ //Page for visuals.
         CustomWidgets::SwitchTouchbar(xorstr("No Visual Recoil"), visButton_NoVisRecoil);
         CustomWidgets::SwitchTouchbar(xorstr("No Flash"), visButton_NoFlash);
         CustomWidgets::SwitchTouchbar(xorstr("Grenade Prediction"), visButton_GrenadePrediction);
+        //CustomWidgets::SwitchTouchbar(xorstr("Bullet Spread"), visButton_BulletSpread);
     }
     ImGui::EndChild();
     ImGui::PopFont();
@@ -179,6 +180,18 @@ void Pages::AssistsPage(){ //Page for assists.
     ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (ChildSize.x * 0), WINDOW_PADDING * 6.5f));
     ImGui::BeginChild(xorstr("##2"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
         
+    }
+    ImGui::EndChild();
+    ImGui::PopFont();
+}
+
+void Pages::MiscsPage(){ //Page for miscs.
+    ImGui::PushFont(g_Font);
+    static int ChildCount = 1;
+    ImVec2 ChildSize = ImVec2((MainWindowSize.x - (WINDOW_PADDING * 2)) / ChildCount, MainWindowSize.y - ((WINDOW_PADDING * 7.5f ) + 5) );
+    ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (ChildSize.x * 0), WINDOW_PADDING * 6.5f));
+    ImGui::BeginChild(xorstr("##3"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
+        CustomWidgets::SwitchTouchbar(xorstr("Bunny Hop"), miscButton_BunnyHop);
     }
     ImGui::EndChild();
     ImGui::PopFont();

@@ -120,6 +120,7 @@ struct COffsets
         int m_bHasHelmet;
         int m_flFlashDuration;
         int m_flFlashMaxAlpha;
+        int m_iDefaultFOV;
     } DT_CSPlayer;
 
     struct

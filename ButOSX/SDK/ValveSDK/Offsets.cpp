@@ -88,7 +88,7 @@ void Offsets::getOffsets()
     offsets.DT_PlantedC4.m_flC4Blow = NetVarManager::getOffset(tables, "DT_PlantedC4", "m_flC4Blow");
     offsets.DT_PlantedC4.m_bBombDefused = NetVarManager::getOffset(tables, "DT_PlantedC4", "m_bBombDefused");
     offsets.DT_PlantedC4.m_hBombDefuser = NetVarManager::getOffset(tables, "DT_PlantedC4", "m_hBombDefuser");
-
+    
     offsets.DT_CSPlayer.m_iShotsFired = NetVarManager::getOffset(tables, "DT_CSPlayer", "m_iShotsFired");
     offsets.DT_CSPlayer.m_ArmorValue = NetVarManager::getOffset(tables, "DT_CSPlayer", "m_ArmorValue");
     offsets.DT_CSPlayer.m_bHasDefuser = NetVarManager::getOffset(tables, "DT_CSPlayer", "m_bHasDefuser");
@@ -102,6 +102,7 @@ void Offsets::getOffsets()
     offsets.DT_CSPlayer.m_bHasDefuser = NetVarManager::getOffset(tables, "DT_CSPlayer", "m_bHasDefuser");
     offsets.DT_CSPlayer.m_flFlashDuration = NetVarManager::getOffset(tables, "DT_CSPlayer", "m_flFlashDuration");
     offsets.DT_CSPlayer.m_flFlashMaxAlpha = NetVarManager::getOffset(tables, "DT_CSPlayer", "m_flFlashMaxAlpha");
+    offsets.DT_CSPlayer.m_iDefaultFOV = NetVarManager::getOffset(tables, "DT_CSPlayer", "m_iDefaultFOV");
 
     offsets.DT_BaseAttributableItem.m_iItemDefinitionIndex = NetVarManager::getOffset(tables, "DT_BaseAttributableItem", "m_iItemDefinitionIndex");
     offsets.DT_BaseAttributableItem.m_iItemIDHigh = NetVarManager::getOffset(tables, "DT_BaseAttributableItem", "m_iItemIDHigh");

@@ -296,6 +296,9 @@ TBWMenuItem* visButton_NoFlash;
 TBWMenuItem* visButton_SniperCrosshair;
 TBWMenuItem* visButton_RecoilCrosshair;
 TBWMenuItem* visButton_GrenadePrediction;
+TBWMenuItem* visButton_BulletSpread;
+
+TBWMenuItem* miscButton_BunnyHop;
 
 TBWMenuItem* setCol_ESP;
 
@@ -321,6 +324,7 @@ void RenderTouchBar(){
     visButton_SniperCrosshair       = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Sniper Crosshair")]];
     visButton_RecoilCrosshair       = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Recoil Crosshair")]];
     visButton_GrenadePrediction     = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Grenade Prediction")]];
+    //visButton_BulletSpread          = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Bullet Spread")]];
     
     [wrapperMenu EndMenu:menu_Visuals];
     //
@@ -342,11 +346,11 @@ void RenderTouchBar(){
     //
     // Menu: Others
     //
-    TBWMenuContext* menu_Others     = [wrapperMenu BeginMenu:[NSString stringWithUTF8String:xorstr("Others")]];
+    TBWMenuContext* menu_Miscs     = [wrapperMenu BeginMenu:[NSString stringWithUTF8String:xorstr("Miscs")]];
     
+    miscButton_BunnyHop             = [menu_Miscs AddButton:[NSString stringWithUTF8String:xorstr("Bunny Hop")]];
     
-    
-    [wrapperMenu EndMenu:menu_Others];
+    [wrapperMenu EndMenu:menu_Miscs];
     //
     // Menu: Settings
     //

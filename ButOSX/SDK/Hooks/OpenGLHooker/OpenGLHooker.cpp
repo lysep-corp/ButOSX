@@ -297,7 +297,8 @@ static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_W
         BackDrawList = ImGui::GetBackgroundDrawList();
     
     //ImGui RENDERS
-    //Visuals::Others::Watermark(BackDrawList);
+    Visuals::Others::Watermark(BackDrawList);
+    //Visuals::Others::SpreadCircle(BackDrawList);
     //pInputSystem->EnableInput(!butButton_Menu->state);
     MenuRenderer::RenderMenu();
     

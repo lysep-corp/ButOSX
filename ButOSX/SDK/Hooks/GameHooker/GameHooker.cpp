@@ -17,7 +17,8 @@ void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderIn
 bool hkCreateMove(void* thisptr, float inputSampleTime, CUserCmd* cmd)
 {
     crtmVMT->GetMethod<tCreateMove>(CMV_INDEX)(thisptr, inputSampleTime, cmd);
-    //CREATEMOVE THINGS
+    
+    Miscs::Movement::BunnyHop(cmd);
  
     return false;
 }

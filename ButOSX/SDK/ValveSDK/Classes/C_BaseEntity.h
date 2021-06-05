@@ -144,7 +144,7 @@ public:
     
     bool IsAlive()
     {
-        return this->GetHealth() > 0 && this->GetLifeState() == LIFE_ALIVE;
+        return this->GetHealth() > 0;
     }
     
 //    bool IsEnemy()
@@ -190,6 +190,11 @@ public:
     int GetFlags()
     {
         return *(int*)((uintptr_t)this + offsets.DT_BasePlayer.m_fFlags);
+    }
+    
+    float GetFOV()
+    {
+        return *(float*)((uintptr_t)this + offsets.DT_CSPlayer.m_iDefaultFOV);
     }
     
     MoveType_t GetMoveType()
@@ -547,6 +552,19 @@ public:
     {
         return *(float*)((uintptr_t)this + offsets.DT_WeaponCSBase.m_fAccuracyPenalty);
     }
+    
+    float GetInaccuracy()
+    {
+        typedef float (* oGetInaccuracy)(void*);
+        return getvfunc<oGetInaccuracy>(this, 551)(this);
+    }
+
+    float GetSpread()
+    {
+        typedef float (* oGetSpread)(void*);
+        return getvfunc<oGetSpread>(this, 552)(this);
+    }
+
 };
 
 class C_WeaponC4 : C_BaseCombatWeapon

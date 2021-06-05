@@ -125,6 +125,7 @@
 		368546492651A0E400B3A502 /* ButOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 368546482651A0E400B3A502 /* ButOSX.cpp */; };
 		369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */; };
 		369EEA1125D33B22000C2BB5 /* Collaboration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369EEA1025D33B22000C2BB5 /* Collaboration.framework */; };
+		36C2C6BA266BCDDC00A47660 /* BunnyHop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36C2C6B9266BCDDC00A47660 /* BunnyHop.cpp */; };
 		36D920E0261FA1F2007D54C5 /* imgui_impl_sdl.h in Headers */ = {isa = PBXBuildFile; fileRef = 36D920DC261FA1F2007D54C5 /* imgui_impl_sdl.h */; };
 		36D920E1261FA1F2007D54C5 /* imgui_impl_opengl2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36D920DD261FA1F2007D54C5 /* imgui_impl_opengl2.cpp */; };
 		36D920E2261FA1F2007D54C5 /* imgui_impl_sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36D920DE261FA1F2007D54C5 /* imgui_impl_sdl.cpp */; };
@@ -191,7 +192,6 @@
 		1A7C4791254EEDC400A58870 /* Vector3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector3D.h; sourceTree = "<group>"; };
 		1A7C4792254EEDDE00A58870 /* Vector2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
 		1A7C4794254EEDF500A58870 /* QAngle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAngle.h; sourceTree = "<group>"; };
-		1A7C4796254EEE8B00A58870 /* Others.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Others.h; sourceTree = "<group>"; };
 		1A7C4798254EEEB100A58870 /* Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		1A7C4799254EEF7D00A58870 /* VMT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VMT.h; sourceTree = "<group>"; };
 		1A7C47A0254EF0D100A58870 /* PatternScanner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PatternScanner.cpp; sourceTree = "<group>"; };
@@ -306,6 +306,8 @@
 		369EEA1025D33B22000C2BB5 /* Collaboration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collaboration.framework; path = System/Library/Frameworks/Collaboration.framework; sourceTree = SDKROOT; };
 		36A69A8D261130D20078BAC6 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		36B3B585264379200015441A /* IInputSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IInputSystem.h; sourceTree = "<group>"; };
+		36C2C6B9266BCDDC00A47660 /* BunnyHop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BunnyHop.cpp; sourceTree = "<group>"; };
+		36C2C6BB266BCDEF00A47660 /* Miscs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Miscs.hpp; sourceTree = "<group>"; };
 		36D920DC261FA1F2007D54C5 /* imgui_impl_sdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imgui_impl_sdl.h; path = backends/imgui_impl_sdl.h; sourceTree = "<group>"; };
 		36D920DD261FA1F2007D54C5 /* imgui_impl_opengl2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_impl_opengl2.cpp; path = backends/imgui_impl_opengl2.cpp; sourceTree = "<group>"; };
 		36D920DE261FA1F2007D54C5 /* imgui_impl_sdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_impl_sdl.cpp; path = backends/imgui_impl_sdl.cpp; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 		1A42E94725BCA3AA006BB177 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				36C2C6B8266BCDBA00A47660 /* Miscs */,
 				1AC8779125C750B200659F75 /* Assists */,
 				1A42E94825BCA3B7006BB177 /* Visuals */,
 			);
@@ -568,7 +571,6 @@
 		1A7C4795254EEE7F00A58870 /* Miscs */ = {
 			isa = PBXGroup;
 			children = (
-				1A7C4796254EEE8B00A58870 /* Others.h */,
 				1A7C4798254EEEB100A58870 /* Color.h */,
 			);
 			path = Miscs;
@@ -745,6 +747,15 @@
 				36A69A8D261130D20078BAC6 /* stb_image.h */,
 			);
 			path = stb;
+			sourceTree = "<group>";
+		};
+		36C2C6B8266BCDBA00A47660 /* Miscs */ = {
+			isa = PBXGroup;
+			children = (
+				36C2C6B9266BCDDC00A47660 /* BunnyHop.cpp */,
+				36C2C6BB266BCDEF00A47660 /* Miscs.hpp */,
+			);
+			path = Miscs;
 			sourceTree = "<group>";
 		};
 		36CECC7525DF1F200029A263 /* TouchBar-ObjectiveC */ = {
@@ -947,6 +958,7 @@
 				1A471E59254A201100FFF49B /* MainHooker.cpp in Sources */,
 				1A471F0B254B35E900FFF49B /* MenuRenderer.cpp in Sources */,
 				1A471E38254A1D6000FFF49B /* imgui_draw.cpp in Sources */,
+				36C2C6BA266BCDDC00A47660 /* BunnyHop.cpp in Sources */,
 				1A42E94225BC9D07006BB177 /* NetVarManager.cpp in Sources */,
 				1A42E91A25BC90D6006BB177 /* Interfaces.cpp in Sources */,
 				1A7C47A2254EF0D100A58870 /* PatternScanner.cpp in Sources */,

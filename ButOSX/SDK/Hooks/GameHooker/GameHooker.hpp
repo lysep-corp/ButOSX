@@ -12,12 +12,14 @@
 #include <stdio.h>
 #include "PatternScanner.hpp"
 #include "ValveSDK.h"
-#include "Visuals.hpp"
 #include "OpenGLHooker.hpp"
 #include "PatternScanner.hpp"
 #include "TouchBar.h"
 #include "Memory.hpp"
 //#include "DiscordRPC.hpp"
+
+#include "Visuals.hpp"
+#include "Miscs.hpp"
 
 // FUNC INDEXES
 #define DME_INDEX 21

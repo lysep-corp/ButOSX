@@ -49,6 +49,7 @@ namespace Pages {
     extern char *PageList[];
     void VisualsPage();
     void AssistsPage();
+    void MiscsPage();
     void SettingsPage();
 }
 

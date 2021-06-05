@@ -39,6 +39,7 @@ namespace Visuals{
         extern void SniperCrosshair();
         extern void RecoilCrosshair();
         extern void GrenadePrediction();
+        extern void SpreadCircle(ImDrawList* drawArea);
     }
 }
 
