@@ -29,7 +29,7 @@ UI is powered by ImGui.
 - Changers
     - WIP
 - Miscs
-    - WIP
+    - Bunny Hop
 
 More will be comming soon.
 
