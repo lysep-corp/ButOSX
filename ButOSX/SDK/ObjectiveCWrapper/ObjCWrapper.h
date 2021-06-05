@@ -9,12 +9,19 @@
 #ifndef ObjCWrapper_h
 #define ObjCWrapper_h
 
+#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
+#import <Collaboration/Collaboration.h>
+
+#include "xorstr.h"
+
 namespace UserData {
-    extern unsigned char* ImageBuffer;
+    extern NSData* ImageBuffer;
     extern const char* UserName;
-    extern const char* UserDefaultPath;
+    extern NSString* UserDefaultPath;
+    extern unsigned char* ImageData;
 };
 
-void GetUserDatas(void);
+extern void GetUserDatas();
 
 #endif /* ObjCWrapper_h */

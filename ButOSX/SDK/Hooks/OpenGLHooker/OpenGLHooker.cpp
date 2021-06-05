@@ -254,6 +254,13 @@ int SDLCALL SDL_Init(Uint32 flags) {
     return SDL_InitFn(flags);
 }
 
+int SDLCALL SDL_GL_SetSwapInterval(int interval){
+    typedef int(*currFn) (int);
+    static currFn SDL_GL_SetSwapIntervalFn = reinterpret_cast<currFn>(dlsym(RTLD_DEFAULT, xorstr("SDL_GL_SetSwapInterval")));
+    
+    return SDL_GL_SetSwapIntervalFn(interval);
+}
+
 static SDL_GLContext original_context;
 void InitImGui(SDL_Window* window){
     static SDL_GLContext context = NULL;
@@ -266,10 +273,11 @@ void InitImGui(SDL_Window* window){
     SDL_GL_MakeCurrent(window, context);
     static bool LoadBytes = false;
     if(!LoadBytes){
+        SDL_GL_SetSwapInterval(0); //Disable SDL VSYNCING
         ImGuiIO& uiIO = ImGui::GetIO();
         g_GirisFontBüyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 20.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());
         g_Font = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 15.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());
-        g_Büyük = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 30.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());
+        g_Buyuk = ImGui::GetIO().Fonts->AddFontFromMemoryCompressedTTF(mysego_compressed_data, mysego_compressed_size, 30.f, nullptr, uiIO.Fonts->GetGlyphRangesCyrillic());
         LoadBytes = true;
     }
     IMGUI_CHECKVERSION();
@@ -290,6 +298,7 @@ static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_W
     
     //ImGui RENDERS
     Visuals::Others::Watermark(BackDrawList);
+    //Visuals::Others::SpreadCircle(BackDrawList);
     //pInputSystem->EnableInput(!butButton_Menu->state);
     MenuRenderer::RenderMenu();
     
@@ -302,13 +311,13 @@ static void (*oSDL_GL_SwapWindow) (SDL_Window*) = reinterpret_cast<void(*)(SDL_W
 void SDLHook::Init() {
     ImGui::CreateContext(); // Ghetto MacOSX Context Crash Fix Like a Boss
     uintptr_t swapwindowFn = reinterpret_cast<uintptr_t>(dlsym(RTLD_DEFAULT, xorstr("SDL_GL_SwapWindow")));
-    uintptr_t sdllib = reinterpret_cast<uintptr_t>(embryo::module(xorstr("libSDL2-2.0.0.dylib")).start());
-    swapwindow_ptr = reinterpret_cast<uintptr_t*>(helpers::GetAbsoluteAddress(sdllib, swapwindowFn, 0xF, 0x4));
+    Memory::Module sdllib(xorstr("libSDL2-2.0.0.dylib"));
+    swapwindow_ptr = sdllib.GetAbsoluteAddress(swapwindowFn, 0x4);
     swapwindow_original = *swapwindow_ptr;
     *swapwindow_ptr = reinterpret_cast<uintptr_t>(&SDLHook::SwapWindow); //Calls our Swap Window instead of the game's orginial.
     
     uintptr_t polleventFn = reinterpret_cast<uintptr_t>(dlsym(RTLD_DEFAULT, xorstr("SDL_PollEvent")));
-    pollevent_ptr = reinterpret_cast<uintptr_t*>(helpers::GetAbsoluteAddress(sdllib, polleventFn, 0xF, 0x4));
+    pollevent_ptr = sdllib.GetAbsoluteAddress(polleventFn, 0x4);
     pollevent_original = *pollevent_ptr;
     *pollevent_ptr = reinterpret_cast<uintptr_t>(&PollEventHK); //Calls our Poll Event instead of the game's orginial.
     

@@ -10,20 +10,17 @@
 #define ButOSX_
 
 #include <iostream>
-#include <cstring>
 #include "SDK/Hooks/MainHooker.hpp"
 #include "SDK/ObjectiveCWrapper/ObjCWrapper.h"
-#include "SDK/Classes/Utilities/PatternScanner.hpp"
 #include "Thirdparty/TouchBar-ObjectiveC/TouchBar.h"
 
 /* The classes below are exported */
-#pragma GCC visibility push(default)
+#pragma GCC visibility push(internal)
 
-class ButOSX
+namespace ButOSX
 {
-    public:
-    void attach();
-    void detach();
+    void Initalize();
+    void Unload();
 };
 
 #pragma GCC visibility pop

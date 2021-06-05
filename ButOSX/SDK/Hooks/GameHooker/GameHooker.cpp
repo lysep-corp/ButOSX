@@ -7,34 +7,22 @@
 //
 
 #include "GameHooker.hpp"
-#include "ValveSDK.h"
-#include "Visuals.hpp"
-#include "OpenGLHooker.hpp"
-#include "PatternScanner.hpp"
-#include "TouchBar.h"
-//#include "DiscordRPC.hpp"
 
-
-typedef void(*tDrawModelExecute)(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
-extern void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld);
 void hkDrawModelExecute(void* thisptr, void* context, void* state, ModelRenderInfo_t& model_info, matrix3x4_t* pCustomBoneToWorld) {
     //DME THINGS...
     dmeVMT->GetMethod<tDrawModelExecute>(DME_INDEX)(thisptr, context, state, model_info, pCustomBoneToWorld); //Get from my old source probably pasted.
     pModelRender->ForcedMaterialOverride(0);
 }
 
-typedef bool(*tCreateMove)(void* thisptr, float inputSampleTime, CUserCmd* cmd);
-extern bool hkCreateMove(void* thisptr, float inputSampleTime, CUserCmd* cmd);
 bool hkCreateMove(void* thisptr, float inputSampleTime, CUserCmd* cmd)
 {
     crtmVMT->GetMethod<tCreateMove>(CMV_INDEX)(thisptr, inputSampleTime, cmd);
-    //CREATEMOVE THINGS
+    
+    Miscs::Movement::BunnyHop(cmd);
  
     return false;
 }
 
-typedef void(*tFrameStageNotify)(void* thisptr, FrameStage stage);
-extern void hkFrameStageNotify(void* thisptr, FrameStage stage);
 void hkFrameStageNotify(void* thisptr, FrameStage stage) {
     if (stage == FrameStage::RENDER_START) {
         //Visuals::Others::NightMode();
@@ -48,8 +36,6 @@ void hkFrameStageNotify(void* thisptr, FrameStage stage) {
 }
 
 HFONT eFont;
-typedef void(*tPaintTraverse)(void*, VPANEL, bool, bool);
-extern void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool allowForce);
 void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool allowForce) {
     paintVMT->GetMethod<tPaintTraverse>(PTV_INDEX)(thisptr, vguiPanel, forceRepaint, allowForce);
     static VPANEL currentPanel = 0;
@@ -64,8 +50,6 @@ void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool al
         Visuals::ESP::ESPSurface();
 }
 
-typedef void(*tLockCursor)(void* thisptr);
-extern void hkLockCursor(void* thisptr);
 void hkLockCursor(void* thisptr)
 {
     //Weirdly it lock's mouse when i open the menu?
@@ -77,10 +61,27 @@ void hkLockCursor(void* thisptr)
 }
 
 void GameHooker::Init(){
+    LoadModules();
     ScanSigs();
     LoadInterfaces();
     HookVMTs();
     Offsets::getOffsets();
+}
+
+Memory::Module* CLIENTMODULE;
+Memory::Module* ENGINEMODULE;
+Memory::Module* INPUTSYSTEMM;
+Memory::Module* VGUI2MODULEM;
+Memory::Module* MATRLSMODULE;
+Memory::Module* VGUIMATSURFM;
+
+void GameHooker::LoadModules(){
+    CLIENTMODULE = new Memory::Module(xorstr("client.dylib"));
+    ENGINEMODULE = new Memory::Module(xorstr("engine.dylib"));
+    INPUTSYSTEMM = new Memory::Module(xorstr("inputsystem.dylib"));
+    VGUI2MODULEM = new Memory::Module(xorstr("vgui2.dylib"));
+    MATRLSMODULE = new Memory::Module(xorstr("materialsystem.dylib"));
+    VGUIMATSURFM = new Memory::Module(xorstr("vguimatsurface.dylib"));
 }
 
 void GameHooker::Destroy(){}
@@ -88,7 +89,7 @@ void GameHooker::Destroy(){}
 uintptr_t GameHooker::clientModePointer;
 void GameHooker::ScanSigs(){
     C_PatternScanner* sigScanner = C_PatternScanner::get();
-    clientModePointer = sigScanner->get_pointer(CLIENTMODULE, (Byte*)xorstr("\x48\x8B\xB7\x00\x00\x00\x00\x48\x8D\x3D\x00\x00\x00\x00\x5D\xE9"), xorstr("xxx????xxx????xx"), 0xA) + 0x4;
+    clientModePointer = sigScanner->get_pointer(CLIENTMODULE->Name, (Byte*)xorstr("\x48\x8B\xB7\x00\x00\x00\x00\x48\x8D\x3D\x00\x00\x00\x00\x5D\xE9"), xorstr("xxx????xxx????xx"), 0xA) + 0x4;
 }
 
 void GameHooker::HookVMTs(){
@@ -101,16 +102,17 @@ void GameHooker::HookVMTs(){
 
 void GameHooker::LoadInterfaces(){
     pClientMod          = reinterpret_cast<IClientMode*>(clientModePointer);
-    pPanel              = GetInterface<IPanel>(xorstr("./bin/osx64/vgui2.dylib"), xorstr("VGUI_Panel"));
-    pCvar               = GetInterface<ICvar>(xorstr("./bin/osx64/materialsystem.dylib"), xorstr("VEngineCvar"));
-    pModelRender        = GetInterface<IVModelRender>(xorstr("./bin/osx64/engine.dylib"), xorstr("VEngineModel"));
-    pClient             = GetInterface<IBaseClientDLL>(xorstr("./csgo/bin/osx64/client.dylib"), xorstr("VClient"));
-    pEngine             = GetInterface<IEngineClient>(xorstr("./bin/osx64/engine.dylib"), xorstr("VEngineClient"));
-    pOverlay            = GetInterface<IVDebugOverlay>(xorstr("./bin/osx64/engine.dylib"), xorstr("VDebugOverlay"));
-    pModelInfo          = GetInterface<IVModelInfo>(xorstr("./bin/osx64/engine.dylib"), xorstr("VModelInfoClient"));
-    pSurface            = GetInterface<ISurface>(xorstr("./bin/osx64/vguimatsurface.dylib"), xorstr("VGUI_Surface"));
-    pEngineTrace        = GetInterface<IEngineTrace>(xorstr("./bin/osx64/engine.dylib"), xorstr("EngineTraceClient"));
-    pInputSystem        = GetInterface<IInputSystem>(xorstr("./bin/osx64/inputsystem.dylib"), xorstr("InputSystemVersion"));
-    pMaterialSystem     = GetInterface<IVMaterialSystem>(xorstr("./bin/osx64/materialsystem.dylib"), xorstr("VMaterialSystem"));
-    pEntList            = GetInterface<IClientEntityList>(xorstr("./csgo/bin/osx64/client.dylib"), xorstr("VClientEntityList"));
+    pPanel              = VGUI2MODULEM->GetInterface<IPanel>(xorstr("VGUI_Panel"));
+    pCvar               = MATRLSMODULE->GetInterface<ICvar>(xorstr("VEngineCvar"));
+    pModelRender        = ENGINEMODULE->GetInterface<IVModelRender>(xorstr("VEngineModel"));
+    pClient             = CLIENTMODULE->GetInterface<IBaseClientDLL>(xorstr("VClient"));
+    pClient             = CLIENTMODULE->GetInterface<IBaseClientDLL>(xorstr("VClient"));
+    pEngine             = ENGINEMODULE->GetInterface<IEngineClient>(xorstr("VEngineClient"));
+    pOverlay            = ENGINEMODULE->GetInterface<IVDebugOverlay>(xorstr("VDebugOverlay"));
+    pModelInfo          = ENGINEMODULE->GetInterface<IVModelInfo>(xorstr("VModelInfoClient"));
+    pSurface            = VGUIMATSURFM->GetInterface<ISurface>(xorstr("VGUI_Surface"));
+    pEngineTrace        = ENGINEMODULE->GetInterface<IEngineTrace>(xorstr("EngineTraceClient"));
+    pInputSystem        = INPUTSYSTEMM->GetInterface<IInputSystem>(xorstr("InputSystemVersion"));
+    pMaterialSystem     = MATRLSMODULE->GetInterface<IVMaterialSystem>(xorstr("VMaterialSystem"));
+    pEntList            = CLIENTMODULE->GetInterface<IClientEntityList>(xorstr("VClientEntityList"));
 }

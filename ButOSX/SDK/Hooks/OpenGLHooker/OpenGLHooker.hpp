@@ -12,25 +12,20 @@
 #include <stdio.h>
 
 #define GL_SILENCE_DEPRECATION
-#include <OpenGL/gl3.h>
+#include <OpenGL/gl.h>
 #include "SDL.h"
+#include "SDL_video.h"
 
-#include "Functions/Helpers.hpp"
-#include "Functions/Module.hpp"
+#include "Memory.hpp"
 
 #include "Visuals.hpp"
-#include "xorstr.h"
 
 struct ImFont;
 extern ImFont* g_GirisFontBüyük;
 extern ImFont* g_Font;
-extern ImFont* g_Büyük;
-
-//extern SDL_Texture* images;
+extern ImFont* g_Buyuk;
 
 extern bool FreeTheCursor;
-
-#include <dlfcn.h>
 
 namespace SDLHook {
     void Init();

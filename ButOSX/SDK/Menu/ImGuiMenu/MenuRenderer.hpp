@@ -11,10 +11,11 @@
 #include <stdio.h>
 
 #define GL_SILENCE_DEPRECATION
-#include <OpenGL/gl3.h>
+#include <OpenGL/gl.h>
 #include "SDL.h"
 
 #include "../../../Thirdparty/imgui/imgui.h"
+#define IMGUI_DEFINE_MATH_OPERATORS
 #include "../../../Thirdparty/imgui/imgui_internal.h"
 #include "../../../Thirdparty/imgui/backends/imgui_impl_sdl.h"
 #include "../../../Thirdparty/imgui/backends/imgui_impl_opengl2.h"
@@ -48,6 +49,7 @@ namespace Pages {
     extern char *PageList[];
     void VisualsPage();
     void AssistsPage();
+    void MiscsPage();
     void SettingsPage();
 }
 

@@ -8,24 +8,25 @@
 
 #include "ObjCWrapper.h"
 
-#import <Foundation/Foundation.h>
-#import <Cocoa/Cocoa.h>
-#import <Collaboration/Collaboration.h>
-
-
-unsigned char*      UserData::ImageBuffer;
+NSData*             UserData::ImageBuffer;
 const char*         UserData::UserName;
-const char*         UserData::UserDefaultPath;
+NSString*           UserData::UserDefaultPath;
+unsigned char*      UserData::ImageData;
 
 void GetUserImage(){
     CBIdentity *identity = [CBIdentity identityWithName:NSUserName() authority:[CBIdentityAuthority defaultIdentityAuthority]];
-    NSArray *representations; NSData *bitmapData;
+    NSArray *representations; NSData *bitmapBuffer;
     representations = [[identity image] representations];
-    bitmapData = [NSBitmapImageRep representationOfImageRepsInArray:representations usingType:NSBitmapImageFileTypeJPEG properties:[NSDictionary dictionaryWithObject:[NSDecimalNumber numberWithFloat:1.0]
+    bitmapBuffer = [NSBitmapImageRep representationOfImageRepsInArray:representations usingType:NSBitmapImageFileTypeJPEG properties:[NSDictionary dictionaryWithObject:[NSDecimalNumber numberWithFloat:1.0]
         forKey:NSImageCompressionFactor]];
     //NSString *temp = [@"/Users/" stringByAppendingString:NSUserName()];
     //[bitmapData writeToFile:[temp stringByAppendingString:@"/img.jpeg"] atomically:YES];
-    UserData::ImageBuffer = (unsigned char*)[bitmapData bytes];
+    UserData::ImageBuffer = bitmapBuffer;
+    UserData::ImageData   = (unsigned char*)[bitmapBuffer bytes];
+}
+
+void GenerateUserImage(){
+    [UserData::ImageBuffer writeToFile:[UserData::UserDefaultPath stringByAppendingString:[NSString stringWithUTF8String:xorstr("/.but-osx/user.jpeg")]] atomically:YES];
 }
 
 void GetUserName(){
@@ -33,11 +34,12 @@ void GetUserName(){
 }
 
 void GetUserDefaultPath(){
-    UserData::UserDefaultPath = [[@"/Users/" stringByAppendingString:NSUserName()] UTF8String];
+    UserData::UserDefaultPath = [NSString stringWithUTF8String:[[[NSString stringWithUTF8String:xorstr("/Users/")] stringByAppendingString:NSUserName()] UTF8String]];
 }
 
 void GetUserDatas(){
     GetUserName();
-    GetUserImage();
     GetUserDefaultPath();
+    GetUserImage();
+    GenerateUserImage();
 }

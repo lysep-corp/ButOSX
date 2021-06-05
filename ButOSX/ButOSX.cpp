@@ -2,33 +2,28 @@
 //  ButOSX.cpp
 //  ButOSX
 //
-//  Created by Can on 29.10.2020.
-//  Copyright © 2020 Lyceion. All rights reserved.
+//  Created by Can on 16.05.2021.
+//  Copyright © 2021 Lyceion. All rights reserved.
 //
 
-
-//AND IT IS NOT A F*CKIN MICROWAVE FORK.
-
-#include <iostream>
 #include "ButOSX.hpp"
-
-
-int __attribute__((constructor))
-attach() //Main attach function which executes when library loads.
-{
-    static unique_ptr<C_PatternScanner>PatternScanner(C_PatternScanner::get());
-    while (!PatternScanner->get_base_address(SRVBRWMODULE)) {
-        sleep(10);
-        PatternScanner->load_modules();
+void ButOSX::Initalize(){
+    // Implemention of new module system
+    static Memory::Module* ServerBrowser = new Memory::Module(xorstr("serverbrowser.dylib"));
+    while (!ServerBrowser->Handle) {
+        sleep(1);
+        free(ServerBrowser);
+        ServerBrowser = new Memory::Module(xorstr("serverbrowser.dylib"));
     }
     
     //Initialize TouchBar UI.
     RenderTouchBar();
     
+    //Inıtalize Objective-C API.
+    GetUserDatas();
+    
     //Initialize Hooker.
     Hooker::Init();
     
-    //Inıtalize Objective-C API.
-    GetUserDatas();
     return 0;
 }
