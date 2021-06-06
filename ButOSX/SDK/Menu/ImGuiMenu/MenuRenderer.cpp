@@ -33,20 +33,28 @@ void OpenDiscord(){
 }
 
 void HandleInputs(){
+    ImGuiIO ioG = ImGui::GetIO();
     //DEFAULT MENU KEY IS RIGHT ARROW or INSERT!!!
     //Open&Close Menu Key Handler
-    if ( ImGui::GetIO().KeysDownDuration[SDL_SCANCODE_RIGHT] == 0.0f || ImGui::GetIO().KeysDownDuration[SDL_SCANCODE_INSERT] == 0.0f )
+    if ( ioG.KeysDownDuration[SDL_SCANCODE_RIGHT] == 0.0f || ioG.KeysDownDuration[SDL_SCANCODE_INSERT] == 0.0f )
         butButton_Menu->state = !butButton_Menu->state;
     
     if(butButton_Menu->state){
         MenuRenderer::chinaVisible = true;
         MenuRenderer::flAlpha = clip(MenuRenderer::flAlpha + (1 / 0.15f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
+        ioG.MouseDrawCursor = true;
+        //ioG.WantCaptureMouse = true; //tryed
+        //ioG.WantCaptureKeyboard = true; //tryed
     }
     else{
         if(MenuRenderer::flAlpha == 0.f)
             MenuRenderer::chinaVisible = false;
         MenuRenderer::flAlpha = clip(MenuRenderer::flAlpha - (1 / 0.15f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
+        ioG.MouseDrawCursor = false;
+        //ioG.WantCaptureMouse = false; //tryed
+        //ioG.WantCaptureKeyboard = false; //tryed
     }
+    
     
     UpdateButton(butButton_Menu);
 }
@@ -157,7 +165,7 @@ void Pages::VisualsPage(){ //Page for visuals.
             ImGui::EndChild();
         }
         CustomWidgets::SwitchTouchbar(xorstr("Watermark"), visButton_Watermark);
-        //CustomWidgets::Switch(xorstr("Nightmode"), &visButton_NightMode->state);
+        CustomWidgets::SwitchTouchbar(xorstr("Night Mode"), visButton_NightMode);
         CustomWidgets::SwitchTouchbar(xorstr("Sniper Crosshair"), visButton_SniperCrosshair);
         CustomWidgets::SwitchTouchbar(xorstr("Recoil Crosshair"), visButton_RecoilCrosshair);
     }

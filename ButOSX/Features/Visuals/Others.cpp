@@ -11,9 +11,9 @@
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui_internal.h"
 #include "xorstr.h"
-#include "PatternScanner.hpp"
 #include "OpenGLHooker.hpp"
 #include "TouchBar.h"
+#include "GameHooker.hpp"
 
 ImVec2 textsize;
 void Visuals::Others::Watermark(ImDrawList* drawArea){ //Draws watermark which proudly written by me while i'm learning imgui in 2~3 hrs. LMAO
@@ -37,17 +37,21 @@ void Visuals::Others::Watermark(ImDrawList* drawArea){ //Draws watermark which p
     drawArea->AddText(ImVec2(WindowSize.x - (textsize.x + 60), 20 + (30 - (textsize.y + 6)) / 2), ImColor(255, 255, 255, 255), watermark_text);
     ImGui::PopFont();
 }
-
+typedef void (*LoadSkyNameFn) (const char*);
 void Visuals::Others::NightMode(){
     if(!visButton_NightMode->state)
         return;
     static bool bPerformed = false;
     if(!pEngine->IsInGame())
         return;
+    //auto const LoadSkyName = reinterpret_cast<LoadSkyNameFn>(GameHooker::sigScanner->get_procedure(xorstr("engine.dylib"), (unsigned char*)xorstr("x55\x48\x89\xE5\x41\x57\x41\x56\x41\x55\x41\x54\x53\x48\x81"), xorstr("xxxxxxxxxxxxxxx"))); //void R_LoadNamedSky(const char* SkyName) -> engine.dylib + 55 48 89 E5 41 57 41 56 41 55 41 54 53 48 81
+    //LoadSkyName(xorstr("sky_csgo_night02"));
+    static unique_ptr<ConVar>sv_skyname(pCvar->FindVar(xorstr("sv_skyname")));
+    static const char* buffer = sv_skyname->GetString();
+    //sv_skyname->SetValue(xorstr("sky_csgo_night02"));
     static unique_ptr<C_BasePlayer>pLocal((C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer()));
     if (pLocal->IsAlive()){
-        if ( bPerformed != visButton_NightMode->state ){
-            static unique_ptr<ConVar>sv_skyname(pCvar->FindVar("sv_skyname"));
+        if (visButton_NightMode->state){
             for (short h = pMaterialSystem->firstMaterial(); h != pMaterialSystem->invalidMaterial(); h = pMaterialSystem->nextMaterial(h)){
                 auto material = pMaterialSystem->getMaterial(h);
                 if ( !material )
@@ -57,6 +61,17 @@ void Visuals::Others::NightMode(){
                     material->ColorModulate( 0.1f, 0.1f, 0.1f );
                     pSurface->DrawSetColor(0,0,0, 125);
                     pSurface->DrawFilledRect(0, 0, ImGui::GetIO().DisplaySize.x, ImGui::GetIO().DisplaySize.y); //B1g feature yeah
+                }
+            }
+        }
+        else {
+            for (short h = pMaterialSystem->firstMaterial(); h != pMaterialSystem->invalidMaterial(); h = pMaterialSystem->nextMaterial(h)){
+                auto material = pMaterialSystem->getMaterial(h);
+                if ( !material )
+                    continue;
+                if (strstr( material->GetTextureGroupName(), ("World")) || strstr( material->GetTextureGroupName(), ("SkyBox")) || strstr( material->GetTextureGroupName(), ("StaticProp"))){
+                    sv_skyname->SetValue(buffer); //sky_cs15_daylight01_hdr
+                    material->ColorModulate( 1.0f, 1.0f, 1.0f );
                 }
             }
             bPerformed = visButton_NightMode->state;

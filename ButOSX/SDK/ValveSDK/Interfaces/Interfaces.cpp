@@ -9,21 +9,20 @@
 #include "ValveSDK.h"
 #include "VMT.h"
 
-ISurface* pSurface = nullptr;
 IPanel* pPanel = nullptr;
 ICvar* pCvar = nullptr;
-IBaseClientDLL* pClient = nullptr;
-IClientEntityList* pEntList = nullptr;
-IVDebugOverlay* pOverlay = nullptr;
-IEngineClient* pEngine = nullptr;
-IVModelInfo* pModelInfo = nullptr;
-IEngineTrace* pEngineTrace = nullptr;
-IClientMode* pClientMode = nullptr;
 IVModelRender* pModelRender = nullptr;
+IBaseClientDLL* pClient = nullptr;
+IEngineClient* pEngine = nullptr;
+IVDebugOverlay* pOverlay = nullptr;
+IVModelInfo* pModelInfo = nullptr;
+ISurface* pSurface = nullptr;
+IEngineTrace* pEngineTrace = nullptr;
+IInputSystem* pInputSystem = nullptr;
+IClientEntityList* pEntList = nullptr;
+IClientMode* pClientMode = nullptr;
 IVMaterialSystem* pMaterialSystem = nullptr;
 IAppSystem* pAppSystem = nullptr;
-IClientMode* pClientMod = nullptr;
-IInputSystem* pInputSystem = nullptr;
 
 VMT* paintVMT = nullptr;
 VMT* dmeVMT = nullptr;

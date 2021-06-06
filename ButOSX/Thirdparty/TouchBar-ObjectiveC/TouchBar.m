@@ -318,7 +318,7 @@ void RenderTouchBar(){
     
     visButton_ESP                   = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("ESP")]];
     visButton_Watermark             = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Watermark")]];
-    //visButton_NightMode             = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Night Mode")]];
+    visButton_NightMode             = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Night Mode")]];
     visButton_NoVisRecoil           = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("No Visual Recoil")]];
     visButton_NoFlash               = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("No Flash")]];
     visButton_SniperCrosshair       = [menu_Visuals AddButton:[NSString stringWithUTF8String:xorstr("Sniper Crosshair")]];
