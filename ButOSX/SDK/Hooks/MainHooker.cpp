@@ -9,10 +9,10 @@
 #include "MainHooker.hpp"
 
 void Hooker::Init() { //Load hooks.
-    //Inserting GUI
-    SDLHook::Init();
     //Load Game SDK
     GameHooker::Init();
+    //Inserting GUI
+    SDLHook::Init();
 }
 
 void Hooker::Destroy(){ //Destroy hooks.

@@ -44,7 +44,6 @@ void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool al
             eFont = pSurface->CreateFont(); // ESP Font
             pSurface->SetFontGlyphSet(eFont, xorstr("Segoe Ui"), 10, 80, 0, 0, FONTFLAG_ANTIALIAS | FONTFLAG_DROPSHADOW);
             currentPanel = vguiPanel;
-            //pPanel->SetMouseInputEnabled(vguiPanel, butButton_Menu->state);
         }
     
     if(vguiPanel == currentPanel)
@@ -53,10 +52,11 @@ void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool al
 
 void hkLockCursor(void* thisptr)
 {
-    if(!butButton_Menu->state)
-        return lkcVMT->GetMethod<tLockCursor>(LKC_INDEX)(thisptr);
-    
-    pSurface->UnlockCursor();
+    if(butButton_Menu->state){
+        pSurface->UnlockCursor();
+        return;
+    }
+    lkcVMT->GetMethod<tLockCursor>(LKC_INDEX)(thisptr);
 }
 
 void GameHooker::Init(){

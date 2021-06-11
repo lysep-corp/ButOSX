@@ -33,28 +33,29 @@ void OpenDiscord(){
 }
 
 void HandleInputs(){
-    ImGuiIO ioG = ImGui::GetIO();
+    pInputSystem->EnableInput(!butButton_Menu->state);
+    
+    ImGuiIO& gIO = ImGui::GetIO();
     //DEFAULT MENU KEY IS RIGHT ARROW or INSERT!!!
     //Open&Close Menu Key Handler
-    if ( ioG.KeysDownDuration[SDL_SCANCODE_RIGHT] == 0.0f || ioG.KeysDownDuration[SDL_SCANCODE_INSERT] == 0.0f )
+    
+    if ( gIO.KeysDownDuration[SDL_SCANCODE_RIGHT] == 0.0f || gIO.KeysDownDuration[SDL_SCANCODE_INSERT] == 0.0f )
         butButton_Menu->state = !butButton_Menu->state;
     
     if(butButton_Menu->state){
         MenuRenderer::chinaVisible = true;
         MenuRenderer::flAlpha = clip(MenuRenderer::flAlpha + (1 / 0.15f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
-        ioG.MouseDrawCursor = true;
-        //ioG.WantCaptureMouse = true; //tryed
-        //ioG.WantCaptureKeyboard = true; //tryed
     }
     else{
         if(MenuRenderer::flAlpha == 0.f)
             MenuRenderer::chinaVisible = false;
+        
         MenuRenderer::flAlpha = clip(MenuRenderer::flAlpha - (1 / 0.15f) * ImGui::GetIO().DeltaTime, 0.f, 1.f);
-        ioG.MouseDrawCursor = false;
-        //ioG.WantCaptureMouse = false; //tryed
-        //ioG.WantCaptureKeyboard = false; //tryed
     }
     
+    gIO.MouseDrawCursor = butButton_Menu->state;
+    gIO.WantCaptureMouse = butButton_Menu->state;
+    gIO.WantCaptureKeyboard = butButton_Menu->state;
     
     UpdateButton(butButton_Menu);
 }

@@ -199,24 +199,14 @@ SDL_Cursor* SDLCALL SDL_CreateSystemCursor(SDL_SystemCursor id) {
     return SDL_CreateSystemCursorFn(id);
 }
 
-bool FreeTheCursor = true;
 uintptr_t* pollevent_ptr = nullptr;
 uintptr_t pollevent_original = NULL;
 int PollEventHK(SDL_Event* event) { // Needed for getting inputs mostly show / hide menu and anything else is needed like inputs etc.
     static int (*oSDL_PollEvent) (SDL_Event*) = reinterpret_cast<int(*)(SDL_Event*)>(pollevent_original);
-    int returnAddr =  0;
     static SDL_Event _event;
-    if(butButton_Menu->state){
-        FreeTheCursor = true;
-        ImGui_ImplSDL2_ProcessEvent(&_event); //Calls fresh PollEvent's event
-        returnAddr = oSDL_PollEvent(&_event);
-    }
-    else{
-        FreeTheCursor = false;
-        ImGui_ImplSDL2_ProcessEvent(event); //Calls game's PollEvent's event
-        returnAddr = oSDL_PollEvent(event);
-    }
-    return returnAddr;
+    
+    ImGui_ImplSDL2_ProcessEvent(butButton_Menu->state ? &_event : event);
+    return oSDL_PollEvent(butButton_Menu->state ? &_event : event);
 }
 
 int SDLCALL SDL_GL_SetAttribute(SDL_GLattr attr, int value) {
