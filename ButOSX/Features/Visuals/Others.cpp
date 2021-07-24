@@ -48,7 +48,6 @@ void Visuals::Others::NightMode(){
     //LoadSkyName(xorstr("sky_csgo_night02"));
     static unique_ptr<ConVar>sv_skyname(pCvar->FindVar(xorstr("sv_skyname")));
     static const char* buffer = sv_skyname->GetString();
-    //sv_skyname->SetValue(xorstr("sky_csgo_night02"));
     static unique_ptr<C_BasePlayer>pLocal((C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer()));
     if (pLocal->IsAlive()){
         if (visButton_NightMode->state){
@@ -56,11 +55,9 @@ void Visuals::Others::NightMode(){
                 auto material = pMaterialSystem->getMaterial(h);
                 if ( !material )
                     continue;
-                if (strstr( material->GetTextureGroupName(), ("World")) || strstr( material->GetTextureGroupName(), ("SkyBox")) || strstr( material->GetTextureGroupName(), ("StaticProp"))){
-                    sv_skyname->SetValue("sky_csgo_night02");
+                if (strstr( material->GetTextureGroupName(), (xorstr("World"))) || strstr( material->GetTextureGroupName(), (xorstr("SkyBox"))) || strstr( material->GetTextureGroupName(), (xorstr("StaticProp")))){
+                    sv_skyname->SetValue(xorstr("sky_csgo_night02"));
                     material->ColorModulate( 0.1f, 0.1f, 0.1f );
-                    pSurface->DrawSetColor(0,0,0, 125);
-                    pSurface->DrawFilledRect(0, 0, ImGui::GetIO().DisplaySize.x, ImGui::GetIO().DisplaySize.y); //B1g feature yeah
                 }
             }
         }
@@ -69,8 +66,8 @@ void Visuals::Others::NightMode(){
                 auto material = pMaterialSystem->getMaterial(h);
                 if ( !material )
                     continue;
-                if (strstr( material->GetTextureGroupName(), ("World")) || strstr( material->GetTextureGroupName(), ("SkyBox")) || strstr( material->GetTextureGroupName(), ("StaticProp"))){
-                    sv_skyname->SetValue(buffer); //sky_cs15_daylight01_hdr
+                if (strstr( material->GetTextureGroupName(), (xorstr("World"))) || strstr( material->GetTextureGroupName(), (xorstr("SkyBox"))) || strstr( material->GetTextureGroupName(), (xorstr("StaticProp")))){
+                    sv_skyname->SetValue(buffer); //ex. sky_cs15_daylight01_hdr
                     material->ColorModulate( 1.0f, 1.0f, 1.0f );
                 }
             }
@@ -155,19 +152,3 @@ void Visuals::Others::GrenadePrediction(){
     else
         grenade_preview->SetValue(1);
 }
-
-//void Visuals::Others::SpreadCircle(ImDrawList* drawArea){
-//    if(!visButton_BulletSpread->state)
-//        return;
-//    if(!pEngine->IsInGame())
-//        return;
-//    static unique_ptr<C_BasePlayer>pLocal((C_BasePlayer*)pEntList->GetClientEntity(pEngine->GetLocalPlayer()));
-//    if(pLocal->IsScoped() || !pLocal->IsAlive())
-//        return;
-//    C_BaseCombatWeapon* activeWeapon = (C_BaseCombatWeapon*) pEntList->GetClientEntityFromHandle(pLocal->GetActiveWeapon());
-//    float Spread = activeWeapon->GetSpread();
-//    float Inaccuracy = activeWeapon->GetInaccuracy();
-//    float fSpreadDistance = ((Inaccuracy + Spread) * 320.0f / tanf(DEG2RAD(90) / 2));
-//    fSpreadDistance = (int)(fSpreadDistance * (ImGui::GetIO().DisplaySize.y / 480.0f));
-//    drawArea->AddCircleFilled(ImGui::GetIO().DisplaySize / 2, abs(fSpreadDistance), IM_COL32(0,0,0, 255));
-//}

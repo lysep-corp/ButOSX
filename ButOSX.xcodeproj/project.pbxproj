@@ -120,8 +120,6 @@
 		1AF384DE254CBE2400336590 /* CustomWidgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AF384DC254CBE2400336590 /* CustomWidgets.cpp */; };
 		3637344B265FE01300D1CBF9 /* Memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36373449265FE01300D1CBF9 /* Memory.cpp */; };
 		3637344C265FE01300D1CBF9 /* Memory.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3637344A265FE01300D1CBF9 /* Memory.hpp */; };
-		36848C8626122839001E1947 /* Aimbot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36848C8426122839001E1947 /* Aimbot.cpp */; };
-		36848C8726122839001E1947 /* Aimbot.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 36848C8526122839001E1947 /* Aimbot.hpp */; };
 		368546492651A0E400B3A502 /* ButOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 368546482651A0E400B3A502 /* ButOSX.cpp */; };
 		369EEA0825D33129000C2BB5 /* ObjCWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */; };
 		369EEA1125D33B22000C2BB5 /* Collaboration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369EEA1025D33B22000C2BB5 /* Collaboration.framework */; };
@@ -298,8 +296,6 @@
 		36373449265FE01300D1CBF9 /* Memory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Memory.cpp; sourceTree = "<group>"; };
 		3637344A265FE01300D1CBF9 /* Memory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Memory.hpp; sourceTree = "<group>"; };
 		366A0CD126148D80000804E8 /* Valve-DiscordRPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Valve-DiscordRPC.h"; sourceTree = "<group>"; };
-		36848C8426122839001E1947 /* Aimbot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Aimbot.cpp; sourceTree = "<group>"; };
-		36848C8526122839001E1947 /* Aimbot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Aimbot.hpp; sourceTree = "<group>"; };
 		368546482651A0E400B3A502 /* ButOSX.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ButOSX.cpp; sourceTree = "<group>"; };
 		369EEA0725D33129000C2BB5 /* ObjCWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCWrapper.mm; sourceTree = "<group>"; };
 		369EEA0C25D3378D000C2BB5 /* ObjCWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCWrapper.h; sourceTree = "<group>"; };
@@ -376,7 +372,6 @@
 			isa = PBXGroup;
 			children = (
 				36C2C6B8266BCDBA00A47660 /* Miscs */,
-				1AC8779125C750B200659F75 /* Assists */,
 				1A42E94825BCA3B7006BB177 /* Visuals */,
 			);
 			path = Features;
@@ -703,15 +698,6 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		1AC8779125C750B200659F75 /* Assists */ = {
-			isa = PBXGroup;
-			children = (
-				36848C8426122839001E1947 /* Aimbot.cpp */,
-				36848C8526122839001E1947 /* Aimbot.hpp */,
-			);
-			path = Assists;
-			sourceTree = "<group>";
-		};
 		1AF384DB254CBE0D00336590 /* Design */ = {
 			isa = PBXGroup;
 			children = (
@@ -855,7 +841,6 @@
 				1AA4A4BC25CB58BA00621AEB /* SDL_shape.h in Headers */,
 				1AA4A49C25CB58B900621AEB /* SDL_revision.h in Headers */,
 				3637344C265FE01300D1CBF9 /* Memory.hpp in Headers */,
-				36848C8726122839001E1947 /* Aimbot.hpp in Headers */,
 				1A471E3C254A1D6000FFF49B /* imstb_truetype.h in Headers */,
 				1AA4A4D125CB58BA00621AEB /* SDL_log.h in Headers */,
 				1AA4A4A525CB58BA00621AEB /* SDL_types.h in Headers */,
@@ -951,7 +936,6 @@
 				1A471E3F254A1D6000FFF49B /* imgui.cpp in Sources */,
 				3637344B265FE01300D1CBF9 /* Memory.cpp in Sources */,
 				1A42E94B25BCA3D6006BB177 /* ESP.cpp in Sources */,
-				36848C8626122839001E1947 /* Aimbot.cpp in Sources */,
 				1A518E5125C206980080F876 /* Others.cpp in Sources */,
 				1AC8B1D025BAF90F00F754B1 /* imgui_tables.cpp in Sources */,
 				1A471E3B254A1D6000FFF49B /* imgui_widgets.cpp in Sources */,

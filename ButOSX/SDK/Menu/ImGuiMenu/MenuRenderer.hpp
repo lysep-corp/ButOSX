@@ -35,12 +35,11 @@
 #define WINDOW_WIDTH    (WINDOW_HEIGHT * 1.2 * 1.61803398875) //Golden Ratio ?!???!?
 
 namespace MenuRenderer {
-    static bool chinaVisible = false;
+    static bool chinaVisible = true;
     static float flAlpha = 0;
     void RenderMenu();
     void InitTheme();
     namespace  MessageBox{
-            extern bool MsgBoxTriggered;
             void Show(const char* Title, const char* Text, const char* ButtonText, void (*ButtonFunction)());
     };
 }

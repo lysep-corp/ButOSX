@@ -9,13 +9,11 @@
 #include "MenuRenderer.hpp"
 
 ImFont* g_Buyuk;
-ImFont* g_GirisFontBüyük;
+ImFont* g_GirisFontBüyük; //Not my code. A friends...
 ImFont* g_Font;
 
 char *Pages::PageList[]{
     (char *)"VISUALS ",
-    (char *)"ASSISTS ",
-    (char *)"CHANGERS",
     (char *)"MISCS   ",
     (char *)"SETTINGS"
 };
@@ -28,7 +26,7 @@ float clip(float n, float lower, float upper)
 
 static ImVec2 MainWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 void OpenDiscord(){
-    std::string op = std::string(xorstr("open https://discord.gg/cJmWH7YQ58"));
+    std::string op = std::string(xorstr("open https://github.com/Lyceion"));
     system(op.c_str());
 }
 
@@ -60,32 +58,7 @@ void HandleInputs(){
     UpdateButton(butButton_Menu);
 }
 
-void RenderUserHelloMessage(){
-    static bool oneTime = false;
-    static GLuint my_image_texture = 0;
-    static int my_image_width = 50;
-    static int my_image_height = 50;
-    if(!oneTime){
-        oneTime = true;
-        //LoadTextureFromMemory(UserData::ImageData, &my_image_texture, my_image_width, my_image_height);
-    }
-    if(butButton_Menu->state){
-        static ImGuiStyle& style = ImGui::GetStyle();
-        style.Alpha = MenuRenderer::flAlpha;
-        style.WindowRounding = 0;
-        style.Colors[ImGuiCol_WindowBg] = ImVec4(0.12f, 0.12f, 0.12f, style.Alpha);
-        ImGui::SetNextWindowBgAlpha(style.Alpha);
-        ImGui::Begin(xorstr("User"), NULL);{
-            ImGui::Text(xorstr("pointer = %u"), my_image_texture);
-            ImGui::Text(xorstr("size = %d x %d"), my_image_width, my_image_height);
-            ImGui::Image((void*)(intptr_t)my_image_texture, ImVec2(my_image_width, my_image_height));
-        }
-        ImGui::End();
-    }
-}
-
 void MenuRenderer::RenderMenu(){
-    MenuRenderer::MessageBox::Show(xorstr("WELCOME - ButOSX"), xorstr("Hello, welcome to ButOSX.\nCheat is sucsessfully injected. \nI'm Lyceion. Would you like to join our community discord?"), xorstr("Yes, Please!"), OpenDiscord);
     HandleInputs();
     if(chinaVisible){
         ImGui::StyleColorsDark();
@@ -108,7 +81,7 @@ void MenuRenderer::RenderMenu(){
             
             
             ImGui::PushFont(g_GirisFontBüyük);
-            static int PageCount = 5 /*sizeof(Pages::PageList[0]) / sizeof(Pages::PageList)*/;
+            static int PageCount = 3 /*sizeof(Pages::PageList[0]) / sizeof(Pages::PageList)*/;
             ImVec2 TabSize = ImVec2((MainWindowSize.x - (WINDOW_PADDING * 2)) / PageCount, WINDOW_PADDING * 2);
             for(int i = 0; i <= PageCount - 1; i++){
                 style.Colors[ImGuiCol_Text] = ImVec4(1.0f, 1.0f, 1.0f, flAlpha);
@@ -125,14 +98,9 @@ void MenuRenderer::RenderMenu(){
                     Pages::VisualsPage();
                     break;
                 case 1:
-                    Pages::AssistsPage();
-                    break;
-                case 2:
-                    break;
-                case 3:
                     Pages::MiscsPage();
                     break;
-                case 4:
+                case 2:
                     Pages::SettingsPage();
                     break;
             }
@@ -143,6 +111,8 @@ void MenuRenderer::RenderMenu(){
     }
     else
         flAlpha = 0;
+    
+    MenuRenderer::MessageBox::Show(xorstr("WELCOME - ButOSX"), xorstr("Hello, welcome to ButOSX.\nCheat is sucsessfully injected. \nI'm Lyceion. It's a free, opensource software. If you paid for it, you are scammed. \nIf you liked the software, just visit my GitHub and star it. \nDiscord: @HiddenCrown#4558 if you have any questions."), xorstr("Yes, Please!"), OpenDiscord);
     
     //ImGui Functions
     ImGui::Render();
@@ -161,7 +131,6 @@ void Pages::VisualsPage(){ //Page for visuals.
                 ImGui::Checkbox(xorstr("Box"), &CheatSettings::ESP::box);
                 ImGui::Checkbox(xorstr("Name"), &CheatSettings::ESP::name);
                 ImGui::Checkbox(xorstr("Healthbar"), &CheatSettings::ESP::health);
-                //ImGui::Checkbox(xorstr("Skeleton"), CheatSettings::ESP::skeleton);
             }
             ImGui::EndChild();
         }
@@ -176,19 +145,6 @@ void Pages::VisualsPage(){ //Page for visuals.
         CustomWidgets::SwitchTouchbar(xorstr("No Visual Recoil"), visButton_NoVisRecoil);
         CustomWidgets::SwitchTouchbar(xorstr("No Flash"), visButton_NoFlash);
         CustomWidgets::SwitchTouchbar(xorstr("Grenade Prediction"), visButton_GrenadePrediction);
-        //CustomWidgets::SwitchTouchbar(xorstr("Bullet Spread"), visButton_BulletSpread);
-    }
-    ImGui::EndChild();
-    ImGui::PopFont();
-}
-
-void Pages::AssistsPage(){ //Page for assists.
-    ImGui::PushFont(g_Font);
-    static int ChildCount = 1;
-    ImVec2 ChildSize = ImVec2((MainWindowSize.x - (WINDOW_PADDING * 2)) / ChildCount, MainWindowSize.y - ((WINDOW_PADDING * 7.5f ) + 5) );
-    ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (ChildSize.x * 0), WINDOW_PADDING * 6.5f));
-    ImGui::BeginChild(xorstr("##2"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
-        
     }
     ImGui::EndChild();
     ImGui::PopFont();
@@ -199,7 +155,7 @@ void Pages::MiscsPage(){ //Page for miscs.
     static int ChildCount = 1;
     ImVec2 ChildSize = ImVec2((MainWindowSize.x - (WINDOW_PADDING * 2)) / ChildCount, MainWindowSize.y - ((WINDOW_PADDING * 7.5f ) + 5) );
     ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (ChildSize.x * 0), WINDOW_PADDING * 6.5f));
-    ImGui::BeginChild(xorstr("##3"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
+    ImGui::BeginChild(xorstr("##2"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
         CustomWidgets::SwitchTouchbar(xorstr("Bunny Hop"), miscButton_BunnyHop);
     }
     ImGui::EndChild();
@@ -212,14 +168,13 @@ void Pages::SettingsPage(){ //Page for settings;
     static int ChildCount = 1;
     ImVec2 ChildSize = ImVec2((MainWindowSize.x - (WINDOW_PADDING * 2)) / ChildCount, MainWindowSize.y - ((WINDOW_PADDING * 7.5f ) + 5) );
     ImGui::SetCursorPos(ImVec2(WINDOW_PADDING + (ChildSize.x * 0), WINDOW_PADDING * 6.5f));
-    ImGui::BeginChild(xorstr("##5"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
+    ImGui::BeginChild(xorstr("##3"), ChildSize, true, ImGuiWindowFlags_NoScrollbar);{
         CustomWidgets::ColorPicker4(xorstr("Color Picker TEST"), setCol_ESP, 0);
     }
     ImGui::EndChild();
     ImGui::PopFont();
 }
 
-bool MenuRenderer::MessageBox::MsgBoxTriggered = true;
 void MenuRenderer::MessageBox::Show(const char* Title, const char* Text, const char* ButtonText, void (*ButtonFunction)()){
     static bool show = true;
     if(show){
@@ -236,8 +191,7 @@ void MenuRenderer::MessageBox::Show(const char* Title, const char* Text, const c
         static ImVec2 WindowSize= ImVec2(TextSize.x + (WINDOW_PADDING * 2), TextSize.y + WINDOW_PADDING * 7);
         ImGui::SetNextWindowSize(WindowSize);
         ImGui::SetNextWindowPos(ImVec2((ImGui::GetIO().DisplaySize.x - WindowSize.x) / 2, (ImGui::GetIO().DisplaySize.y - WindowSize.y) / 2));
-        static ImGuiWindowFlags UI_FLAGS = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove;
-        ImGui::Begin(Title, &show, UI_FLAGS); {
+        ImGui::Begin(Title, &show, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove); {
             
             //TITLE
             ImGui::PushFont(g_Buyuk);
@@ -254,10 +208,8 @@ void MenuRenderer::MessageBox::Show(const char* Title, const char* Text, const c
                 ButtonFunction();
             }
             ImGui::SameLine();
-            if(ImGui::Button(xorstr("CLOSE"))){
+            if(ImGui::Button(xorstr("CLOSE")))
                 show = false;
-                MsgBoxTriggered = false;
-            }
             ImGui::PopFont();
         }
         ImGui::End();
