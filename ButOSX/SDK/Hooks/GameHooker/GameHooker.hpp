@@ -13,7 +13,6 @@
 #include "PatternScanner.hpp"
 #include "ValveSDK.h"
 #include "OpenGLHooker.hpp"
-#include "PatternScanner.hpp"
 #include "TouchBar.h"
 #include "Memory.hpp"
 //#include "DiscordRPC.hpp"
@@ -39,7 +38,7 @@ extern bool hkCreateMove(void* thisptr, float inputSampleTime, CUserCmd* cmd);
 typedef void(*tFrameStageNotify)(void* thisptr, FrameStage stage);
 extern void hkFrameStageNotify(void* thisptr, FrameStage stage);
 
-typedef void(*tPaintTraverse)(void*, VPANEL, bool, bool);
+typedef void(*tPaintTraverse)(void* thisptr, VPANEL vguipanel, bool forceRepaint, bool allowForce);
 extern void hkPaintTraverse(void* thisptr, VPANEL vguiPanel, bool forceRepaint, bool allowForce);
 
 typedef void(*tLockCursor)(void* thisptr);
