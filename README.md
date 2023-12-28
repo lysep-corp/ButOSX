@@ -1,3 +1,11 @@
+
+# UPDATE 28.12.2023
+> CSGO is closed so this project too. If Valve release OSX version of the CS:2, maybe i consider updating it again. Thanks for everything i appreciate attention.
+
+Love From Turkey 🇹🇷
+
+
+
 <h1>ButOSX</h1> <br>
 <p align="center">
 <img src="https://i.imgur.com/jSHJ5Ib.png" width="200"> <br>
